@@ -4,10 +4,7 @@
 using namespace std;
 
 
-Piedra::Piedra(){
-    nombre = PIEDRA;
-    cantidad = CANTIDAD_MAX_PIEDRA_GENERADA;
-}
+Piedra::Piedra(){}
 
 Piedra::Piedra(int cantidad_inventario){
     nombre = PIEDRA;

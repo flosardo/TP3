@@ -3,10 +3,7 @@
 
 using namespace std;
 
-Metal::Metal(){
-    nombre = METAL;
-    cantidad = CANTIDAD_MAX_METAL_GENERADO;
-}
+Metal::Metal(){}
 
 Metal::Metal(int cantidad_inventario)
 {

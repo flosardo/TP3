@@ -36,7 +36,7 @@ public:
     /*
         * Post: Hace que las clases hijas muestren un mensaje de estado, según sea el comportamiento de cada hija.
         */
-    virtual void mostrar_estado() = 0;
+    virtual void mostrar_estado();
 
     /*
         * Post: Destruye el material, liberando la memoria utilizada por el mismo.

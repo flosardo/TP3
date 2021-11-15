@@ -3,10 +3,7 @@
 
 using namespace std;
 
-Madera::Madera(){
-    nombre = MADERA;
-    cantidad = CANTIDAD_MAX_MADERA_GENERADA;
-}
+Madera::Madera(){}
 
 Madera::Madera(int cantidad_inventario){
     nombre = MADERA;

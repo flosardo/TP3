@@ -24,4 +24,6 @@ void Material::reducir_cantidad(int cantidad_a_reducir){
     cantidad -= cantidad_a_reducir;
 }
 
+void Material::mostrar_estado(){}
+
 Material::~Material(){}
