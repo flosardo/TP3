@@ -1,5 +1,6 @@
 #ifndef _EDIFICIO_H_
 #define _EDIFICIO_H_
+#include "constantes.h"
 
 class Edificio{
 

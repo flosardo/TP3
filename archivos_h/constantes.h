@@ -7,14 +7,26 @@ const std::string EMOJI_PIEDRA = "\U0001f311";
 const char METAL = 'I';
 const int CANTIDAD_MAX_METAL_GENERADO = 1;
 const std::string EMOJI_METAL = "\u2699";
-const char DELIMITADOR = ' ';
+const char VACIO = ' ';
 const char MADERA = 'W';
 const int CANTIDAD_MAX_MADERA_GENERADA = 1;
 const char BOMBA = 'Z';
 const char ANDYCOINS = 'C';
+
 const int BRINDAR_MATERIALES_MINA = 15;//piedras
 const int BRINDAR_MATERIALES_ASERRADERO = 25;//maderas
 const int BRINDAR_MATERIALES_FABRICA = 40;//metales
+const int BRINDAR_MATERIALES_ESCUELA = 25;//andycoins
+const int BRINDAR_MATERIALES_PLANTA_ELECTRICA = 15;//energia
+const int BRINDAR_MATERIALES_MINA_ORO = 50;//andycoins
+
+const char FABRICA = 'F';
+const char OBELISCO = 'O';
+const char MINA_ORO = 'G';
+const char PLANTA_ELECTRICA = 'P';
+const char ESCUELA = 'E';
+const char MINA = 'M';
+const char ASERRADERO = 'A';
 
 const std::string EMOJI_MADERA = "\U0001f954";
 const std::string RUTA_MATERIALES = "archivos_de_texto/materiales.txt";
