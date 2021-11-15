@@ -1,6 +1,6 @@
 #ifndef _MATERIAL_H_
 #define _MATERIAL_H_
-
+#include "constantes.h"
 class Material{
 
 protected:
@@ -26,7 +26,7 @@ public:
     /*
         * Post: Aumentará la cantidad del material, según corresponda la cantidad del parámetro cantidad_a_aumentar.
         */
-    void aumentar_cantidad(int cantidad_a_aumentar);
+    virtual void aumentar_cantidad(int cantidad_a_aumentar);
 
     /*
         * Post: Reducirá la cantidad del material, según corresponda la cantidad del parámetro cantidad_a_reducir.

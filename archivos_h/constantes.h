@@ -12,7 +12,9 @@ const char MADERA = 'W';
 const int CANTIDAD_MAX_MADERA_GENERADA = 1;
 const char BOMBA = 'Z';
 const char ANDYCOINS = 'C';
+const char ENERGIA = 'X';
 
+const int MAXIMO_ENERGIA = 200;
 const int BRINDAR_MATERIALES_MINA = 15;//piedras
 const int BRINDAR_MATERIALES_ASERRADERO = 25;//maderas
 const int BRINDAR_MATERIALES_FABRICA = 40;//metales

@@ -1,6 +1,4 @@
 #include "../../archivos_h/materiales/bomba.h"
-#include "../../archivos_h/constantes.h"
-using namespace std;
 
 Bomba::Bomba() {}
 

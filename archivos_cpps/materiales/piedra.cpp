@@ -1,8 +1,5 @@
-#include "../../archivos_h/materiales/piedra.h" 
-#include "../../archivos_h/constantes.h"
-
+#include "../../archivos_h/materiales/piedra.h"
 using namespace std;
-
 
 Piedra::Piedra(){}
 

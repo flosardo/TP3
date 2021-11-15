@@ -1,6 +1,4 @@
 #include "../../archivos_h/materiales/andycoins.h"
-#include "../../archivos_h/constantes.h"
-using namespace std;
 
 Andycoins::Andycoins(){}
 
