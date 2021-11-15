@@ -1,8 +1,5 @@
 #include "../archivos_h/material.h"
 
-const char VACIO = ' ';
-
-
 Material::Material(){
     nombre = VACIO;
     cantidad = 0;
