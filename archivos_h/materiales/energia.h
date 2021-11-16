@@ -1,27 +1,27 @@
 #ifndef _ENERGIA_H_
 #define _ENERGIA_H_
 
-#include "../material.h"
+#include "material.h"
 
 class Energia : public Material{
 
 public:
+
     /*
-        * Post: Creará un objeto de tipo Madera, dejando sus atributos cargados con los valores por defecto.
-        */
+    * Post: Creará un objeto de tipo Energia, dejando sus atributos cargados con los valores por defecto.
+    */
     Energia();
 
     /*
-        * Post: Creará un objeto de tipo Madera con el parámetro cantidad_inventario.
-        */
-    Energia(int cantidad_inventario);
+    * Post: Creará un objeto de tipo Energia con el parametro cantidad_energía.
+    */
+    Energia(unsigned int cantidad_energia);
 
     /*
-        * Post: Mostrará el estado en el que se encuentra el material.
-        */
-    void mostrar_estado();
+    * Post: Aumentará la cantidad de energia (segun sea el valor de cantidad_a_aumentar), siempre y cuando no supere el maximo total de energía.
+    */
+    void aumentar_cantidad(unsigned int cantidad_a_aumentar);
 
-    void aumentar_cantidad(int cantidad_a_aumentar);
 };
 
-#endif // _MADERA_H_
+#endif // _ENERGIA_H_
