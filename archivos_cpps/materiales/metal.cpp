@@ -1,9 +1,8 @@
 #include "../../archivos_h/materiales/metal.h"
 
 using namespace std;
-Metal::Metal(){}
 
-Metal::Metal(int cantidad_inventario){
+Metal::Metal(unsigned int cantidad_inventario){
     nombre = METAL;
     cantidad = cantidad_inventario;
 }

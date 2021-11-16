@@ -1,9 +1,7 @@
 #include "../../archivos_h/materiales/madera.h"
 using namespace std;
 
-Madera::Madera(){}
-
-Madera::Madera(int cantidad_inventario){
+Madera::Madera(unsigned int cantidad_inventario){
     nombre = MADERA;
     cantidad = cantidad_inventario;
 }

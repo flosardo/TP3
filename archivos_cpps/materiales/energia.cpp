@@ -2,11 +2,12 @@
 
 Energia::Energia() {}
 
-Energia::Energia(int cantidad_inventario) {
+Energia::Energia(unsigned int cantidad_energia) {
     nombre = ENERGIA;
-    cantidad = cantidad_inventario;
+    cantidad = cantidad_energia;
 }
-void Energia::aumentar_cantidad(int cantidad_a_aumentar) {
+
+void Energia::aumentar_cantidad(unsigned int cantidad_a_aumentar) {
     if(this -> cantidad < MAXIMO_ENERGIA){
         this -> cantidad += cantidad_a_aumentar;
     }

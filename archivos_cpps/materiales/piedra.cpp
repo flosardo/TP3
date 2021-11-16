@@ -1,9 +1,7 @@
 #include "../../archivos_h/materiales/piedra.h"
 using namespace std;
 
-Piedra::Piedra(){}
-
-Piedra::Piedra(int cantidad_inventario){
+Piedra::Piedra(unsigned int cantidad_inventario){
     nombre = PIEDRA;
     cantidad = cantidad_inventario;
 }
