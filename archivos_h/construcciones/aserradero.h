@@ -17,6 +17,9 @@ public:
     */
     Aserradero(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
 
+    // PRE:
+    // POS: muestra por pantalla el saludo del edificio
+    virtual void mostrar_saludo() = 0;
 };
 
 #endif // _ASERRADERO_H_

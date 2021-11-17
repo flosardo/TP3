@@ -73,6 +73,9 @@ public:
     */
     void cambiar_estado_afectado();
 
+    // PRE:
+    // POS: muestra por pantalla el saludo del edificio
+    virtual void mostrar_saludo() = 0;
 };
 
 #endif // EDIFICIO_H_

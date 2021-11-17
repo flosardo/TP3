@@ -16,7 +16,10 @@ public:
     * Post: Creará un objeto de tipo mina_oro con los parámetros recibidos.
     */
     Mina_oro(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
-    
+
+    // PRE:
+    // POS: muestra por pantalla el saludo del edificio
+    virtual void mostrar_saludo() = 0;
 };
 
 #endif // _MINA_ORO_H_
