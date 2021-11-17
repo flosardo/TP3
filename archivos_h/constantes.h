@@ -10,6 +10,7 @@ const char MADERA = 'W';
 const char BOMBA = 'Z';
 const char ANDYCOINS = 'C';
 const char ENERGIA = 'X';
+const int MATERIALES_DISPONIBLES = 5;
 const int BRINDAR_MATERIALES_MINA = 15; //piedras
 const int BRINDAR_MATERIALES_ASERRADERO = 25; //maderas
 const int BRINDAR_MATERIALES_FABRICA = 40; //metales
@@ -40,6 +41,7 @@ const std::string EMOJI_MADERA = "\U0001f954";
 const std::string EMOJI_ENERGIA = "\u26A1";
 const std::string EMOJI_ANDY_COIN = "\U0001fa99";
 const std::string EMOJI_BOMBA = "\U0001f4a3";
+const std::string EMOJI_CAMINO = "\U0001f6e4";
 const int LIMITE_INFERIOR_PIEDRA = 1;
 const int LIMITE_SUPERIOR_PIEDRA = 2;
 const int CANTIDAD_PRODUCIDA_PIEDRA = 100;
@@ -53,7 +55,6 @@ const int LIMITE_INFERIOR_ANDY_COINS = 0;
 const int LIMITE_SUPERIOR_ANDY_COINS = 1;
 const int CANTIDAD_PRODUCIDA_ANDY_COINS = 250;
 const int MIN_CANTIDAD_MATERIAL_PRODUCIDO = 0;
-const std::string EMOJI_CAMINO = "\U0001f6e4";
 
 //EMOJIS EDIFICIOS
 const std::string EMOJI_PLANTA_ELECTRICA = "\U0001f3e4";

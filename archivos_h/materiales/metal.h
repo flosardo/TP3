@@ -16,6 +16,7 @@ public:
     */
     void mostrar_estado();
 
+    void mostrar_material();
 };
 
 #endif // _METAL_H_

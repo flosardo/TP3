@@ -12,3 +12,4 @@ void Energia::aumentar_cantidad(unsigned int cantidad_a_aumentar) {
         this -> cantidad += cantidad_a_aumentar;
     }
 }
+void Energia::mostrar_material() {}

@@ -9,3 +9,7 @@ Madera::Madera(unsigned int cantidad_inventario){
 void Madera::mostrar_estado(){
     cout << "Soy una Madera " << EMOJI_MADERA << ", y me encuentro en el casillero consultado." << endl;
 }
+
+void Madera::mostrar_material(){
+    cout << "--> Material: madera, cantidad: " << this -> cantidad << endl;
+}

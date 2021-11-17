@@ -25,6 +25,8 @@ public:
     */
     char nombre_material();
 
+    virtual void mostrar_material() = 0;
+
     /*
     * Post: Aumentará la cantidad del material, según corresponda la cantidad del parámetro cantidad_a_aumentar.
     */

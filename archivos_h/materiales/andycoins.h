@@ -12,6 +12,8 @@ public:
     */
     Andycoins(unsigned int cantidad_inventario);
 
+    void mostrar_material();
+
 };
 
 #endif // _ANDYCOINS_H_

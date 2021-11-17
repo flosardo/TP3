@@ -22,6 +22,8 @@ public:
     */
     void aumentar_cantidad(unsigned int cantidad_a_aumentar);
 
+    void mostrar_material();
+
 };
 
 #endif // _ENERGIA_H_

@@ -10,3 +10,7 @@ Metal::Metal(unsigned int cantidad_inventario){
 void Metal::mostrar_estado(){
     cout << "Soy un metal, " << EMOJI_METAL << " y me encuentro en el casillero consultado." << endl;
 }
+
+void Metal::mostrar_material(){
+    cout << "--> Material: metal, cantidad: " << this -> cantidad << endl;
+}

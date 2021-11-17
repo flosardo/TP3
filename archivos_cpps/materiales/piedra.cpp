@@ -9,3 +9,7 @@ Piedra::Piedra(unsigned int cantidad_inventario){
 void Piedra::mostrar_estado(){
     cout << "Soy una piedra " << EMOJI_PIEDRA << " y me encuentro en el casillero consultado." << endl;
 }
+
+void Piedra::mostrar_material(){
+    cout << "--> Material: piedra, cantidad: " << this -> cantidad << endl;
+}
