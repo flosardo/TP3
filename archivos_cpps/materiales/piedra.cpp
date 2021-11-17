@@ -6,7 +6,7 @@ Piedra::Piedra(unsigned int cantidad_inventario){
     cantidad = cantidad_inventario;
 }
 
-void Piedra::mostrar_estado(){
+void Piedra::saludar(){
     cout << "Soy una piedra " << EMOJI_PIEDRA << " y me encuentro en el casillero consultado." << endl;
 }
 

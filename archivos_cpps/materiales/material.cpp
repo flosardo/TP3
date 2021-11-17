@@ -21,6 +21,6 @@ void Material::reducir_cantidad(unsigned int cantidad_a_reducir){
     cantidad -= cantidad_a_reducir;
 }
 
-void Material::mostrar_estado(){}
+void Material::saludar(){}
 
 Material::~Material(){}

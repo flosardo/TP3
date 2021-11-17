@@ -38,9 +38,9 @@ public:
     void reducir_cantidad(unsigned int cantidad_a_reducir);
 
     /*
-    * Post: Hace que las clases hijas muestren un mensaje de estado, según sea el comportamiento de cada hija.
+    * Post: Hace que las clases hijas muestren su saludo, según sea el comportamiento de cada hija.
     */
-    virtual void mostrar_estado();
+    virtual void saludar();
 
     /*
     * Post: Destruye el material, liberando la memoria utilizada por el mismo.

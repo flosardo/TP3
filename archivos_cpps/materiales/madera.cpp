@@ -6,7 +6,7 @@ Madera::Madera(unsigned int cantidad_inventario){
     cantidad = cantidad_inventario;
 }
 
-void Madera::mostrar_estado(){
+void Madera::saludar(){
     cout << "Soy una Madera " << EMOJI_MADERA << ", y me encuentro en el casillero consultado." << endl;
 }
 

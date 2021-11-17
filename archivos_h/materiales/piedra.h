@@ -15,7 +15,7 @@ public:
     /*
     * Post: Mostrará el estado en el que se encuentra el material.
     */
-    void mostrar_estado();
+    void saludar();
 
     void mostrar_material();
 };
