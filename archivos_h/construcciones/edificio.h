@@ -76,6 +76,8 @@ public:
     // PRE:
     // POS: muestra por pantalla el saludo del edificio
     virtual void mostrar_saludo() = 0;
+
+    virtual ~Edificio();
 };
 
 #endif // EDIFICIO_H_

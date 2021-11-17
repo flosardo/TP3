@@ -54,3 +54,5 @@ bool Edificio::esta_afectado(){
 void Edificio::cambiar_estado_afectado(){
     afectado = !afectado;
 }
+
+Edificio::~Edificio(){};

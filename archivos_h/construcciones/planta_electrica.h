@@ -18,7 +18,7 @@ public:
 
     // PRE:
     // POS: muestra por pantalla el saludo del edificio
-    virtual void mostrar_saludo() = 0;
+    void mostrar_saludo();
 };
 
 #endif // _PLANTA_ELECTRICA_H_

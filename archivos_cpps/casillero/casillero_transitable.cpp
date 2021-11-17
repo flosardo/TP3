@@ -14,11 +14,12 @@ Casillero_transitable::Casillero_transitable(Material* material){
 
 void Casillero_transitable::mostrar(){
     if (material == nullptr){
-        cout << COLOR_DORADO << "══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n" << COLOR_POR_DEFECTO;
+        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
         cout << "Soy un casillero transitable " << EMOJI_CAMINO << " y me encuentro vacío." << endl;
-        cout << COLOR_DORADO << "══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n" << COLOR_POR_DEFECTO;
-    }else{
-        material -> mostrar_estado();
+        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
+    }
+    else{
+        this -> material -> mostrar_estado();
     }
 }
 

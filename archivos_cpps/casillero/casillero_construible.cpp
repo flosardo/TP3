@@ -13,28 +13,16 @@ Casillero_construible::Casillero_construible(Edificio* edificio){
 
 void Casillero_construible::mostrar(){
     if(edificio == nullptr){
-        cout << COLOR_DORADO << "══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n" << COLOR_POR_DEFECTO;
-        cout << "Soy un terreno " << EMOJI_TERRENO << ", un casillero construible y me encuentro vacío." << endl;
-        cout << COLOR_DORADO << "══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n" << COLOR_POR_DEFECTO;
+        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
+        cout << "Soy un terreno " << EMOJI_TERRENO << ",  un casillero construible y me encuentro vacío." << endl;
+        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
 
-    }else{
-        string nombre = NOMBRE_ASERRADERO;
-
-        if(edificio -> nombre_del_edificio() == ESCUELA)
-            nombre = NOMBRE_ESCUELA;
-        else if(edificio -> nombre_del_edificio() == PLANTA_ELECTRICA)
-            nombre = NOMBRE_PLANTA_ELECTRICA;
-        else if(edificio -> nombre_del_edificio() == FABRICA)
-            nombre = NOMBRE_FABRICA;
-        else if(edificio -> nombre_del_edificio() == MINA)
-            nombre = NOMBRE_MINA;
-        else if(edificio -> nombre_del_edificio() == OBELISCO)
-            nombre = NOMBRE_OBELISCO;
-
-        cout << COLOR_DORADO << "══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n" << COLOR_POR_DEFECTO;
+    }
+    else{
+        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
         cout << "Soy un terreno " << EMOJI_TERRENO << ", un casillero construible y no me encuentro vacío." << endl;
-        cout << "Soy una " << nombre << ", y me encuentro en este casillero." << endl;
-        cout << COLOR_DORADO << "══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n" << COLOR_POR_DEFECTO;
+        this -> edificio -> mostrar_saludo();
+        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
     }
 }
 
@@ -59,5 +47,5 @@ unsigned int Casillero_construible::cantidad_material_producido(){
 }
 
 Casillero_construible::~Casillero_construible(){
-    delete edificio;
+    delete this -> edificio;
 }

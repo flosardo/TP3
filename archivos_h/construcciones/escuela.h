@@ -19,7 +19,8 @@ public:
 
     // PRE:
     // POS: muestra por pantalla el saludo del edificio
-    virtual void mostrar_saludo() = 0;
+    void mostrar_saludo();
+    
 };
 
 #endif // _ESCUELA_H_
