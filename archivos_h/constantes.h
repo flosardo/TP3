@@ -56,13 +56,13 @@ const int MIN_CANTIDAD_MATERIAL_PRODUCIDO = 0;
 const std::string EMOJI_CAMINO = "\U0001f6e4";
 
 //EMOJIS EDIFICIOS
-const std::string EMOJI_PLANTA_ELECTRICA = "\U0001f3e4 ";
+const std::string EMOJI_PLANTA_ELECTRICA = "\U0001f3e4";
 const std::string EMOJI_MINA_ORO = "\U0001f682";
-const std::string EMOJI_MINA = "\U0001f68a ";
+const std::string EMOJI_MINA = "\U0001f68a";
 const std::string EMOJI_ASERRADERO = "\U0001f3ec";
-const std::string EMOJI_ESCUELA = "\U0001f3eb ";
-const std::string EMOJI_FABRICA = "\U0001f3ed ";
-const std::string EMOJI_OBELISCO = "\U0001f5fc ";
+const std::string EMOJI_ESCUELA = "\U0001f3eb";
+const std::string EMOJI_FABRICA = "\U0001f3ed";
+const std::string EMOJI_OBELISCO = "\U0001f5fc";
 const std::string EMOJI_TERRENO = "\U0001f3d7";
 
 //RUTAS ARCHIVOS
