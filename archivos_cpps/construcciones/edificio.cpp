@@ -1,14 +1,14 @@
 #include "../../archivos_h/construcciones/edificio.h"
 
 Edificio::Edificio(){
-    jugador = VACIO;
-    nombre_edificio = VACIO;
-    nombre_material = VACIO;
-    cantidad_material_producido = 0;
-    piedra_necesaria = 0;
-    metal_necesario = 0;
-    madera_necesaria = 0;
-    afectado = false;
+    this -> jugador = VACIO;
+    this -> nombre_edificio = VACIO;
+    this -> nombre_material = VACIO;
+    this -> cantidad_material_producido = 0;
+    this -> piedra_necesaria = 0;
+    this -> metal_necesario = 0;
+    this -> madera_necesaria = 0;
+    this -> afectado = false;
 }
 
 Edificio::Edificio(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria){
@@ -16,7 +16,7 @@ Edificio::Edificio(char jugador, unsigned int piedra_necesaria, unsigned int met
     this -> piedra_necesaria = piedra_necesaria;
     this -> metal_necesario = metal_necesario;
     this -> madera_necesaria = madera_necesaria;
-    afectado = false;
+    this -> afectado = false;
 }
 
 char Edificio::nombre_del_edificio(){

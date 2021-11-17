@@ -26,7 +26,7 @@ char Casillero::nombre_casillero(){
     return VACIO;
 }
 
-int Casillero::cantidad_material_producido(){
+unsigned int Casillero::cantidad_material_producido(){
     return MIN_VALOR_MATERIAL;
 }
 

@@ -54,7 +54,7 @@ char Casillero_construible::nombre_casillero(){
     return edificio -> nombre_del_edificio();
 }
 
-int Casillero_construible::cantidad_material_producido(){
+unsigned int Casillero_construible::cantidad_material_producido(){
     return edificio -> cantidad_de_material_producido();
 }
 

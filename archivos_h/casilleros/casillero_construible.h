@@ -51,7 +51,7 @@ class Casillero_construible: public Casillero{
         /*
         * Post: Devolverá la cantidad material producido.
         */
-        int cantidad_material_producido();
+        unsigned int cantidad_material_producido();
 
         /*
         * Post: Dejará a el atributo edificio en null.

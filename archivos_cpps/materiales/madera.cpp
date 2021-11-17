@@ -7,5 +7,5 @@ Madera::Madera(unsigned int cantidad_inventario){
 }
 
 void Madera::mostrar_estado(){
-    cout << "Soy una Madera " << EMOJI_MADERA << ", y me encuentro en este casillero transitable." << endl;
+    cout << "Soy una Madera " << EMOJI_MADERA << ", y me encuentro en el casillero consultado." << endl;
 }

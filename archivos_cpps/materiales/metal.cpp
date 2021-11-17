@@ -8,5 +8,5 @@ Metal::Metal(unsigned int cantidad_inventario){
 }
 
 void Metal::mostrar_estado(){
-    cout << "Soy un metal, " << EMOJI_METAL << " y me encuentro en este casillero transitable." << endl;
+    cout << "Soy un metal, " << EMOJI_METAL << " y me encuentro en el casillero consultado." << endl;
 }

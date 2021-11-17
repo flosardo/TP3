@@ -1,5 +1,5 @@
 #ifndef _MINA_ORO_H_
-#define _MINA_ORO_H
+#define _MINA_ORO_H_
 
 #include "edificio.h"
 

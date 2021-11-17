@@ -65,7 +65,7 @@ class Casillero{
         /*
         * Post: Hace que las clases hijas devuelvan la cantidad de material producido, según sea el comportamiento de cada hija.
         */
-        virtual int cantidad_material_producido();
+        virtual unsigned int cantidad_material_producido();
 
         /*
         * Post: Destruirá el casillero, liberando la memoria utilizada por el mismo.
