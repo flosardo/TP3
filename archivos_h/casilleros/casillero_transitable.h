@@ -30,7 +30,7 @@ class Casillero_transitable: public Casillero{
         /*
         * Post: Devolvera el puntero de tipo material que está en el atributo.
         */
-        Material* puntero_material();
+        Material* obtener_material();
 
         /*
         * Pre: Agregará un material al casillero.

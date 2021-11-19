@@ -30,7 +30,7 @@ void Casillero_construible::agregar_edificio(Edificio* edificio_a_construir){
     edificio = edificio_a_construir;
 }
 
-Edificio* Casillero_construible::puntero_edificio(){
+Edificio* Casillero_construible::obtener_edificio(){
     return edificio;
 }
 
@@ -38,13 +38,13 @@ void Casillero_construible::limpiar_casillero(){
     edificio = nullptr; 
 }
 
-char Casillero_construible::nombre_casillero(){
+char Casillero_construible::obtener_nombre_edificio(){
     return edificio -> nombre_del_edificio();
-}
+} // CAPAZ NO HACE FALTA
 
 unsigned int Casillero_construible::cantidad_material_producido(){
     return edificio -> cantidad_de_material_producido();
-}
+} // HAY QUE SACAR
 
 Casillero_construible::~Casillero_construible(){
     delete this -> edificio;

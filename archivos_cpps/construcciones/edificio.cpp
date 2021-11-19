@@ -1,6 +1,6 @@
 #include "../../archivos_h/construcciones/edificio.h"
 
-Edificio::Edificio(){
+Edificio::Edificio() {
     this -> jugador = VACIO;
     this -> nombre_edificio = VACIO;
     this -> nombre_material = VACIO;
@@ -11,7 +11,7 @@ Edificio::Edificio(){
     this -> afectado = false;
 }
 
-Edificio::Edificio(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria){
+Edificio::Edificio(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria) {
     this -> jugador = jugador;
     this -> piedra_necesaria = piedra_necesaria;
     this -> metal_necesario = metal_necesario;
@@ -19,40 +19,40 @@ Edificio::Edificio(char jugador, unsigned int piedra_necesaria, unsigned int met
     this -> afectado = false;
 }
 
-char Edificio::nombre_del_edificio(){
+char Edificio::obtener_nombre_del_edificio() {
     return nombre_edificio;
 }
 
-char Edificio::nombre_del_material(){
+char Edificio::obtener_nombre_del_material() {
     return nombre_material;
 }
 
-unsigned int Edificio::cantidad_de_material_producido(){
+unsigned int Edificio::obtener_cantidad_de_material_producido() {
     return cantidad_material_producido;
 }
 
-unsigned int Edificio::cantidad_madera_necesaria(){
+unsigned int Edificio::obtener_cantidad_madera_necesaria() {
     return piedra_necesaria;
 }
 
-unsigned int Edificio::cantidad_metal_necesario(){
+unsigned int Edificio::obtener_cantidad_metal_necesario() {
     return metal_necesario;
 }
 
-unsigned int Edificio::cantidad_piedra_necesaria(){
+unsigned int Edificio::obtener_cantidad_piedra_necesaria() {
     return piedra_necesaria;
 }
 
-char Edificio::obtener_jugador(){
+char Edificio::obtener_jugador() {
     return jugador;
 }
 
-bool Edificio::esta_afectado(){
+bool Edificio::esta_afectado() {
     return afectado;
 }
 
-void Edificio::cambiar_estado_afectado(){
+void Edificio::cambiar_estado_afectado() {
     afectado = !afectado;
 }
 
-Edificio::~Edificio(){};
+Edificio::~Edificio() {};

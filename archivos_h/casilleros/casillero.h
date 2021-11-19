@@ -23,7 +23,7 @@ class Casillero{
         /*
         * Post: Devolverá el tipo de terreno del casillero.
         */
-        char tipo_de_terreno();
+        char obtener_tipo_de_terreno();
 
         /*
         * Post: Hace que las clases hijas muestren el casillero, según sea el comportamiento de cada hija.
@@ -33,12 +33,12 @@ class Casillero{
         /*
         * Post: Hace que las clases hijas devuelvan el puntero a un edificio, según sea el comportamiento de cada hija.
         */
-        virtual Edificio* puntero_edificio();
+        virtual Edificio* obtener_puntero_edificio();
 
         /*
         * Post: Hace que las clases hijas devuelvan el puntero a un material, según sea el comportamiento de cada hija.
         */
-        virtual Material* puntero_material();
+        virtual Material* obtener_puntero_material();
 
         /*
         * Pre: Que el parámetro material_a_agregar no sea null.
@@ -60,7 +60,7 @@ class Casillero{
         /*
         * Post: Hace que las clases hijas devuelvan el nombre del casillero, según sea el comportamiento de cada hija.
         */
-        virtual char nombre_casillero() = 0;
+        virtual char nombre_casillero();
 
         /*
         * Post: Hace que las clases hijas devuelvan la cantidad de material producido, según sea el comportamiento de cada hija.

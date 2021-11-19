@@ -31,32 +31,32 @@ public:
     /*
     * Post: Devolverá el nombre del edificio.
     */
-    char nombre_del_edificio();
+    char obtener_nombre_del_edificio();
 
     /*
     * Post: Devolverá el nombre del material que produce.
     */
-    char nombre_del_material();
+    char obtener_nombre_del_material();
 
     /*
     * Post: Devolverá la cantidad de material producido.
     */
-    unsigned int cantidad_de_material_producido();
+    unsigned int obtener_cantidad_de_material_producido();
 
     /*
     * Post: Devolverá la cantidad de maderá necesaria.
     */
-    unsigned int cantidad_madera_necesaria();
+    unsigned int obtener_cantidad_madera_necesaria();
 
     /*
     * Post: Devolverá la cantidad de metal necesario.
     */
-    unsigned int cantidad_metal_necesario();
+    unsigned int obtener_cantidad_metal_necesario();
 
     /*
     * Post: Devolverá la cantidad de piedra necesaria.
     */
-    unsigned int cantidad_piedra_necesaria();
+    unsigned int obtener_cantidad_piedra_necesaria();
 
     /*
     * Post: Devolverá el jugador.

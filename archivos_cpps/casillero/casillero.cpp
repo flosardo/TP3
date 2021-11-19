@@ -1,6 +1,6 @@
 #include "../../archivos_h/casilleros/casillero.h"
 
-char Casillero::tipo_de_terreno(){
+char Casillero::obtener_tipo_de_terreno(){
     return tipo_terreno;
 }
 
@@ -8,11 +8,11 @@ Casillero::Casillero(){
     tipo_terreno = VACIO;
 }
 
-Edificio* Casillero::puntero_edificio(){
+Edificio* Casillero::obtener_puntero_edificio(){
     return nullptr;
 }
 
-Material* Casillero::puntero_material(){
+Material* Casillero::obtener_puntero_material(){
     return nullptr;
 }
 
@@ -24,10 +24,10 @@ void Casillero::limpiar_casillero(){}
 
 char Casillero::nombre_casillero(){
     return VACIO;
-}
+} // HAY QUE SACAR
 
 unsigned int Casillero::cantidad_material_producido(){
     return MIN_VALOR_MATERIAL;
-}
+} // HAY QUE SACAR
 
-Casillero::~Casillero(){}
+Casillero::~Casillero() {}

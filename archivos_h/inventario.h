@@ -22,7 +22,7 @@ public:
 
     // PRE: recibe el nombre del material
     // POS: devuelve la posicion del material recibido
-    int posicion_del_material(char material);
+    int obtener_indice_del_material(char material);
 
     // PRE:
     // POS: muestra el inventario

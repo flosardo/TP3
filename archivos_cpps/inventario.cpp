@@ -15,7 +15,7 @@ Material** Inventario::obtener_inventario(){
     return this->inventario;
 }
 
-int Inventario::posicion_del_material(char material) {
+int Inventario::obtener_indice_del_material(char material) {
     int indice = 0;
     while (this->inventario[indice]->nombre_material() != material) {
         indice++;

@@ -36,7 +36,7 @@ class Casillero_construible: public Casillero{
         /*
         * Post: Devolverá el puntero de tipo edificio que esta en el atributo.
         */
-        Edificio* puntero_edificio();
+        Edificio* obtener_edificio();
 
         /*
         * Post: Limpiará el contenido que hay en el casillero.
@@ -46,17 +46,12 @@ class Casillero_construible: public Casillero{
         /*
         * Post: Devolvera el nombre del casillero.
         */
-        char nombre_casillero();
+        char obtener_nombre_edificio();
 
         /*
         * Post: Devolverá la cantidad material producido.
         */
         unsigned int cantidad_material_producido();
-
-        /*
-        * Post: Dejará a el atributo edificio en null.
-        */
-        void liberar_casillero();
 
         /*
         * Post: Destruíra el casillero, liberando la memoria utilizada.
