@@ -8,7 +8,7 @@ int main(){
     Madera madera(20);
     Metal metal(2);
     Bomba bomba(2);
-    madera.mostrar_estado();
+    madera.saludar();
     madera.mostrar_material();
     metal.mostrar_material();
     bomba.mostrar_material();
