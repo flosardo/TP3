@@ -31,6 +31,10 @@ void Casillero_transitable::agregar_material(Material* material_a_agregar) {
     material = material_a_agregar;
 }
 
+bool Casillero_transitable::esta_ocupado() {
+    return (bool) this -> material;
+}
+
 void Casillero_transitable::limpiar_casillero() {
     material = nullptr;
 }

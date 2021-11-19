@@ -40,6 +40,10 @@ class Casillero{
         */
         virtual Material* obtener_puntero_material();
 
+        // PRE:
+        // POS:
+        virtual bool esta_ocupado();
+
         /*
         * Pre: Que el parámetro material_a_agregar no sea null.
         * Post: Hace que las clases hijas agreguen un material, según sea el comportamiento de cada hija.
@@ -56,16 +60,6 @@ class Casillero{
         * Post: Hace que las clases hijas limpien el casillero, según sea el comportamiento de cada hija.
         */
         virtual void limpiar_casillero();
-
-        /*
-        * Post: Hace que las clases hijas devuelvan el nombre del casillero, según sea el comportamiento de cada hija.
-        */
-        virtual char nombre_casillero();
-
-        /*
-        * Post: Hace que las clases hijas devuelvan la cantidad de material producido, según sea el comportamiento de cada hija.
-        */
-        virtual unsigned int cantidad_material_producido();
 
         /*
         * Post: Destruirá el casillero, liberando la memoria utilizada por el mismo.

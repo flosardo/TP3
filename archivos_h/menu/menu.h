@@ -13,7 +13,7 @@ class Menu{
         
         // PRE
         // POS:
-        virtual int pedir_opcion() = 0;
+        int pedir_opcion();
 };
 
 #endif //_MENU_H_

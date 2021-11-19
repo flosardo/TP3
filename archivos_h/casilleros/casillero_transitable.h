@@ -32,6 +32,8 @@ class Casillero_transitable: public Casillero{
         */
         Material* obtener_material();
 
+        bool esta_ocupado();
+
         /*
         * Pre: Agregará un material al casillero.
         * Post: Que el parámetro material_a_agregar no sea null.

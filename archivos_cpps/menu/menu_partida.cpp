@@ -35,9 +35,3 @@ void Menu_partida::mostrar_menu(){
     cout << "║ 13. Guardar y salir                       ║" << endl;
     cout << "╚═══════════════════════════════════════════╝" << endl;
 }
-
-int Menu_partida::pedir_opcion(){
-    cout << "Ingrese la opcion deseada: ";
-    cin >> this -> opcion_ingresada;
-    return this -> opcion_ingresada;
-}

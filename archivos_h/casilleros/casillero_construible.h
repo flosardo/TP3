@@ -38,6 +38,8 @@ class Casillero_construible: public Casillero{
         */
         Edificio* obtener_edificio();
 
+        bool esta_ocupado();
+
         /*
         * Post: Limpiará el contenido que hay en el casillero.
         */

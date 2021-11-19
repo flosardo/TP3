@@ -19,9 +19,3 @@ void Menu_configuracion::mostrar_menu(){
     cout << "║ 5. Guardar y salir                        ║" << endl;
     cout << "╚═══════════════════════════════════════════╝" << endl;
 }
-
-int Menu_configuracion::pedir_opcion(){
-    cout << "Ingrese la opcion deseada: ";
-    cin >> this -> opcion_ingresada;
-    return this -> opcion_ingresada;
-}

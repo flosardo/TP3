@@ -7,8 +7,6 @@ class Menu_partida : public Menu{
         Menu_partida();
         
         void mostrar_menu();
-
-        int pedir_opcion();
 };
 
 #endif //_MENU_PARTIDA_H_

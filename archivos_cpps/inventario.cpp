@@ -8,29 +8,39 @@ Inventario::Inventario() {
 }
 
 int Inventario::obtener_cantidad_materiales(){
-    return this->cantidad_materiales;
+    return this -> cantidad_materiales;
 }
 
 Material** Inventario::obtener_inventario(){
-    return this->inventario;
+    return this -> inventario;
 }
 
 int Inventario::obtener_indice_del_material(char material) {
     int indice = 0;
-    while (this->inventario[indice]->nombre_material() != material) {
+    while (this -> inventario[indice] -> nombre_material() != material) {
         indice++;
     }
     return indice;
 }
 
 void Inventario::mostrar_inventario() {
-    for (int i = 0; i < this->cantidad_materiales; i++) {
+    for (int i = 0; i < this -> cantidad_materiales; i++) {
         this -> inventario[i] -> mostrar_material();
         cout << COLOR_MARRON << LINEA_DIVISORIA << COLOR_POR_DEFECTO << endl;
     }
 }
 
+void Inventario::agregar_material(Material* material) {
+    this -> inventario[this -> cantidad_materiales] = material;
+    this -> cantidad_materiales++;
+}
+
 Inventario::~Inventario() {
-    delete[] this->inventario;
-    this->inventario = 0;
+    for (int i = 0; i < this -> cantidad_materiales; i++) {
+        delete this -> inventario[i];
+        this -> inventario[i] = 0;
+    }
+
+    delete [] this -> inventario;
+    this -> inventario = 0;
 }

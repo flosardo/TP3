@@ -22,12 +22,8 @@ void Casillero::agregar_edificio(Edificio* edificio_a_agregar){}
 
 void Casillero::limpiar_casillero(){}
 
-char Casillero::nombre_casillero(){
-    return VACIO;
-} // HAY QUE SACAR
-
-unsigned int Casillero::cantidad_material_producido(){
-    return MIN_VALOR_MATERIAL;
-} // HAY QUE SACAR
+bool Casillero::esta_ocupado() {
+    return false;
+}
 
 Casillero::~Casillero() {}
