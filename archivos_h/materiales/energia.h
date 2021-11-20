@@ -18,9 +18,9 @@ public:
     Energia(unsigned int cantidad_energia);
 
     /*
-    * Post: Aumentará la cantidad de energia (segun sea el valor de cantidad_a_aumentar), siempre y cuando no supere el maximo total de energía.
+    * Post: Modificará la cantidad segun corresponda.
     */
-    void aumentar_cantidad(unsigned int cantidad_a_aumentar);
+    void modificar_cantidad(int cantidad_a_modificar);
 
     void mostrar_material();
 

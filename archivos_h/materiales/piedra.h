@@ -13,10 +13,13 @@ public:
     Piedra(unsigned int cantidad_inventario);
 
     /*
-    * Post: Mostrará el estado en el que se encuentra el material.
+    * Post: Mostrará un saludo.
     */
     void saludar();
 
+    /*
+    * Post: Mostrará el estado en el que se encuentra el material.
+    */
     void mostrar_material();
 };
 

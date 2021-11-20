@@ -5,6 +5,7 @@
 class Material{
 
 protected:
+
     char nombre;
     unsigned int cantidad;
 
@@ -25,17 +26,15 @@ public:
     */
     char nombre_material();
 
+    /*
+    * Post: Mostrará el estado en el que se encuentra el material.
+    */
     virtual void mostrar_material() = 0;
 
     /*
-    * Post: Aumentará la cantidad del material, según corresponda la cantidad del parámetro cantidad_a_aumentar.
+    * Post: Modificará la cantidad segun corresponda.
     */
-    virtual void aumentar_cantidad(unsigned int cantidad_a_aumentar);
-
-    /*
-    * Post: Reducirá la cantidad del material, según corresponda la cantidad del parámetro cantidad_a_reducir.
-    */
-    void reducir_cantidad(unsigned int cantidad_a_reducir);
+    virtual void modificar_cantidad(int cantidad_a_modificar);
 
     /*
     * Post: Hace que las clases hijas muestren su saludo, según sea el comportamiento de cada hija.

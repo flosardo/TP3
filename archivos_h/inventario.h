@@ -4,6 +4,7 @@
 #include "materiales/material.h"
 
 class Inventario {
+
     private:
         int cantidad_materiales;
         Material** inventario;
@@ -29,6 +30,10 @@ class Inventario {
         // PRE:
         // POS: muestra el inventario
         void mostrar_inventario();
+        
+        //PRE:
+        //POST:
+        void modificar_cantidad_material(unsigned int indice, int cantidad);
 
         // Destructor
         ~Inventario();

@@ -16,7 +16,11 @@ public:
     */
     void saludar();
 
+    /*
+    * Post: Mostrará el estado en el que se encuentra el material.
+    */
     void mostrar_material();
+    
 };
 
 #endif // _METAL_H_

@@ -110,6 +110,9 @@ const std::string LINEA_DIVISORIA_DISENIO = "══ð══ð══ð══ð═
 //JUGADORES
 const char JUGADOR_1 = 'J';
 const char JUGADOR_2 = 'U';
+const int MAX_COORDENADAS = 2;
+const int POSICION_FILA = 0;
+const int POSICION_COLUMNA = 1;
 
 //CASILLEROS
 const char LAGO = 'L';
