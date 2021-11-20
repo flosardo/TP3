@@ -52,4 +52,4 @@ class Jugador {
 
 };
 
-#endif
+#endif // _JUGADOR_H
