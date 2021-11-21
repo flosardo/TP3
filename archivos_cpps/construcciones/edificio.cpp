@@ -1,5 +1,9 @@
 #include "../../archivos_h/construcciones/edificio.h"
 
+/*
+ * EL DESTRUCTOR ESTA AL PEDO PORQUE NUNCA PEDIMOS MEMORIA PARA NINGUNO DE SUS ATRIBUTOS
+*/
+
 Edificio::Edificio() {
     this -> jugador = VACIO;
     this -> nombre_edificio = VACIO;
@@ -20,39 +24,39 @@ Edificio::Edificio(char jugador, unsigned int piedra_necesaria, unsigned int met
 }
 
 char Edificio::obtener_nombre_del_edificio() {
-    return nombre_edificio;
+    return this -> nombre_edificio;
 }
 
 char Edificio::obtener_nombre_del_material() {
-    return nombre_material;
+    return this -> nombre_material;
 }
 
 unsigned int Edificio::obtener_cantidad_de_material_producido() {
-    return cantidad_material_producido;
+    return this -> cantidad_material_producido;
 }
 
 unsigned int Edificio::obtener_cantidad_madera_necesaria() {
-    return piedra_necesaria;
+    return this -> piedra_necesaria;
 }
 
 unsigned int Edificio::obtener_cantidad_metal_necesario() {
-    return metal_necesario;
+    return this -> metal_necesario;
 }
 
 unsigned int Edificio::obtener_cantidad_piedra_necesaria() {
-    return piedra_necesaria;
+    return this -> piedra_necesaria;
 }
 
 char Edificio::obtener_jugador() {
-    return jugador;
+    return this -> jugador;
 }
 
 bool Edificio::esta_afectado() {
-    return afectado;
+    return this -> afectado;
 }
 
 void Edificio::cambiar_estado_afectado() {
-    afectado = !afectado;
+    this -> afectado = !this -> afectado;
 }
 
 Edificio::~Edificio() {};

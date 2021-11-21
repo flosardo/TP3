@@ -21,7 +21,7 @@ class Casillero_transitable: public Casillero{
         * Post: Creará un objeto de tipo Casillero_transitable con el parámetro material.
         */
         Casillero_transitable(Material* material);
-        
+
         /*
         * Post: Mostrará lo que hay en el casillero.
         */
@@ -32,6 +32,9 @@ class Casillero_transitable: public Casillero{
         */
         Material* obtener_material();
 
+        /*
+        * FALTA PONER CONDICIONES
+        */
         bool esta_ocupado();
 
         /*

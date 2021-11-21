@@ -1,8 +1,6 @@
 #ifndef _CASILLERO_H_
 #define _CASILLERO_H_
 
-#include <iostream>
-
 #include "../constantes.h"
 #include "../construcciones/edificio.h"
 #include "../materiales/material.h"

@@ -2,9 +2,9 @@
 
 using namespace std;
 
-Menu_configuracion::Menu_configuracion(){}
+Menu_configuracion::Menu_configuracion() {}
 
-void Menu_configuracion::mostrar_menu(){
+void Menu_configuracion::mostrar_menu() {
     cout << endl;
     cout << "𝕄𝔼ℕ𝕌" << endl;
     cout << "╔═══════════════════════════════════════════╗" << endl;

@@ -10,4 +10,4 @@ main:
 	g++ $(CFLAGS) $(SRCDIR)*.cpp $(DIR_MATERIALES)*.cpp $(DIR_CONSTRUCCIONES)*.cpp $(DIR_CASILLEROS)*.cpp $(DIR_MENU)*.cpp -o Andypolis
 
 valgrind: 
-	valgrind --tool=memcheck --tool=track-origins=yes --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./Andypolis
+	valgrind --tool=memcheck --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./Andypolis

@@ -1,17 +1,22 @@
 #ifndef _MAPA_H
 #define _MAPA_H
-#include "constantes.h"
+
 #include "casilleros/casillero_construible.h"
 #include "casilleros/casillero_transitable.h"
 #include "casilleros/casillero_inaccesible.h"
 
+#include <cstdlib>
+
 class Mapa {
+
     private:
+
         int cantidad_filas;
         int cantidad_columnas;
         Casillero*** mapa;
 
     public:
+
         // Constructor
         Mapa(int filas, int columnas);
 
@@ -23,8 +28,14 @@ class Mapa {
         // POS: devuleve verdadero si el casillero en las corodenadas recibidas esta ocupado, falso de lo contrario
         bool esta_ocupado(int coord_x, int coord_y);
 
+        /*
+        FALTAN LAS CONDICIONES
+        */
         void agregar_material_casillero(Material* material, int fila, int columna);
 
+        /*
+        FALTAN LAS CONDICIONES
+        */
         void agregar_edificio_casillero(Edificio* edificio, int fila, int columna);
 
         // PRE: recibe dos coordenadas

@@ -3,8 +3,8 @@
 using namespace std;
 
 Casillero_construible::Casillero_construible() {
-    edificio = nullptr;
-    tipo_terreno = TERRENO;
+    this -> edificio = nullptr;
+    this -> tipo_terreno = TERRENO;
 }
 
 Casillero_construible::Casillero_construible(Edificio* edificio) {
@@ -12,13 +12,13 @@ Casillero_construible::Casillero_construible(Edificio* edificio) {
 }
 
 void Casillero_construible::mostrar() {
-    if(edificio == nullptr) {
+    if (!edificio) {
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
         cout << "Soy un terreno " << EMOJI_TERRENO << ",  un casillero construible y me encuentro vacío." << endl;
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
 
     }
-    else{
+    else {
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
         cout << "Soy un terreno " << EMOJI_TERRENO << ", un casillero construible y no me encuentro vacío." << endl;
         this -> edificio -> mostrar_saludo();
@@ -27,15 +27,15 @@ void Casillero_construible::mostrar() {
 }
 
 void Casillero_construible::agregar_edificio(Edificio* edificio_a_construir) {
-    edificio = edificio_a_construir;
+    this -> edificio = edificio_a_construir;
 }
 
 Edificio* Casillero_construible::obtener_edificio() {
-    return edificio;
+    return this -> edificio;
 }
 
 void Casillero_construible::limpiar_casillero() {
-    edificio = nullptr;
+    this -> edificio = nullptr;
 }
 
 bool Casillero_construible::esta_ocupado() {

@@ -4,7 +4,7 @@ using namespace std;
 
 Menu_partida::Menu_partida() {}
 
-void Menu_partida::mostrar_menu(){
+void Menu_partida::mostrar_menu() {
     cout << endl;
     cout << "𝕄𝔼ℕ𝕌" << endl;
     cout << "╔═══════════════════════════════════════════╗" << endl;

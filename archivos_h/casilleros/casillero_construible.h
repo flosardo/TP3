@@ -38,6 +38,9 @@ class Casillero_construible: public Casillero{
         */
         Edificio* obtener_edificio();
 
+        /*
+        * FALTA PONER CONDICIONES
+        */
         bool esta_ocupado();
 
         /*

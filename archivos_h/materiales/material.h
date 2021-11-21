@@ -2,7 +2,7 @@
 #define _MATERIAL_H_
 #include "../constantes.h"
 
-class Material{
+class Material {
 
 protected:
 
@@ -24,7 +24,7 @@ public:
     /*
     * Post: Devolverá el tipo de material.
     */
-    char nombre_material();
+    char obtener_nombre_material();
 
     /*
     * Post: Mostrará el estado en el que se encuentra el material.

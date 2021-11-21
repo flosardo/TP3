@@ -7,17 +7,17 @@ Inventario::Inventario() {
     this -> inventario = new Material* [MATERIALES_DISPONIBLES];
 }
 
-int Inventario::obtener_cantidad_materiales(){
+int Inventario::obtener_cantidad_materiales() {
     return this -> cantidad_materiales;
 }
 
-Material** Inventario::obtener_inventario(){
+Material** Inventario::obtener_inventario() {
     return this -> inventario;
 }
 
 int Inventario::obtener_indice_del_material(char material) {
     int indice = 0;
-    while (this -> inventario[indice] -> nombre_material() != material) {
+    while (this -> inventario[indice] -> obtener_nombre_material() != material) {
         indice++;
     }
     return indice;
@@ -35,7 +35,7 @@ void Inventario::agregar_material(Material* material) {
     this -> cantidad_materiales++;
 }
 
-void Inventario::modificar_cantidad_material(unsigned int indice, int cantidad){
+void Inventario::modificar_cantidad_material(unsigned int indice, int cantidad) {
     this -> inventario[indice] -> modificar_cantidad(cantidad);
 }
 

@@ -1,18 +1,23 @@
 #ifndef _MENU_H_
 #define _MENU_H_
 #include "../constantes.h"
-#include <iostream>
-class Menu{
+
+class Menu {
+
     protected:
-    int opcion_ingresada;
+
+        int opcion_ingresada;
     
     public:
-        // PRE
-        // POS
+
+        /*
+        FALTAN LAS CONDICIONES
+        */
         virtual void mostrar_menu() = 0;
         
-        // PRE
-        // POS:
+        /*
+        FALTAN LAS CONDICIONES
+        */
         int pedir_opcion();
 };
 

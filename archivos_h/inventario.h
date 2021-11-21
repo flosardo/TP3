@@ -1,15 +1,16 @@
 #ifndef INVENTARIO_H
 #define INVENTARIO_H
-#include "constantes.h"
 #include "materiales/material.h"
 
 class Inventario {
 
     private:
+
         int cantidad_materiales;
         Material** inventario;
 
     public:
+
         // Constructor
         Inventario();
 

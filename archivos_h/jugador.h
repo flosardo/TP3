@@ -1,13 +1,12 @@
 #ifndef JUGADOR_H
 #define JUGADOR_H
-#include "constantes.h"
 #include "inventario.h"
 #include "materiales/energia.h"
 
 class Jugador {
 
     private:
-    
+
         Energia energia;
         unsigned int* coordenadas;
         Inventario* inventario;

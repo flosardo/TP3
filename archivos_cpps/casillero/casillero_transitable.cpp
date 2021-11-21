@@ -1,11 +1,10 @@
 #include "../../archivos_h/casilleros/casillero_transitable.h"
 
-
 using namespace std;
 
 Casillero_transitable::Casillero_transitable() {
-    material = nullptr;
-    tipo_terreno = CAMINO;
+    this -> material = nullptr;
+    this -> tipo_terreno = CAMINO;
 }
 
 Casillero_transitable::Casillero_transitable(Material* material) {
@@ -13,7 +12,7 @@ Casillero_transitable::Casillero_transitable(Material* material) {
 }
 
 void Casillero_transitable::mostrar() {
-    if (material == nullptr) {
+    if (!material) {
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
         cout << "Soy un casillero transitable " << EMOJI_CAMINO << " y me encuentro vacío." << endl;
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
@@ -24,11 +23,11 @@ void Casillero_transitable::mostrar() {
 }
 
 Material* Casillero_transitable::obtener_material() {
-    return material;
+    return this -> material;
 }
 
 void Casillero_transitable::agregar_material(Material* material_a_agregar) {
-    material = material_a_agregar;
+    this -> material = material_a_agregar;
 }
 
 bool Casillero_transitable::esta_ocupado() {
@@ -36,13 +35,14 @@ bool Casillero_transitable::esta_ocupado() {
 }
 
 void Casillero_transitable::limpiar_casillero() {
-    material = nullptr;
+    this -> material = nullptr;
 }
 
 char Casillero_transitable::nombre_casillero() {
-    return material -> nombre_material();
-} // HAY QUE SACAR
+    return this -> material -> obtener_nombre_material();
+} // HAY QUE SACAR, si ya hay una que devuelve el puntero al material ¿para que queremos este? o
+  // sino cambiar el nombre, no tiene sentido nombre_casillero porque devuelve el nombre del material
 
 Casillero_transitable::~Casillero_transitable() {
-    delete material;
+    delete this -> material;
 }

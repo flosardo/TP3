@@ -3,22 +3,23 @@
 
 #include "edificio.h"
 
-class Mina : public Edificio{
-public:
+class Mina : public Edificio {
 
-    /*
-    * Post: Creará un objeto de tipo Mina con los valores por defecto.
-    */
-    Mina();
+    public:
 
-    /*
-    * Post: Creará un objeto de tipo Mina con los valores pasados por parámetro.
-    */
-    Mina(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
+        /*
+        * Post: Creará un objeto de tipo Mina con los valores por defecto.
+        */
+        Mina();
 
-    // PRE:
-    // POS: muestra por pantalla el saludo del edificio
-    void mostrar_saludo();
+        /*
+        * Post: Creará un objeto de tipo Mina con los valores pasados por parámetro.
+        */
+        Mina(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
+
+        // PRE:
+        // POS: muestra por pantalla el saludo del edificio
+        void mostrar_saludo();
 };
 
 #endif // _MINA_H_

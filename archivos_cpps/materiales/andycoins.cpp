@@ -2,11 +2,11 @@
 
 using namespace std;
 
-Andycoins::Andycoins(unsigned int cantidad_inventario){
-    nombre = ANDYCOINS;
-    cantidad = cantidad_inventario;
+Andycoins::Andycoins(unsigned int cantidad_inventario) {
+    this -> nombre = ANDYCOINS;
+    this -> cantidad = cantidad_inventario;
 }
 
-void Andycoins::mostrar_material(){
+void Andycoins::mostrar_material() {
     cout << "--> Material: andycoins, cantidad: " << this -> cantidad << endl;
 }
