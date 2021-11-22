@@ -40,4 +40,4 @@ class Inventario {
         ~Inventario();
 };
 
-#endif
+#endif // _INVENTARIO_H_

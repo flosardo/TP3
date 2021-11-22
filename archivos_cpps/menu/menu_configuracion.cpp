@@ -18,4 +18,4 @@ void Menu_configuracion::mostrar_menu() {
     cout << "║                                           ║" << endl;
     cout << "║ 5. Guardar y salir                        ║" << endl;
     cout << "╚═══════════════════════════════════════════╝" << endl;
-}
+} 

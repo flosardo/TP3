@@ -1,6 +1,8 @@
 #ifndef OBJETIVO_H
 #define OBJETIVO_H
-#include "constantes.h"
+
+#include <iostream>
+#include "../constantes.h"
 
 class Objetivo {
 
@@ -11,29 +13,35 @@ class Objetivo {
     public:
 
         /*
-        *Pre:
-        *Post:
+        *Post: Construira un objeto de tipo Objetivo, con sus valores por defecto.
         */
         Objetivo();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Devolvera un string con el nombre del objetivo.
         */
         std::string devolver_nombre();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Mostrará por consola el progreso.
         */
         virtual void mostrar_progreso() = 0;
 
         /*
-        *Pre:
-        *Post:
+        *Post: Devolverá true si se cumplio el objetivo en las hijas, o false en caso contrario.
         */
-        virtual bool verificar() = 0;
+        virtual bool verificar(int cantidad);
+
+        /*
+        *Post: 
+        */
+        virtual bool verificar(std::string nombre);
+
+        /*
+        *Post: 
+        */
+        virtual void cambiar_estado_construido(std::string nombre);
 
 };
 
-#endif // _OBJETIVO_H
+#endif //_OBJETIVO_H

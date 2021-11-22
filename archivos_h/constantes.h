@@ -81,6 +81,7 @@ const char PLANTA_ELECTRICA = 'P';
 const char ESCUELA = 'E';
 const char MINA = 'M';
 const char ASERRADERO = 'A';
+const int MAX_EDIFICIOS_DISPONIBLES = 7;
 const int ENERGIA_CONSTRUIR_EDIFICIO = 15;
 const int ENERGIA_DEMOLER_EDIFICIO_COORDENADA = 15;
 const int ENERGIA_ATACAR_EDIFICIO_COORDENADA = 30;
@@ -96,13 +97,32 @@ const std::string NOMBRE_MINA = "mina";
 const std::string NOMBRE_MINA_ORO = "mina oro";
 
 //OBJETIVOS 
+const std::string NOMBRE_OBJETIVO_ANDYCOINS = "andycoins por los cielos";
+const std::string NOMBRE_OBJETIVO_OBELISCO = "mas alto que las nubes";
+const std::string NOMBRE_OBJETIVO_PIEDRA = "edad de piedra";
+const std::string NOMBRE_OBJETIVO_MINERO = "minero";
+const std::string NOMBRE_OBJETIVO_BOMBARDERO = "bombardero";
+const std::string NOMBRE_OBJETIVO_EXTREMISTA = "extremista taliban";
+const std::string NOMBRE_OBJETIVO_ENERGETICO = "energetico";
+const std::string NOMBRE_OBJETIVO_LETRADO = "intelectual";
+const std::string NOMBRE_OBJETIVO_CANSADO = "cansado";
+const std::string NOMBRE_OBJETIVO_CONSTRUCTOR = "many a la obra (bob constructor)";
+const std::string NOMBRE_OBJETIVO_ARMADO = "terrorista (full armado)";
+
 const int OBJETIVO_ANDYCOINS = 100000;
 const int OBJETIVO_PIEDRA = 50000;
-const int OBJETIVO_BOMBA = 5;
+const int OBJETIVO_BOMBARDERO = 5;
 const int OBJETIVO_ENERGETICO = 100;
 const int OBJETIVO_CANSADO = 0;
 const int OBJETIVO_ARMADO = 10;
 const int OBJETIVO_EXTREMISTA = 500;
+
+const int POS_PLANTA_ELECTRICA = 0;
+const int POS_ASERRADERO = 1;
+const int POS_FABRICA = 2;
+const int POS_ESCUELA = 3;
+const int POS_MINA_ORO = 4;
+const int POS_MINA = 5;
 
 //DISEÑOS
 const std::string LINEA_DIVISORIA = "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550";
