@@ -7,7 +7,7 @@ class Material {
 protected:
 
     char nombre;
-    unsigned int cantidad;
+    int cantidad;
 
 public:
 
@@ -19,7 +19,7 @@ public:
     /*
     * Post: Devolverá la cantidad de material.
     */
-    unsigned int cantidad_material();
+    int cantidad_material();
 
     /*
     * Post: Devolverá el tipo de material.

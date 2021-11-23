@@ -4,7 +4,7 @@ using namespace std;
 
 Energia::Energia() {}
 
-Energia::Energia(unsigned int cantidad_energia) {
+Energia::Energia(int cantidad_energia) {
     this -> nombre = ENERGIA;
     this -> cantidad = cantidad_energia;
 }

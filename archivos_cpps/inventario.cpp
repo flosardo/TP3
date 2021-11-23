@@ -35,7 +35,7 @@ void Inventario::agregar_material(Material* material) {
     this -> cantidad_materiales++;
 }
 
-void Inventario::modificar_cantidad_material(unsigned int indice, int cantidad) {
+void Inventario::modificar_cantidad_material(int indice, int cantidad) {
     this -> inventario[indice] -> modificar_cantidad(cantidad);
 }
 

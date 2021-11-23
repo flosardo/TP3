@@ -15,7 +15,7 @@ public:
     /*
     * Post: Creará un objeto de tipo Energia con el parametro cantidad_energía.
     */
-    Energia(unsigned int cantidad_energia);
+    Energia(int cantidad_energia);
 
     /*
     * Post: Modificará la cantidad segun corresponda.

@@ -7,15 +7,15 @@ class Objetivo_letrado: public Objetivo{
 
     private:
 
-        unsigned int cantidad_maxima_escuelas;
-        unsigned int cantidad_escuelas_construidas;
+        int cantidad_maxima_escuelas;
+        int cantidad_escuelas_construidas;
 
     public:
 
         /*
         *Post: Construira un objeto de tipo Objetivo_letrado, con sus valores por defecto.
         */
-        Objetivo_letrado(unsigned int cantidad_maxima_escuelas);
+        Objetivo_letrado(int cantidad_maxima_escuelas);
 
         /*
         *Post: Mostrará por consola el progreso.

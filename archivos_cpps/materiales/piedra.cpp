@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Piedra::Piedra(unsigned int cantidad_inventario) {
+Piedra::Piedra(int cantidad_inventario) {
     this -> nombre = PIEDRA;
     this -> cantidad = cantidad_inventario;
 }

@@ -9,7 +9,7 @@ char Material::obtener_nombre_material() {
     return this -> nombre;
 }
 
-unsigned int Material::cantidad_material() {
+int Material::cantidad_material() {
     return this -> cantidad;
 }
 

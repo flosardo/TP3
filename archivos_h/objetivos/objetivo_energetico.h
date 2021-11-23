@@ -7,7 +7,7 @@ class Objetivo_energetico: public Objetivo{
 
     private:
 
-        unsigned int cantidad_energia;
+        int cantidad_energia;
 
     public:
 

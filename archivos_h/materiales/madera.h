@@ -10,7 +10,7 @@ public:
     /*
     * Post: Creará un objeto de tipo Madera con el parámetro cantidad_inventario.
     */
-    Madera(unsigned int cantidad_inventario);
+    Madera(int cantidad_inventario);
 
     /*
     * Post: Mostrará el estado en el que se encuentra el material.

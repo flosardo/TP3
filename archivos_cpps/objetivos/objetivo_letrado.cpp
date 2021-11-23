@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Objetivo_letrado::Objetivo_letrado(unsigned int cantidad_maxima_escuelas){
+Objetivo_letrado::Objetivo_letrado(int cantidad_maxima_escuelas){
     this -> nombre = NOMBRE_OBJETIVO_LETRADO;
     this -> cantidad_maxima_escuelas = cantidad_maxima_escuelas;
 }

@@ -7,7 +7,7 @@ class Objetivo_armado: public Objetivo{
     
     private:
     
-        unsigned int cantidad_bombas;
+        int cantidad_bombas;
 
     public:
 

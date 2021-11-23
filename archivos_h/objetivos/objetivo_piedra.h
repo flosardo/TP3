@@ -6,7 +6,7 @@
 class Objetivo_piedra: public Objetivo{
     
     private:
-        unsigned int cantidad_piedras;
+        int cantidad_piedras;
 
     public:
 

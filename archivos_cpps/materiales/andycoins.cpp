@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Andycoins::Andycoins(unsigned int cantidad_inventario) {
+Andycoins::Andycoins(int cantidad_inventario) {
     this -> nombre = ANDYCOINS;
     this -> cantidad = cantidad_inventario;
 }

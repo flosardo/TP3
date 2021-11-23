@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Bomba::Bomba(unsigned int cantidad_inventario) {
+Bomba::Bomba(int cantidad_inventario) {
     this -> nombre = BOMBA;
     this -> cantidad = cantidad_inventario;
 }

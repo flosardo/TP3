@@ -7,7 +7,7 @@ class Objetivo_extremista: public Objetivo{
 
     private:
 
-        unsigned int cantidad_bombas_compradas;
+        int cantidad_bombas_compradas;
 
     public:
 

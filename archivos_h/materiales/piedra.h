@@ -10,7 +10,7 @@ public:
     /*
     * Post: Creará un objeto de tipo Piedra con el parámetro cantidad_inventario.
     */
-    Piedra(unsigned int cantidad_inventario);
+    Piedra(int cantidad_inventario);
 
     /*
     * Post: Mostrará un saludo.

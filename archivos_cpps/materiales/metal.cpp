@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Metal::Metal(unsigned int cantidad_inventario) {
+Metal::Metal(int cantidad_inventario) {
     this -> nombre = METAL;
     this -> cantidad = cantidad_inventario;
 }

@@ -10,7 +10,7 @@ public:
     /*
     * Post: Creará un objeto de tipo Bomba con el parámetro cantidad_inventario.
     */
-    Bomba(unsigned int cantidad_inventario);
+    Bomba(int cantidad_inventario);
 
     void mostrar_material();
 

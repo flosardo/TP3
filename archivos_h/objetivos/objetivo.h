@@ -1,7 +1,6 @@
 #ifndef OBJETIVO_H
 #define OBJETIVO_H
 
-#include <iostream>
 #include "../constantes.h"
 
 class Objetivo {

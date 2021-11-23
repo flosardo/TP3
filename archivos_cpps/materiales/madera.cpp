@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Madera::Madera(unsigned int cantidad_inventario) {
+Madera::Madera(int cantidad_inventario) {
     this -> nombre = MADERA;
     this -> cantidad = cantidad_inventario;
 }

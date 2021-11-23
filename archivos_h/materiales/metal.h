@@ -9,7 +9,7 @@ public:
     /*
     * Post: Creará un objeto de tipo Metal, con el parámetro cantidad_inventario.
     */
-    Metal(unsigned int cantidad_inventario);
+    Metal(int cantidad_inventario);
 
     /*
     * Post: Mostrará el estado en el que se encuentra el material.

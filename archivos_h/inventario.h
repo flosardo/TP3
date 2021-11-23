@@ -34,7 +34,7 @@ class Inventario {
         
         //PRE:
         //POST:
-        void modificar_cantidad_material(unsigned int indice, int cantidad);
+        void modificar_cantidad_material(int indice, int cantidad);
 
         // Destructor
         ~Inventario();

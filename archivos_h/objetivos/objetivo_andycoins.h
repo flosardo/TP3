@@ -7,7 +7,7 @@ class Objetivo_andycoins: public Objetivo{
 
     private:
 
-        unsigned int cantidad_andycoins;
+        int cantidad_andycoins;
 
     public:
 
