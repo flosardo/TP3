@@ -7,7 +7,7 @@ Objetivo_piedra::Objetivo_piedra(){
     this -> cantidad_piedras = 0;
 }
 
-bool Objetivo_piedra::verificar(int cantidad){
+bool Objetivo_piedra::se_cumplio_el_objetivo(int cantidad){
     this -> cantidad_piedras = cantidad;
     return this -> cantidad_piedras >= OBJETIVO_PIEDRA;
 }

@@ -8,7 +8,7 @@ Objetivo_minero::Objetivo_minero(){
     this -> mina_construida = false;
 }
 
-bool Objetivo_minero::verificar(string nombre){
+bool Objetivo_minero::se_cumplio_el_objetivo(string nombre){
     if(nombre == NOMBRE_MINA)
         this -> mina_construida = true;
     else if(nombre == NOMBRE_MINA_ORO)

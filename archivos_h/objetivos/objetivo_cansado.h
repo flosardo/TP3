@@ -24,8 +24,7 @@ class Objetivo_cansado: public Objetivo{
         /*
         * Post: Devolvera true si se termina el turno con 0 de energia, false en caso contrario.
         */
-        bool verificar(int cantidad);
-
+        bool se_cumplio_el_objetivo(int cantidad);
 };
 
 #endif // _OBJETIVO_CANSADO_H_

@@ -7,7 +7,7 @@ Objetivo_letrado::Objetivo_letrado(unsigned int cantidad_maxima_escuelas){
     this -> cantidad_maxima_escuelas = cantidad_maxima_escuelas;
 }
 
-bool Objetivo_letrado::verificar(int cantidad){
+bool Objetivo_letrado::se_cumplio_el_objetivo(int cantidad){
     this -> cantidad_escuelas_construidas = cantidad;
     return this -> cantidad_escuelas_construidas == cantidad_maxima_escuelas;
 }

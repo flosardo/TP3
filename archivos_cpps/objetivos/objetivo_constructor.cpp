@@ -8,7 +8,7 @@ Objetivo_constructor::Objetivo_constructor(){
         construidos[i] = false;
 }
 
-bool Objetivo_constructor::verificar(string nombre){
+bool Objetivo_constructor::se_cumplio_el_objetivo(string nombre){
     cambiar_estado_construido(nombre);
     int i = 0;
     bool cumplido = true;

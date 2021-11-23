@@ -7,7 +7,7 @@ Objetivo_obelisco::Objetivo_obelisco(){
     this -> obelisco_construido = false;
 }
 
-bool Objetivo_obelisco::verificar(string nombre){
+bool Objetivo_obelisco::se_cumplio_el_objetivo(string nombre){
     if(nombre == NOMBRE_OBELISCO)
         this -> obelisco_construido = true;
 

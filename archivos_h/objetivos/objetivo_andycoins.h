@@ -24,7 +24,7 @@ class Objetivo_andycoins: public Objetivo{
         /*
         * Post: Devolvera true si hay más de 100000 andycoins, false en caso contrario.
         */
-        bool verificar(int cantidad);
+        bool se_cumplio_el_objetivo(int cantidad);
 };
 
 #endif// _OBJETIVO_ANDYCOINS_H_

@@ -7,7 +7,7 @@ Objetivo_andycoins::Objetivo_andycoins(){
     this -> cantidad_andycoins = 0;
 }
 
-bool Objetivo_andycoins::verificar(int cantidad){
+bool Objetivo_andycoins::se_cumplio_el_objetivo(int cantidad){
     this -> cantidad_andycoins += cantidad;
     return (this -> cantidad_andycoins >= OBJETIVO_ANDYCOINS);
 }

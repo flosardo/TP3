@@ -7,7 +7,7 @@ Objetivo_extremista::Objetivo_extremista(){
     this -> cantidad_bombas_compradas = 0;
 }
 
-bool Objetivo_extremista::verificar(int cantidad){
+bool Objetivo_extremista::se_cumplio_el_objetivo(int cantidad){
     this -> cantidad_bombas_compradas += cantidad;
     return this -> cantidad_bombas_compradas >= OBJETIVO_EXTREMISTA;
 }

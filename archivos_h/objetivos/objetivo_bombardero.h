@@ -24,7 +24,7 @@ class Objetivo_bombardero: public Objetivo{
         /*
         * Post: Devolvera true si se usaron 5 bombas, false en caso contrario.
         */
-        bool verificar(int cantidad);
+        bool se_cumplio_el_objetivo(int cantidad);
 };
 
 #endif // _OBJETIVO_BOMBARDERO_H_

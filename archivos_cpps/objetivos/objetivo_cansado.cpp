@@ -7,7 +7,7 @@ Objetivo_cansado::Objetivo_cansado(){
     this -> cantidad_energia = 0;
 }
 
-bool Objetivo_cansado::verificar(int cantidad){
+bool Objetivo_cansado::se_cumplio_el_objetivo(int cantidad){
     this -> cantidad_energia = cantidad;
     return this -> cantidad_energia == OBJETIVO_CANSADO;
 }

@@ -24,8 +24,7 @@ class Objetivo_obelisco: public Objetivo{
         /*
         *Post: 
         */
-        bool verificar(std::string nombre);
-
+        bool se_cumplio_el_objetivo(std::string nombre);
 };
 
 #endif // _OBJETIVO_OBELISCO_H_

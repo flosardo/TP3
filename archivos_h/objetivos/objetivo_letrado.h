@@ -25,8 +25,7 @@ class Objetivo_letrado: public Objetivo{
         /*
         *Post: Devolverá true si se construyo el maximo de escuelas permitidas, o false en caso contrario.
         */
-        bool verificar(int cantidad);
-
+        bool se_cumplio_el_objetivo(int cantidad);
 };
 
 #endif // _OBJETIVO_LETRADO_H_

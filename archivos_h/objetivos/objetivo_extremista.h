@@ -24,7 +24,7 @@ class Objetivo_extremista: public Objetivo{
         /*
         * Post: Devolvera true si hay 500 bombas compradas, false en caso contrario.
         */
-        bool verificar(int cantidad);
+        bool se_cumplio_el_objetivo(int cantidad);
 };
 
 #endif // _OBJETIVO_EXTREMISTA_H_

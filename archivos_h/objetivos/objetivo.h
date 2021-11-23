@@ -30,12 +30,12 @@ class Objetivo {
         /*
         *Post: Devolverá true si se cumplio el objetivo en las hijas, o false en caso contrario.
         */
-        virtual bool verificar(int cantidad);
+        virtual bool se_cumplio_el_objetivo(int cantidad);
 
         /*
         *Post: 
         */
-        virtual bool verificar(std::string nombre);
+        virtual bool se_cumplio_el_objetivo(std::string nombre);
 
         /*
         *Post: 

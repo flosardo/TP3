@@ -7,7 +7,7 @@ Objetivo_bombardero::Objetivo_bombardero(){
     this -> cantidad_bombardero = 0;
 }
 
-bool Objetivo_bombardero::verificar(int cantidad){
+bool Objetivo_bombardero::se_cumplio_el_objetivo(int cantidad){
     this -> cantidad_bombardero += cantidad;
     return this -> cantidad_bombardero >= OBJETIVO_BOMBARDERO;
 }

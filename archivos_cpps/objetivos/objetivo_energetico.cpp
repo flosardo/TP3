@@ -7,7 +7,7 @@ Objetivo_energetico::Objetivo_energetico(){
     this -> cantidad_energia = 0;
 }
 
-bool Objetivo_energetico::verificar(int cantidad){
+bool Objetivo_energetico::se_cumplio_el_objetivo(int cantidad){
     this -> cantidad_energia = cantidad;
     return this -> cantidad_energia == OBJETIVO_ENERGETICO;
 }
