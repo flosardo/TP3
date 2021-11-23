@@ -8,5 +8,5 @@ Andycoins::Andycoins(int cantidad_inventario) {
 }
 
 void Andycoins::mostrar_material() {
-    cout << "--> Material: andycoins, cantidad: " << this -> cantidad << endl;
+    cout << COLOR_MARRON << "--> Material: andycoins, cantidad: " << COLOR_POR_DEFECTO << this -> cantidad << endl;
 }

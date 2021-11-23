@@ -14,13 +14,13 @@ Casillero_construible::Casillero_construible(Edificio* edificio) {
 void Casillero_construible::mostrar() {
     if (!edificio) {
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
-        cout << "Soy un terreno " << EMOJI_TERRENO << ",  un casillero construible y me encuentro vacío." << endl;
+        cout << COLOR_VERDE << "Soy un terreno " << EMOJI_TERRENO << ",  un casillero construible y me encuentro vacío." << COLOR_POR_DEFECTO << endl;
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
 
     }
     else {
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
-        cout << "Soy un terreno " << EMOJI_TERRENO << ", un casillero construible y no me encuentro vacío." << endl;
+        cout << COLOR_VERDE_AGUA << "Soy un terreno " << EMOJI_TERRENO << ", un casillero construible y no me encuentro vacío." << COLOR_POR_DEFECTO << endl;
         this -> edificio -> mostrar_saludo();
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
     }

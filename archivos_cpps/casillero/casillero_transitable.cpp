@@ -14,10 +14,12 @@ Casillero_transitable::Casillero_transitable(Material* material) {
 void Casillero_transitable::mostrar() {
     if (!material) {
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
-        cout << "Soy un casillero transitable " << EMOJI_CAMINO << " y me encuentro vacío." << endl;
+        cout << COLOR_VERDE << "Soy un casillero transitable " << EMOJI_CAMINO << " y me encuentro vacío." << COLOR_POR_DEFECTO << endl;
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
     }
     else {
+        cout << COLOR_VERDE_AGUA << "Soy un casillero transitable y no me encuentro vacio" << COLOR_POR_DEFECTO << endl;
+        cout << endl;
         this -> material -> saludar();
     }
 }
