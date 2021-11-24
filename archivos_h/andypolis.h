@@ -2,9 +2,6 @@
 #define _ANDYPOLIS_H_
 
 #include "mapa.h"
-#include "inventario.h"
-#include "jugador.h"
-#include "construcciones/edificio.h"
 
 class Andypolis{
     private:
@@ -15,13 +12,10 @@ class Andypolis{
 
     public:
         Mapa* devolver_mapa();
-        
+
         Andypolis();
         ~Andypolis();
 };
-
-
-
 
 
 #endif // _ANDYPOLIS_H_

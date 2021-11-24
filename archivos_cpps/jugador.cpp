@@ -1,18 +1,18 @@
 #include "../archivos_h/jugador.h"
 
-Jugador::Jugador(unsigned int coordenada_x, unsigned int coordenada_y) {
+Jugador::Jugador(int coordenada_x, int coordenada_y) {
     this -> energia = ENERGIA_INICIAL;
-    this -> coordenadas = new unsigned int [MAX_COORDENADAS];
+    this -> coordenadas = new int [MAX_COORDENADAS];
     this -> coordenadas[POSICION_FILA] = coordenada_y;
     this -> coordenadas[POSICION_COLUMNA] = coordenada_x;
     this -> inventario = nullptr;
 }
 
-unsigned int* Jugador::devolver_coordenadas() {
+int* Jugador::devolver_coordenadas() {
     return this -> coordenadas;
 }
 
-void Jugador::mover(unsigned int coordenada_x, unsigned int coordenada_y) {
+void Jugador::mover(int coordenada_x, int coordenada_y) {
     /* HACER A FUTURO CON GRAFOS (CAMINOS MINIMOS). */
 }
 

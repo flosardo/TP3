@@ -8,7 +8,7 @@ class Jugador {
     private:
 
         Energia energia;
-        unsigned int* coordenadas;
+        int* coordenadas;
         Inventario* inventario;
 
     public:
@@ -17,7 +17,7 @@ class Jugador {
         *Pre: Que las coordenadas recibidas por parametro sean >= 0.
         *Post: Creará un objeto de tipo Jugador con las coordenadas recibidad por parametro.
         */
-        Jugador(unsigned int coordenada_x, unsigned int coordenada_y);
+        Jugador(int coordenada_x, int coordenada_y);
 
         /*
         *Pre: Que el material no sea null.
@@ -28,13 +28,13 @@ class Jugador {
         /*
         *Post: Devolvera las coordenadas del jugador.
         */
-        unsigned int* devolver_coordenadas();
+        int* devolver_coordenadas();
 
         /*
         *Pre: Que las coordenadas recibidas por parametro sean >= 0.
         *Post: Mueve el jugador a las coordenadas x e y usando los caminos minimos.
         */
-        void mover(unsigned int coordenada_x, unsigned int coordenada_y);
+        void mover(int coordenada_x, int coordenada_y);
 
         /*
         *Pre: Que la cantidad de energia sea >= 0.

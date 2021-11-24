@@ -24,22 +24,26 @@ void Cargar_materiales::carga_materiales(Jugador* jugador_1, Jugador* jugador_2)
 }
 
 void Cargar_materiales::procesar_archivo(string nombre, int cantidad_jugador_1, int cantidad_jugador_2, Jugador* jugador_1, Jugador* jugador_2){
-    if(nombre == NOMBRE_ANDYCOINS){
-        Material* material_jugador_1 = new Andycoins(cantidad_jugador_1);
-        Material* material_jugador_2 = new Andycoins(cantidad_jugador_2);
-    }else if(nombre == NOMBRE_MADERA){
-        Material* material_jugador_1 = new Madera(cantidad_jugador_1);
-        Material* material_jugador_2 = new Madera(cantidad_jugador_2);
-    }else if(nombre == NOMBRE_METAL){
-        Material* material_jugador_1 = new Metal(cantidad_jugador_1);
-        Material* material_jugador_2 = new Metal(cantidad_jugador_2);
-    }else if(nombre == NOMBRE_PIEDRA){
-        Material* material_jugador_1 = new Piedra(cantidad_jugador_1);
-        Material* material_jugador_2 = new Piedra(cantidad_jugador_2);
-    }else{
-        Material* material_jugador_1 = new Bomba(cantidad_jugador_1);
-        Material* material_jugador_2 = new Bomba(cantidad_jugador_2);
+    Material* material_jugador_1 = 0;
+    Material* material_jugador_2 = 0;
+
+    if (nombre == NOMBRE_ANDYCOINS) {
+        material_jugador_1 = new Andycoins(cantidad_jugador_1);
+        material_jugador_2 = new Andycoins(cantidad_jugador_2);
+    } else if (nombre == NOMBRE_MADERA) {
+        material_jugador_1 = new Madera(cantidad_jugador_1);
+        material_jugador_2 = new Madera(cantidad_jugador_2);
+    } else if (nombre == NOMBRE_METAL) {
+        material_jugador_1 = new Metal(cantidad_jugador_1);
+        material_jugador_2 = new Metal(cantidad_jugador_2);
+    } else if (nombre == NOMBRE_PIEDRA) {
+        material_jugador_1 = new Piedra(cantidad_jugador_1);
+        material_jugador_2 = new Piedra(cantidad_jugador_2);
+    } else {
+        material_jugador_1 = new Bomba(cantidad_jugador_1);
+        material_jugador_2 = new Bomba(cantidad_jugador_2);
     }
+
     jugador_1 -> cargar_material(material_jugador_1);
     jugador_2 -> cargar_material(material_jugador_2);
 }

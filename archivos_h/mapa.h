@@ -4,6 +4,7 @@
 #include "casilleros/casillero_construible.h"
 #include "casilleros/casillero_transitable.h"
 #include "casilleros/casillero_inaccesible.h"
+#include "jugador.h"
 
 #include <cstdlib>
 

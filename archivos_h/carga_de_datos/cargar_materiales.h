@@ -1,7 +1,14 @@
 #ifndef _CARGAR_MATERIALES_H_
 #define _CARGAR_MATERIALES_H_
+
 #include <fstream>
 #include "../andypolis.h"
+#include "../materiales/material.h"
+#include "../materiales/andycoins.h"
+#include "../materiales/bomba.h"
+#include "../materiales/madera.h"
+#include "../materiales/piedra.h"
+#include "../materiales/metal.h"
 
 class Cargar_materiales {
     
