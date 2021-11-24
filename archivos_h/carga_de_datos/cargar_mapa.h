@@ -4,13 +4,32 @@
 #include "../andypolis.h"
 
 class Cargar_mapa {
+    
     private:
+
         std::string archivo_ruta;
 
     public:
+
+        /*
+        *Post: Creara un objeto de tipo Cargar_mapa, con sus valores por defecto.
+        */
         Cargar_mapa();
 
-        bool carga_mapa(Andypolis* andypolis, Mapa mapa);
+        /*
+        *Pre: Que mapa no sea null.
+        *Post: Cargará el mapa de andypolis.
+        */
+        void carga_mapa(Mapa* mapa);
+
+    private: 
+
+        /*
+        *Pre: Que el archivo exista, que mapa no sea null, que fila y columna sean >= 0.
+        *Post: Procesará el archivo.
+        */
+        void procesar_archivo(std::ifstream & archivo_mapa, Mapa* mapa, int cantidad_filas, int cantidad_columnas);
+        
 };
 
-#endif // _CARGAR_UBICACIONES_H_
+#endif // _CARGAR_MAPA_H_

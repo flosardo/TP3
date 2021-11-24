@@ -3,14 +3,14 @@
 
 #include "casillero.h"
 
-class CasilleroInaccesible : public Casillero{
+class Casillero_inaccesible : public Casillero{
     
     public:
     
         /*
         * Post: Creará un objeto de tipo CasilleroInaccesible, dejando sus atributos cargados con valores por defecto.
         */
-        CasilleroInaccesible();
+        Casillero_inaccesible();
 
         /*
         * Post: Mostrará lo que hay en el casillero.

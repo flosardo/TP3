@@ -4,6 +4,11 @@
 #include <iostream>
 
 //MATERIALES
+const std::string NOMBRE_PIEDRA = "piedra";
+const std::string NOMBRE_METAL = "metal";
+const std::string NOMBRE_MADERA = "madera";
+const std::string NOMBRE_BOMBA = "bombas";
+const std::string NOMBRE_ANDYCOINS = "andycoins";
 const char PIEDRA = 'S';
 const char METAL = 'I';
 const char MADERA = 'W';

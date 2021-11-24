@@ -28,3 +28,8 @@ void Jugador::modificar_inventario(char material, int cantidad) {
     int indice = this -> inventario -> obtener_indice_del_material(material);
     this -> inventario -> modificar_cantidad_material(indice, cantidad);
 }
+
+Jugador::~Jugador(){
+    delete [] this -> coordenadas;
+    this -> coordenadas = nullptr;
+}

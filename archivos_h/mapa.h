@@ -1,5 +1,5 @@
-#ifndef _MAPA_H
-#define _MAPA_H
+#ifndef _MAPA_H_ //_MAPA_H_
+#define _MAPA_H_ //_MAPA_H_
 
 #include "casilleros/casillero_construible.h"
 #include "casilleros/casillero_transitable.h"
@@ -18,32 +18,59 @@ class Mapa {
     public:
 
         // Constructor
-        Mapa(int filas, int columnas);
+        Mapa();
 
-        // PRE:
-        // POS: crea el mapa
-        void crear_mapa();
+        /*
+        *Pre:
+        *Post: 
+        */
+
+        /*
+        *Pre: Recibe dos coordenadas
+        *Post: Devuleve verdadero si el casillero en las corodenadas recibidas esta ocupado, falso de lo contrario.
+        */
+
+        /*
+        *Pre: Que cantidad_filas y cantidad_columnas sean positivos.
+        *Post: Creará el mapa con la cantidad_filas y cantidad_columnas recibidas por parámetro.
+        */
+        void crear_mapa(int cantidad_filas, int cantidad_columnas);
         
-        // PRE: recibe dos coordenadas
-        // POS: devuleve verdadero si el casillero en las corodenadas recibidas esta ocupado, falso de lo contrario
+        /*
+        *Pre: Recibe dos coordenadas
+        *Post: Devuleve verdadero si el casillero en las corodenadas recibidas esta ocupado, falso de lo contrario.
+        */
         bool esta_ocupado(int coord_x, int coord_y);
 
         /*
-        FALTAN LAS CONDICIONES
+        *Pre: Que jugador no sea null.
+        *Post: Posicionará al jugador en el mapa.
+        */
+        void posicionar_jugador(Jugador* jugador);
+
+        /*
+        *Pre:
+        *Post: 
         */
         void agregar_material_casillero(Material* material, int fila, int columna);
 
         /*
-        FALTAN LAS CONDICIONES
+        *Pre: 
+        *Post: 
         */
         void agregar_edificio_casillero(Edificio* edificio, int fila, int columna);
 
-        // PRE: recibe dos coordenadas
-        // POS: libera el casillero en las coordenadas recibidas
+
+        /*
+        *Pre: Recibe dos coordenadas 
+        *Post: Libera el casillero en las coordenas recibidas
+        */
         void liberar_posicion(int coordenada_x, int coordenada_y);
 
-        // PRE: recibe dos coordenadas
-        // POS: devuleve verdadero en caso que se pueda construir en las coordenadas recibidas, falso de lo contrario
+        /*
+        *Pre: Recibe dos coordenadas
+        *Post: Devuelve verdadero en caso que se pueda construir en las coordenadas recibidas, falso de lo contrario
+        */
         bool se_puede_construir(int coord_x, int coord_y);
 
         // PRE: recibe dos coordenadas
@@ -74,8 +101,21 @@ class Mapa {
         // POS: devuelve el tipo del casillero en las coordenadas recibidas
         char obtener_casillero(int coordenada_x, int coordenada_y);
 
+        /*
+        * PRE: Que fil y col sean mayores a 0.
+        * POST: Llenará los casilleros del mapa dependiendo del tipo de terreno que sea (Lago, Terreno, Camino).
+        */
+        void llenar_casillero(char terreno, int fil, int col);
+
         // Destructor
         ~Mapa();
+
+    private:
+
+        
+        // PRE: Que el mapa este creado.
+        // POS: Inicializa el mapa, dejando en 0 (null) sus casilleros.
+        void inicializar_mapa();
 };
 
-#endif
+#endif //_MAPA_H_

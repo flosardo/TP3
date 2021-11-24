@@ -8,12 +8,14 @@
 
 class Andypolis{
     private:
-        Mapa mapa;
-        Jugador jugador1;
-        Jugador jugador2;
+        Mapa* mapa;
+        Jugador* jugador_1;
+        Jugador* jugador_2;
         Edificio** edificios_disponibles;
 
     public:
+        Mapa* devolver_mapa();
+        
         Andypolis();
         ~Andypolis();
 };
