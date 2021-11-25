@@ -3,6 +3,18 @@
 
 #include <fstream>
 #include "../andypolis.h"
+#include "../materiales/piedra.h"
+#include "../materiales/madera.h"
+#include "../materiales/metal.h"
+#include "../materiales/energia.h"
+#include "../materiales/bomba.h"
+#include "../construcciones/aserradero.h"
+#include "../construcciones/escuela.h"
+#include "../construcciones/fabrica.h"
+#include "../construcciones/mina.h"
+#include "../construcciones/mina_oro.h"
+#include "../construcciones/obelisco.h"
+#include "../construcciones/planta_electrica.h"
 
 class Cargar_ubicaciones {
 
