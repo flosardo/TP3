@@ -12,6 +12,8 @@ public:
     */
     Piedra(int cantidad_inventario);
 
+    Piedra();
+
     /*
     * Post: Mostrará un saludo.
     */

@@ -12,6 +12,8 @@ public:
     */
     Bomba(int cantidad_inventario);
 
+    Bomba();
+
     void mostrar_material();
 
 };

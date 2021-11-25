@@ -11,6 +11,8 @@ public:
     * Post: Creará un objeto de tipo andycoins con el parámetro cantidad_inventario.
     */
     Andycoins(int cantidad_inventario);
+    
+    Andycoins();
 
     void mostrar_material();
 

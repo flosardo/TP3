@@ -12,6 +12,8 @@ public:
     */
     Madera(int cantidad_inventario);
 
+    Madera();
+
     /*
     * Post: Mostrará el estado en el que se encuentra el material.
     */

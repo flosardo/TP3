@@ -8,6 +8,7 @@
 #include "../materiales/metal.h"
 #include "../materiales/energia.h"
 #include "../materiales/bomba.h"
+#include "../materiales/andycoins.h"
 #include "../construcciones/aserradero.h"
 #include "../construcciones/escuela.h"
 #include "../construcciones/fabrica.h"
@@ -40,6 +41,17 @@ class Cargar_ubicaciones {
         *Post:
         */
         void guardar_ubicaciones();
+
+        /*
+        *Pre:
+        *Pos:
+        */
+       Edificio* crear_edificio(std::string nombre, char jugador);
+        /*
+        *Pre:
+        *Pos:
+        */
+       Material* crear_material(std::string nombre);
         
 };
 

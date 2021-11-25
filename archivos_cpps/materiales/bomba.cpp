@@ -7,6 +7,8 @@ Bomba::Bomba(int cantidad_inventario){
     this -> cantidad = cantidad_inventario;
 }
 
+Bomba::Bomba() {}
+
 void Bomba::mostrar_material() {
     cout << COLOR_MARRON << "--> Material: bomba, cantidad: " << COLOR_POR_DEFECTO << this->cantidad << endl;
 }

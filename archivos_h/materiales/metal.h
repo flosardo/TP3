@@ -11,6 +11,8 @@ public:
     */
     Metal(int cantidad_inventario);
 
+    Metal();
+
     /*
     * Post: Mostrará el estado en el que se encuentra el material.
     */

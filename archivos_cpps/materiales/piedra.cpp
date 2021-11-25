@@ -7,6 +7,8 @@ Piedra::Piedra(int cantidad_inventario) {
     this -> cantidad = cantidad_inventario;
 }
 
+Piedra::Piedra() {}
+
 void Piedra::saludar() {
     cout << "Soy una piedra " << EMOJI_PIEDRA << " y me encuentro en el casillero consultado." << endl;
 }
