@@ -9,8 +9,8 @@ using namespace std;
 int main(){
     Cargar_ubicaciones car;
     Mapa map;
-    map.crear_mapa(8, 10);
-    car.carga_ubicaciones(&map);
+    //map.crear_mapa(8, 10);
+    //car.carga_ubicaciones(&map);
     Madera madera(20);
     Metal metal(2);
     Bomba bomba(2);

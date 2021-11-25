@@ -12,24 +12,21 @@ using namespace std;
 Mapa::Mapa() {
     this -> cantidad_filas = 0;
     this -> cantidad_columnas = 0;
+    mapa = 0;
 }
 
 void Mapa::crear_mapa(int cantidad_filas, int cantidad_columnas) {
     this -> cantidad_filas = cantidad_filas;
     this -> cantidad_columnas = cantidad_columnas;
     this -> mapa = new Casillero** [this -> cantidad_filas];
-
-    for (int fila = 0; fila < this -> cantidad_filas; fila++) {
-        this -> mapa[fila] = new Casillero*[this -> cantidad_columnas];
-    }
-
     this -> inicializar_mapa();
 }
 
 void Mapa::inicializar_mapa(){
     for (int fila = 0; fila < this -> cantidad_filas; fila++) {
-        for (int columna = 0; columna < this -> cantidad_columnas; columna++)
-            this -> mapa[fila][columna] = 0;
+        this -> mapa[fila] = new Casillero*[this -> cantidad_columnas];
+        for(int columna = 0; columna < this -> cantidad_columnas; columna++)
+            mapa[fila][columna] = 0;
     }
 }
 

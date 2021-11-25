@@ -7,7 +7,10 @@ Madera::Madera(int cantidad_inventario) {
     this -> cantidad = cantidad_inventario;
 }
 
-Madera::Madera() {}
+Madera::Madera() {
+    this -> nombre = MADERA;
+    this -> cantidad = CANTIDAD_PRODUCIDA_MADERA;
+}
 
 void Madera::saludar() {
     cout << "Soy una Madera " << EMOJI_MADERA << ", y me encuentro en el casillero consultado." << endl;

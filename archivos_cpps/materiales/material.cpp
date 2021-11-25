@@ -1,6 +1,6 @@
 #include "../../archivos_h/materiales/material.h"
 
-Material::Material() {
+Material::Material(){
     this -> nombre = VACIO;
     this -> cantidad = 0;
 }

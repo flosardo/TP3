@@ -1,9 +1,7 @@
 #ifndef _CARGAR_UBICACIONES_H_
 #define _CARGAR_UBICACIONES_H_
-
 #include <fstream>
-#include <string.h>
-#include "../andypolis.h"
+#include "../mapa.h"
 #include "../materiales/piedra.h"
 #include "../materiales/madera.h"
 #include "../materiales/metal.h"
@@ -47,12 +45,21 @@ class Cargar_ubicaciones {
         *Pre:
         *Pos:
         */
-       Edificio* crear_edificio(std::string nombre, char jugador);
+        Edificio* crear_edificio(std::string nombre, char jugador);
+
         /*
         *Pre:
         *Pos:
         */
-       Material* crear_material(std::string nombre);
+        Material* crear_material(std::string nombre);
+
+    private:
+
+        /*
+        *Pre:
+        *Pos:
+        */
+        void procesar_archivo(std::ifstream & archivo_ubicaciones, Mapa* mapa, std::string nombre);
         
 };
 

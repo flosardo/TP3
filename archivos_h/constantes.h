@@ -136,6 +136,8 @@ const std::string LINEA_DIVISORIA_DISENIO = "══ð══ð══ð══ð═
 //JUGADORES
 const char JUGADOR_1 = 'J';
 const char JUGADOR_2 = 'U';
+const std::string NUMERO_JUGADOR_1 = "1";
+const std::string NUMERO_JUGADOR_2 = "2";
 const int MAX_COORDENADAS = 2;
 const int POSICION_FILA = 0;
 const int POSICION_COLUMNA = 1;

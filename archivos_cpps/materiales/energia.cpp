@@ -2,7 +2,10 @@
 
 using namespace std;
 
-Energia::Energia() {}
+Energia::Energia() {
+    this -> nombre = ENERGIA;
+    this -> cantidad = ENERGIA_INICIAL;
+}
 
 Energia::Energia(int cantidad_energia) {
     this -> nombre = ENERGIA;

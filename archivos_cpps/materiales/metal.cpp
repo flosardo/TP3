@@ -7,7 +7,10 @@ Metal::Metal(int cantidad_inventario) {
     this -> cantidad = cantidad_inventario;
 }
 
-Metal::Metal() {}
+Metal::Metal() {
+    this -> nombre = METAL;
+    this -> cantidad = CANTIDAD_PRODUCIDA_METAL;
+}
 
 void Metal::saludar() {
     cout << "Soy un metal, " << EMOJI_METAL << " y me encuentro en el casillero consultado." << endl;
