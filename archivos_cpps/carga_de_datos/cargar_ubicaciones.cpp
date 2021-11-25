@@ -9,29 +9,39 @@ Cargar_ubicaciones::Cargar_ubicaciones(){
 bool Cargar_ubicaciones::carga_ubicaciones(Mapa* mapa){
     ifstream archivo_ubicaciones(this -> archivo_ruta);
     bool existe_el_archivo = (bool) archivo_ubicaciones;
-    string fila;
-    string columna;
+    int fila;
+    int columna;
     string nombre;
-    int jugador = 0;
-    while(existe_el_archivo && !archivo_ubicaciones.eof()) {
-        getline(archivo_ubicaciones, nombre, '(');
-        getline(archivo_ubicaciones, fila, ',');
-        getline(archivo_ubicaciones, columna, ')');
+    string basura;
+    char convencion_jugador;
+    int numero_jugador = 0;
+    while(existe_el_archivo && getline(archivo_ubicaciones, nombre, '(')) {
+        archivo_ubicaciones >> fila;
+        archivo_ubicaciones >> basura;
+        archivo_ubicaciones >> columna;
+        archivo_ubicaciones >> basura;
         nombre.pop_back();
+        cout << nombre << " " << fila << " " << columna << endl;
         if (nombre == "1" || nombre == "2") {
-            jugador = stoi(nombre);
-            mapa -> posicionar_jugador(/*OBJETO JUGADOR*/);
+            if (nombre == "1") {
+                convencion_jugador = JUGADOR_1;
+            }
+            else {
+                convencion_jugador = JUGADOR_2;
+            }
+            numero_jugador = stoi(nombre);
+            mapa -> posicionar_jugador(new Jugador(fila, columna));
         }
-        else if (jugador) {
-            Edificio* edificio_creado = crear_edificio(nombre, jugador);//jugador tendria q ser char
-            mapa -> agregar_edificio_casillero(edificio_creado, stoi(fila), stoi(columna));
+        else if (numero_jugador) {
+            Edificio* edificio_creado = crear_edificio(nombre, convencion_jugador);
+            mapa -> agregar_edificio_casillero(edificio_creado, fila, columna);
         }
-
-        else{
+        else {
             Material* material_creado = crear_material(nombre);
-            mapa -> agregar_material_casillero(nombre, stoi(fila), stoi(columna));
+            mapa -> agregar_material_casillero(material_creado, fila, columna);
         }
     }
+    archivo_ubicaciones.close();
     return existe_el_archivo;
 }
 

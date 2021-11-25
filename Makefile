@@ -9,7 +9,7 @@ DIR_OBJETIVOS = archivos_cpps/objetivos/
 DIR_DATOS = archivos_cpps/carga_de_datos/
 
 main:
-	g++ $(CFLAGS) $(SRCDIR)*.cpp $(DIR_MATERIALES)*.cpp $(DIR_DATOS)*.cpp $(DIR_CONSTRUCCIONES)*.cpp $(DIR_CASILLEROS)*.cpp $(DIR_MENU)*.cpp $(DIR_OBJETIVOS)*.cpp -o Andypolis
+	g++ $(CFLAGS) $(SRCDIR)*.cpp $(DIR_MATERIALES)*.cpp $(DIR_DATOS)*.cpp $(DIR_CONSTRUCCIONES)*.cpp $(DIR_CASILLEROS)*.cpp $(DIR_MENU)*.cpp $(DIR_OBJETIVOS)*.cpp -g -o Andypolis
 
 valgrind: 
 	valgrind --tool=memcheck --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./Andypolis

@@ -11,7 +11,7 @@ using namespace std;
 
 Mapa::Mapa() {
     this -> cantidad_filas = 0;
-    this -> cantidad_filas = 0;
+    this -> cantidad_columnas = 0;
 }
 
 void Mapa::crear_mapa(int cantidad_filas, int cantidad_columnas) {
@@ -24,7 +24,13 @@ void Mapa::crear_mapa(int cantidad_filas, int cantidad_columnas) {
     }
 
     this -> inicializar_mapa();
+}
 
+void Mapa::inicializar_mapa(){
+    for (int fila = 0; fila < this -> cantidad_filas; fila++) {
+        for (int columna = 0; columna < this -> cantidad_columnas; columna++)
+            this -> mapa[fila][columna] = 0;
+    }
 }
 
 bool Mapa::es_posible_insertar_materiales(int cantidad_a_insertar) {
@@ -126,13 +132,6 @@ void Mapa::mostrar_mapa() {
     }
 }
 
-void Mapa::inicializar_mapa(){
-    for (int fila = 0; fila < this -> cantidad_filas; fila++) {
-        for (int columna = 0; columna < this -> cantidad_columnas; columna++)
-            this -> mapa[fila][columna] = 0;
-    }
-}
-
 void Mapa::llenar_casillero(char terreno, int fil, int col){
     if(terreno == LAGO)
         this -> mapa[fil][col] = new Casillero_inaccesible();
@@ -143,13 +142,13 @@ void Mapa::llenar_casillero(char terreno, int fil, int col){
 }
 
 void Mapa::posicionar_jugador(Jugador* jugador){
-    int* puntero_coordenadas = jugador -> devolver_coordenadas();
-    int fil = puntero_coordenadas[POSICION_FILA];
-    int col = puntero_coordenadas[POSICION_COLUMNA];
-    if((this -> mapa[fil][col] -> obtener_tipo_de_terreno() == TERRENO && !this -> mapa[fil][col] -> esta_ocupado()) && this -> mapa[fil][col] -> obtener_tipo_de_terreno() != LAGO) {
-        this -> mapa[fil][col] -> /*METODO PARA COLOCAR JUGADOR*/;
-    }
-    puntero_coordenadas = nullptr;
+    // int* puntero_coordenadas = jugador -> devolver_coordenadas();
+    // int fil = puntero_coordenadas[POSICION_FILA];
+    // int col = puntero_coordenadas[POSICION_COLUMNA];
+    // if((this -> mapa[fil][col] -> obtener_tipo_de_terreno() == TERRENO && !this -> mapa[fil][col] -> esta_ocupado()) && this -> mapa[fil][col] -> obtener_tipo_de_terreno() != LAGO) {
+    //     this -> mapa[fil][col] -> /*METODO PARA COLOCAR JUGADOR*/;
+    // }
+    // puntero_coordenadas = nullptr;
 }
 
 Mapa::~Mapa() {

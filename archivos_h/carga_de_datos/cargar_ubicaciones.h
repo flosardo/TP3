@@ -2,6 +2,7 @@
 #define _CARGAR_UBICACIONES_H_
 
 #include <fstream>
+#include <string.h>
 #include "../andypolis.h"
 #include "../materiales/piedra.h"
 #include "../materiales/madera.h"
