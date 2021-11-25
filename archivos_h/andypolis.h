@@ -2,6 +2,7 @@
 #define _ANDYPOLIS_H_
 
 #include "mapa.h"
+#include <iostream>
 
 class Andypolis{
     private:
