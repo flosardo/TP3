@@ -17,6 +17,8 @@ class Aserradero : public Edificio {
         */
         Aserradero(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
 
+        Aserradero(char jugador);
+
         // PRE:
         // POS: muestra por pantalla el saludo del edificio
         void mostrar_saludo();

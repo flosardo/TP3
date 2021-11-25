@@ -9,6 +9,12 @@ Fabrica::Fabrica(char jugador, unsigned int piedra_necesaria, unsigned int metal
     this -> nombre_material = METAL;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_FABRICA;
 }
+
+Fabrica::Fabrica(char jugador) {
+    this -> jugador = jugador;
+    this -> afectado = false;
+}
+
 void Fabrica::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy una fabrica y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }

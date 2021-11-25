@@ -17,6 +17,7 @@ class Fabrica : public Edificio {
         */
         Fabrica(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
 
+        Fabrica(char jugador);
         // PRE:
         // POS: muestra por pantalla el saludo del edificio
         void mostrar_saludo();

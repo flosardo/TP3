@@ -9,6 +9,12 @@ Planta_electrica::Planta_electrica(char jugador, unsigned int piedra_necesaria, 
     this -> nombre_material = VACIO;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_PLANTA_ELECTRICA;
 }
+
+Planta_electrica::Planta_electrica(char jugador) {
+    this -> jugador = jugador;
+    this -> afectado = false;
+}
+
 void Planta_electrica::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy una planta electrica y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }

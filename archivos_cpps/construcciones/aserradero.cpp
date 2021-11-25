@@ -9,6 +9,12 @@ Aserradero::Aserradero(char jugador, unsigned int piedra_necesaria, unsigned int
     this -> nombre_material = MADERA;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_ASERRADERO;
 }
+
+Aserradero::Aserradero(char jugador) {
+    this -> jugador = jugador;
+    this -> afectado = false;
+}
+
 void Aserradero::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy un aserradero y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }

@@ -17,6 +17,7 @@ class Escuela : public Edificio {
         */
         Escuela(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
 
+        Escuela(char jugador);
         // PRE:
         // POS: muestra por pantalla el saludo del edificio
         void mostrar_saludo();

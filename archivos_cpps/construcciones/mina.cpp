@@ -9,6 +9,12 @@ Mina::Mina(char jugador, unsigned int piedra_necesaria, unsigned int metal_neces
     this -> nombre_material = PIEDRA;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_MINA;
 }
+
+Mina::Mina(char jugador) {
+    this -> jugador = jugador;
+    this -> afectado = false;
+}
+
 void Mina::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy una mina y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }

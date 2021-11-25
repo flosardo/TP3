@@ -9,6 +9,12 @@ Obelisco::Obelisco(char jugador, unsigned int piedra_necesaria, unsigned int met
     this -> nombre_material = VACIO;
     this -> cantidad_material_producido = 0;
 }
+
+Obelisco::Obelisco(char jugador) {
+    this -> jugador = jugador;
+    this -> afectado = false;
+}
+
 void Obelisco::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy un obelisco y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }

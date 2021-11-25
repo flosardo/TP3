@@ -17,6 +17,7 @@ class Planta_electrica : public Edificio {
         */
         Planta_electrica(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
 
+        Planta_electrica(char jugador);
         // PRE:
         // POS: muestra por pantalla el saludo del edificio
         void mostrar_saludo();
