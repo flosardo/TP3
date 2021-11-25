@@ -3,7 +3,7 @@
 
 #include "../constantes.h"
 
-class Edificio {
+class Edificio{
 
     protected:
 
@@ -19,68 +19,70 @@ class Edificio {
     public:
 
         /*
-        * Post: Creará un objeto de tipo Edificio, con sus atributos cargados con valores por defecto.
+        *Post: Creará un objeto de tipo Edificio, con sus atributos cargados con valores por defecto.
         */
         Edificio();
 
         /*
-        * Post: Creará un objeto de tipo Edificio con los parametros jugador, piedra_necesaria, metal_necesario, madera_necesaria.
+        *Post: Creará un objeto de tipo Edificio con los parametros jugador, piedra_necesaria, metal_necesario, madera_necesaria.
         */
         Edificio(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
 
         /*
-        * Post: Devolverá el nombre del edificio.
+        *Post: Devolverá el nombre del edificio.
         */
         char obtener_nombre_del_edificio();
 
         /*
-        * Post: Devolverá el nombre del material que produce.
+        *Post: Devolverá el nombre del material que produce.
         */
         char obtener_nombre_del_material();
 
         /*
-        * Post: Devolverá la cantidad de material producido.
+        *Post: Devolverá la cantidad de material producido.
         */
         unsigned int obtener_cantidad_de_material_producido();
 
         /*
-        * Post: Devolverá la cantidad de maderá necesaria.
+        *Post: Devolverá la cantidad de maderá necesaria.
         */
         unsigned int obtener_cantidad_madera_necesaria();
 
         /*
-        * Post: Devolverá la cantidad de metal necesario.
+        *Post: Devolverá la cantidad de metal necesario.
         */
         unsigned int obtener_cantidad_metal_necesario();
 
         /*
-        * Post: Devolverá la cantidad de piedra necesaria.
+        *Post: Devolverá la cantidad de piedra necesaria.
         */
         unsigned int obtener_cantidad_piedra_necesaria();
 
         /*
-        * Post: Devolverá el jugador.
+        *Post: Devolverá el jugador.
         */
         char obtener_jugador();
 
         /*
-        * Post: Devolverá el estado del edificio.
+        *Post: Devolverá el estado del edificio.
         */
         bool esta_afectado();
 
         /*
-        * Post: Cambiará el estado de afectado del edificio.
+        *Post: Cambiará el estado de afectado del edificio.
         */
         void cambiar_estado_afectado();
-
-        // PRE:
-        // POS: muestra por pantalla el saludo del edificio
+        
+        /*
+        *Post: Muestra por pantalla el saludo del edificio
+        */
         virtual void mostrar_saludo() = 0;
 
         /*
-        * FALTA PONER CONDICIONES
+        *Pre: Liberara la memoria utilizada por el edificio a lo largo del programa.
         */
         virtual ~Edificio();
+
 };
 
-#endif // EDIFICIO_H_
+#endif //_EDIFICIO_H_

@@ -1,5 +1,5 @@
-#ifndef SYSTEM_H
-#define SYSTEM_H
+#ifndef SYSTEM_H_
+#define SYSTEM_H_
 
 #ifdef __linux__
 #define CLR_SCREEN "clear"
@@ -13,4 +13,4 @@
 #define CLR_SCREEN "clear"
 #endif // __APPLE__
 
-#endif
+#endif //_SYSTEM_H_

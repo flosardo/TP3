@@ -1,8 +1,8 @@
-#ifndef INVENTARIO_H
-#define INVENTARIO_H
+#ifndef _INVENTARIO_H_
+#define _INVENTARIO_H_
 #include "materiales/material.h"
 
-class Inventario {
+class Inventario{
 
     private:
 
@@ -11,33 +11,49 @@ class Inventario {
 
     public:
 
-        // Constructor
+        /*
+        *Post: Creará un objeto de tipo Inventario con sus valores por defecto.
+        */
         Inventario();
 
-        // PRE:
-        // POS: devuelve la cantidad de materiales
+        /*
+        *Post: Devolvera la cantidad de materiales.
+        */
         int obtener_cantidad_materiales();
 
-        // PRE:
-        // POS: devuelve un puntero al inventario
+        /*
+        *Post: Devuelve un puntero al inventario.
+        */
         Material** obtener_inventario();
 
-        // PRE: recibe el nombre del material
-        // POS: devuelve la posicion del material recibido
+        /*
+        *Pre: Recibe el nombre del materia válido.
+        *Post: Devuelve la posicion del material recibido
+        */
         int obtener_indice_del_material(char material);
 
+        /*
+        *Pre: Que el puntero material no sea null.
+        *Post: Agregará un material.
+        */
         void agregar_material(Material* material);
 
-        // PRE:
-        // POS: muestra el inventario
+        /*
+        *Post: Mostrará el inventario.
+        */
         void mostrar_inventario();
         
-        //PRE:
-        //POST:
+        /*
+        *Pre: Que el indice sea > 0.
+        *Post: Modificiará la cantidad del material.
+        */
         void modificar_cantidad_material(int indice, int cantidad);
 
-        // Destructor
+        /*
+        *Post: Liberará la memoria utilizada a lo largo del programa por inventario.
+        */
         ~Inventario();
+        
 };
 
-#endif // _INVENTARIO_H_
+#endif //_INVENTARIO_H_

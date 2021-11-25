@@ -2,19 +2,20 @@
 #define _MENU_CONFIGURACION_H_
 #include "menu.h"
 
-class Menu_configuracion: public Menu {
+class Menu_configuracion: public Menu{
 
     public:
 
         /*
-        FALTAN LAS CONDICIONES
+        *Post: Creará un objeto de tipo Menu_configuracion con sus valores por defecto.
         */
         Menu_configuracion();
         
         /*
-        FALTAN LAS CONDICIONES
+        *Post: Mostrará el menu de configuracion del juego.
         */
         void mostrar_menu();
+        
 };
 
 #endif //_MENU_CONFIGURACION_H_

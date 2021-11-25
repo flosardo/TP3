@@ -12,27 +12,27 @@ class Objetivo_constructor: public Objetivo{
     public:
 
         /*
-        * Post: Crea un objeto de tipo Objetivo_constructor, con los valores por defecto.
+        *Post: Crea un objeto de tipo Objetivo_constructor, con los valores por defecto.
         */
         Objetivo_constructor();
 
         /*
-        * Post: Mostrará el progreso por consola.
+        *Post: Mostrará el progreso por consola.
         */
         void mostrar_progreso();
 
         /*
-        *Post: 
+        *Post: devolverá true si se cumplio el objetivo constructor, ó false en caso contrario.
         */
         bool se_cumplio_el_objetivo(std::string nombre);
 
     private:
 
         /*
-        *Post: 
+        *Post: Cambiara el estado de construido.
         */
         void cambiar_estado_construido(std::string nombre);
 
 };
 
-#endif // _OBJETIVO_CONTRUCTOR_H_
+#endif //_OBJETIVO_CONTRUCTOR_H_

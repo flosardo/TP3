@@ -2,19 +2,20 @@
 #define _MENU_PARTIDA_H_
 #include "menu.h"
 
-class Menu_partida : public Menu {
+class Menu_partida : public Menu{
 
     public:
 
         /*
-        FALTAN LAS CONDICIONES
+        *Post: Creará un objeto de tipo Menu_partida con sus valores por defecto.
         */
         Menu_partida();
         
         /*
-        FALTAN LAS CONDICIONES
+        *Post: Mostrará el menu de partida del juego.
         */
         void mostrar_menu();
+        
 };
 
 #endif //_MENU_PARTIDA_H_

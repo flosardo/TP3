@@ -3,7 +3,7 @@
 #include <fstream>
 #include "../andypolis.h"
 
-class Cargar_mapa {
+class Cargar_mapa{
     
     private:
 
@@ -32,4 +32,4 @@ class Cargar_mapa {
         
 };
 
-#endif // _CARGAR_MAPA_H_
+#endif //_CARGAR_MAPA_H_

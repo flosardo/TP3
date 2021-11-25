@@ -2,7 +2,7 @@
 #define _MENU_H_
 #include "../constantes.h"
 
-class Menu {
+class Menu{
 
     protected:
 
@@ -11,14 +11,15 @@ class Menu {
     public:
 
         /*
-        FALTAN LAS CONDICIONES
+        *Post: Mostrará el menú que corresponda, según el comportamiento de cada hija.
         */
         virtual void mostrar_menu() = 0;
         
         /*
-        FALTAN LAS CONDICIONES
+        *Post: Pedira una opcion para procesar.
         */
         int pedir_opcion();
+        
 };
 
 #endif //_MENU_H_

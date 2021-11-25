@@ -22,9 +22,10 @@ class Objetivo_obelisco: public Objetivo{
         void mostrar_progreso();
 
         /*
-        *Post: 
+        *Post: Devolverá true si se construyo un obelisco, false en caso contrario.
         */
         bool se_cumplio_el_objetivo(std::string nombre);
+        
 };
 
-#endif // _OBJETIVO_OBELISCO_H_
+#endif //_OBJETIVO_OBELISCO_H_

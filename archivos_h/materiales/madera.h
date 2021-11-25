@@ -5,22 +5,28 @@
 
 class Madera : public Material{
 
-public:
+    public:
 
-    /*
-    * Post: Creará un objeto de tipo Madera con el parámetro cantidad_inventario.
-    */
-    Madera(int cantidad_inventario);
+        /*
+        *Post: Creará un objeto de tipo Madera con el parámetro cantidad_inventario.
+        */
+        Madera(int cantidad_inventario);
 
-    Madera();
+        /*
+        *Post: Creará un objeto de tipo Madera con sus valores por defecto.
+        */
+        Madera();
 
-    /*
-    * Post: Mostrará el estado en el que se encuentra el material.
-    */
-    void saludar();
+        /*
+        *Post: Mostrará el estado en el que se encuentra el material.
+        */
+        void saludar();
 
-    void mostrar_material();
+        /*
+        *Post: Mostrará el estado en el que se encuentra el material.
+        */
+        void mostrar_material();
     
 };
 
-#endif // _MADERA_H_
+#endif //_MADERA_H_

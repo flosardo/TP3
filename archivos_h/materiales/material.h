@@ -2,50 +2,50 @@
 #define _MATERIAL_H_
 #include "../constantes.h"
 
-class Material {
+class Material{
 
-protected:
+    protected:
 
-    char nombre;
-    int cantidad;
+        char nombre;
+        int cantidad;
 
-public:
+    public:
 
-    /*
-    * Post: Creará un objeto de tipo material, dejando sus atributos cargados con los valores por defecto.
-    */
-    Material();
+        /*
+        *Post: Creará un objeto de tipo material, dejando sus atributos cargados con los valores por defecto.
+        */
+        Material();
 
-    /*
-    * Post: Devolverá la cantidad de material.
-    */
-    int cantidad_material();
+        /*
+        *Post: Devolverá la cantidad de material.
+        */
+        int cantidad_material();
 
-    /*
-    * Post: Devolverá el tipo de material.
-    */
-    char obtener_nombre_material();
+        /*
+        *Post: Devolverá el tipo de material.
+        */
+        char obtener_nombre_material();
 
-    /*
-    * Post: Mostrará el estado en el que se encuentra el material.
-    */
-    virtual void mostrar_material() = 0;
+        /*
+        *Post: Mostrará el estado en el que se encuentra el material.
+        */
+        virtual void mostrar_material() = 0;
 
-    /*
-    * Post: Modificará la cantidad segun corresponda.
-    */
-    virtual void modificar_cantidad(int cantidad_a_modificar);
+        /*
+        *Post: Modificará la cantidad segun corresponda.
+        */
+        virtual void modificar_cantidad(int cantidad_a_modificar);
 
-    /*
-    * Post: Hace que las clases hijas muestren su saludo, según sea el comportamiento de cada hija.
-    */
-    virtual void saludar();
+        /*
+        *Post: Hace que las clases hijas muestren su saludo, según sea el comportamiento de cada hija.
+        */
+        virtual void saludar();
 
-    /*
-    * Post: Destruye el material, liberando la memoria utilizada por el mismo.
-    */
-    virtual ~Material();
+        /*
+        *Post: Destruye el material, liberando la memoria utilizada por el mismo.
+        */
+        virtual ~Material();
     
 };
 
-#endif // _MATERIAL_H_
+#endif //_MATERIAL_H_

@@ -23,9 +23,10 @@ class Objetivo_minero: public Objetivo{
         void mostrar_progreso();
 
         /*
-        *Post: 
+        *Post: Verificará si se cumplio el objetivo.
         */
         bool se_cumplio_el_objetivo(std::string nombre);
+
 };
 
-#endif // _OBJETIVO_MINERO_H_
+#endif //_OBJETIVO_MINERO_H_

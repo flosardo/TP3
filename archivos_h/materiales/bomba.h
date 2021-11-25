@@ -5,17 +5,23 @@
 
 class Bomba: public Material{
 
-public:
+    public:
 
-    /*
-    * Post: Creará un objeto de tipo Bomba con el parámetro cantidad_inventario.
-    */
-    Bomba(int cantidad_inventario);
+        /*
+        *Post: Creará un objeto de tipo Bomba con el parámetro cantidad_inventario.
+        */
+        Bomba(int cantidad_inventario);
 
-    Bomba();
+        /*
+        *Post: Creará un objeto bomba con sus valores por defecto.
+        */
+        Bomba();
 
-    void mostrar_material();
+        /*
+        *Post: Mostrará el estado en el que se encuentra el material.
+        */
+        void mostrar_material();
 
 };
 
-#endif // _BOMBA_H_
+#endif //_BOMBA_H_

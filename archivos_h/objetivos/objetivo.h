@@ -1,9 +1,9 @@
-#ifndef OBJETIVO_H
-#define OBJETIVO_H
+#ifndef _OBJETIVO_H_
+#define _OBJETIVO_H_
 
 #include "../constantes.h"
 
-class Objetivo {
+class Objetivo{
 
     protected:
 
@@ -32,15 +32,15 @@ class Objetivo {
         virtual bool se_cumplio_el_objetivo(int cantidad);
 
         /*
-        *Post: 
+        *Post: Devolverá true si se cumplio el objetivo o false en caso contrario.
         */
         virtual bool se_cumplio_el_objetivo(std::string nombre);
 
         /*
-        *Post: 
+        *Post: Cambiará el estado de construido del objetivo.
         */
         virtual void cambiar_estado_construido(std::string nombre);
 
 };
 
-#endif //_OBJETIVO_H
+#endif //_OBJETIVO_H_

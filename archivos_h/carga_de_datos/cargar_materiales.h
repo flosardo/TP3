@@ -10,7 +10,7 @@
 #include "../materiales/piedra.h"
 #include "../materiales/metal.h"
 
-class Cargar_materiales {
+class Cargar_materiales{
     
     private:
 
@@ -39,4 +39,4 @@ class Cargar_materiales {
         
 };
 
-#endif // _CARGAR_MATERIALES_H_
+#endif //_CARGAR_MATERIALES_H_

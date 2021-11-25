@@ -5,17 +5,23 @@
 
 class Andycoins: public Material{
 
-public:
+    public:
 
-    /*
-    * Post: Creará un objeto de tipo andycoins con el parámetro cantidad_inventario.
-    */
-    Andycoins(int cantidad_inventario);
-    
-    Andycoins();
+        /*
+        *Post: Creará un objeto de tipo andycoins con el parámetro cantidad_inventario.
+        */
+        Andycoins(int cantidad_inventario);
+        
+        /*
+        *Post: Creará un objeto de tipo andycoins con sus valores por defecto.
+        */
+        Andycoins();
 
-    void mostrar_material();
+        /*
+        *Post: Mostrara el estado en el que se encuentra el material.
+        */
+        void mostrar_material();
 
 };
 
-#endif // _ANDYCOINS_H_
+#endif //_ANDYCOINS_H_

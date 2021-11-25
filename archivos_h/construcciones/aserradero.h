@@ -3,25 +3,30 @@
 
 #include "edificio.h"
 
-class Aserradero : public Edificio {
+class Aserradero : public Edificio{
 
     public:
 
         /*
-        * Post: Creará un objeto de tipo Aserradero dejando sus atributos cargados con valores por defecto.
+         Post: Creará un objeto de tipo Aserradero dejando sus atributos cargados con valores por defecto.
         */
         Aserradero();
 
         /*
-        * Post: Creará un objeto de tipo Aserradero usando los parametros que recibe.
+        *Post: Creará un objeto de tipo Aserradero usando los parametros que recibe.
         */
         Aserradero(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
 
+        /*
+        *Post: Creará un objeto de tipo Aserradero usando los parámetros que recibe.
+        */
         Aserradero(char jugador);
 
-        // PRE:
-        // POS: muestra por pantalla el saludo del edificio
+        /*
+        *Post: Mostrará un saludo del edificio aserradero por consola.
+        */
         void mostrar_saludo();
+        
 };
 
-#endif // _ASERRADERO_H_
+#endif //_ASERRADERO_H_

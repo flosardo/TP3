@@ -3,7 +3,7 @@
 #include "inventario.h"
 #include "materiales/energia.h"
 
-class Jugador {
+class Jugador{
 
     private:
 
@@ -55,4 +55,4 @@ class Jugador {
 
 };
 
-#endif // _JUGADOR_H_
+#endif //_JUGADOR_H_
