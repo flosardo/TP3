@@ -17,7 +17,8 @@ bool Cargar_ubicaciones::carga_ubicaciones(Mapa* mapa){
         getline(archivo_ubicaciones, nombre, '(');
         getline(archivo_ubicaciones, fila, ',');
         getline(archivo_ubicaciones, columna, ')');
-        if (nombre == "1 " || nombre == "2 ") {
+        nombre.pop_back();
+        if (nombre == "1" || nombre == "2") {
             jugador = stoi(nombre);
             mapa -> posicionar_jugador(/*OBJETO JUGADOR*/);
         }
