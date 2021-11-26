@@ -7,7 +7,7 @@ using namespace std;
 
 Edificio::Edificio() {
     this -> jugador = VACIO;
-    this -> nombre_edificio = VACIO;
+    this -> representacion_edificio = VACIO;
     this -> nombre_material = VACIO;
     this -> cantidad_material_producido = 0;
     this -> piedra_necesaria = 0;
@@ -24,12 +24,12 @@ Edificio::Edificio(char jugador, unsigned int piedra_necesaria, unsigned int met
     this -> afectado = false;
 }
 
-char Edificio::obtener_nombre_del_edificio() {
-    return this -> nombre_edificio;
+char Edificio::obtener_representacion_del_edificio() {
+    return this -> representacion_edificio;
 }
 
-string Edificio::obtener_nombre_string() {
-    return this -> nombre_string_edificio;
+string Edificio::obtener_nombre_del_edificio() {
+    return this -> nombre_del_edificio;
 }
 
 char Edificio::obtener_nombre_del_material() {

@@ -12,7 +12,7 @@ void Abb::agregar_nodo(Nodo* nodo, Edificio* nuevo_edficio) {
     }
     else {
         Edificio* valor_raiz = nodo -> obtener_dato();
-        if (nuevo_edficio -> obtener_nombre_string() < valor_raiz -> obtener_nombre_string()) {
+        if (nuevo_edficio -> obtener_nombre_del_edificio() < valor_raiz -> obtener_nombre_del_edificio()) {
             agregar_nodo(nodo -> obtener_izq(), nuevo_edficio); 
         }
         else {

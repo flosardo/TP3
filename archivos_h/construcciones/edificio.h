@@ -8,14 +8,14 @@ class Edificio{
     protected:
 
         char jugador;
-        char nombre_edificio;
+        char representacion_edificio;
         char nombre_material;
         unsigned int cantidad_material_producido;
         unsigned int piedra_necesaria;
         unsigned int metal_necesario;
         unsigned int madera_necesaria;
         bool afectado;
-        std::string nombre_string_edificio;
+        std::string nombre_del_edificio;
 
     public:
 
@@ -30,9 +30,9 @@ class Edificio{
         Edificio(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
 
         /*
-        *Post: Devolverá el nombre del edificio.
+        *Post: Devolverá la representacion del edificio.
         */
-        char obtener_nombre_del_edificio();
+        char obtener_representacion_del_edificio();
 
         /*
         *Post: Devolverá el nombre del material que produce.
@@ -79,7 +79,10 @@ class Edificio{
         */
         virtual void mostrar_saludo() = 0;
 
-        std::string obtener_nombre_string();
+        /*
+        Pos: devuelve el nombre del edificio
+        */
+        std::string obtener_nombre_del_edificio();
 
         /*
         *Pre: Liberara la memoria utilizada por el edificio a lo largo del programa.

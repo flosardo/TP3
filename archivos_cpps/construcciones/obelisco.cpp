@@ -5,10 +5,10 @@ using namespace std;
 Obelisco::Obelisco() : Edificio(){}
 
 Obelisco::Obelisco(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria) : Edificio(jugador, piedra_necesaria, metal_necesario, madera_necesaria) {
-    this -> nombre_edificio = OBELISCO;
+    this -> representacion_edificio = OBELISCO;
     this -> nombre_material = VACIO;
     this -> cantidad_material_producido = 0;
-    this -> nombre_string_edificio = NOMBRE_OBELISCO;
+    this -> nombre_del_edificio = NOMBRE_OBELISCO;
 }
 
 Obelisco::Obelisco(char jugador) {
