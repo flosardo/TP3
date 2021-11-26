@@ -1,8 +1,7 @@
 #include "../../archivos_h/arbol/nodo.h"
 
-using namespace std;
 
-Nodo::Nodo(Edificio* edifcio) {
+Nodo::Nodo(Edificio* edificio) {
     this -> edificio = edificio;
     this -> der = nullptr;
     this -> izq = nullptr;
