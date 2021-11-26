@@ -14,7 +14,7 @@ void Menu_partida::mostrar_menu() {
     cout << "║                                           ║" << endl;
     cout << "║ 3. Demoler un edificio por coordenada     ║" << endl;
     cout << "║                                           ║" << endl;
-    cout << "║ 4. Aatcar un edificio por coordenada      ║" << endl;
+    cout << "║ 4. Atacar un edificio por coordenada      ║" << endl;
     cout << "║                                           ║" << endl;
     cout << "║ 5. Reparar un edificio por coordenada     ║" << endl;
     cout << "║                                           ║" << endl;
@@ -26,12 +26,12 @@ void Menu_partida::mostrar_menu() {
     cout << "║                                           ║" << endl;
     cout << "║ 9. Mostrar objetivos                      ║" << endl;
     cout << "║                                           ║" << endl;
-    cout << "║ 10. Recolectar recursos producidos        ║" << endl;
+    cout << "║ 10.Recolectar recursos producidos         ║" << endl;
     cout << "║                                           ║" << endl;
-    cout << "║ 11. Moverse a una coordenada              ║" << endl;
+    cout << "║ 11.Moverse a una coordenada               ║" << endl;
     cout << "║                                           ║" << endl;
-    cout << "║ 12. Finalizar turno                       ║" << endl;
+    cout << "║ 12.Finalizar turno                        ║" << endl;
     cout << "║                                           ║" << endl;
-    cout << "║ 13. Guardar y salir                       ║" << endl;
+    cout << "║ 13.Guardar y salir                        ║" << endl;
     cout << "╚═══════════════════════════════════════════╝" << endl;
 }
