@@ -8,6 +8,7 @@ Aserradero::Aserradero(char jugador, unsigned int piedra_necesaria, unsigned int
     this -> nombre_edificio = ASERRADERO;
     this -> nombre_material = MADERA;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_ASERRADERO;
+    this -> nombre_string_edificio = NOMBRE_ASERRADERO;
 }
 
 Aserradero::Aserradero(char jugador) {

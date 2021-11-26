@@ -15,6 +15,7 @@ class Edificio{
         unsigned int metal_necesario;
         unsigned int madera_necesaria;
         bool afectado;
+        std::string nombre_string_edificio;
 
     public:
 
@@ -77,6 +78,8 @@ class Edificio{
         *Post: Muestra por pantalla el saludo del edificio
         */
         virtual void mostrar_saludo() = 0;
+
+        std::string obtener_nombre_string();
 
         /*
         *Pre: Liberara la memoria utilizada por el edificio a lo largo del programa.

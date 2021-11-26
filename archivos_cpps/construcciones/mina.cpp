@@ -8,6 +8,7 @@ Mina::Mina(char jugador, unsigned int piedra_necesaria, unsigned int metal_neces
     this -> nombre_edificio = MINA;
     this -> nombre_material = PIEDRA;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_MINA;
+    this -> nombre_string_edificio = NOMBRE_MINA;
 }
 
 Mina::Mina(char jugador) {

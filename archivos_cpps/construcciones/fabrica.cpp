@@ -8,6 +8,7 @@ Fabrica::Fabrica(char jugador, unsigned int piedra_necesaria, unsigned int metal
     this -> nombre_edificio = FABRICA;
     this -> nombre_material = METAL;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_FABRICA;
+    this -> nombre_string_edificio = NOMBRE_FABRICA;
 }
 
 Fabrica::Fabrica(char jugador) {

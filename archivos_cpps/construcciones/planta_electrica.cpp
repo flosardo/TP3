@@ -8,6 +8,7 @@ Planta_electrica::Planta_electrica(char jugador, unsigned int piedra_necesaria, 
     this -> nombre_edificio = PLANTA_ELECTRICA;
     this -> nombre_material = VACIO;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_PLANTA_ELECTRICA;
+    this -> nombre_string_edificio = NOMBRE_PLANTA_ELECTRICA;
 }
 
 Planta_electrica::Planta_electrica(char jugador) {

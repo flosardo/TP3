@@ -3,6 +3,7 @@
 /*
  * EL DESTRUCTOR ESTA AL PEDO PORQUE NUNCA PEDIMOS MEMORIA PARA NINGUNO DE SUS ATRIBUTOS
 */
+using namespace std;
 
 Edificio::Edificio() {
     this -> jugador = VACIO;
@@ -25,6 +26,10 @@ Edificio::Edificio(char jugador, unsigned int piedra_necesaria, unsigned int met
 
 char Edificio::obtener_nombre_del_edificio() {
     return this -> nombre_edificio;
+}
+
+string Edificio::obtener_nombre_string() {
+    return this -> nombre_string_edificio;
 }
 
 char Edificio::obtener_nombre_del_material() {

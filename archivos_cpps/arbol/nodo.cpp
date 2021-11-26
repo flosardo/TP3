@@ -8,10 +8,10 @@ Nodo::Nodo(Edificio* edifcio) {
     this -> izq = nullptr;
 }
 
-Nodo* Nodo::obtener_izq(Nodo* nodo) {
+Nodo* Nodo::obtener_izq() {
     return this -> izq;
 }
-Nodo* Nodo::obtener_der(Nodo* nodo) {
+Nodo* Nodo::obtener_der() {
     return this -> der;
 }
 

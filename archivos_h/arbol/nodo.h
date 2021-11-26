@@ -11,9 +11,9 @@ class Nodo {
     public:
         Nodo(Edificio* edificio);
 
-        Nodo* obtener_izq(Nodo* nodo);
+        Nodo* obtener_izq();
 
-        Nodo* obtener_der(Nodo* nodo);
+        Nodo* obtener_der();
 
         Edificio* obtener_dato();
         

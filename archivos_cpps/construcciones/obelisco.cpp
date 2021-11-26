@@ -8,6 +8,7 @@ Obelisco::Obelisco(char jugador, unsigned int piedra_necesaria, unsigned int met
     this -> nombre_edificio = OBELISCO;
     this -> nombre_material = VACIO;
     this -> cantidad_material_producido = 0;
+    this -> nombre_string_edificio = NOMBRE_OBELISCO;
 }
 
 Obelisco::Obelisco(char jugador) {
