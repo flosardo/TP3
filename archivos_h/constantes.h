@@ -52,7 +52,7 @@ const int LIMITE_INFERIOR_PIEDRA = 1;
 const int LIMITE_SUPERIOR_PIEDRA = 2;
 const int CANTIDAD_PRODUCIDA_PIEDRA = 100;
 const int LIMITE_INFERIOR_MADERA = 0;
-const int LIMITE_SUPERIOR_MADERA =3;
+const int LIMITE_SUPERIOR_MADERA = 3;
 const int CANTIDAD_PRODUCIDA_MADERA = 50;
 const int LIMITE_INFERIOR_METAL = 2;
 const int LIMITE_SUPERIOR_METAL = 4;
@@ -148,5 +148,14 @@ const char TERRENO = 'T';
 const char CAMINO = 'C';
 const char BETUN = 'B';
 const char MUELLE = 'M';
+
+//COSTOS DE CAMINOS(energia)
+const int COSTO_CAMINO = 4;
+const int COSTO_BETUN = 0;
+const int COSTO_LAGO_JUGADOR_1 = 2;
+const int COSTO_LAGO_JUGADOR_2 = 5;
+const int COSTO_MUELLE_JUGADOR_1 = 5;
+const int COSTO_MUELLE_JUGADOR_2 = 2;
+const int COSTO_TERRENO = 4;
 
 #endif //_CONSTANTES_H_
