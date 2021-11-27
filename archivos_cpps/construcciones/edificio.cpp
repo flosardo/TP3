@@ -7,8 +7,9 @@ using namespace std;
 
 Edificio::Edificio() {
     this -> jugador = VACIO;
-    this -> representacion_edificio = VACIO;
+    this -> nombre_del_edificio = VACIO;
     this -> nombre_material = VACIO;
+    this -> codigo_emoji = VACIO;
     this -> cantidad_material_producido = 0;
     this -> piedra_necesaria = 0;
     this -> metal_necesario = 0;
@@ -21,18 +22,19 @@ Edificio::Edificio(char jugador, unsigned int piedra_necesaria, unsigned int met
     this -> piedra_necesaria = piedra_necesaria;
     this -> metal_necesario = metal_necesario;
     this -> madera_necesaria = madera_necesaria;
+    this -> codigo_emoji = VACIO;
     this -> afectado = false;
 }
 
-char Edificio::obtener_representacion_del_edificio() {
-    return this -> representacion_edificio;
+string Edificio::obtener_codigo_emoji() {
+    return this -> codigo_emoji;
 }
 
 string Edificio::obtener_nombre_del_edificio() {
     return this -> nombre_del_edificio;
 }
 
-char Edificio::obtener_nombre_del_material() {
+string Edificio::obtener_nombre_del_material() {
     return this -> nombre_material;
 }
 
@@ -63,5 +65,3 @@ bool Edificio::esta_afectado() {
 void Edificio::cambiar_estado_afectado() {
     this -> afectado = !this -> afectado;
 }
-
-Edificio::~Edificio() {};

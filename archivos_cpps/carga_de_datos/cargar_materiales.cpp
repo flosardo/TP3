@@ -27,16 +27,16 @@ void Cargar_materiales::procesar_archivo(string nombre, int cantidad_jugador_1, 
     Material* material_jugador_1 = 0;
     Material* material_jugador_2 = 0;
 
-    if (nombre == NOMBRE_ANDYCOINS) {
+    if (nombre == ANDYCOINS) {
         material_jugador_1 = new Andycoins(cantidad_jugador_1);
         material_jugador_2 = new Andycoins(cantidad_jugador_2);
-    } else if (nombre == NOMBRE_MADERA) {
+    } else if (nombre == MADERA) {
         material_jugador_1 = new Madera(cantidad_jugador_1);
         material_jugador_2 = new Madera(cantidad_jugador_2);
-    } else if (nombre == NOMBRE_METAL) {
+    } else if (nombre == METAL) {
         material_jugador_1 = new Metal(cantidad_jugador_1);
         material_jugador_2 = new Metal(cantidad_jugador_2);
-    } else if (nombre == NOMBRE_PIEDRA) {
+    } else if (nombre == PIEDRA) {
         material_jugador_1 = new Piedra(cantidad_jugador_1);
         material_jugador_2 = new Piedra(cantidad_jugador_2);
     } else {

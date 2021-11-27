@@ -5,15 +5,16 @@ using namespace std;
 Fabrica::Fabrica() : Edificio() {}
 
 Fabrica::Fabrica(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria) : Edificio(jugador, piedra_necesaria, metal_necesario, madera_necesaria) {
-    this -> representacion_edificio = FABRICA;
     this -> nombre_material = METAL;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_FABRICA;
     this -> nombre_del_edificio = NOMBRE_FABRICA;
+    this -> codigo_emoji = EMOJI_FABRICA;
 }
 
 Fabrica::Fabrica(char jugador) {
     this -> jugador = jugador;
     this -> afectado = false;
+    this -> codigo_emoji = EMOJI_FABRICA;
 }
 
 void Fabrica::mostrar_saludo() {

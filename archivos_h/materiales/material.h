@@ -6,8 +6,9 @@ class Material{
 
     protected:
 
-        char nombre;
+        std::string nombre;
         int cantidad;
+        std::string codigo_emoji;
 
     public:
 
@@ -24,7 +25,7 @@ class Material{
         /*
         *Post: Devolverá el tipo de material.
         */
-        char obtener_nombre_material();
+        std::string obtener_nombre_material();
 
         /*
         *Post: Mostrará el estado en el que se encuentra el material.
@@ -40,11 +41,6 @@ class Material{
         *Post: Hace que las clases hijas muestren su saludo, según sea el comportamiento de cada hija.
         */
         virtual void saludar();
-
-        /*
-        *Post: Destruye el material, liberando la memoria utilizada por el mismo.
-        */
-        virtual ~Material();
     
 };
 

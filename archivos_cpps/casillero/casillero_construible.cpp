@@ -41,7 +41,3 @@ void Casillero_construible::limpiar_casillero() {
 bool Casillero_construible::esta_ocupado() {
     return (bool) this -> edificio;
 }
-
-Casillero_construible::~Casillero_construible() {
-    delete this -> edificio;
-}

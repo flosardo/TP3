@@ -5,11 +5,13 @@ using namespace std;
 Energia::Energia() {
     this -> nombre = ENERGIA;
     this -> cantidad = ENERGIA_INICIAL;
+    this -> codigo_emoji = EMOJI_ENERGIA;
 }
 
 Energia::Energia(int cantidad_energia) {
     this -> nombre = ENERGIA;
     this -> cantidad = cantidad_energia;
+    this -> codigo_emoji = EMOJI_ENERGIA;
 }
 
 void Energia::modificar_cantidad(int cantidad_a_modificar){

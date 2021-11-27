@@ -4,17 +4,12 @@
 #include <iostream>
 
 //MATERIALES
-const std::string NOMBRE_PIEDRA = "piedra";
-const std::string NOMBRE_METAL = "metal";
-const std::string NOMBRE_MADERA = "madera";
-const std::string NOMBRE_BOMBA = "bombas";
-const std::string NOMBRE_ANDYCOINS = "andycoins";
-const char PIEDRA = 'S';
-const char METAL = 'I';
-const char MADERA = 'W';
-const char BOMBA = 'Z';
-const char ANDYCOINS = 'C';
-const char ENERGIA = 'X';
+const std::string PIEDRA = "piedra";
+const std::string METAL = "metal";
+const std::string MADERA = "madera";
+const std::string BOMBA = "bombas";
+const std::string ANDYCOINS = "andycoins";
+const std::string ENERGIA = "energia";
 const char VACIO = ' ';
 const int MATERIALES_DISPONIBLES = 5;
 const int BRINDAR_MATERIALES_MINA = 15; //piedras
@@ -79,13 +74,6 @@ const std::string RUTA_MAPA = "archivos_de_texto/mapa.txt";
 const std::string RUTA_UBICACIONES = "archivos_de_texto/ubicaciones.txt";
 
 //EDIFICIOS
-const char FABRICA = 'F';
-const char OBELISCO = 'O';
-const char MINA_ORO = 'G';
-const char PLANTA_ELECTRICA = 'P';
-const char ESCUELA = 'E';
-const char MINA = 'M';
-const char ASERRADERO = 'A';
 const int MAX_EDIFICIOS_DISPONIBLES = 7;
 const int ENERGIA_CONSTRUIR_EDIFICIO = 15;
 const int ENERGIA_DEMOLER_EDIFICIO_COORDENADA = 15;

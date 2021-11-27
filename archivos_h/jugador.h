@@ -46,7 +46,7 @@ class Jugador{
         *Pre: Que la cantidad sea >= 0, y el material sea un materia válido que pertenezca al juego.
         *Post: Modificará el inventario.
         */
-        void modificar_inventario(char material, int cantidad);
+        void modificar_inventario(std::string material, int cantidad);
 
         /*
         *Post: Liberará la memoria usada durante la creacion del objeto Jugador.

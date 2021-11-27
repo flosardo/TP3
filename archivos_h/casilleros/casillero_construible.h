@@ -49,20 +49,10 @@ class Casillero_construible: public Casillero{
         void limpiar_casillero();
 
         /*
-        *Post: Devolvera el nombre del casillero.
-        */
-        char obtener_nombre_edificio();
-
-        /*
         *Post: Devolverá la cantidad material producido.
         */
         unsigned int cantidad_material_producido();
 
-        /*
-        *Post: Destruíra el casillero, liberando la memoria utilizada.
-        */
-        ~Casillero_construible();
-        
 };
 
 #endif //_CASILLERO_CONSTRUIBLE_H_

@@ -1,11 +1,14 @@
 #include "../../archivos_h/materiales/material.h"
 
+using namespace std;
+
 Material::Material(){
     this -> nombre = VACIO;
+    this -> codigo_emoji = VACIO;
     this -> cantidad = 0;
 }
 
-char Material::obtener_nombre_material() {
+string Material::obtener_nombre_material() {
     return this -> nombre;
 }
 
@@ -18,5 +21,3 @@ void Material::modificar_cantidad(int cantidad_a_modificar) {
 }
 
 void Material::saludar() {}
-
-Material::~Material() {}

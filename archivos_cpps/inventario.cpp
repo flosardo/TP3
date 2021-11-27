@@ -15,7 +15,7 @@ Material** Inventario::obtener_inventario() {
     return this -> inventario;
 }
 
-int Inventario::obtener_indice_del_material(char material) {
+int Inventario::obtener_indice_del_material(string material) {
     int indice = 0;
     while (this -> inventario[indice] -> obtener_nombre_material() != material) {
         indice++;
@@ -40,10 +40,8 @@ void Inventario::modificar_cantidad_material(int indice, int cantidad) {
 }
 
 Inventario::~Inventario() {
-    for (int i = 0; i < this -> cantidad_materiales; i++) {
-        delete this -> inventario[i];
-        this -> inventario[i] = 0;
-    }
+    for (int i = 0; i < this -> cantidad_materiales; i++)
+        this -> inventario[i] = nullptr;
 
     delete [] this -> inventario;
     this -> inventario = nullptr;

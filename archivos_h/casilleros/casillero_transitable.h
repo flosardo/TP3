@@ -47,16 +47,6 @@ class Casillero_transitable: public Casillero{
         *Post: Limpiará el contenido que hay en el casillero.
         */
         void limpiar_casillero();
-
-        /*
-        *Post: Devolvera el nombre del casillero.
-        */
-        char nombre_casillero();
-
-        /*
-        *Post: Destruirá el Casillero, liberando la memoria utilizada por el mismo.
-        */
-        ~Casillero_transitable();
         
 };
 

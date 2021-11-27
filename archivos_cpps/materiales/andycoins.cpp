@@ -5,11 +5,13 @@ using namespace std;
 Andycoins::Andycoins(int cantidad_inventario) {
     this -> nombre = ANDYCOINS;
     this -> cantidad = cantidad_inventario;
+    this -> codigo_emoji = EMOJI_ANDYCOIN;
 }
 
 Andycoins::Andycoins() {
     this -> nombre = ANDYCOINS;
     this -> cantidad = CANTIDAD_PRODUCIDA_ANDYCOINS;
+    this -> codigo_emoji = EMOJI_ANDYCOIN;
 }
 
 void Andycoins::mostrar_material() {

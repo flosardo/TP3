@@ -30,7 +30,7 @@ class Inventario{
         *Pre: Recibe el nombre del materia válido.
         *Post: Devuelve la posicion del material recibido
         */
-        int obtener_indice_del_material(char material);
+        int obtener_indice_del_material(std::string material);
 
         /*
         *Pre: Que el puntero material no sea null.

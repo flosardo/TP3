@@ -1,5 +1,7 @@
 #include "../archivos_h/jugador.h"
 
+using namespace std;
+
 Jugador::Jugador(int coordenada_x, int coordenada_y) {
     this -> energia = ENERGIA_INICIAL;
     this -> coordenadas = new int [MAX_COORDENADAS];
@@ -24,7 +26,7 @@ void Jugador::cargar_material(Material* material) {
     this -> inventario -> agregar_material(material);
 }
 
-void Jugador::modificar_inventario(char material, int cantidad) {
+void Jugador::modificar_inventario(string material, int cantidad) {
     int indice = this -> inventario -> obtener_indice_del_material(material);
     this -> inventario -> modificar_cantidad_material(indice, cantidad);
 }

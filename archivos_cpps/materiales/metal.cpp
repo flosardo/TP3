@@ -5,11 +5,13 @@ using namespace std;
 Metal::Metal(int cantidad_inventario) {
     this -> nombre = METAL;
     this -> cantidad = cantidad_inventario;
+    this -> codigo_emoji = EMOJI_METAL;
 }
 
 Metal::Metal() {
     this -> nombre = METAL;
     this -> cantidad = CANTIDAD_PRODUCIDA_METAL;
+    this -> codigo_emoji = EMOJI_METAL;
 }
 
 void Metal::saludar() {

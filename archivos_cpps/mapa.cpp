@@ -2,13 +2,6 @@
 
 using namespace std;
 
-/*
-* EN LOS CASOS QUE TENEMOS this -> mapa[coord_x][coord_y] CREO QUE DEBERÍAN IR AL REVÉS
-  SUPONIENDO QUE TENGAMOS QUE LA FILA ES LA COORD_Y Y LA COLUMNA LA COORD_X 
-
-* EL MOSTRAR MAPA HABRÍA QUE CAMBIARLO POR EL QUE ESTA EN EL TRABAJO DE BRAYAN Y EZE
-*/
-
 Mapa::Mapa() {
     this -> cantidad_filas = 0;
     this -> cantidad_columnas = 0;
@@ -104,25 +97,21 @@ bool Mapa::se_puede_construir(int coord_x, int coord_y) {
 
 void Mapa::mostrar_mapa() {
     for (int fila = 0; fila < this -> cantidad_filas; fila++) {
-        for (int columna = 0; columna < this -> cantidad_columnas; columna++) {
+        for (int columna = 0; columna < this -> cantidad_columnas; columna++){
             char tipo = this -> mapa[fila][columna] -> obtener_tipo_de_terreno();
-            if (!this -> mapa[fila][columna] -> esta_ocupado()) {
-                if (tipo == CAMINO) {
+            if (!this -> mapa[fila][columna] -> esta_ocupado()){
+                if (tipo == CAMINO)
                     cout << FONDO_GRIS + ' ';
-                }
-                else if (tipo == TERRENO) {
+                else if (tipo == TERRENO) 
                     cout << FONDO_VERDE + ' ';
-                }
-                else {
+                else
                     cout << FONDO_AZUL + ' ';
-                }
-            }
-            else if (this -> mapa[fila][columna] -> obtener_tipo_de_terreno() == TERRENO) {
+    
+            }else if (this -> mapa[fila][columna] -> obtener_tipo_de_terreno() == TERRENO) 
                 cout << FONDO_VERDE + this -> mapa[fila][columna] -> obtener_puntero_edificio() -> obtener_nombre_del_edificio();
-            }
-            else {
+            else 
                 cout << FONDO_GRIS + this -> mapa[fila][columna] -> obtener_puntero_material() -> obtener_nombre_material();
-            }
+
             cout << COLOR_POR_DEFECTO;
         }
         cout << endl;
