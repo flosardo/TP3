@@ -170,7 +170,7 @@ const int COSTO_MUELLE_JUGADOR_2 = 2;
 const int COSTO_TERRENO = 4;
 
 //MENSAJES ASCII
-const std::string MENU_CONFIGURACION = R"(
+const char MENU_CONFIGURACION[559] = R"(
                                               __ _                            _             
   /\/\   ___ _ __  _   _      ___ ___  _ __  / _(_) __ _ _   _ _ __ __ _  ___(_) ___  _ __ 
  /    \ / _ \ '_ \| | | |    / __/ _ \| '_ \| |_| |/ _` | | | | '__/ _` |/ __| |/ _ \| '_ \ 
@@ -179,7 +179,7 @@ const std::string MENU_CONFIGURACION = R"(
                                                    |___/                                    
 )";
 
-const std::string MENU_PARTIDA = R"(
+const char MENU_PARTIDA[392] = R"(
                                               _   _     _       
   /\/\   ___ _ __  _   _     _ __   __ _ _ __| |_(_) __| | __ _ 
  /    \ / _ \ '_ \| | | |   | '_ \ / _` | '__| __| |/ _` |/ _` |
