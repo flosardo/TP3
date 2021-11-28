@@ -7,7 +7,7 @@
 #include "../archivos_h/mapa.h"
 using namespace std;
 int main(){
-    Menu_partida c;
+    Menu_configuracion c;
     c.mostrar_menu();
     Cargar_ubicaciones car;
     Mapa map;

@@ -1,5 +1,5 @@
 ﻿CC = g++
-CFLAGS = -std=c++17 -Wall -Werror -Wconversion
+CFLAGS = -std=c++11 -Wall -Werror -Wconversion
 SRCDIR = archivos_cpps/
 DIR_MATERIALES = archivos_cpps/materiales/
 DIR_CONSTRUCCIONES = archivos_cpps/construcciones/
@@ -13,4 +13,4 @@ main:
 	g++ $(CFLAGS) $(SRCDIR)*.cpp $(DIR_MATERIALES)*.cpp $(DIR_DATOS)*.cpp $(DIR_CONSTRUCCIONES)*.cpp $(DIR_CASILLEROS)*.cpp $(DIR_MENU)*.cpp $(DIR_OBJETIVOS)*.cpp $(DIR_ABB)*.cpp -o Andypolis
 
 valgrind: 
-	valgrind --tool=memcheck --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./Andypolis
+	valgrind --tool=memcheck --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./andypolis

@@ -21,10 +21,10 @@ void Cargar_edificios::carga_edificios(Abb* arbol){
 }
 
 void Cargar_edificios::procesar_archivo(std::ifstream & archivo_edificios, Abb* arbol, string nombre_edificio){
-    int piedra_necesaria;
-    int madera_necesaria;
-    int metal_necesario;
-    int permitidos;
+    unsigned int piedra_necesaria;
+    unsigned int madera_necesaria;
+    unsigned int metal_necesario;
+    unsigned int permitidos;
     archivo_edificios >> piedra_necesaria;
     archivo_edificios >> madera_necesaria;
     archivo_edificios >> metal_necesario;
