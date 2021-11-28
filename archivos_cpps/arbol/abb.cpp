@@ -6,6 +6,10 @@ Abb::Abb(Nodo* nodo) {
     this -> raiz = nodo;
 }
 
+void Abb::agregar_nodo(Edificio* nuevo_edficio) {
+    this -> agregar_nodo(this -> raiz, nuevo_edficio);
+}
+
 void Abb::agregar_nodo(Nodo* nodo, Edificio* nuevo_edficio) {
     if (nodo == nullptr) {
         nodo = new Nodo(nuevo_edficio);
@@ -20,4 +24,5 @@ void Abb::agregar_nodo(Nodo* nodo, Edificio* nuevo_edficio) {
         }
     }
 }
+
 Abb::~Abb() {}

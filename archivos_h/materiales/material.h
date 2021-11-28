@@ -28,6 +28,11 @@ class Material{
         std::string obtener_nombre_material();
 
         /*
+        *Post: Devolverá el codigo del emoji.
+        */
+        std::string obtener_codigo_emoji();
+
+        /*
         *Post: Mostrará el estado en el que se encuentra el material.
         */
         virtual void mostrar_material() = 0;

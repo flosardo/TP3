@@ -13,6 +13,7 @@ class Edificio{
         unsigned int piedra_necesaria;
         unsigned int metal_necesario;
         unsigned int madera_necesaria;
+        unsigned int permitidos;
         bool afectado;
         std::string nombre_del_edificio;
         std::string codigo_emoji;
@@ -27,7 +28,7 @@ class Edificio{
         /*
         *Post: Creará un objeto de tipo Edificio con los parametros jugador, piedra_necesaria, metal_necesario, madera_necesaria.
         */
-        Edificio(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
+        Edificio(unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria, unsigned int permitidos);
 
         /*
         *Post: Devolverá la representacion del edificio.

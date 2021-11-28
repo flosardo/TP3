@@ -15,7 +15,7 @@ class Planta_electrica : public Edificio{
         /*
         *Post: Creará un objeto de tipo Planta_electrica con los parámetros recibidos.
         */
-        Planta_electrica(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria);
+        Planta_electrica(unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria, unsigned int permitidos);
 
         /*
         *Post: Creará un objeto de tipo Planta_electrica usando los parámetros que recibe.

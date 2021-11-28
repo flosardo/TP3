@@ -5,7 +5,7 @@ using namespace std;
 Mapa::Mapa() {
     this -> cantidad_filas = 0;
     this -> cantidad_columnas = 0;
-    mapa = 0;
+    mapa = nullptr;
 }
 
 void Mapa::crear_mapa(int cantidad_filas, int cantidad_columnas) {
@@ -19,7 +19,7 @@ void Mapa::inicializar_mapa(){
     for (int fila = 0; fila < this -> cantidad_filas; fila++) {
         this -> mapa[fila] = new Casillero*[this -> cantidad_columnas];
         for(int columna = 0; columna < this -> cantidad_columnas; columna++)
-            mapa[fila][columna] = 0;
+            mapa[fila][columna] = nullptr;
     }
 }
 
@@ -29,9 +29,9 @@ bool Mapa::es_posible_insertar_materiales(int cantidad_a_insertar) {
     while (cantidad_a_insertar > 0 && fila < this -> cantidad_filas) {
         columna = 0;
         while (cantidad_a_insertar > 0 && columna < this -> cantidad_columnas) {
-            if ((this -> mapa[fila][columna] -> obtener_tipo_de_terreno() == CAMINO || this -> mapa[fila][columna] -> obtener_tipo_de_terreno() == BETUN || this -> mapa[fila][columna] -> obtener_tipo_de_terreno() == MUELLE) && !this -> mapa[fila][columna] -> esta_ocupado()) {
+            if ((this -> mapa[fila][columna] -> obtener_tipo_de_terreno() == CAMINO || this -> mapa[fila][columna] -> obtener_tipo_de_terreno() == BETUN || this -> mapa[fila][columna] -> obtener_tipo_de_terreno() == MUELLE) && !this -> mapa[fila][columna] -> esta_ocupado())
                 cantidad_a_insertar--;
-            }
+            
             columna++;
         }
         fila++;
@@ -41,14 +41,14 @@ bool Mapa::es_posible_insertar_materiales(int cantidad_a_insertar) {
 }
 
 int* Mapa::generar_coordenadas_validas() {
-    int* coordenadas_validas = 0;
+    int* coordenadas_validas = nullptr;
     while (!coordenadas_validas) {
         int coord_x = (rand() % this -> cantidad_filas);
         int coord_y = (rand() % this -> cantidad_columnas);
         if ((this -> mapa[coord_x][coord_y] -> obtener_tipo_de_terreno() == CAMINO || this -> mapa[coord_x][coord_y] -> obtener_tipo_de_terreno() == BETUN || this -> mapa[coord_x][coord_y] -> obtener_tipo_de_terreno() == MUELLE) && !this -> mapa[coord_x][coord_y] -> esta_ocupado()) {
-            coordenadas_validas = new int[2];
-            coordenadas_validas[0] = coord_x;
-            coordenadas_validas[1] = coord_y;
+            coordenadas_validas = new int[MAX_COORDENADAS];
+            coordenadas_validas[POSICION_COLUMNA] = coord_x;
+            coordenadas_validas[POSICION_FILA] = coord_y;
         }
     }
 
@@ -87,30 +87,23 @@ void Mapa::consultar_coordenada(int coord_x, int coord_y) {
     if (!coordenadas_fuera_de_rango(coord_x, coord_y)) {
         this -> mapa[coord_x][coord_y] -> mostrar();
     }else {
-        cout << COLOR_ROJO << "Oops, intentaste acceder a una coordenada fuera de rango, intenta nuevamente" << COLOR_POR_DEFECTO <<endl;
+        cout << COLOR_ROJO << "Oops!, intentaste acceder a una coordenada fuera de rango, intenta nuevamente" << COLOR_POR_DEFECTO <<endl;
     }
 }
 
 bool Mapa::se_puede_construir(int coord_x, int coord_y) {
-    return this -> mapa[coord_x][coord_y] -> obtener_tipo_de_terreno() == 'T';
+    return this -> mapa[coord_x][coord_y] -> obtener_tipo_de_terreno() == TERRENO;
 }
 
 void Mapa::mostrar_mapa() {
     for (int fila = 0; fila < this -> cantidad_filas; fila++) {
         for (int columna = 0; columna < this -> cantidad_columnas; columna++){
-            char tipo = this -> mapa[fila][columna] -> obtener_tipo_de_terreno();
-            if (!this -> mapa[fila][columna] -> esta_ocupado()){
-                if (tipo == CAMINO)
-                    cout << FONDO_GRIS + ' ';
-                else if (tipo == TERRENO) 
-                    cout << FONDO_VERDE + ' ';
-                else
-                    cout << FONDO_AZUL + ' ';
-    
-            }else if (this -> mapa[fila][columna] -> obtener_tipo_de_terreno() == TERRENO) 
-                cout << FONDO_VERDE + this -> mapa[fila][columna] -> obtener_puntero_edificio() -> obtener_nombre_del_edificio();
+            if (!this -> mapa[fila][columna] -> esta_ocupado())
+                cout << mapa[fila][columna] -> obtener_color() + VACIO;
+            else if (this -> mapa[fila][columna] -> obtener_tipo_de_terreno() == TERRENO) 
+                cout << mapa[fila][columna] -> obtener_color() + this -> mapa[fila][columna] -> obtener_puntero_edificio() -> obtener_codigo_emoji();
             else 
-                cout << FONDO_GRIS + this -> mapa[fila][columna] -> obtener_puntero_material() -> obtener_nombre_material();
+                cout << mapa[fila][columna] -> obtener_color() + this -> mapa[fila][columna] -> obtener_puntero_material() -> obtener_codigo_emoji();
 
             cout << COLOR_POR_DEFECTO;
         }
@@ -145,5 +138,5 @@ Mapa::~Mapa() {
         delete [] this -> mapa[fila];
     }
     delete [] this -> mapa;
-    this -> mapa = 0;
+    this -> mapa = nullptr;
 }

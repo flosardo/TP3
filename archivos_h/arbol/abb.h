@@ -18,11 +18,17 @@ class Abb{
         Abb(Nodo* raiz);
 
         /*
+        *Pre: Que el parametro no sean null.
+        *Post: Agregará un nodo en la clase Abb.
+        */
+        void agregar_nodo(Edificio* nuevo_edficio);
+
+        /*
         *Pre: Que los parametros no sean null.
         *Post: Agregará un nodo en la clase Abb.
         */
         void agregar_nodo(Nodo* raiz, Edificio* nuevo_edificio);
-        
+
         /*
         *Post: Liberará la memoria utilizada por la clase a lo largo del programa.
         */

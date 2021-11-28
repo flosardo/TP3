@@ -3,6 +3,7 @@
 using namespace std;
 
 Casillero_inaccesible::Casillero_inaccesible() {
+    this -> codigo_color = FONDO_AZUL;
     this -> tipo_terreno = LAGO;
 }
 

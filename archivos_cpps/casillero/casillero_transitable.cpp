@@ -5,10 +5,12 @@ using namespace std;
 Casillero_transitable::Casillero_transitable() {
     this -> material = nullptr;
     this -> tipo_terreno = CAMINO;
+    this -> codigo_color = FONDO_GRIS;
 }
 
 Casillero_transitable::Casillero_transitable(Material* material) {
     this -> material = material;
+    this -> codigo_color = FONDO_GRIS;
 }
 
 void Casillero_transitable::mostrar() {

@@ -5,10 +5,12 @@ using namespace std;
 Casillero_construible::Casillero_construible() {
     this -> edificio = nullptr;
     this -> tipo_terreno = TERRENO;
+    this -> codigo_color = FONDO_VERDE;
 }
 
 Casillero_construible::Casillero_construible(Edificio* edificio) {
     this -> edificio = edificio;
+    this -> codigo_color = FONDO_VERDE;
 }
 
 void Casillero_construible::mostrar() {

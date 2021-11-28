@@ -10,6 +10,7 @@ class Casillero{
     protected:
 
         char tipo_terreno;
+        std::string codigo_color;
 
     public:
 
@@ -22,6 +23,11 @@ class Casillero{
         *Post: Devolverá el tipo de terreno del casillero.
         */
         char obtener_tipo_de_terreno();
+
+        /*
+        *Post: Devolverá el codigo del color del casillero.
+        */
+        std::string obtener_color();
 
         /*
         *Post: Hace que las clases hijas muestren el casillero, según sea el comportamiento de cada hija.

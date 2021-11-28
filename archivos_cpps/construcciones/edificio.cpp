@@ -17,8 +17,8 @@ Edificio::Edificio() {
     this -> afectado = false;
 }
 
-Edificio::Edificio(char jugador, unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria) {
-    this -> jugador = jugador;
+Edificio::Edificio(unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria, unsigned int permitidos){
+    this -> permitidos = permitidos;
     this -> piedra_necesaria = piedra_necesaria;
     this -> metal_necesario = metal_necesario;
     this -> madera_necesaria = madera_necesaria;
