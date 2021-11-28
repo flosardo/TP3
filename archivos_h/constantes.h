@@ -35,6 +35,29 @@ const std::string FONDO_AZUL = "\033[48;5;27m";
 const std::string FONDO_VERDE = "\033[48;5;2m";
 const std::string FONDO_GRIS = "\033[48;5;240m";
 
+//EMOJIS MENUS
+//PRIMER MENU
+const std::string EMOJI_MODIFICAR_EDIFICIO_POR_NOMBRE = "\u270D";
+const std::string EMOJI_LISTAR_TODOS_LOS_EDIFICIOS = "\U0001f3d9";
+const std::string EMOJI_MOSTRAR_MAPA = "\U0001f30e";
+const std::string EMOJI_COMENZAR_PARTIDA = "\U0001f7e2";
+
+//SEGUNDO MENU
+const std::string EMOJI_CONSTRUIR_EDIFICIO_POR_NOMBRE = "\U0001f3d7";
+const std::string EMOJI_LISTAR_CONSTRUIDOS = "\u2705";
+const std::string EMOJI_DEMOLER_POR_COORDENADA = "\U0001f6a7";
+const std::string EMOJI_ATACAR_POR_COORDENADA = "\U0001f480";
+const std::string EMOJI_REPARAR_POR_COORDENADA = "\U0001f527";
+const std::string EMOJI_COMPRAR_BOMBAS = "\U0001f9e8"; // alternativa: U0001f6d2(carrito de compras)
+const std::string EMOJI_CONSULTAR_COORDENADAS = "\U0001f5fa";
+const std::string EMOJI_INVENTARIO = "\U0001f9f0";
+const std::string EMOJI_OBJETIVOS = "\U0001f3c1";
+const std::string EMOJI_RECURSOS_PRODUCIDOS = "\u26CF";
+const std::string EMOJI_MOVERSE_A_UNA_COORDENADA = "\U0001f3c3";//alternativa: U0001f9ed(brujula)
+const std::string EMOJI_FINALIZAR_TURNO = "\U0001f51a";//si hay otro mejor
+const std::string EMOJI_GUARDAR_Y_SALIR = "\U0001f4be";
+
+
 //EMOJIS MATERIALES
 const std::string EMOJI_PIEDRA = "\U0001f311";
 const std::string EMOJI_METAL = "\u2699";
@@ -145,5 +168,24 @@ const int COSTO_LAGO_JUGADOR_2 = 5;
 const int COSTO_MUELLE_JUGADOR_1 = 5;
 const int COSTO_MUELLE_JUGADOR_2 = 2;
 const int COSTO_TERRENO = 4;
+
+//MENSAJES ASCII
+const std::string MENU_CONFIGURACION = R"(
+                                              __ _                            _             
+  /\/\   ___ _ __  _   _      ___ ___  _ __  / _(_) __ _ _   _ _ __ __ _  ___(_) ___  _ __ 
+ /    \ / _ \ '_ \| | | |    / __/ _ \| '_ \| |_| |/ _` | | | | '__/ _` |/ __| |/ _ \| '_ \ 
+/ /\/\ \  __/ | | | |_| |   | (_| (_) | | | |  _| | (_| | |_| | | | (_| | (__| | (_) | | | |
+\/    \/\___|_| |_|\__,_|    \___\___/|_| |_|_| |_|\__, |\__,_|_|  \__,_|\___|_|\___/|_| |_|
+                                                   |___/                                    
+)";
+
+const std::string MENU_PARTIDA = R"(
+                                              _   _     _       
+  /\/\   ___ _ __  _   _     _ __   __ _ _ __| |_(_) __| | __ _ 
+ /    \ / _ \ '_ \| | | |   | '_ \ / _` | '__| __| |/ _` |/ _` |
+/ /\/\ \  __/ | | | |_| |   | |_) | (_| | |  | |_| | (_| | (_| |
+\/    \/\___|_| |_|\__,_|   | .__/ \__,_|_|   \__|_|\__,_|\__,_|
+                            |_|                                 
+)";
 
 #endif //_CONSTANTES_H_

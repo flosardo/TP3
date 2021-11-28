@@ -7,6 +7,8 @@
 #include "../archivos_h/mapa.h"
 using namespace std;
 int main(){
+    Menu_partida c;
+    c.mostrar_menu();
     Cargar_ubicaciones car;
     Mapa map;
     //map.crear_mapa(8, 10);
@@ -20,5 +22,3 @@ int main(){
     bomba.mostrar_material();
     return 0;
 }
-
-/* holaaa */
