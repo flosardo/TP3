@@ -37,7 +37,8 @@ class Cargar_edificios{
         *Post: Procesará el archivo.
         */
         void procesar_archivo(std::ifstream & archivo_edificios, Abb* arbol, std::string nombre_edificio);
-        
+
+        void crear_edificios(Abb* arbol, std::string nombre_edificio, std::string piedra_necesaria, std::string madera_necesaria, std::string metal_necesario, std::string permitidos);
 };
 
 #endif //_CARGAR_EDIFICIOS_H_

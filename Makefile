@@ -1,5 +1,5 @@
 ﻿CC = g++
-CFLAGS = -std=c++11 -Wall -Werror -Wconversion
+CFLAGS = -std=c++0x -Wall -Werror -Wconversion
 SRCDIR = archivos_cpps/
 DIR_MATERIALES = archivos_cpps/materiales/
 DIR_CONSTRUCCIONES = archivos_cpps/construcciones/
