@@ -50,9 +50,6 @@ unsigned int Edificio::obtener_cantidad_de_material_producido() {
     return this -> cantidad_material_producido;
 }
 
-unsigned int Edificio::obtener_cantidad_piedra_necesaria() {
-    return this -> piedra_necesaria;
-}
 
 char Edificio::obtener_jugador() {
     return this -> jugador;

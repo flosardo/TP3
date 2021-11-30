@@ -52,11 +52,6 @@ class Edificio{
         unsigned int* obtener_materiales_necesarios();
 
         /*
-        *Post: Devolverá la cantidad de piedra necesaria.
-        */
-        unsigned int obtener_cantidad_piedra_necesaria();
-
-        /*
         *Post: Devolverá el jugador.
         */
         char obtener_jugador();
