@@ -1,0 +1,5 @@
+madera 150 0
+piedra 0 0
+metal 200 814
+andycoins 15 1000
+bombas 1 0
