@@ -23,6 +23,7 @@ int main(){
     Madera madera(20);
     Metal metal(2);
     Bomba bomba(2);
+    delete nuevo_arbol;
     madera.saludar();
     madera.mostrar_material();
     metal.mostrar_material();

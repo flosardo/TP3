@@ -25,3 +25,5 @@ void Material::modificar_cantidad(int cantidad_a_modificar) {
 }
 
 void Material::saludar() {}
+
+Material::~Material() {}

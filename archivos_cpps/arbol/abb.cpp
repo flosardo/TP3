@@ -12,6 +12,7 @@ Abb::Abb() {
 
 void Abb::agregar_nodo(Edificio* edificio) {
     this -> raiz = this -> _agregar_nodo(this -> raiz, edificio);
+    delete edificio;
 }
 
 Nodo* Abb::_agregar_nodo(Nodo* nodo, Edificio* edificio) {

@@ -32,6 +32,7 @@ void Jugador::modificar_inventario(string material, int cantidad) {
 }
 
 Jugador::~Jugador(){
+    delete [] this -> inventario;
     delete [] this -> coordenadas;
     this -> coordenadas = nullptr;
 }

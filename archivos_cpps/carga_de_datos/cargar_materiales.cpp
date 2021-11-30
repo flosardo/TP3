@@ -50,4 +50,6 @@ void Cargar_materiales::procesar_archivo(string nombre, int cantidad_jugador_1, 
 
     jugador_1 -> cargar_material(material_jugador_1);
     jugador_2 -> cargar_material(material_jugador_2);
+    material_jugador_1 = nullptr;
+    material_jugador_2 = nullptr;
 }
