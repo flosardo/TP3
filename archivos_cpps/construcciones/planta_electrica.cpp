@@ -4,7 +4,7 @@ using namespace std;
 
 Planta_electrica::Planta_electrica() : Edificio() {}
 
-Planta_electrica::Planta_electrica(unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria, unsigned int permitidos) : Edificio(piedra_necesaria, metal_necesario, madera_necesaria, permitidos) {
+Planta_electrica::Planta_electrica(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos) : Edificio(piedra_necesaria, madera_necesaria, metal_necesario, permitidos) {
     this -> nombre_material = VACIO;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_PLANTA_ELECTRICA;
     this -> nombre_del_edificio = NOMBRE_PLANTA_ELECTRICA;

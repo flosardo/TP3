@@ -4,7 +4,9 @@
 #include "../archivos_h/materiales/metal.h"
 #include "../archivos_h/materiales/bomba.h"
 #include "../archivos_h/carga_de_datos/cargar_ubicaciones.h"
+#include "../archivos_h/carga_de_datos/cargar_edificios.h"
 #include "../archivos_h/mapa.h"
+#include "../archivos_h/arbol/abb.h"
 using namespace std;
 int main(){
     Menu_configuracion c;
@@ -13,6 +15,10 @@ int main(){
     Mapa map;
     //map.crear_mapa(8, 10);
     //car.carga_ubicaciones(&map);
+    //Nodo* nuevo_nodo = new Nodo;
+    Abb* nuevo_arbol = new Abb;
+    Cargar_edificios edi;
+    edi.carga_edificios(nuevo_arbol);
     Madera madera(20);
     Metal metal(2);
     Bomba bomba(2);

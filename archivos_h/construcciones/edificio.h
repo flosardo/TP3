@@ -11,8 +11,9 @@ class Edificio{
         std::string nombre_material;
         unsigned int cantidad_material_producido;
         unsigned int piedra_necesaria;
-        unsigned int metal_necesario;
         unsigned int madera_necesaria;
+        unsigned int metal_necesario;
+        unsigned int* materiales_necesarios;
         unsigned int permitidos;
         bool afectado;
         std::string nombre_del_edificio;
@@ -28,7 +29,7 @@ class Edificio{
         /*
         *Post: Creará un objeto de tipo Edificio con los parametros jugador, piedra_necesaria, metal_necesario, madera_necesaria.
         */
-        Edificio(unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria, unsigned int permitidos);
+        Edificio(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos);
 
         /*
         *Post: Devolverá la representacion del edificio.
@@ -46,14 +47,9 @@ class Edificio{
         unsigned int obtener_cantidad_de_material_producido();
 
         /*
-        *Post: Devolverá la cantidad de maderá necesaria.
+        Post: devuelve un puntero al vector que contiene los materiales necesarios
         */
-        unsigned int obtener_cantidad_madera_necesaria();
-
-        /*
-        *Post: Devolverá la cantidad de metal necesario.
-        */
-        unsigned int obtener_cantidad_metal_necesario();
+        unsigned int* obtener_materiales_necesarios();
 
         /*
         *Post: Devolverá la cantidad de piedra necesaria.
@@ -84,6 +80,10 @@ class Edificio{
         Pos: devuelve el nombre del edificio
         */
         std::string obtener_nombre_del_edificio();
+        /*
+        Post: libera la memoria pedida
+        */
+        ~Edificio();
 
 };
 

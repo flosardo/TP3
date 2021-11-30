@@ -4,7 +4,7 @@ using namespace std;
 
 Obelisco::Obelisco() : Edificio(){}
 
-Obelisco::Obelisco(unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria, unsigned int permitidos) : Edificio(piedra_necesaria, metal_necesario, madera_necesaria, permitidos){
+Obelisco::Obelisco(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos) : Edificio(piedra_necesaria, madera_necesaria, metal_necesario, permitidos) {
     this -> nombre_material = VACIO;
     this -> cantidad_material_producido = 0;
     this -> nombre_del_edificio = NOMBRE_OBELISCO;

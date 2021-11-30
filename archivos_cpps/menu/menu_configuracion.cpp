@@ -6,7 +6,7 @@ Menu_configuracion::Menu_configuracion() {}
 
 void Menu_configuracion::mostrar_menu() {
     cout << endl;
-    cout << MENU_CONFIGURACION << endl;
+    //cout << MENU_CONFIGURACION << endl;
     cout << "╔═══════════════════════════════════════════╗" << endl;
     cout << "║ 1. Modificar edificio por nombre "  <<  EMOJI_MODIFICAR_EDIFICIO_POR_NOMBRE  << "        ║" << endl;
     cout << "║                                           ║" << endl;

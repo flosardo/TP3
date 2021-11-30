@@ -15,7 +15,7 @@ class Mina : public Edificio{
         /*
         *Post: Creará un objeto de tipo Mina con los valores pasados por parámetro.
         */
-        Mina(unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria, unsigned int permitidos);
+        Mina(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos);
 
         /*
         *Post: Creará un objeto de tipo Mina usando los parámetros que recibe.

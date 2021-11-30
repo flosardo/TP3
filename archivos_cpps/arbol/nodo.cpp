@@ -7,6 +7,12 @@ Nodo::Nodo(Edificio* edificio) {
     this -> izq = nullptr;
 }
 
+Nodo::Nodo() {
+    this -> edificio = nullptr;
+    this -> der = nullptr;
+    this -> izq = nullptr;
+}
+
 Nodo* Nodo::obtener_izq() {
     return this -> izq;
 }

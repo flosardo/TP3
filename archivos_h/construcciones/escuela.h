@@ -15,7 +15,7 @@ class Escuela : public Edificio{
         /*
         *Post: Creará un objeto de tipo Escuela, usando los parámetros que recibe.
         */
-        Escuela(unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria, unsigned int permitidos);
+        Escuela(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos);
 
         /*
         *Post: Creará un objeto de tipo Escuela usando los parámetros que recibe.

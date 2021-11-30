@@ -15,7 +15,7 @@ class Aserradero : public Edificio{
         /*
         *Post: Creará un objeto de tipo Aserradero usando los parametros que recibe.
         */
-        Aserradero(unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria, unsigned int permitidos);
+        Aserradero(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos);
 
         /*
         *Post: Creará un objeto de tipo Aserradero usando los parámetros que recibe.

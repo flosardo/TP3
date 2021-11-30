@@ -18,6 +18,11 @@ class Nodo{
         *Post: Construirá un objeto de tipo Nodo con los valores de los parametros recibidos.
         */
         Nodo(Edificio* edificio);
+        
+        /*
+        *Post: crea un objeto de tipo nodo.
+        */
+        Nodo();
 
         /*
         *Post: Devolvera el nodo izquierdo.

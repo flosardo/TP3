@@ -15,7 +15,7 @@ class Fabrica : public Edificio {
         /*
         *Post: Creará un objeto de tipo Fábrica con los valores pasados por parámetro.
         */
-        Fabrica(unsigned int piedra_necesaria, unsigned int metal_necesario, unsigned int madera_necesaria, unsigned int permitidos);
+        Fabrica(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos);
 
         /*
         *Post: Creará un objeto de tipo Fabrica usando los parámetros que recibe.

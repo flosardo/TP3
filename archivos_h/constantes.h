@@ -170,7 +170,7 @@ const int COSTO_MUELLE_JUGADOR_2 = 2;
 const int COSTO_TERRENO = 4;
 
 //MENSAJES ASCII
-const char MENU_CONFIGURACION[559] = R"(
+/*const char MENU_CONFIGURACION[559] = R"(
                                               __ _                            _             
   /\/\   ___ _ __  _   _      ___ ___  _ __  / _(_) __ _ _   _ _ __ __ _  ___(_) ___  _ __ 
  /    \ / _ \ '_ \| | | |    / __/ _ \| '_ \| |_| |/ _` | | | | '__/ _` |/ __| |/ _ \| '_ \ 
@@ -186,6 +186,6 @@ const char MENU_PARTIDA[392] = R"(
 / /\/\ \  __/ | | | |_| |   | |_) | (_| | |  | |_| | (_| | (_| |
 \/    \/\___|_| |_|\__,_|   | .__/ \__,_|_|   \__|_|\__,_|\__,_|
                             |_|                                 
-)";
+)";*/
 
 #endif //_CONSTANTES_H_

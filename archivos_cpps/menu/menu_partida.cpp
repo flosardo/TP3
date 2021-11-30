@@ -6,7 +6,7 @@ Menu_partida::Menu_partida() {}
 
 void Menu_partida::mostrar_menu() {
     cout << endl;
-    cout << MENU_PARTIDA << endl;
+    //cout << MENU_PARTIDA << endl;
     cout << "╔═══════════════════════════════════════════╗" << endl;
     cout << "║ 1. Construir edificio por nombre  "  << EMOJI_CONSTRUIR_EDIFICIO_POR_NOMBRE  << "       ║" << endl;
     cout << "║                                           ║" << endl;
