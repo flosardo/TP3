@@ -36,10 +36,12 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
             
         numero_jugador = stoi(nombre);
         mapa -> posicionar_jugador(new Jugador(fila, columna));
-    }else if (numero_jugador){
+    }
+    else if (numero_jugador) {
         Edificio* edificio_creado = crear_edificio(nombre, convencion_jugador);
         mapa -> agregar_edificio_casillero(edificio_creado, fila, columna);
-    }else{
+    }
+    else {
         Material* material_creado = crear_material(nombre);
         mapa -> agregar_material_casillero(material_creado, fila, columna);
     }

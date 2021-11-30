@@ -22,5 +22,5 @@ void Energia::modificar_cantidad(int cantidad_a_modificar){
 }
 
 void Energia::mostrar_material() {
-    cout << COLOR_MARRON << "--> Material: energia, cantidad: " << COLOR_POR_DEFECTO << this->cantidad << endl;
+    cout << "--> Material: energia, cantidad: " << this->cantidad << endl;
 }

@@ -19,5 +19,5 @@ void Madera::saludar() {
 }
 
 void Madera::mostrar_material() {
-    cout << COLOR_MARRON << "--> Material: madera, cantidad: " << COLOR_POR_DEFECTO << this->cantidad << endl;
+    cout << "--> Material: madera, cantidad: " << this->cantidad << endl;
 }

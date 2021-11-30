@@ -22,10 +22,10 @@ Edificio::Edificio(unsigned int piedra_necesaria, unsigned int madera_necesaria,
     //this -> piedra_necesaria = piedra_necesaria;
     //this -> madera_necesaria = madera_necesaria;
     //this -> metal_necesario = metal_necesario;
-    this -> materiales_necesarios = new unsigned int[3];//liberar memoria
-    this -> materiales_necesarios[0] = this -> piedra_necesaria;
-    this -> materiales_necesarios[1] = this -> madera_necesaria;
-    this -> materiales_necesarios[2] = this -> metal_necesario;
+    this -> materiales_necesarios = new unsigned int[3];
+    this -> materiales_necesarios[0] = piedra_necesaria;
+    this -> materiales_necesarios[1] = madera_necesaria;
+    this -> materiales_necesarios[2] = metal_necesario;
     this -> codigo_emoji = VACIO;
     this -> afectado = false;
 }

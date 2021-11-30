@@ -86,7 +86,8 @@ bool Mapa::coordenadas_fuera_de_rango(int coord_x, int coord_y) {
 void Mapa::consultar_coordenada(int coord_x, int coord_y) {
     if (!coordenadas_fuera_de_rango(coord_x, coord_y)) {
         this -> mapa[coord_x][coord_y] -> mostrar();
-    }else {
+    }
+    else {
         cout << COLOR_ROJO << "Oops!, intentaste acceder a una coordenada fuera de rango, intenta nuevamente" << COLOR_POR_DEFECTO <<endl;
     }
 }

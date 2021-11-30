@@ -10,9 +10,9 @@ class Edificio{
         char jugador;
         std::string nombre_material;
         unsigned int cantidad_material_producido;
-        unsigned int piedra_necesaria;
-        unsigned int madera_necesaria;
-        unsigned int metal_necesario;
+        //unsigned int piedra_necesaria;
+        //unsigned int madera_necesaria;
+        //unsigned int metal_necesario;
         unsigned int* materiales_necesarios;
         unsigned int permitidos;
         bool afectado;
