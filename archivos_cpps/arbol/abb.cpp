@@ -10,41 +10,32 @@ Abb::Abb() {
     this -> raiz = nullptr;
 }
 
-Nodo* Abb::obtener_raiz() {
-    return this -> raiz;
+void Abb::agregar_nodo(Edificio* edificio) {
+    this -> raiz = this -> _agregar_nodo(this -> raiz, edificio);
 }
 
-void Abb::agregar_nodo(Edificio* nuevo_edficio) {
-    this -> _agregar_nodo(this -> raiz, nuevo_edficio);
-}
-
-void Abb::_agregar_nodo(Nodo* nodo, Edificio* nuevo_edficio) {
+Nodo* Abb::_agregar_nodo(Nodo* nodo, Edificio* edificio) {
     if (!nodo) {
-        nodo = new Nodo(nuevo_edficio);
+        nodo = new Nodo(edificio);
+    }
+    else if (edificio -> obtener_nombre_del_edificio() > nodo -> obtener_dato() -> obtener_nombre_del_edificio()) {
+        nodo -> establecer_derecha(_agregar_nodo(nodo -> obtener_der(), edificio));
     }
     else {
-        Edificio* valor_raiz = nodo -> obtener_dato();
-        if (valor_raiz -> obtener_nombre_del_edificio() > nuevo_edficio -> obtener_nombre_del_edificio()) {
-            _agregar_nodo(nodo -> obtener_izq(), nuevo_edficio);
-        }
-        else {
-            _agregar_nodo(nodo -> obtener_der(), nuevo_edficio);
-        }
+        nodo -> establecer_izquierda(_agregar_nodo(nodo -> obtener_izq(), edificio));
     }
-    //mostrar_arbol(this -> raiz, 1);
+    return nodo;
 }
 
 void Abb::mostrar_arbol(Nodo* nodo, int cantidad) {
-    if (nodo == nullptr) {
+    if (!nodo) {
         return;
     }
-    else {
-        mostrar_arbol(nodo -> obtener_der(), cantidad + 1);
-        for (int i = 0; i < cantidad; i++) {
-            cout << nodo -> obtener_dato() -> obtener_nombre_del_edificio() << "   " << endl;
-        }
-        mostrar_arbol(nodo -> obtener_izq(), cantidad + 1);
+    mostrar_arbol(nodo -> obtener_der(), cantidad + 1);
+    for (int i = 0; i < cantidad; i++) {
+        cout << nodo -> obtener_dato() -> obtener_nombre_del_edificio() << "   " << endl;
     }
+    mostrar_arbol(nodo -> obtener_izq(), cantidad + 1);
 }
 
 bool Abb::existe_el_edificio(Nodo* arbol, string nombre) {
@@ -68,8 +59,7 @@ unsigned int* Abb::_buscar_edificio(Nodo* arbol, string nombre) {
     }
 
     if (nombre == arbol -> obtener_dato() -> obtener_nombre_del_edificio()) {
-        unsigned int* materiales = arbol -> obtener_dato() -> obtener_materiales_necesarios();
-        return materiales;
+        return arbol -> obtener_dato() -> obtener_materiales_necesarios();
     }
     else if (nombre < arbol -> obtener_dato() -> obtener_nombre_del_edificio()){
         return _buscar_edificio(arbol -> obtener_izq(), nombre);
@@ -77,4 +67,14 @@ unsigned int* Abb::_buscar_edificio(Nodo* arbol, string nombre) {
     return _buscar_edificio(arbol -> obtener_der(), nombre);
 }
 
-Abb::~Abb() {}
+void Abb::borrar_arbol(Nodo* nodo) {
+    if(!nodo)
+        return;
+    this -> borrar_arbol(nodo -> obtener_izq());
+    this -> borrar_arbol(nodo -> obtener_der());
+    delete nodo;
+}
+
+Abb::~Abb() {
+    this -> borrar_arbol(this -> raiz);
+}

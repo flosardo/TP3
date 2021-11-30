@@ -28,13 +28,11 @@ class Abb{
         */
         void agregar_nodo(Edificio* nuevo_edficio);
 
-        Nodo* obtener_raiz();
-
         /*
         *Pre: Que los parametros no sean null.
         *Post: Agregará un nodo en la clase Abb.
         */
-        void _agregar_nodo(Nodo* arbol, Edificio* nuevo_edificio);
+        Nodo* _agregar_nodo(Nodo* arbol, Edificio* nuevo_edificio);
 
         /*
         *para debuguear
@@ -58,6 +56,11 @@ class Abb{
         *Pos: devuelve un puntero a los materiales necesarios
         */
         unsigned int* _buscar_edificio(Nodo* nodo, std::string nombre);
+
+        /*
+        *Post: Liberará la memoria utilizada por la clase a lo largo del programa.
+        */
+        void borrar_arbol(Nodo* nodo);
 
         /*
         *Post: Liberará la memoria utilizada por la clase a lo largo del programa.

@@ -78,7 +78,7 @@ class Edificio{
         /*
         Post: libera la memoria pedida
         */
-        ~Edificio();
+        virtual ~Edificio();
 
 };
 

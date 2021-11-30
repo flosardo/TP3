@@ -38,7 +38,10 @@ class Nodo{
         *Post: Devolvera el dato del edificio.
         */
         Edificio* obtener_dato();
-        
+
+        void establecer_derecha(Nodo* der);
+
+        void establecer_izquierda(Nodo* izq);
 };
 
 #endif //_NODO_H_

@@ -25,3 +25,11 @@ Nodo* Nodo::obtener_der() {
 Edificio* Nodo::obtener_dato() {
     return this -> edificio;
 }
+
+void Nodo::establecer_derecha(Nodo* der){
+    this -> der = der;
+}
+
+void Nodo::establecer_izquierda(Nodo* izq) {
+    this -> izq = izq;
+}
