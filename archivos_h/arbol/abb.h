@@ -26,13 +26,15 @@ class Abb{
         *Pre: Que el parametro no sean null.
         *Post: Agregará un nodo en la clase Abb.
         */
-        void _agregar_nodo(Edificio* nuevo_edficio);
+        void agregar_nodo(Edificio* nuevo_edficio);
+
+        Nodo* obtener_raiz();
 
         /*
         *Pre: Que los parametros no sean null.
         *Post: Agregará un nodo en la clase Abb.
         */
-        void agregar_nodo(Nodo* arbol, Edificio* nuevo_edificio);
+        void _agregar_nodo(Nodo* arbol, Edificio* nuevo_edificio);
 
         /*
         *para debuguear
@@ -44,12 +46,18 @@ class Abb{
         *Pos: devuelve verdadero en caso que el nombre exista, falso de lo contrario
         */
         bool existe_el_edificio(Nodo* nodo, std::string nombre);
+
+        /*
+        *Pre:
+        *Pos:
+        */
+        unsigned int* buscar_edificio(std::string nombre);
+
         /*
         *Pre: recibe un puntero a nodo y un string
         *Pos: devuelve un puntero a los materiales necesarios
         */
-        unsigned int* buscar_edificio(Nodo* nodo, std::string nombre);
-
+        unsigned int* _buscar_edificio(Nodo* nodo, std::string nombre);
 
         /*
         *Post: Liberará la memoria utilizada por la clase a lo largo del programa.

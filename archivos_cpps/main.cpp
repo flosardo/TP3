@@ -16,9 +16,13 @@ int main(){
     //map.crear_mapa(8, 10);
     //car.carga_ubicaciones(&map);
     //Nodo* nuevo_nodo = new Nodo;
+    // Edificio* mina = new Mina_oro(50,60,50,3);
     Abb* nuevo_arbol = new Abb;
     Cargar_edificios edi;
     edi.carga_edificios(nuevo_arbol);
+    unsigned int* materiales = nuevo_arbol->buscar_edificio("mina");
+    cout << nuevo_arbol -> obtener_raiz() -> obtener_dato() -> obtener_nombre_del_edificio() << endl;
+    cout << materiales[1] << endl;
     Madera madera(20);
     Metal metal(2);
     Bomba bomba(2);

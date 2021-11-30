@@ -39,6 +39,8 @@ void Cargar_edificios::carga_edificios(Abb* arbol){
         }
         this -> crear_edificios(arbol, nombre_edificio, piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
     }
+
+    arbol -> mostrar_arbol(arbol -> obtener_raiz(), 1);
     archivo_edificios.close();
 }
 
@@ -48,7 +50,7 @@ void Cargar_edificios::crear_edificios(Abb* arbol , string nombre_edificio, int 
     unsigned int metal_necesario = (unsigned int) metal;
     unsigned int permitidos = (unsigned int) permitido;
 
-    Edificio *nuevo_edificio = 0;
+    Edificio* nuevo_edificio = 0;
     if (nombre_edificio == NOMBRE_ASERRADERO)
         nuevo_edificio = new Aserradero(piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
     else if (nombre_edificio == NOMBRE_ESCUELA)
@@ -64,8 +66,7 @@ void Cargar_edificios::crear_edificios(Abb* arbol , string nombre_edificio, int 
     else if (nombre_edificio == NOMBRE_PLANTA_ELECTRICA)
         nuevo_edificio = new Planta_electrica(piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
     
-    
-    arbol -> _agregar_nodo(nuevo_edificio);
+    arbol -> agregar_nodo(nuevo_edificio);
 }
 
 void Cargar_edificios::procesar_archivo(ifstream & archivo_edificios, Abb* arbol, string nombre_edificio){
@@ -94,5 +95,5 @@ void Cargar_edificios::procesar_archivo(ifstream & archivo_edificios, Abb* arbol
     else if (nombre_edificio == NOMBRE_PLANTA_ELECTRICA)
         nuevo_edificio = new Planta_electrica(piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
 
-    arbol -> _agregar_nodo(nuevo_edificio);
+    arbol -> agregar_nodo(nuevo_edificio);
 }

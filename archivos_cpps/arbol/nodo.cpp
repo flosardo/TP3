@@ -1,4 +1,5 @@
 #include "../../archivos_h/arbol/nodo.h"
+using namespace std;
 
 
 Nodo::Nodo(Edificio* edificio) {
@@ -16,6 +17,7 @@ Nodo::Nodo() {
 Nodo* Nodo::obtener_izq() {
     return this -> izq;
 }
+
 Nodo* Nodo::obtener_der() {
     return this -> der;
 }
