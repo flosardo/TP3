@@ -2,26 +2,38 @@
 #define _AUXILIARES_ANDYPOLIS_H_
 
 #include <iostream>
-
+#include "andypolis.h"
 
 class Auxiliares_andypolis{
 
     public:
 
-        bool es_edificio_valido(std::string edificio);
+        void construir_edificio_auxiliar(std::string edificio,Jugador* jugador);
 
-        bool validar_coordenadas(int fila, int columna);
+        void listar_mis_edificios_auxiliar(Jugador* jugador);
 
-        void pedir_coordenadas(int & fila,int & columna);
+        void demoler_edificio_auxiliar(std::string edificio,Jugador* jugador);
 
-        void pedir_bombas(int & cantidad_bombas);
+        void atacar_edificio_auxiliar(Jugador* jugador);
 
+        void reparar_edificio_auxiliar(Jugador* jugador);
 
+        void comprar_bombas_auxiliar(Jugador* jugador);
 
+        void consultar_coordenada_auxiliar(Jugador* jugador);
 
+        void mostrar_inventario_auxiliar(Jugador* jugador);
 
+        void recolectar_recursos_auxiliar(Jugador* jugador);
+
+        void mostrar_objetivos_auxiliar(Jugador* jugador);
+
+        void recolectar_recursos_auxiliar(Jugador* jugador);
+
+        void moverse_auxiliar(Jugador* jugador);
 
 };
+
 
 
 #endif //_AUXILIARES_ANDYPOLIS_H_
