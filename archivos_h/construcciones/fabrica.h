@@ -27,6 +27,11 @@ class Fabrica : public Edificio {
         */
         void mostrar_saludo();
 
+        /*
+        *Post: muestra por pantalla las caractersiticas del edificio
+        */
+        void mostrar_edificio();
+
 };
 
 #endif //_FABRICA_H_

@@ -26,6 +26,11 @@ class Mina_oro : public Edificio{
         *Post: Mostrará un saludo por consola del edificio mina oro.
         */
         void mostrar_saludo();
+
+        /*
+        *Post: muestra por pantalla las caractersiticas del edificio
+        */
+        void mostrar_edificio();
 };
 
 #endif //_MINA_ORO_H_

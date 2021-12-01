@@ -72,6 +72,11 @@ class Edificio{
         virtual void mostrar_saludo() = 0;
 
         /*
+        *Post: muestra por pantalla las caractersiticas del edificio
+        */
+        virtual void mostrar_edificio() = 0;
+
+        /*
         Pos: devuelve el nombre del edificio
         */
         std::string obtener_nombre_del_edificio();

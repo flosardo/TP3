@@ -26,6 +26,11 @@ class Aserradero : public Edificio{
         *Post: Mostrará un saludo del edificio aserradero por consola.
         */
         void mostrar_saludo();
+
+        /*
+        *Post: muestra por pantalla las caractersiticas del edificio
+        */
+        void mostrar_edificio(); 
         
 };
 

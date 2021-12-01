@@ -20,3 +20,15 @@ Aserradero::Aserradero(char jugador) {
 void Aserradero::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy un aserradero y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }
+
+void Aserradero::mostrar_edificio() {
+    cout << "--> " << COLOR_VERDE_AGUA << this -> nombre << COLOR_POR_DEFECTO << endl;
+    cout << endl;
+    cout << "Piedra requerida: " << this -> materiales_necesarios[0] << endl;
+    cout << "Madera requerida: " << this -> materiales_necesarios[1] << endl;
+    cout << "Metal requerido: " << this -> materiales_necesarios[2] << endl;
+    cout << "Construidos hasta el momento: " << this -> cantidad_construidos << endl;
+    cout << "Puede construir " << this -> cantidad_permitida - this -> cantidad_construidos << " mas" << endl;
+    cout << "Brinda material: SI" << endl;
+    cout << COLOR_MARRON << LINEA_DIVISORIA << COLOR_POR_DEFECTO << endl;
+}

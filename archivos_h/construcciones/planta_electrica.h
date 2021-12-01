@@ -26,6 +26,11 @@ class Planta_electrica : public Edificio{
         *Post: Mostrará un saludo del edificio planta electrica por consola.
         */
         void mostrar_saludo();
+
+        /*
+        *Post: muestra por pantalla las caractersiticas del edificio
+        */
+        void mostrar_edificio();
         
 };
 

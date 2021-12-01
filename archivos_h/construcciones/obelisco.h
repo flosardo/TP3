@@ -26,6 +26,11 @@ class Obelisco : public Edificio{
         *Post: Mostrará un saludo por consola del edificio obelisco.
         */
         void mostrar_saludo();
+
+        /*
+        *Post: muestra por pantalla las caractersiticas del edificio
+        */
+        void mostrar_edificio();
         
 };
 

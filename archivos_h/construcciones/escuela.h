@@ -26,6 +26,11 @@ class Escuela : public Edificio{
         *Post: Mostrará un saludo por consola del edificio de tipo escuela.
         */
         void mostrar_saludo();
+
+        /*
+        *Post: muestra por pantalla las caractersiticas del edificio
+        */
+        void mostrar_edificio();
     
 };
 
