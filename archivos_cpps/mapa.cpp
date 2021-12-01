@@ -121,14 +121,13 @@ void Mapa::llenar_casillero(char terreno, int fil, int col){
         this -> mapa[fil][col] = new Casillero_transitable();
 }
 
-void Mapa::posicionar_jugador(Jugador* jugador){
-    // int* puntero_coordenadas = jugador -> devolver_coordenadas();
-    // int fil = puntero_coordenadas[POSICION_FILA];
-    // int col = puntero_coordenadas[POSICION_COLUMNA];
-    // if((this -> mapa[fil][col] -> obtener_tipo_de_terreno() == TERRENO && !this -> mapa[fil][col] -> esta_ocupado()) && this -> mapa[fil][col] -> obtener_tipo_de_terreno() != LAGO) {
-    //     this -> mapa[fil][col] -> /*METODO PARA COLOCAR JUGADOR*/;
-    // }
-    // puntero_coordenadas = nullptr;
+void Mapa::posicionar_jugador(Jugador* jugador, int fila, int columna) {
+    if (this -> coordenadas_fuera_de_rango(fila, columna)) {
+        this -> consultar_coordenada(fila, columna);
+    }
+    else if (this -> mapa[fila][columna] -> obtener_tipo_de_terreno() != LAGO && !this -> mapa[fila][columna] -> esta_ocupado()) {
+        this -> mapa[fila][columna] -> agregar_jugador(jugador);
+    }
 }
 
 Mapa::~Mapa() {

@@ -35,7 +35,7 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
             convencion_jugador = JUGADOR_2;
             
         numero_jugador = stoi(nombre);
-        mapa -> posicionar_jugador(new Jugador(fila, columna));
+        mapa -> posicionar_jugador(new Jugador(fila, columna), fila, columna);
     }
     else if (numero_jugador) {
         Edificio* edificio_creado = crear_edificio(nombre, convencion_jugador);

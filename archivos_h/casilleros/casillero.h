@@ -1,9 +1,9 @@
 #ifndef _CASILLERO_H_
 #define _CASILLERO_H_
 
-#include "../constantes.h"
 #include "../construcciones/edificio.h"
 #include "../materiales/material.h"
+#include "../jugador.h"
 
 class Casillero{
 
@@ -60,6 +60,12 @@ class Casillero{
         *Post: Hace que las clases hijas agreguen un edificio, según sea el comportamiento de cada hija.
         */
         virtual void agregar_edificio(Edificio* edificio_a_agregar);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        virtual void agregar_jugador(Jugador* jugador);
 
         /*
         *Post: Hace que las clases hijas limpien el casillero, según sea el comportamiento de cada hija.

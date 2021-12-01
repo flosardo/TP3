@@ -23,15 +23,16 @@ class Andypolis{
         Andypolis();
 
         /*
+        *Post: Devolverá un puntero de tipo Abb, con la información del arbol.
+        */
+        Abb* devolver_arbol();
+
+        /*
         *Post: Devolverá un puntero de tipo Mapa, con la información del mapa de andypolis.
         */
         Mapa* devolver_mapa();
 
-        /*
-        *Post: Liberará la memoria utilizada a lo largo del programa.
-        */
-
-        ~Andypolis();
+        void comenzar_partida();
 
         void determinar_turno();
 
@@ -40,8 +41,6 @@ class Andypolis{
         void listar_edificio();
 
         void mostrar_mapa();
-
-        void comenzar_partida();
 
         void construir_edificio(std::string edificio, Jugador* jugador);
 
@@ -68,6 +67,11 @@ class Andypolis{
         void finalizar_turno();
 
         void guardar_y_salir();
+
+        /*
+        *Post: Liberará la memoria utilizada a lo largo del programa.
+        */
+        ~Andypolis();
 
 };
 

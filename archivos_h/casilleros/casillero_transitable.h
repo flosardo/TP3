@@ -8,6 +8,7 @@ class Casillero_transitable: public Casillero{
     private:
 
         Material* material;
+        Jugador* jugador;
 
     public:
 
@@ -42,6 +43,12 @@ class Casillero_transitable: public Casillero{
         *Post: Que el parámetro material_a_agregar no sea null.
         */
         void agregar_material(Material* material_a_agregar);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void agregar_jugador(Jugador* jugador);
         
         /*
         *Post: Limpiará el contenido que hay en el casillero.

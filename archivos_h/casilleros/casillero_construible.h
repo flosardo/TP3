@@ -8,6 +8,7 @@ class Casillero_construible: public Casillero{
     private:
 
         Edificio* edificio;
+        Jugador* jugador;
 
     public: 
 
@@ -47,6 +48,12 @@ class Casillero_construible: public Casillero{
         *Post: Limpiará el contenido que hay en el casillero.
         */
         void limpiar_casillero();
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void agregar_jugador(Jugador* jugador);
 
         /*
         *Post: Devolverá la cantidad material producido.

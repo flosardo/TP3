@@ -28,6 +28,8 @@ void Casillero::agregar_material(Material* material_a_agregar) {}
 
 void Casillero::agregar_edificio(Edificio* edificio_a_agregar) {}
 
+void Casillero::agregar_jugador(Jugador* jugador) {}
+
 void Casillero::limpiar_casillero() {}
 
 bool Casillero::esta_ocupado() {

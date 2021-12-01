@@ -36,10 +36,10 @@ class Mapa{
         bool esta_ocupado(int coord_x, int coord_y);
 
         /*
-        *Pre: Que jugador no sea null.
+        *Pre: Que jugador no sea null y que las coordenadas sean .
         *Post: Posicionará al jugador en el mapa.
         */
-        void posicionar_jugador(Jugador* jugador);
+        void posicionar_jugador(Jugador* jugador, int fila, int columna);
 
         /*
         *Pre: Que material no sea null, fila >= 0, columna >= 0.
