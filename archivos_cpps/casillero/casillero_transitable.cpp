@@ -49,3 +49,7 @@ bool Casillero_transitable::esta_ocupado() {
 void Casillero_transitable::limpiar_casillero() {
     this -> material = nullptr;
 }
+
+Jugador* Casillero_transitable::obtener_puntero_jugador() {
+    return this -> jugador;
+}

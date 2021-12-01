@@ -52,3 +52,7 @@ void Casillero_construible::limpiar_casillero() {
 bool Casillero_construible::esta_ocupado() {
     return (bool) this -> edificio || (bool) this -> jugador;
 }
+
+Jugador* Casillero_construible::obtener_puntero_jugador() {
+    return this -> jugador;
+}

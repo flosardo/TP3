@@ -30,7 +30,7 @@ class Mina_oro : public Edificio{
         /*
         *Post: muestra por pantalla las caractersiticas del edificio
         */
-        void mostrar_edificio();
+        void mostrar_edificio(Mapa* mapa); 
 };
 
 #endif //_MINA_ORO_H_

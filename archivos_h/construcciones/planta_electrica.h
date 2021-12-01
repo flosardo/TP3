@@ -30,7 +30,7 @@ class Planta_electrica : public Edificio{
         /*
         *Post: muestra por pantalla las caractersiticas del edificio
         */
-        void mostrar_edificio();
+        void mostrar_edificio(Mapa* mapa); 
         
 };
 

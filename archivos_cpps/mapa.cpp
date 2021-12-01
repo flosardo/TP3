@@ -130,6 +130,13 @@ void Mapa::posicionar_jugador(Jugador* jugador, int fila, int columna) {
     }
 }
 
+int* Mapa::obtener_dimensiones() {
+    int* dimensiones = new int[2];
+    dimensiones[0] = this -> cantidad_filas;
+    dimensiones[1] = this -> cantidad_columnas;
+    return dimensiones;
+}
+
 Mapa::~Mapa() {
     for (int fila = 0; fila < this -> cantidad_filas; fila++) {
         for (int columna = 0; columna < this -> cantidad_columnas; columna++)

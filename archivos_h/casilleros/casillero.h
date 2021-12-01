@@ -45,6 +45,11 @@ class Casillero{
         virtual Material* obtener_puntero_material();
 
         /*
+        *Post: Hace que las clases hijas devuelvan el puntero a un jugador, según sea el comportamiento de cada hija.
+        */
+        virtual Jugador* obtener_puntero_jugador();
+
+        /*
         *Post: Devolvera true si esta ocupado el casillero, o false en caso contrario.
         */
         virtual bool esta_ocupado();

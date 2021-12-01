@@ -49,6 +49,11 @@ class Casillero_transitable: public Casillero{
         *Post:
         */
         void agregar_jugador(Jugador* jugador);
+
+        /*
+        *Post: devuelve el puntero al jugador que se encuentra en el casillero
+        */
+        Jugador* obtener_puntero_jugador();
         
         /*
         *Post: Limpiará el contenido que hay en el casillero.

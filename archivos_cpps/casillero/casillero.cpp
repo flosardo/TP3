@@ -35,5 +35,8 @@ void Casillero::limpiar_casillero() {}
 bool Casillero::esta_ocupado() {
     return false;
 }
+Jugador* Casillero_construible::obtener_puntero_jugador() {
+    return nullptr;
+}
 
 Casillero::~Casillero() {}

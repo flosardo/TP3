@@ -40,6 +40,26 @@ void Jugador::modificar_inventario(string material, int cantidad) {
     this -> inventario -> modificar_cantidad_material(indice, cantidad);
 }
 
+int Jugador::obtener_cantidad_construidos(string nombre_edificio, Mapa* mapa) {
+    int cantidad_construidos = 0;
+    int* dimensiones = mapa -> obtener_dimensiones();
+    int fila = dimensiones[0];
+    int columna = dimensiones[1];
+
+    for(int i = 0; i < fila; i++) {
+        for(int j = 0; j < columna; j++) {
+            if(mapa[i][j] -> obtener_tipo_de_terreno() == TERRENO) {
+                if(mapa[i][j] -> obtener_puntero_edificio() -> obtener_nombre_del_edificio() == nombre_edificio && this -> nombre == mapa[i][j] -> obtener_puntero_jugador() -> obtener_nombre()) {
+                    cantidad_construidos++;
+                }
+            }
+        }
+    }
+    delete [] dimensiones;
+    dimensiones = nullptr;
+    return cantidad_construidos;
+}
+
 Jugador::~Jugador(){
     delete [] this -> inventario;
     delete [] this -> coordenadas;

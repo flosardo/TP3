@@ -56,6 +56,11 @@ class Casillero_construible: public Casillero{
         void agregar_jugador(Jugador* jugador);
 
         /*
+        *Post: devuelve el puntero al jugador que se encuentra en el casillero
+        */
+        Jugador* obtener_puntero_jugador();
+
+        /*
         *Post: Devolverá la cantidad material producido.
         */
         unsigned int cantidad_material_producido();

@@ -2,6 +2,7 @@
 #define _EDIFICIO_H_
 
 #include "../constantes.h"
+#include "../mapa.h"
 
 class Edificio{
 
@@ -74,7 +75,7 @@ class Edificio{
         /*
         *Post: muestra por pantalla las caractersiticas del edificio
         */
-        virtual void mostrar_edificio() = 0;
+        virtual void mostrar_edificio(Mapa* mapa) = 0;
 
         /*
         Pos: devuelve el nombre del edificio

@@ -3,6 +3,7 @@
 
 #include "inventario.h"
 #include "materiales/energia.h"
+#include "mapa.h"
 
 class Jugador{
 
@@ -61,6 +62,12 @@ class Jugador{
         *Post: Modificará el inventario.
         */
         void modificar_inventario(std::string material, int cantidad);
+
+        /*
+        *Pre: que reciba el nombre del edificio a buscar
+        *Pos: devuelve la cantidad que hay del edificio recibido por parametro
+        */
+        int obtener_cantidad_construidos(std::string nombre_edificio, Mapa* mapa);
 
         /*
         *Post: Liberará la memoria usada durante la creacion del objeto Jugador.

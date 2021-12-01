@@ -112,6 +112,10 @@ class Mapa{
         */
         void llenar_casillero(char terreno, int fil, int col);
 
+        //Pos: devuelve un puntero al arreglo que contiene las dimensiones del mapa
+        
+        int* obtener_dimensiones();
+
         /*
         *Post: Liberará la memoria utilizada por el mapa a lo largo del programa.
         */
