@@ -29,15 +29,19 @@ int* Auxiliares_andypolis::pedir_coordenadas() {
     return coordenadas;
 }
 
-void Auxiliares_andypolis::seleccionar_jugador(string& nombre1, string& nombre2) {
+void Auxiliares_andypolis::seleccionar_jugador(string& nombre_jugador_1, string& nombre_jugador_2) {
     cout << "¿Que jugador quiere ser? Ingrese 1 para ser el primer jugador, 2 para el segundo: " << endl;
-    cin >> nombre1;
-    if(nombre1 != NUMERO_JUGADOR_2)
-        nombre2 = NUMERO_JUGADOR_2;
+    cin >> nombre_jugador_1;
+    if (nombre_jugador_1 != NUMERO_JUGADOR_2)
+        nombre_jugador_2 = NUMERO_JUGADOR_2;
     else
-        nombre2 = NUMERO_JUGADOR_1;
+        nombre_jugador_2 = NUMERO_JUGADOR_1;
 }
 
 bool Auxiliares_andypolis::validar_coordenadas(int fila, int columna) {
     return this -> mapa -> coordenadas_fuera_de_rango(fila, columna);
+}
+
+bool Auxiliares_andypolis::hay_energia_suficiente(int energia_necesaria, int eneregia_del_jugador) {
+    return eneregia_del_jugador >= energia_necesaria;
 }

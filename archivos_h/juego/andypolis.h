@@ -6,7 +6,7 @@
 #include "auxiliares_andypolis.h"
 
 
-class Andypolis{
+class Andypolis {
 
     private:
 
@@ -34,6 +34,8 @@ class Andypolis{
         */
         Mapa* devolver_mapa();
 
+        // MENU 1
+
         void comenzar_partida();
 
         void determinar_turno();
@@ -41,6 +43,8 @@ class Andypolis{
         void modificar_edificio_nombre(std::string edficio);
 
         void listar_edificio();
+        
+        // FIN, GURADAR_Y_SALIR COMPARTEN
 
         void mostrar_mapa();
 
@@ -56,7 +60,7 @@ class Andypolis{
 
         void comprar_bombas(Jugador* jugador);
 
-        void consultar_coordenada(Jugador* jugador);;
+        void consultar_coordenada(Jugador* jugador);
 
         void mostrar_inventario(Jugador* jugador);
 

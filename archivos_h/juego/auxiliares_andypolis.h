@@ -23,7 +23,7 @@ class Auxiliares_andypolis {
 
         void seleccionar_jugador(std::string & nombre_1, std::string & nombre_2);
 
-        // Podría agregarse algun método para validar la cantidad de energía para realizar una acción
+        bool hay_energia_suficiente(int energia_necesaria, int eneregia_del_jugador);
 };
 
 
