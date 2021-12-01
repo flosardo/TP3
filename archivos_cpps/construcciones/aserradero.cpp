@@ -23,8 +23,8 @@ void Aserradero::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy un aserradero y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }
 
-void Aserradero::mostrar_edificio(Mapa* mapa) {
-    int cantidad_construidos = this -> jugador -> obtener_cantidad_construidos(this -> nombre_del_edificio, mapa);
+void Aserradero::mostrar_edificio(Mapa* mapa, Jugador* jugador) {
+    int cantidad_construidos = jugador -> obtener_cantidad_construidos(this -> nombre_del_edificio, mapa);
     cout << "--> " << COLOR_VERDE_AGUA << this -> nombre_del_edificio << COLOR_POR_DEFECTO << endl;
     cout << endl;
     cout << "Piedra requerida: " << this -> materiales_necesarios[0] << endl;

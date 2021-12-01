@@ -125,7 +125,7 @@ void Mapa::posicionar_jugador(Jugador* jugador, int fila, int columna) {
     if (this -> coordenadas_fuera_de_rango(fila, columna)) {
         this -> consultar_coordenada(fila, columna);
     }
-    else if (this -> mapa[fila][columna] -> obtener_tipo_de_terreno() != LAGO && !this -> mapa[fila][columna] -> esta_ocupado()) {
+    else if (this -> mapa[fila][columna] -> obtener_tipo_de_terreno() != LAGO && !this -> mapa[fila][columna] -> esta_ocupado()) {//hacer funcion aparte para validar
         this -> mapa[fila][columna] -> agregar_jugador(jugador);
     }
 }

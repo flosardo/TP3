@@ -30,8 +30,7 @@ class Planta_electrica : public Edificio{
         /*
         *Post: muestra por pantalla las caractersiticas del edificio
         */
-        void mostrar_edificio(Mapa* mapa); 
-        
+        void mostrar_edificio(Mapa *mapa, Jugador *jugador);
 };
 
 #endif //_PLANTA_ELECTRICA_H_

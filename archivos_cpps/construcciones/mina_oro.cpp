@@ -21,8 +21,8 @@ void Mina_oro::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy una mina de oro y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }
 
-void Mina_oro::mostrar_edificio(Mapa* mapa) {
-    int cantidad_construidos = this -> jugador -> obtener_cantidad_construidos(this -> nombre_del_edificio, mapa);
+void Mina_oro::mostrar_edificio(Mapa* mapa, Jugador* jugador) {
+    int cantidad_construidos = jugador -> obtener_cantidad_construidos(this -> nombre_del_edificio, mapa);
     cout << "--> " << COLOR_VERDE_AGUA << this-> nombre_del_edificio << COLOR_POR_DEFECTO << endl;
     cout << endl;
     cout << "Piedra requerida: " << this -> materiales_necesarios[0] << endl;

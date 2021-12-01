@@ -75,7 +75,7 @@ class Edificio{
         /*
         *Post: muestra por pantalla las caractersiticas del edificio
         */
-        virtual void mostrar_edificio(Mapa* mapa) = 0;
+        virtual void mostrar_edificio(Mapa* mapa, Jugador* jugador) = 0;
 
         /*
         Pos: devuelve el nombre del edificio
