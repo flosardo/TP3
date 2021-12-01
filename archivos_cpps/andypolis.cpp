@@ -1,6 +1,9 @@
 #include "../archivos_h/juego/andypolis.h"
 
+using namespace std;
+
 Andypolis::Andypolis() {
+    this -> funciones_auxiliares = Auxiliares_andypolis();
     this -> edificios_disponibles = nullptr;
     this -> mapa = nullptr;
     this -> jugador_1 = nullptr;
@@ -26,5 +29,8 @@ void Andypolis::determinar_turno() {
 }
 
 void Andypolis::comenzar_partida() {
-    
+    string nombre_1;
+    string nombre_2;
+    this -> funciones_auxiliares.seleccionar_jugador(nombre_1, nombre_2);
+
 }

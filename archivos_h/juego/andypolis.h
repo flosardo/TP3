@@ -3,6 +3,7 @@
 
 #include "../mapa.h"
 #include "../arbol/abb.h"
+#include "auxiliares_andypolis.h"
 
 
 class Andypolis{
@@ -14,6 +15,7 @@ class Andypolis{
         Jugador* jugador_2;
         Jugador* jugador_actual;
         Abb* edificios_disponibles;
+        Auxiliares_andypolis funciones_auxiliares;
 
     public:
 
