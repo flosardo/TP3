@@ -3,6 +3,7 @@
 
 #include "inventario.h"
 #include "materiales/energia.h"
+#include "construcciones/edificio.h"
 
 class Jugador{
 
@@ -12,6 +13,8 @@ class Jugador{
         int* coordenadas;
         Inventario* inventario;
         char nombre;
+        Edificio** edificios_construidos;
+        unsigned int cantidad_construidos;
 
     public:
 
@@ -22,14 +25,29 @@ class Jugador{
         Jugador(int coordenada_x, int coordenada_y);
 
         /*
-        *Pre:
-        *Post:
+        *Pre: Que el parámetro no sea null.
+        *Post: Cargara el edificio.
+        */
+        void cargar_edificio(Edificio* edificio);
+
+
+        /*
+        *Post: Eliminará el edificio.
+        */
+        void eliminar_edificio(unsigned int fila, unsigned int columna);
+
+        /*
+        *Post: Redimensionara el edificio.
+        */
+        void redimensionar_edificio(unsigned int nueva_longitud);
+
+        /*
+        *Post: Establecera el nombre del jugador.
         */
         void establecer_nombre(char nombre);
 
         /*
-        *Pre:
-        *Post:
+        *Post: Devolvera el nombre del jugador.
         */
         char obtener_nombre();
 

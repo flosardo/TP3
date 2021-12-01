@@ -20,12 +20,21 @@ class Mina_oro : public Edificio{
         /*
         *Post: Creará un objeto de tipo Mina_oro usando los parámetros que recibe.
         */
-        Mina_oro(char jugador);
+        Mina_oro(unsigned int fila, unsigned int columna);
 
         /*
         *Post: Mostrará un saludo por consola del edificio mina oro.
         */
         void mostrar_saludo();
+
+    private:
+
+        /*
+        *Post: Inicializara los atributos de la clase.
+        */
+        void inicializar_atributos();
+
+
 };
 
 #endif //_MINA_ORO_H_

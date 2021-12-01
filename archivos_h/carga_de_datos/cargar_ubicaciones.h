@@ -29,10 +29,16 @@ class Cargar_ubicaciones{
         Cargar_ubicaciones();
 
         /*
-        *Pre: Que el puntero andypolis no sea null.
+        *Pre: Que los parametros punteros no sean null.
+        *Post: Cargará un edificio en un jugador 1 ó 2, según sea el caso.
+        */
+        void cargar_edificio_en_jugador(Edificio* edificio, Jugador* jugador_1, Jugador* jugador_2, char convencion);
+
+        /*
+        *Pre: Que los punteros no sean null.
         *Post: Cargará el mapa con las ubicaciones.
         */
-        bool carga_ubicaciones(Mapa* mapa);
+        bool carga_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2);
 
         /*
         *Post: Guardará las ubicaciones.
@@ -40,10 +46,9 @@ class Cargar_ubicaciones{
         void guardar_ubicaciones();
 
         /*
-        *Pre: Que el nombre venga con un nombre de edificio existente, y que el carácter del jugador pertenezca a un carácter valido.
         *Post: Devolverá un puntero de tipo Edificio, que contendra la información del edificio creado.
         */
-        Edificio* crear_edificio(std::string nombre, char jugador);
+        Edificio* crear_edificio(std::string nombre, unsigned int fila, unsigned int columna);
 
         /*
         *Pre: Que el nombre venga con un nombre de material existente.
@@ -54,10 +59,10 @@ class Cargar_ubicaciones{
     private:
 
         /*
-        *Pre: Que el archivo exista, que el mapa no sea null, y que reciba un nombre válido.
+        *Pre: Que el archivo exista, que los punteros no sean null.
         *Post: Procesará el archivo de ubicaciones.
         */
-        void procesar_archivo(std::ifstream & archivo_ubicaciones, Mapa* mapa, std::string nombre);
+        void procesar_archivo(std::ifstream & archivo_ubicaciones, Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2, std::string nombre);
         
 };
 

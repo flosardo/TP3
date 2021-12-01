@@ -6,13 +6,11 @@
 class Edificio{
 
     protected:
-
-        char jugador;
+        
+        unsigned int fila;
+        unsigned int columna;
         std::string nombre_material;
         unsigned int cantidad_material_producido;
-        //unsigned int piedra_necesaria;
-        //unsigned int madera_necesaria;
-        //unsigned int metal_necesario;
         unsigned int* materiales_necesarios;
         unsigned int permitidos;
         bool afectado;
@@ -30,6 +28,21 @@ class Edificio{
         *Post: Creará un objeto de tipo Edificio con los parametros jugador, piedra_necesaria, metal_necesario, madera_necesaria.
         */
         Edificio(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos);
+
+        /*
+        *Post: Creará un objeto de tipo Edificio con los valores de los parametros recibidos.
+        */
+        Edificio(unsigned int fila, unsigned int columna);
+
+        /*
+        *Post: Devolvera la fila del edificio.
+        */
+        unsigned int obtener_fila();
+
+        /*
+        *Post: Devolvera la columna del edificio.
+        */
+        unsigned int obtener_columna();       
 
         /*
         *Post: Devolverá la representacion del edificio.
@@ -50,11 +63,6 @@ class Edificio{
         Post: devuelve un puntero al vector que contiene los materiales necesarios
         */
         unsigned int* obtener_materiales_necesarios();
-
-        /*
-        *Post: Devolverá el jugador.
-        */
-        char obtener_jugador();
 
         /*
         *Post: Devolverá el estado del edificio.
@@ -79,6 +87,11 @@ class Edificio{
         Post: libera la memoria pedida
         */
         virtual ~Edificio();
+
+        /*
+        *Post: Inicializara los atributos, según el comportamiento de cada hija.
+        */
+        virtual void inicializar_atributos() = 0;
 
 };
 

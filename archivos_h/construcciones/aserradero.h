@@ -18,14 +18,22 @@ class Aserradero : public Edificio{
         Aserradero(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos);
 
         /*
-        *Post: Creará un objeto de tipo Aserradero usando los parámetros que recibe.
+        *Post: Creará un objeto de tipo Aserradero usando los parametros que recibe.
         */
-        Aserradero(char jugador);
+        Aserradero(unsigned int fila, unsigned int columna);        
 
         /*
         *Post: Mostrará un saludo del edificio aserradero por consola.
         */
         void mostrar_saludo();
+
+    private:
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void inicializar_atributos();
         
 };
 

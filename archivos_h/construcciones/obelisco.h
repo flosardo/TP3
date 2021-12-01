@@ -20,12 +20,19 @@ class Obelisco : public Edificio{
         /*
         *Post: Creará un objeto de tipo Obelisco usando los parámetros que recibe.
         */
-        Obelisco(char jugador);
+        Obelisco(unsigned int fila, unsigned int columna);
 
         /*
         *Post: Mostrará un saludo por consola del edificio obelisco.
         */
         void mostrar_saludo();
+
+    private:
+
+        /*
+        *Post: Inicializara los atributos de la clase.
+        */
+        void inicializar_atributos();
         
 };
 

@@ -20,12 +20,19 @@ class Fabrica : public Edificio {
         /*
         *Post: Creará un objeto de tipo Fabrica usando los parámetros que recibe.
         */
-        Fabrica(char jugador);
+        Fabrica(unsigned int fila, unsigned int columna);
 
         /*
         *Post: Mostrará un saludo por consola de un edificio Fabrica.
         */
         void mostrar_saludo();
+
+    private:
+
+        /*
+        *Post: Inicializara los atributos de la clase.
+        */
+        void inicializar_atributos();
 
 };
 

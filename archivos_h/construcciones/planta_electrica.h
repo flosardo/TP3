@@ -20,12 +20,19 @@ class Planta_electrica : public Edificio{
         /*
         *Post: Creará un objeto de tipo Planta_electrica usando los parámetros que recibe.
         */
-        Planta_electrica(char jugador);
+        Planta_electrica(unsigned int fila, unsigned int columna);
 
         /*
         *Post: Mostrará un saludo del edificio planta electrica por consola.
         */
         void mostrar_saludo();
+
+    private:
+
+        /*
+        *Post: Inicializara los atributos de la clase.
+        */
+        void inicializar_atributos();
         
 };
 

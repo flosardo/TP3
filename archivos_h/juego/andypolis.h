@@ -36,42 +36,114 @@ class Andypolis {
 
         // MENU 1
 
+        /*
+        *Pre:
+        *Post:
+        */
         void comenzar_partida();
 
+        /*
+        *Pre:
+        *Post:
+        */
         void determinar_turno();
 
+        /*
+        *Pre:
+        *Post:
+        */
         void modificar_edificio_nombre(std::string edficio);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void listar_edificio();
         
         // FIN, GURADAR_Y_SALIR COMPARTEN
 
+        /*
+        *Pre:
+        *Post:
+        */
         void mostrar_mapa();
 
+        /*
+        *Pre:
+        *Post:
+        */
         void construir_edificio(std::string edificio, Jugador* jugador);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void listar_mis_edificios(Jugador* jugador);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void demoler_edificio(std::string edificio, Jugador* jugador);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void atacar_edificio(Jugador* jugador);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void reparar_edificio(Jugador* jugador);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void comprar_bombas(Jugador* jugador);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void consultar_coordenada(Jugador* jugador);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void mostrar_inventario(Jugador* jugador);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void mostrar_objetivos(Jugador* jugador);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void recolectar_recursos(Jugador* jugador);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void moverse(Jugador* jugador);
 
+        /*
+        *Pre:
+        *Post:
+        */
         void finalizar_turno();
 
+        /*
+        *Pre:
+        *Post:
+        */
         void guardar_y_salir();
 
         /*

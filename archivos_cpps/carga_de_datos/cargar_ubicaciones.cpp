@@ -6,23 +6,22 @@ Cargar_ubicaciones::Cargar_ubicaciones(){
     this -> archivo_ruta = RUTA_UBICACIONES;
 }
 
-bool Cargar_ubicaciones::carga_ubicaciones(Mapa* mapa){
+bool Cargar_ubicaciones::carga_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2){
     ifstream archivo_ubicaciones(this -> archivo_ruta);
     bool existe_el_archivo = (bool) archivo_ubicaciones;
     string nombre;
     while(existe_el_archivo && getline(archivo_ubicaciones, nombre, '(')) {
-        procesar_archivo(archivo_ubicaciones, mapa, nombre);
+        procesar_archivo(archivo_ubicaciones, mapa, jugador_1, jugador_2, nombre);
     }
     archivo_ubicaciones.close();
     return existe_el_archivo;
 }
 
-void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* mapa, string nombre){
+void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2, string nombre){
     int fila;
     int columna;
     string basura;
     char convencion_jugador = VACIO;
-    int numero_jugador = 0;
     archivo_ubicaciones >> fila;
     archivo_ubicaciones >> basura;
     archivo_ubicaciones >> columna;
@@ -31,51 +30,57 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
     if (nombre == NUMERO_JUGADOR_1 || nombre == NUMERO_JUGADOR_2) {
         if (nombre == NUMERO_JUGADOR_1)
             convencion_jugador = JUGADOR_1;
-        else 
+        else
             convencion_jugador = JUGADOR_2;
-            
-        numero_jugador = stoi(nombre);
+
         mapa -> posicionar_jugador(new Jugador(fila, columna), fila, columna);
-    }
-    else if (numero_jugador) {
-        Edificio* edificio_creado = crear_edificio(nombre, convencion_jugador);
+
+    } else if (convencion_jugador != VACIO) {
+        Edificio* edificio_creado = crear_edificio(nombre, fila, columna);
         mapa -> agregar_edificio_casillero(edificio_creado, fila, columna);
-    }
-    else {
+        this -> cargar_edificio_en_jugador(edificio_creado, jugador_1, jugador_2, convencion_jugador);
+    } else {
         Material* material_creado = crear_material(nombre);
         mapa -> agregar_material_casillero(material_creado, fila, columna);
     }
 }
 
-Edificio* Cargar_ubicaciones::crear_edificio(string nombre, char jugador) {
+void Cargar_ubicaciones::cargar_edificio_en_jugador(Edificio* edificio, Jugador* jugador_1, Jugador* jugador_2, char convencion){
+    if(convencion == JUGADOR_1)
+        jugador_1 -> cargar_edificio(edificio);
+    else
+        jugador_2 -> cargar_edificio(edificio);
+}
+
+Edificio* Cargar_ubicaciones::crear_edificio(string nombre, unsigned int fila, unsigned int columna) {
     Edificio* edificio_creado = 0;
-    if (nombre == "aserradero")
-        edificio_creado = new Aserradero(jugador);
-    else if (nombre == "escuela") 
-        edificio_creado = new Escuela(jugador);
-    else if (nombre == "fabrica") 
-        edificio_creado = new Fabrica(jugador);
-    else if (nombre == "mina") 
-        edificio_creado = new Mina(jugador);
-    else if (nombre == "obelisco") 
-        edificio_creado = new Obelisco(jugador);
-    else if (nombre == "planta electrica") 
-        edificio_creado = new Planta_electrica(jugador);
-    else if (nombre == "mina oro") 
-        edificio_creado = new Mina_oro(jugador);
+    if (nombre == NOMBRE_ASERRADERO)
+        edificio_creado = new Aserradero(fila, columna);
+    else if (nombre == NOMBRE_ESCUELA) 
+        edificio_creado = new Escuela(fila, columna);
+    else if (nombre == NOMBRE_FABRICA) 
+        edificio_creado = new Fabrica(fila, columna);
+    else if (nombre == NOMBRE_MINA) 
+        edificio_creado = new Mina(fila, columna);
+    else if (nombre == NOMBRE_OBELISCO) 
+        edificio_creado = new Obelisco(fila, columna);
+    else if (nombre == NOMBRE_PLANTA_ELECTRICA) 
+        edificio_creado = new Planta_electrica(fila, columna);
+    else if (nombre == NOMBRE_MINA_ORO) 
+        edificio_creado = new Mina_oro(fila, columna);
     
     return edificio_creado;
 }
 
 Material* Cargar_ubicaciones::crear_material(string nombre) {
     Material* material_creado = 0;
-    if (nombre == "piedra") 
+    if (nombre == PIEDRA) 
         material_creado = new Piedra();
-    else if (nombre == "madera")
+    else if (nombre == MADERA)
         material_creado = new Madera();
-    else if (nombre == "metal") 
+    else if (nombre == METAL) 
         material_creado = new Metal();
-    else if (nombre == "andycoins") 
+    else if (nombre == ANDYCOINS) 
         material_creado = new Andycoins();
     
     return material_creado;
