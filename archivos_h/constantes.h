@@ -111,6 +111,8 @@ const std::string NOMBRE_FABRICA = "fabrica";
 const std::string NOMBRE_OBELISCO = "obelisco";
 const std::string NOMBRE_MINA = "mina";
 const std::string NOMBRE_MINA_ORO = "mina oro";
+const std::string NOMBRE_ORO = "oro";
+const std::string NOMBRE_PLANTA = "planta";
 
 //OBJETIVOS 
 const std::string NOMBRE_OBJETIVO_ANDYCOINS = "andycoins por los cielos";

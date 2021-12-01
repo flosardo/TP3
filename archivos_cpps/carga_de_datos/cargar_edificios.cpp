@@ -19,20 +19,20 @@ void Cargar_edificios::carga_edificios(Abb* arbol){
     int metal_necesario;
     int permitidos;
     while (archivo_edificios >> nombre_edificio) {
-        if (nombre_edificio == "mina") {
+        if (nombre_edificio == NOMBRE_MINA) {
             archivo_edificios >> segunda_palabra;
-            if (segunda_palabra == "oro") {
+            if (segunda_palabra == NOMBRE_ORO) {
                 archivo_edificios >> piedra_necesaria >> madera_necesaria >> metal_necesario >> permitidos;
-                nombre_edificio = "mina oro";
+                nombre_edificio = NOMBRE_MINA_ORO;
             }
             else {
                 piedra_necesaria = stoi(segunda_palabra);
                 archivo_edificios >> madera_necesaria >> metal_necesario >> permitidos;
             }
         }
-        else if (nombre_edificio == "planta") {
+        else if (nombre_edificio == NOMBRE_PLANTA) {
             archivo_edificios >> segunda_palabra >> piedra_necesaria >> madera_necesaria >> metal_necesario >> permitidos;
-            nombre_edificio = "planta electrica";
+            nombre_edificio = NOMBRE_PLANTA_ELECTRICA;
         }
         else {
             archivo_edificios >> piedra_necesaria >> madera_necesaria >> metal_necesario >> permitidos;
