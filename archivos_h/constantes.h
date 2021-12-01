@@ -169,6 +169,10 @@ const int COSTO_MUELLE_JUGADOR_1 = 5;
 const int COSTO_MUELLE_JUGADOR_2 = 2;
 const int COSTO_TERRENO = 4;
 
+//PRECIOS
+
+const int COSTO_ANDYCOINS_BOMBA = 100;
+
 //MENSAJES ASCII
 /*const char MENU_CONFIGURACION[559] = R"(
                                               __ _                            _             
