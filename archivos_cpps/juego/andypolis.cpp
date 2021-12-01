@@ -20,12 +20,23 @@ Abb* Andypolis::devolver_arbol() {
 }
 
 void Andypolis::determinar_turno() {
-    if (this -> jugador_actual == this -> jugador_1) {
+    if (this -> jugador_actual == this -> jugador_1)
         this -> jugador_actual = this -> jugador_2;
-    }
-    else {
+    else 
         this -> jugador_actual = this -> jugador_1;
+}
+
+void Andypolis::modificar_edificio_nombre(){
+    string nombre = this -> funciones_auxiliares.pedir_nombre_edificio();
+    Edificio* edificio_a_modificar = this -> edificios_disponibles -> buscar_edificio(nombre);
+    
+    if(!edificio_a_modificar)
+        cout << COLOR_ROJO << "El edificio que desea modificar, no existe :( " << COLOR_POR_DEFECTO << endl;
+    else{
+        this -> funciones_auxiliares.pedir_nueva_cantidad_material();
     }
+
+
 }
 
 // void Andypolis::comenzar_partida() {

@@ -52,7 +52,7 @@ class Andypolis {
         *Pre:
         *Post:
         */
-        void modificar_edificio_nombre(std::string edficio);
+        void modificar_edificio_nombre();
 
         /*
         *Pre:

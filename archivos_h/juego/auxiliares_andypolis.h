@@ -36,12 +36,6 @@ class Auxiliares_andypolis {
         *Post:
         */
         bool validar_coordenadas(int fila, int columna);
-        
-        /*
-        *Pre:
-        *Post:
-        */
-        int* pedir_coordenadas();
 
         /*
         *Pre:
@@ -53,13 +47,43 @@ class Auxiliares_andypolis {
         *Pre:
         *Post:
         */
+        bool hay_energia_suficiente(int energia_necesaria, int energia_del_jugador);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        int* pedir_coordenadas();
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void modificar_materiales_necesarios(Edificio* edificio);
+
+        /*
+        *Pre:
+        *Post:
+        */
         void seleccionar_jugador(std::string & nombre_1, std::string & nombre_2);
 
         /*
         *Pre:
         *Post:
         */
-        bool hay_energia_suficiente(int energia_necesaria, int eneregia_del_jugador);
+        int Auxiliares_andypolis::pedir_nueva_cantidad_material(std::string material);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void Auxiliares_andypolis::modificar_materiales_necesarios(std::string edificio);
+
+        /*
+        *Pre: 
+        *Post:
+        */
+        std::string pedir_nombre_edificio();
         
 };
 

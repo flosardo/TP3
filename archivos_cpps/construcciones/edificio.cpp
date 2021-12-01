@@ -18,10 +18,10 @@ Edificio::Edificio() {
 
 Edificio::Edificio(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos) {
     this -> permitidos = permitidos;
-    this -> materiales_necesarios = new unsigned int[3];
-    this -> materiales_necesarios[0] = piedra_necesaria;
-    this -> materiales_necesarios[1] = madera_necesaria;
-    this -> materiales_necesarios[2] = metal_necesario;
+    this -> materiales_necesarios = new unsigned int[MAX_MATERIALES];
+    this -> materiales_necesarios[POS_PIEDRA] = piedra_necesaria;
+    this -> materiales_necesarios[POS_MADERA] = madera_necesaria;
+    this -> materiales_necesarios[POS_METAL] = metal_necesario;
     this -> codigo_emoji = VACIO;
     this -> afectado = false;
 }
@@ -33,6 +33,12 @@ Edificio::Edificio(unsigned int fila, unsigned int columna) {
     this -> materiales_necesarios = nullptr;
     this -> codigo_emoji = VACIO;
     this -> afectado = false;
+}
+
+void Edificio::establecer_nuevos_materiales(int nueva_piedra, int nueva_madera, int nuevo_metal){
+    this -> materiales_necesarios[POS_PIEDRA] = nueva_piedra;
+    this -> materiales_necesarios[POS_MADERA] = nueva_madera;
+    this -> materiales_necesarios[POS_METAL] = nuevo_metal;
 }
 
 unsigned int* Edificio::obtener_materiales_necesarios() {
