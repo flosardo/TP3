@@ -65,5 +65,5 @@ void Cargar_edificios::crear_edificios(Abb* arbol , string nombre_edificio, int 
         nuevo_edificio = new Planta_electrica(piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
     
     arbol -> agregar_nodo(nuevo_edificio);
-    nuevo_edificio = nullptr;
+    nuevo_edificio = 0;
 }

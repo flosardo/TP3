@@ -4,32 +4,36 @@ using namespace std;
 
 Nodo::Nodo(Edificio* edificio) {
     this -> edificio = edificio;
-    this -> der = nullptr;
-    this -> izq = nullptr;
+    this -> derecha = nullptr;
+    this -> izquierda = nullptr;
 }
 
 Nodo::Nodo() {
     this -> edificio = nullptr;
-    this -> der = nullptr;
-    this -> izq = nullptr;
+    this -> derecha = nullptr;
+    this -> izquierda = nullptr;
 }
 
-Nodo* Nodo::obtener_izq() {
-    return this -> izq;
+Nodo* Nodo::obtener_izquierda() {
+    return this -> izquierda;
 }
 
-Nodo* Nodo::obtener_der() {
-    return this -> der;
+Nodo* Nodo::obtener_derecha() {
+    return this -> derecha;
 }
 
 Edificio* Nodo::obtener_dato() {
     return this -> edificio;
 }
 
-void Nodo::establecer_derecha(Nodo* der){
-    this -> der = der;
+void Nodo::establecer_derecha(Nodo* derecha){
+    this -> derecha = derecha;
 }
 
-void Nodo::establecer_izquierda(Nodo* izq) {
-    this -> izq = izq;
+void Nodo::establecer_izquierda(Nodo* izquierda) {
+    this -> izquierda = izquierda;
+}
+
+Nodo::~Nodo() {
+    delete this -> edificio;
 }

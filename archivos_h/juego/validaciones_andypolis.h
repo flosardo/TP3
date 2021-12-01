@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-class Auxiliares_andypolis{
+class Validaciones_andypolis{
 
     public:
 
@@ -15,6 +15,7 @@ class Auxiliares_andypolis{
 
         void pedir_bombas(int & cantidad_bombas);
 
+        // Podría agregarse algun método para validar la cantidad de energía para realizar una acción
 };
 
 

@@ -8,8 +8,8 @@ class Nodo{
     private:
 
         Edificio* edificio;
-        Nodo* izq;
-        Nodo* der;
+        Nodo* izquierda;
+        Nodo* derecha;
 
     public:
 
@@ -27,21 +27,35 @@ class Nodo{
         /*
         *Post: Devolvera el nodo izquierdo.
         */
-        Nodo* obtener_izq();
+        Nodo* obtener_izquierda();
 
         /*
         *Post: Devolvera el nodo derecho.
         */
-        Nodo* obtener_der();
+        Nodo* obtener_derecha();
 
         /*
         *Post: Devolvera el dato del edificio.
         */
         Edificio* obtener_dato();
 
-        void establecer_derecha(Nodo* der);
+        /*
+        *Pre:
+        *Post:
+        */
+        void establecer_derecha(Nodo* derecha);
 
-        void establecer_izquierda(Nodo* izq);
+        /*
+        *Pre:
+        *Post:
+        */
+        void establecer_izquierda(Nodo* izquierda);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        ~Nodo();
 };
 
 #endif //_NODO_H_
