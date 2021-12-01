@@ -1,10 +1,9 @@
 #ifndef _ANDYPOLIS_H_
 #define _ANDYPOLIS_H_
 
-#include "mapa.h"
-#include <iostream>
-#include "arbol/abb.h"
-#include "auxiliares_andypolis.h"
+#include "../mapa.h"
+#include "../arbol/abb.h"
+
 
 class Andypolis{
 
@@ -13,9 +12,8 @@ class Andypolis{
         Mapa* mapa;
         Jugador* jugador_1;
         Jugador* jugador_2;
-        char jugador_actual;
-        Edificio** edificios_disponibles;
-        Abb* arbol;
+        Jugador* jugador_actual;
+        Abb* edificios_disponibles;
 
     public:
 
@@ -35,6 +33,8 @@ class Andypolis{
 
         ~Andypolis();
 
+        void determinar_turno();
+
         void modificar_edificio_nombre(std::string edficio);
 
         void listar_edificio();
@@ -43,37 +43,32 @@ class Andypolis{
 
         void comenzar_partida();
 
-        void construir_edificio(std::string edificio);
+        void construir_edificio(std::string edificio, Jugador* jugador);
 
-        void listar_mis_edificios();
+        void listar_mis_edificios(Jugador* jugador);
 
-        void demoler_edificio(std::string edificio);
+        void demoler_edificio(std::string edificio, Jugador* jugador);
 
-        void atacar_edificio();
+        void atacar_edificio(Jugador* jugador);
 
-        void reparar_edificio();
+        void reparar_edificio(Jugador* jugador);
 
-        void comprar_bombas();
+        void comprar_bombas(Jugador* jugador);
 
-        void consultar_coordenada();
+        void consultar_coordenada(Jugador* jugador);;
 
-        void mostrar_inventario();
+        void mostrar_inventario(Jugador* jugador);
 
-        void recolectar_recursos();
+        void mostrar_objetivos(Jugador* jugador);
 
-        void mostrar_objetivos();
+        void recolectar_recursos(Jugador* jugador);
 
-        void recolectar_recursos();
-
-        void moverse();
+        void moverse(Jugador* jugador);
 
         void finalizar_turno();
 
         void guardar_y_salir();
 
-
 };
 
-
 #endif //_ANDYPOLIS_H_
-

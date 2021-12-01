@@ -1,5 +1,6 @@
 #ifndef JUGADOR_H_
 #define JUGADOR_H_
+
 #include "inventario.h"
 #include "materiales/energia.h"
 
@@ -10,6 +11,7 @@ class Jugador{
         Energia energia;
         int* coordenadas;
         Inventario* inventario;
+        char nombre;
 
     public:
 
@@ -18,6 +20,18 @@ class Jugador{
         *Post: Creará un objeto de tipo Jugador con las coordenadas recibidad por parametro.
         */
         Jugador(int coordenada_x, int coordenada_y);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void establecer_nombre(char nombre);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        char obtener_nombre();
 
         /*
         *Pre: Que el material no sea null.

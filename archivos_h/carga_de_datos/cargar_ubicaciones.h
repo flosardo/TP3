@@ -1,12 +1,11 @@
 #ifndef _CARGAR_UBICACIONES_H_
 #define _CARGAR_UBICACIONES_H_
+
 #include <fstream>
 #include "../mapa.h"
 #include "../materiales/piedra.h"
 #include "../materiales/madera.h"
 #include "../materiales/metal.h"
-#include "../materiales/energia.h"
-#include "../materiales/bomba.h"
 #include "../materiales/andycoins.h"
 #include "../construcciones/aserradero.h"
 #include "../construcciones/escuela.h"

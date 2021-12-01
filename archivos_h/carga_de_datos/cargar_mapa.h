@@ -1,7 +1,8 @@
 #ifndef _CARGAR_MAPA_H_
 #define _CARGAR_MAPA_H_
+
 #include <fstream>
-#include "../andypolis.h"
+#include "../mapa.h"
 
 class Cargar_mapa{
     

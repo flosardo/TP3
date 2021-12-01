@@ -8,6 +8,15 @@ Jugador::Jugador(int coordenada_x, int coordenada_y) {
     this -> coordenadas[POSICION_FILA] = coordenada_y;
     this -> coordenadas[POSICION_COLUMNA] = coordenada_x;
     this -> inventario = nullptr;
+    this -> nombre = VACIO;
+}
+
+void Jugador::establecer_nombre(char nombre) {
+    this -> nombre = nombre;
+}
+
+char Jugador::obtener_nombre() {
+    return this -> nombre;
 }
 
 int* Jugador::devolver_coordenadas() {

@@ -3,7 +3,6 @@
 
 #include <iostream>
 
-
 class Auxiliares_andypolis{
 
     public:
@@ -15,10 +14,6 @@ class Auxiliares_andypolis{
         void pedir_coordenadas(int & fila,int & columna);
 
         void pedir_bombas(int & cantidad_bombas);
-
-
-
-
 
 };
 

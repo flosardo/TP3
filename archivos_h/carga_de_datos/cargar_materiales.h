@@ -2,8 +2,7 @@
 #define _CARGAR_MATERIALES_H_
 
 #include <fstream>
-#include "../andypolis.h"
-#include "../materiales/material.h"
+#include "../jugador.h"
 #include "../materiales/andycoins.h"
 #include "../materiales/bomba.h"
 #include "../materiales/madera.h"
