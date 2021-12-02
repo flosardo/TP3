@@ -42,4 +42,8 @@ void Andypolis::modificar_edificio_nombre(){
     }
 }
 
+Jugador* Andypolis::devolver_jugador(int numero_jugador) {
+    return numero_jugador == 1 ? this -> jugador_1 : this -> jugador_2;
+}
+
 Andypolis::~Andypolis() {}

@@ -48,7 +48,7 @@ class Cargar_ubicaciones{
         /*
         *Post: Devolverá un puntero de tipo Edificio, que contendra la información del edificio creado.
         */
-        Edificio* crear_edificio(std::string nombre, unsigned int fila, unsigned int columna);
+        Edificio* crear_edificio(std::string nombre, int fila, int columna);
 
         /*
         *Pre: Que el nombre venga con un nombre de material existente.

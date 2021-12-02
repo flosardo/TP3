@@ -146,6 +146,8 @@ class Andypolis {
         */
         void guardar_y_salir();
 
+        Jugador* devolver_jugador(int numero_jugador);
+
         /*
         *Post: Liberará la memoria utilizada a lo largo del programa.
         */

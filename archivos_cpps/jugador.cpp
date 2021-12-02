@@ -28,11 +28,12 @@ void Jugador::cargar_edificio(Edificio* edificio) {
     redimensionar_edificio(this -> cantidad_construidos + 1);
     this -> edificios_construidos[this -> cantidad_construidos] = edificio;
     this -> cantidad_construidos++;
+    this -> listar_construidos();
 }
 
-void Jugador::redimensionar_edificio(unsigned int nueva_longitud) {
+void Jugador::redimensionar_edificio(int nueva_longitud) {
     Edificio** nuevo_vector_edificios = new Edificio*[nueva_longitud];
-    for (unsigned int i = 0; i < this -> cantidad_construidos; i++) {
+    for (int i = 0; i < this -> cantidad_construidos; i++) {
         if(this -> edificios_construidos[i])
             nuevo_vector_edificios[i] = this -> edificios_construidos[i];
     }
@@ -40,9 +41,9 @@ void Jugador::redimensionar_edificio(unsigned int nueva_longitud) {
     this -> edificios_construidos = nuevo_vector_edificios;
 }
 
-void Jugador::eliminar_edificio(unsigned int fila, unsigned int columna) {
+void Jugador::eliminar_edificio(int fila, int columna) {
     bool se_elimino = false;
-    unsigned int i = 0;
+    int i = 0;
     while (i < this -> cantidad_construidos && !se_elimino){
         if(this -> edificios_construidos[i] -> obtener_fila() == fila && this -> edificios_construidos[i] -> obtener_columna() == columna){
             this -> redimensionar_edificio(this -> cantidad_construidos - 1);
@@ -70,7 +71,7 @@ int* Jugador::devolver_coordenadas() {
 
 int Jugador::obtener_cantidad_construidos(string nombre_edificio) {
     int construidos = 0;
-    for (unsigned int i = 0; i < this -> cantidad_construidos; i++) {
+    for (int i = 0; i < this -> cantidad_construidos; i++) {
         if (this -> edificios_construidos[i] -> obtener_nombre_del_edificio() == nombre_edificio)
             construidos++;
     }
@@ -95,13 +96,14 @@ void Jugador::modificar_inventario(string material, int cantidad) {
 }
 
 
-// SEGMENTATIONNNNNNNNNN
 void Jugador::listar_construidos() {
     cout << "ENTROOOOO" << endl;
+    cout << "aca: " << this -> cantidad_construidos << endl;
+    cout << this -> edificios_construidos[0] -> obtener_nombre_del_edificio() << endl;
     string esta_afectado;
-    unsigned int fila;
-    unsigned int columna; 
-    for (unsigned int i = 0; i < this -> cantidad_construidos; i++) {
+    int fila;
+    int columna; 
+    for (int i = 0; i < this -> cantidad_construidos; i++) {
         esta_afectado = this -> edificios_construidos[i] -> esta_afectado() ? "SI" : "NO";
         fila =  this -> edificios_construidos[i] -> obtener_fila();
         columna =  this -> edificios_construidos[i] -> obtener_columna(); 

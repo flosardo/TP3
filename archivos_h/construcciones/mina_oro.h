@@ -15,17 +15,17 @@ class Mina_oro : public Edificio{
         /*
         *Post: Creará un objeto de tipo mina_oro con los parámetros recibidos.
         */
-        Mina_oro(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos);
+        Mina_oro(int piedra_necesaria, int madera_necesaria, int metal_necesario, int permitidos);
 
         /*
         *Post: Creará un objeto de tipo Mina_oro usando los parámetros que recibe.
         */
-        Mina_oro(unsigned int fila, unsigned int columna);
+        Mina_oro(int fila, int columna);
 
         /*
         Pos:
         */
-        void mostrar_caracteristicas(int construidos);  
+        void mostrar_caracteristicas(int construidos);
 
         /*
         *Post: Mostrará un saludo por consola del edificio mina oro.

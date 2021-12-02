@@ -24,12 +24,12 @@ int main(){
     cargar_edificios.carga_edificios(nuevo_arbol);
     cargar_mapa.carga_mapa(mapa);
 
-    Jugador* jugador_1 = new Jugador;
-    // Jugador* jugador_2 = new Jugador;
+    Jugador* jugador_1 = juego.devolver_jugador(1);
+    Jugador* jugador_2 = juego.devolver_jugador(2);
 
-    // cargar_ubicaciones.carga_ubicaciones(mapa, jugador_1, jugador_2);
-    juego.listar_edificios(jugador_1);
-    // jugador_1 -> listar_construidos();
+    cargar_ubicaciones.carga_ubicaciones(mapa, jugador_1, jugador_2);
+    //juego.listar_edificios(jugador_1);
+    //jugador_1 -> listar_construidos();
 
     delete nuevo_arbol;
     return 0;

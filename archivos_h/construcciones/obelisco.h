@@ -15,17 +15,17 @@ class Obelisco : public Edificio{
         /*
         *Post: Creará un objeto de tipo Obelisco, usando los parámetros que recibe.
         */
-        Obelisco(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos);
+        Obelisco(int piedra_necesaria, int madera_necesaria, int metal_necesario, int permitidos);
 
         /*
         *Post: Creará un objeto de tipo Obelisco usando los parámetros que recibe.
         */
-        Obelisco(unsigned int fila, unsigned int columna);
+        Obelisco(int fila, int columna);
 
         /*
         Pos:
         */
-        void mostrar_caracteristicas(int construidos);  
+        void mostrar_caracteristicas(int construidos);
 
         /*
         *Post: Mostrará un saludo por consola del edificio obelisco.

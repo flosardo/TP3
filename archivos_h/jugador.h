@@ -14,7 +14,7 @@ class Jugador{
         Inventario* inventario;
         char nombre;
         Edificio** edificios_construidos;
-        unsigned int cantidad_construidos;
+        int cantidad_construidos;
 
     public:
 
@@ -36,7 +36,7 @@ class Jugador{
         /*
         *Post: Eliminará el edificio.
         */
-        void eliminar_edificio(unsigned int fila, unsigned int columna);
+        void eliminar_edificio(int fila, int columna);
 
         /*
         *Post:
@@ -46,7 +46,7 @@ class Jugador{
         /*
         *Post: Redimensionara el edificio.
         */
-        void redimensionar_edificio(unsigned int nueva_longitud);
+        void redimensionar_edificio(int nueva_longitud);
 
         /*
         *Post: Establecera el nombre del jugador.

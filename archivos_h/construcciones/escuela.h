@@ -15,12 +15,12 @@ class Escuela : public Edificio{
         /*
         *Post: Creará un objeto de tipo Escuela, usando los parámetros que recibe.
         */
-        Escuela(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos);
+        Escuela(int piedra_necesaria, int madera_necesaria, int metal_necesario, int permitidos);
 
         /*
         *Post: Creará un objeto de tipo Escuela usando los parametros que recibe.
         */
-        Escuela(unsigned int fila, unsigned int columna); 
+        Escuela(int fila, int columna); 
 
         /*
         *Post: Creará un objeto de tipo Escuela usando los parámetros que recibe.
@@ -30,7 +30,7 @@ class Escuela : public Edificio{
         /*
         Pos:
         */
-        void mostrar_caracteristicas(int construidos);  
+        void mostrar_caracteristicas(int construidos);
 
         /*
         *Post: Mostrará un saludo por consola del edificio de tipo escuela.

@@ -26,42 +26,38 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
     archivo_ubicaciones >> basura;
     archivo_ubicaciones >> columna;
     archivo_ubicaciones >> basura;
+    archivo_ubicaciones.ignore();
     nombre.pop_back();
     /*
     NUNCA ENTRA EN LA CONDICIÓN DEL IF ENTONCES NUNCA ASIGNA EL VALOR NUEVO A LA CONVENCIÓN DEL JUGADOR
     LAS COMPARACIONES QUE PUSE ABAJO SON PARA PROBAR Y DAN TODAS FALSO, NO SE POR QUE, CAPAZ HABRÍA QUE PENSEARLO DE OTRA FORMA
     */
-    cout << (nombre == NUMERO_JUGADOR_1) << endl;
-    cout << (nombre == "1 ") << endl;
-    cout << (nombre == "1") << endl;
-    cout << (nombre == " 1") << endl;
+    cout << "Nombre:" << nombre << endl;
     cout << endl;
     if (nombre == NUMERO_JUGADOR_1 || nombre == NUMERO_JUGADOR_2) {
-        if (nombre == NUMERO_JUGADOR_1)
-            convencion_jugador = JUGADOR_1;
-        else
-            convencion_jugador = JUGADOR_2;
-
+        convencion_jugador = nombre == NUMERO_JUGADOR_1 ? JUGADOR_1 : JUGADOR_2;
         mapa -> posicionar_jugador(new Jugador(fila, columna), fila, columna);
 
-    } else if (convencion_jugador != VACIO) {
+    }
+    else if (convencion_jugador != VACIO2) {
         Edificio* edificio_creado = crear_edificio(nombre, fila, columna);
         mapa -> agregar_edificio_casillero(edificio_creado, fila, columna);
         this -> cargar_edificio_en_jugador(edificio_creado, jugador_1, jugador_2, convencion_jugador);
-    } else {
+        cout << "sd" << endl;
+    } 
+    else {
         Material* material_creado = crear_material(nombre);
         mapa -> agregar_material_casillero(material_creado, fila, columna);
     }
 }
 
 void Cargar_ubicaciones::cargar_edificio_en_jugador(Edificio* edificio, Jugador* jugador_1, Jugador* jugador_2, char convencion){
-    if(convencion == JUGADOR_1)
-        jugador_1 -> cargar_edificio(edificio);
-    else
-        jugador_2 -> cargar_edificio(edificio);
+    Jugador* jugador = convencion == JUGADOR_1 ? jugador_1 : jugador_2;
+    jugador -> cargar_edificio(edificio);
+    jugador = nullptr;
 }
 
-Edificio* Cargar_ubicaciones::crear_edificio(string nombre, unsigned int fila, unsigned int columna) {
+Edificio* Cargar_ubicaciones::crear_edificio(string nombre, int fila, int columna) {
     Edificio* edificio_creado = 0;
     if (nombre == NOMBRE_ASERRADERO)
         edificio_creado = new Aserradero(fila, columna);

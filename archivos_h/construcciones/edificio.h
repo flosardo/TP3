@@ -7,12 +7,12 @@ class Edificio{
 
     protected:
 
-        unsigned int fila;
-        unsigned int columna;
+        int fila;
+        int columna;
         std::string nombre_material;
-        unsigned int cantidad_material_producido;
-        unsigned int* materiales_necesarios;
-        unsigned int permitidos;
+        int cantidad_material_producido;
+        int* materiales_necesarios;
+        int permitidos;
         bool afectado;
         std::string nombre_del_edificio;
         std::string codigo_emoji;
@@ -27,27 +27,27 @@ class Edificio{
         /*
         *Post: Creará un objeto de tipo Edificio con los parametros jugador, piedra_necesaria, metal_necesario, madera_necesaria.
         */
-        Edificio(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos);
+        Edificio(int piedra_necesaria, int madera_necesaria, int metal_necesario, int permitidos);
 
         /*
         *Post: Creará un objeto de tipo Edificio con los valores de los parametros recibidos.
         */
-        Edificio(unsigned int fila, unsigned int columna);
+        Edificio(int fila, int columna);
 
         /*
         *Post: Devolvera la fila del edificio.
         */
-        unsigned int obtener_fila();
+        int obtener_fila();
 
         /*
         *Post: Devolvera la columna del edificio.
         */
-        unsigned int obtener_columna();
+        int obtener_columna();
 
         /*
         *Post: Devolvera la columna del edificio.
         */
-        void establecer_nuevos_materiales(unsigned int nueva_piedra, unsigned int nueva_madera, unsigned int nuevo_metal);
+        void establecer_nuevos_materiales(int nueva_piedra, int nueva_madera, int nuevo_metal);
 
         /*
         *Post: Devolverá la representacion del edificio.
@@ -62,12 +62,12 @@ class Edificio{
         /*
         *Post: Devolverá la cantidad de material producido.
         */
-        unsigned int obtener_cantidad_de_material_producido();
+        int obtener_cantidad_de_material_producido();
 
         /*
         Post: devuelve un puntero al vector que contiene los materiales necesarios
         */
-        unsigned int* obtener_materiales_necesarios();
+        int* obtener_materiales_necesarios();
 
         /*
         *Post: Devolverá el estado del edificio.

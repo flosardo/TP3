@@ -58,7 +58,7 @@ class Casillero_construible: public Casillero{
         /*
         *Post: Devolverá la cantidad material producido.
         */
-        unsigned int cantidad_material_producido();
+        int cantidad_material_producido();
 
 };
 
