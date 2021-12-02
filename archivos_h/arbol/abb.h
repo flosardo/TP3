@@ -11,16 +11,16 @@ class Abb{
 
     public:
 
+        /* 
+        Post: crea un objeto de tipo Abb
+        */
+        Abb();
+
         /*
         *Pre: Que el nodo raiz no sea null.
         *Post: Construirá un objeto de tipo Abb con los valores de los parametros recibidos.
         */
         Abb(Nodo* raiz);
-
-        /*
-        Post: crea un objeto de tipo Abb
-        */
-        Abb();
 
         /*
         *Pre: Que el parametro no sean null.

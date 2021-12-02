@@ -65,7 +65,7 @@ void Auxiliares_andypolis::modificar_materiales_necesarios(Edificio* edificio){
 
 string Auxiliares_andypolis::pedir_nombre_edificio(){
     string nombre_edificio;
-    cout << "Ingrese el nombre del edificio" << COLOR_DORADO << ">> " << COLOR_POR_DEFECTO;
+    cout << "Ingrese el nombre del edificio" << COLOR_DORADO << " >> " << COLOR_POR_DEFECTO;
     getline(cin, nombre_edificio, '\n');
     cout << nombre_edificio << endl;
     return nombre_edificio;

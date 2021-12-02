@@ -13,11 +13,10 @@ using namespace std;
 
 int main(){
     Menu_configuracion c;
-    c.mostrar_menu();
     Cargar_ubicaciones car;
     Mapa map;
     Andypolis juego;
-    Abb* nuevo_arbol = new Abb;
+    Abb* nuevo_arbol = juego.devolver_arbol();
     Cargar_edificios edi;
     edi.carga_edificios(nuevo_arbol);
     Edificio* edificio = nuevo_arbol -> buscar_edificio("planta electrica");
@@ -27,13 +26,6 @@ int main(){
     juego.modificar_edificio_nombre();
     unsigned int* nuevos_mat = edificio -> obtener_materiales_necesarios();
     cout << nuevos_mat[0] << " " << nuevos_mat[1] << " " << nuevos_mat[2] << endl;
-    Madera madera(20);
-    Metal metal(2);
-    Bomba bomba(2);
-    madera.saludar();
-    madera.mostrar_material();
-    metal.mostrar_material();
-    bomba.mostrar_material();
     delete nuevo_arbol;
     return 0;
 }

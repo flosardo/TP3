@@ -52,17 +52,14 @@ Edificio* Abb::buscar_edificio(string nombre) {
 }
 
 Edificio* Abb::buscar_edificio_rec(Nodo* arbol, string nombre) {
-    if (!arbol) { 
+    if (!arbol)
         return nullptr;
-    }
 
     Edificio* edificio =  arbol -> obtener_dato();
-    if (nombre == edificio -> obtener_nombre_del_edificio()) {
+    if (nombre == edificio -> obtener_nombre_del_edificio())
         return edificio;
-    }
     else if (nombre < edificio -> obtener_nombre_del_edificio())
         return buscar_edificio_rec(arbol -> obtener_izquierda(), nombre);
-
     return buscar_edificio_rec(arbol -> obtener_derecha(), nombre);
 }
 

@@ -3,7 +3,7 @@
 using namespace std;
 
 Andypolis::Andypolis() {
-    this -> edificios_disponibles = nullptr;
+    this -> edificios_disponibles = new Abb();
     this -> mapa = nullptr;
     this -> jugador_1 = nullptr;
     this -> jugador_2 = nullptr;
@@ -39,10 +39,3 @@ void Andypolis::modificar_edificio_nombre(){
 }
 
 Andypolis::~Andypolis() {}
-
-// void Andypolis::comenzar_partida() {
-//     string nombre_1;
-//     string nombre_2;
-//     this -> funciones_auxiliares.seleccionar_jugador(nombre_1, nombre_2);
-
-// }
