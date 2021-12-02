@@ -19,6 +19,10 @@ Abb* Andypolis::devolver_arbol() {
     return this -> edificios_disponibles;
 }
 
+void Andypolis::listar_edificios(Jugador* jugador) {
+    this -> edificios_disponibles -> mostrar_arbol(jugador);
+}
+
 void Andypolis::determinar_turno() {
     if (this -> jugador_actual == this -> jugador_1)
         this -> jugador_actual = this -> jugador_2;

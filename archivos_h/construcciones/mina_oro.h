@@ -23,6 +23,11 @@ class Mina_oro : public Edificio{
         Mina_oro(unsigned int fila, unsigned int columna);
 
         /*
+        Pos:
+        */
+        void mostrar_caracteristicas(int construidos);  
+
+        /*
         *Post: Mostrará un saludo por consola del edificio mina oro.
         */
         void mostrar_saludo();

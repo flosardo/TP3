@@ -25,15 +25,24 @@ Nodo* Abb::agregar_nodo_rec(Nodo* nodo, Edificio* edificio) {
     return nodo;
 }
 
-void Abb::mostrar_arbol(Nodo* nodo, int cantidad) {
+void Abb::mostrar_arbol(Jugador* jugador) {
+    this -> _mostrar_arbol(this -> raiz, jugador);
+}
+
+int Abb::contar_construidos(Jugador* jugador, std::string nombre_edificio) {
+    int construidos = 0;
+    construidos = jugador -> obtener_cantidad_construidos(nombre_edificio);
+    return construidos;
+}
+
+void Abb::_mostrar_arbol(Nodo* nodo, Jugador* jugador) {
     if (!nodo)
         return;
 
-    mostrar_arbol(nodo -> obtener_derecha(), cantidad + 1);
-    for (int i = 0; i < cantidad; i++)
-        cout << nodo -> obtener_dato() -> obtener_nombre_del_edificio() << "   " << endl;
-
-    mostrar_arbol(nodo -> obtener_izquierda(), cantidad + 1);
+    int construidos = this -> contar_construidos(jugador, nodo -> obtener_dato() -> obtener_nombre_del_edificio());
+    nodo -> obtener_dato() -> mostrar_caracteristicas(construidos);
+    _mostrar_arbol(nodo -> obtener_derecha(), jugador);
+    _mostrar_arbol(nodo -> obtener_izquierda(), jugador);
 }
 
 bool Abb::existe_el_edificio(Nodo* arbol, string nombre) {

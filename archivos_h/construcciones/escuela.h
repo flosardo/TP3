@@ -28,6 +28,11 @@ class Escuela : public Edificio{
         Escuela(char jugador);
 
         /*
+        Pos:
+        */
+        void mostrar_caracteristicas(int construidos);  
+
+        /*
         *Post: Mostrará un saludo por consola del edificio de tipo escuela.
         */
         void mostrar_saludo();

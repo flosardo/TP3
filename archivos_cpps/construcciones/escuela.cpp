@@ -21,6 +21,17 @@ void Escuela::inicializar_atributos() {
     this -> codigo_emoji = EMOJI_ESCUELA;
 }
 
+void Escuela::mostrar_caracteristicas(int construidos) {
+    cout << "--> " << COLOR_VERDE_AGUA << this -> nombre_del_edificio << COLOR_POR_DEFECTO << endl;
+    cout << "Piedra requerida: " << this -> materiales_necesarios[POS_PIEDRA] << endl;
+    cout << "Madera requerida: " << this -> materiales_necesarios[POS_MADERA] << endl;
+    cout << "Metal requerido: " << this -> materiales_necesarios[POS_METAL] << endl;
+    cout << "Construidos hasta el momento: " << construidos << endl;
+    cout << "Puede construir " << this -> permitidos - construidos << " más" << endl;
+    cout << "Brinda material: SI" << endl;
+    cout << COLOR_MARRON << LINEA_DIVISORIA << COLOR_POR_DEFECTO << endl;
+}
+
 void Escuela::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy una escuela y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }

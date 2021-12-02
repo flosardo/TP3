@@ -20,7 +20,12 @@ class Aserradero : public Edificio{
         /*
         *Post: Creará un objeto de tipo Aserradero usando los parametros que recibe.
         */
-        Aserradero(unsigned int fila, unsigned int columna);        
+        Aserradero(unsigned int fila, unsigned int columna);
+
+        /*
+        Pos:
+        */
+        void mostrar_caracteristicas(int construidos);      
 
         /*
         *Post: Mostrará un saludo del edificio aserradero por consola.

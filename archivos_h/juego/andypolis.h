@@ -58,7 +58,7 @@ class Andypolis {
         *Pre:
         *Post:
         */
-        void listar_edificio();
+        void listar_edificios(Jugador* jugador);
         
         // FIN, GURADAR_Y_SALIR COMPARTEN
 

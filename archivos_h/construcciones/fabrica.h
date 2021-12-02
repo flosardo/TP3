@@ -23,6 +23,11 @@ class Fabrica : public Edificio {
         Fabrica(unsigned int fila, unsigned int columna);
 
         /*
+        Pos:
+        */
+        void mostrar_caracteristicas(int construidos);    
+
+        /*
         *Post: Mostrará un saludo por consola de un edificio Fabrica.
         */
         void mostrar_saludo();

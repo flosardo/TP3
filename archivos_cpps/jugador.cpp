@@ -2,6 +2,17 @@
 
 using namespace std;
 
+Jugador::Jugador() {
+    this -> cantidad_construidos = 0;
+    this -> edificios_construidos = new Edificio* [this -> cantidad_construidos];
+    this -> energia = ENERGIA_INICIAL;
+    this -> coordenadas = new int [MAX_COORDENADAS];
+    this -> coordenadas[POSICION_FILA] = 0;
+    this -> coordenadas[POSICION_COLUMNA] = 2;
+    this -> inventario = nullptr;
+    this -> nombre = VACIO;
+}
+
 Jugador::Jugador(int coordenada_x, int coordenada_y) {
     this -> cantidad_construidos = 0;
     this -> edificios_construidos = new Edificio* [this -> cantidad_construidos];
@@ -57,6 +68,15 @@ int* Jugador::devolver_coordenadas() {
     return this -> coordenadas;
 }
 
+int Jugador::obtener_cantidad_construidos(string nombre_edificio) {
+    int construidos = 0;
+    for (unsigned int i = 0; i < this -> cantidad_construidos; i++) {
+        if (this -> edificios_construidos[i] -> obtener_nombre_del_edificio() == nombre_edificio)
+            construidos++;
+    }
+    return construidos;
+}
+
 void Jugador::mover(int coordenada_x, int coordenada_y) {
     /* HACER A FUTURO CON GRAFOS (CAMINOS MINIMOS). */
 }
@@ -72,6 +92,24 @@ void Jugador::cargar_material(Material* material) {
 void Jugador::modificar_inventario(string material, int cantidad) {
     int indice = this -> inventario -> obtener_indice_del_material(material);
     this -> inventario -> modificar_cantidad_material(indice, cantidad);
+}
+
+
+// SEGMENTATIONNNNNNNNNN
+void Jugador::listar_construidos() {
+    string esta_afectado;
+    unsigned int fila;
+    unsigned int columna; 
+    for (unsigned int i = 0; i < this -> cantidad_construidos; i++) {
+        esta_afectado = this -> edificios_construidos[i] -> esta_afectado() ? "SI" : "NO";
+        fila =  this -> edificios_construidos[i] -> obtener_fila();
+        columna =  this -> edificios_construidos[i] -> obtener_columna(); 
+        cout << this -> edificios_construidos[i] -> obtener_nombre_del_edificio() << endl;
+        cout << "Afectado: " << esta_afectado << endl;
+        cout << "Coordenadas: " << '(' << fila << "," << columna << ')' << endl;
+        cout << COLOR_MARRON << LINEA_DIVISORIA << COLOR_POR_DEFECTO << endl;
+    }
+    
 }
 
 Jugador::~Jugador(){

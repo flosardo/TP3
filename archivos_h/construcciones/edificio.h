@@ -6,7 +6,7 @@
 class Edificio{
 
     protected:
-        
+
         unsigned int fila;
         unsigned int columna;
         std::string nombre_material;
@@ -88,15 +88,21 @@ class Edificio{
         Pos: devuelve el nombre del edificio
         */
         std::string obtener_nombre_del_edificio();
+
         /*
-        Post: libera la memoria pedida
+        Pos:
         */
-        virtual ~Edificio();
+        void virtual mostrar_caracteristicas(int construidos) = 0;
 
         /*
         *Post: Inicializara los atributos, según el comportamiento de cada hija.
         */
         virtual void inicializar_atributos() = 0;
+
+        /*
+        Post: libera la memoria pedida
+        */
+        virtual ~Edificio();
 
 };
 

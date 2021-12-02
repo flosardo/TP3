@@ -18,6 +18,9 @@ class Jugador{
 
     public:
 
+        // Debugueo
+        Jugador();
+
         /*
         *Pre: Que las coordenadas recibidas por parametro sean >= 0.
         *Post: Creará un objeto de tipo Jugador con las coordenadas recibidad por parametro.
@@ -30,11 +33,15 @@ class Jugador{
         */
         void cargar_edificio(Edificio* edificio);
 
-
         /*
         *Post: Eliminará el edificio.
         */
         void eliminar_edificio(unsigned int fila, unsigned int columna);
+
+        /*
+        *Post:
+        */
+        int obtener_cantidad_construidos(std::string nombre_edificio);
 
         /*
         *Post: Redimensionara el edificio.
@@ -79,6 +86,8 @@ class Jugador{
         *Post: Modificará el inventario.
         */
         void modificar_inventario(std::string material, int cantidad);
+
+        void listar_construidos();
 
         /*
         *Post: Liberará la memoria usada durante la creacion del objeto Jugador.

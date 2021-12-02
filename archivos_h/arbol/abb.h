@@ -2,6 +2,7 @@
 #define _ABB_H_
 
 #include "nodo.h"
+#include "../jugador.h"
 
 class Abb{
 
@@ -35,9 +36,14 @@ class Abb{
         Nodo* agregar_nodo_rec(Nodo* arbol, Edificio* nuevo_edificio);
 
         /*
-        *para debuguear
+        *POS:
         */
-        void mostrar_arbol(Nodo* arbol, int cantidad);
+        void mostrar_arbol(Jugador* jugador);
+
+        /*
+        *POS:
+        */
+        void _mostrar_arbol(Nodo* arbol, Jugador* jugador);
 
         /*
         *Pre: recibe un puntero a nodo y un string
@@ -56,6 +62,13 @@ class Abb{
         *Pos: devuelve un puntero a los materiales necesarios
         */
         Edificio* buscar_edificio_rec(Nodo* nodo, std::string nombre);
+
+        
+        /*
+        *Pre:
+        *Pos:
+        */
+        int contar_construidos(Jugador* jugador, std::string nombre_edificio);
 
         /*
         *Post: Liberará la memoria utilizada por la clase a lo largo del programa.

@@ -14,6 +14,7 @@ Edificio::Edificio() {
     this -> cantidad_material_producido = 0;
     this -> materiales_necesarios = nullptr;
     this -> afectado = false;
+    this -> permitidos = 0;
 }
 
 Edificio::Edificio(unsigned int piedra_necesaria, unsigned int madera_necesaria, unsigned int metal_necesario, unsigned int permitidos) {
@@ -33,6 +34,7 @@ Edificio::Edificio(unsigned int fila, unsigned int columna) {
     this -> materiales_necesarios = nullptr;
     this -> codigo_emoji = VACIO;
     this -> afectado = false;
+    this -> permitidos = 0;
 }
 
 void Edificio::establecer_nuevos_materiales(unsigned int nueva_piedra, unsigned int nueva_madera, unsigned int nuevo_metal){
