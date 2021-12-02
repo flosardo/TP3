@@ -13,7 +13,7 @@ Jugador::Jugador() {
     this -> nombre = VACIO;
 }
 
-Jugador::Jugador(int coordenada_x, int coordenada_y) {
+Jugador::Jugador(char convencion_jugador, int coordenada_x, int coordenada_y) {
     this -> cantidad_construidos = 0;
     this -> edificios_construidos = new Edificio* [this -> cantidad_construidos];
     this -> energia = ENERGIA_INICIAL;
@@ -21,21 +21,23 @@ Jugador::Jugador(int coordenada_x, int coordenada_y) {
     this -> coordenadas[POSICION_FILA] = coordenada_y;
     this -> coordenadas[POSICION_COLUMNA] = coordenada_x;
     this -> inventario = nullptr;
-    this -> nombre = VACIO;
+    this -> nombre = convencion_jugador;
 }
 
 void Jugador::cargar_edificio(Edificio* edificio) {
     redimensionar_edificio(this -> cantidad_construidos + 1);
     this -> edificios_construidos[this -> cantidad_construidos] = edificio;
     this -> cantidad_construidos++;
-    this -> listar_construidos();
 }
 
 void Jugador::redimensionar_edificio(int nueva_longitud) {
     Edificio** nuevo_vector_edificios = new Edificio*[nueva_longitud];
+    int indice = 0;
     for (int i = 0; i < this -> cantidad_construidos; i++) {
-        if(this -> edificios_construidos[i])
-            nuevo_vector_edificios[i] = this -> edificios_construidos[i];
+        if (this -> edificios_construidos[i]) {
+            nuevo_vector_edificios[indice] = this -> edificios_construidos[i];
+            indice++;
+        }
     }
     delete [] this -> edificios_construidos;
     this -> edificios_construidos = nuevo_vector_edificios;
@@ -97,9 +99,6 @@ void Jugador::modificar_inventario(string material, int cantidad) {
 
 
 void Jugador::listar_construidos() {
-    cout << "ENTROOOOO" << endl;
-    cout << "aca: " << this -> cantidad_construidos << endl;
-    cout << this -> edificios_construidos[0] -> obtener_nombre_del_edificio() << endl;
     string esta_afectado;
     int fila;
     int columna; 
@@ -112,7 +111,6 @@ void Jugador::listar_construidos() {
         cout << "Coordenadas: " << '(' << fila << "," << columna << ')' << endl;
         cout << COLOR_MARRON << LINEA_DIVISORIA << COLOR_POR_DEFECTO << endl;
     }
-    
 }
 
 Jugador::~Jugador(){

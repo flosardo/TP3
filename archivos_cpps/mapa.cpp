@@ -98,13 +98,15 @@ bool Mapa::se_puede_construir(int coord_x, int coord_y) {
 
 void Mapa::mostrar_mapa() {
     for (int fila = 0; fila < this -> cantidad_filas; fila++) {
-        for (int columna = 0; columna < this -> cantidad_columnas; columna++){
+        for (int columna = 0; columna < this -> cantidad_columnas; columna++) {
             if (!this -> mapa[fila][columna] -> esta_ocupado())
                 cout << mapa[fila][columna] -> obtener_color() + VACIO;
+            else if (this -> mapa[fila][columna] -> obtener_puntero_jugador())
+                cout << mapa[fila][columna] -> obtener_puntero_jugador() -> obtener_nombre();
             else if (this -> mapa[fila][columna] -> obtener_tipo_de_terreno() == TERRENO) 
-                cout << mapa[fila][columna] -> obtener_color() + this -> mapa[fila][columna] -> obtener_puntero_edificio() -> obtener_codigo_emoji();
+                cout << this -> mapa[fila][columna] -> obtener_color() + this -> mapa[fila][columna] -> obtener_puntero_edificio() -> obtener_codigo_emoji();
             else 
-                cout << mapa[fila][columna] -> obtener_color() + this -> mapa[fila][columna] -> obtener_puntero_material() -> obtener_codigo_emoji();
+                cout << this -> mapa[fila][columna] -> obtener_color() + this -> mapa[fila][columna] -> obtener_puntero_material() -> obtener_codigo_emoji();
 
             cout << COLOR_POR_DEFECTO;
         }
@@ -112,20 +114,20 @@ void Mapa::mostrar_mapa() {
     }
 }
 
-void Mapa::llenar_casillero(char terreno, int fil, int col){
-    if(terreno == LAGO)
-        this -> mapa[fil][col] = new Casillero_inaccesible();
+void Mapa::llenar_casillero(char terreno, int fila, int columna){
+    if (terreno == LAGO)
+        this -> mapa[fila][columna] = new Casillero_inaccesible();
     else if (terreno == TERRENO)
-        this -> mapa[fil][col] = new Casillero_construible();
+        this -> mapa[fila][columna] = new Casillero_construible();
     else
-        this -> mapa[fil][col] = new Casillero_transitable();
+        this -> mapa[fila][columna] = new Casillero_transitable();
 }
 
 void Mapa::posicionar_jugador(Jugador *jugador, int fila, int columna) {
     if (this -> coordenadas_fuera_de_rango( fila,  columna)) {
         this -> consultar_coordenada( fila,  columna);
     }
-    else if (this -> mapa[fila][columna] -> obtener_tipo_de_terreno() != LAGO && !this->mapa[fila][columna] -> esta_ocupado()) { //hacer funcion aparte para validar
+    else if (this -> mapa[fila][columna] -> obtener_tipo_de_terreno() != LAGO && !this->mapa[fila][columna] -> esta_ocupado()) {
         this -> mapa[fila][columna] -> agregar_jugador(jugador);
     }
 }

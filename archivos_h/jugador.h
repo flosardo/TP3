@@ -25,7 +25,7 @@ class Jugador{
         *Pre: Que las coordenadas recibidas por parametro sean >= 0.
         *Post: Creará un objeto de tipo Jugador con las coordenadas recibidad por parametro.
         */
-        Jugador(int coordenada_x, int coordenada_y);
+        Jugador(char convencion_jugador, int coordenada_x, int coordenada_y);
 
         /*
         *Pre: Que el parámetro no sea null.

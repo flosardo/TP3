@@ -29,7 +29,10 @@ int main(){
 
     cargar_ubicaciones.carga_ubicaciones(mapa, jugador_1, jugador_2);
     //juego.listar_edificios(jugador_1);
-    //jugador_1 -> listar_construidos();
+    // jugador_1 -> listar_construidos();
+
+    // juego.modificar_edificio_nombre();
+    juego.mostrar_mapa();
 
     delete nuevo_arbol;
     return 0;

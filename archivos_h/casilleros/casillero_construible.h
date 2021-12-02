@@ -37,7 +37,12 @@ class Casillero_construible: public Casillero{
         /*
         *Post: Devolverá el puntero de tipo edificio que esta en el atributo.
         */
-        Edificio* obtener_edificio();
+        Edificio* obtener_puntero_edificio();
+
+        /*
+        *Post:
+        */
+        virtual Jugador* obtener_puntero_jugador();
 
         /*
         *Post: Devolverá true si el casillero se encuentra ocupado con un edificio, o false en caso contrario.

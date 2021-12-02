@@ -40,6 +40,11 @@ class Casillero{
         virtual Edificio* obtener_puntero_edificio();
 
         /*
+        *Post:
+        */
+        virtual Jugador* obtener_puntero_jugador();
+
+        /*
         *Post: Hace que las clases hijas devuelvan el puntero a un material, según sea el comportamiento de cada hija.
         */
         virtual Material* obtener_puntero_material();

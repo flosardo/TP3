@@ -12,7 +12,13 @@ Casillero_transitable::Casillero_transitable() {
 // REVISAR
 Casillero_transitable::Casillero_transitable(Material* material) {
     this -> material = material;
+    this -> jugador = nullptr;
+    this -> tipo_terreno = CAMINO;
     this -> codigo_color = FONDO_GRIS;
+}
+
+Jugador* Casillero_transitable::obtener_puntero_jugador() {
+    return this -> jugador;
 }
 
 void Casillero_transitable::mostrar() {
@@ -30,7 +36,7 @@ void Casillero_transitable::mostrar() {
     }
 }
 
-Material* Casillero_transitable::obtener_material() {
+Material* Casillero_transitable::obtener_puntero_material() {
     return this -> material;
 }
 

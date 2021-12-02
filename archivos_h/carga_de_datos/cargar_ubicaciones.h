@@ -62,7 +62,7 @@ class Cargar_ubicaciones{
         *Pre: Que el archivo exista, que los punteros no sean null.
         *Post: Procesará el archivo de ubicaciones.
         */
-        void procesar_archivo(std::ifstream & archivo_ubicaciones, Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2, std::string nombre);
+        void procesar_archivo(std::ifstream & archivo_ubicaciones, Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2, std::string nombre, char & convencion_jugador);
         
 };
 

@@ -31,7 +31,12 @@ class Casillero_transitable: public Casillero{
         /*
         *Post: Devolvera el puntero de tipo material que está en el atributo.
         */
-        Material* obtener_material();
+        Material* obtener_puntero_material();
+
+        /*
+        *Post:
+        */
+        Jugador* obtener_puntero_jugador();
 
         /*
         *Post: Devolvera true si el casillero se encuentra ocupado con un material o jugador, o false en caso contrario.

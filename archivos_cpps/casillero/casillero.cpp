@@ -19,6 +19,9 @@ Material* Casillero::obtener_puntero_material() {
     return nullptr;
 }
 
+Jugador* Casillero::obtener_puntero_jugador() {
+    return nullptr;
+}
 
 string Casillero::obtener_color(){
     return this -> codigo_color;

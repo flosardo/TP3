@@ -50,9 +50,11 @@ bool Auxiliares_andypolis::hay_energia_suficiente(int energia_necesaria, int ene
 }
 
 int Auxiliares_andypolis::pedir_nueva_cantidad_material(string material){
-    int cantidad = 0;
-    cout << "Ingrese la nueva cantidad de " << material << " >> " << COLOR_DORADO << COLOR_POR_DEFECTO;
-    cin >> cantidad;
+    int cantidad = -1;
+    while (cantidad < MIN_VALOR_MATERIAL || cantidad > MAX_VALOR_MATERIALES) {
+        cout << "Ingrese la nueva cantidad de " << material << " >> " << COLOR_DORADO << COLOR_POR_DEFECTO;
+        cin >> cantidad;
+    }
     return cantidad;
 }
 

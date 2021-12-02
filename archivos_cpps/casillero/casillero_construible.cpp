@@ -12,7 +12,13 @@ Casillero_construible::Casillero_construible() {
 // REVISAR
 Casillero_construible::Casillero_construible(Edificio* edificio) {
     this -> edificio = edificio;
+    this -> jugador = nullptr;
+    this -> tipo_terreno = TERRENO;
     this -> codigo_color = FONDO_VERDE;
+}
+
+Jugador* Casillero_construible::obtener_puntero_jugador() {
+    return this -> jugador;
 }
 
 void Casillero_construible::mostrar() {
@@ -41,7 +47,7 @@ void Casillero_construible::agregar_jugador(Jugador* jugador) {
     this -> jugador = jugador;
 }
 
-Edificio* Casillero_construible::obtener_edificio() {
+Edificio* Casillero_construible::obtener_puntero_edificio() {
     return this -> edificio;
 }
 
