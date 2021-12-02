@@ -2,32 +2,62 @@
 
 using namespace std;
 
-Abb::Abb(Nodo* nodo) {
-    this -> raiz = nodo;
-}
-
 Abb::Abb() {
     this -> raiz = nullptr;
 }
 
-void Abb::agregar_nodo(Edificio* edificio) {
-    this -> raiz = this -> agregar_nodo_rec(this -> raiz, edificio);
+Abb::Abb(Nodo* nodo) {
+    this -> raiz = nodo;
 }
 
-Nodo* Abb::agregar_nodo_rec(Nodo* nodo, Edificio* edificio) {
-    if (!nodo)
-        nodo = new Nodo(edificio);
-    else if (edificio -> obtener_nombre_del_edificio() > nodo -> obtener_dato() -> obtener_nombre_del_edificio())
-        nodo -> establecer_derecha(agregar_nodo_rec(nodo -> obtener_derecha(), edificio));
-    else
-        nodo -> establecer_izquierda(agregar_nodo_rec(nodo -> obtener_izquierda(), edificio));
 
+void Abb::agregar_nodo(Edificio* nuevo_edificio) {
+    this -> raiz = this -> agregar_nodo_recursiva(this -> raiz, nuevo_edificio);
+}
+
+Nodo* Abb::agregar_nodo_recursiva(Nodo* nodo, Edificio* nuevo_edificio) {
+    if (!nodo)
+        nodo = new Nodo(nuevo_edificio);
+    else if (nuevo_edificio -> obtener_nombre_del_edificio() > nodo -> obtener_dato() -> obtener_nombre_del_edificio())
+        nodo -> establecer_derecha(agregar_nodo_recursiva(nodo -> obtener_derecha(), nuevo_edificio));
+    else
+        nodo -> establecer_izquierda(agregar_nodo_recursiva(nodo -> obtener_izquierda(), nuevo_edificio));
+    
     return nodo;
 }
 
-void Abb::mostrar_arbol(Jugador* jugador) {
-    this -> _mostrar_arbol(this -> raiz, jugador);
+
+Edificio* Abb::buscar_edificio(string nombre_edificio_buscado) {
+    return  this -> buscar_edificio_recursiva(this -> raiz, nombre_edificio_buscado);
 }
+
+Edificio* Abb::buscar_edificio_recursiva(Nodo* arbol, string nombre_edificio_buscado) {
+    if (!arbol)
+        return nullptr;
+
+    Edificio* edificio_guardado =  arbol -> obtener_dato();
+    string nombre_edificio_guardado = edificio_guardado -> obtener_nombre_del_edificio();
+
+    if (nombre_edificio_buscado == nombre_edificio_guardado)
+        return edificio_guardado;
+    else if (nombre_edificio_buscado < nombre_edificio_guardado)
+        return buscar_edificio_recursiva(arbol -> obtener_izquierda(), nombre_edificio_buscado);
+
+    return buscar_edificio_recursiva(arbol -> obtener_derecha(), nombre_edificio_buscado);
+}
+
+bool Abb::existe_el_edificio(Nodo* arbol, string nombre_edificio_buscado) {
+    string nombre_edificio_guardado =  arbol -> obtener_dato() -> obtener_nombre_del_edificio();
+
+    if (!arbol) 
+        return nombre_edificio_buscado == nombre_edificio_guardado;
+
+    if (nombre_edificio_buscado < nombre_edificio_guardado)
+        return existe_el_edificio(arbol -> obtener_izquierda(), nombre_edificio_buscado);
+
+    return existe_el_edificio(arbol -> obtener_derecha(), nombre_edificio_buscado);
+}
+
 
 int Abb::contar_construidos(Jugador* jugador, std::string nombre_edificio) {
     int construidos = 0;
@@ -35,42 +65,20 @@ int Abb::contar_construidos(Jugador* jugador, std::string nombre_edificio) {
     return construidos;
 }
 
-void Abb::_mostrar_arbol(Nodo* nodo, Jugador* jugador) {
+void Abb::mostrar_arbol(Jugador* jugador) {
+    this -> mostrar_arbol_recursiva(this -> raiz, jugador);
+}
+
+void Abb::mostrar_arbol_recursiva(Nodo* nodo, Jugador* jugador) {
     if (!nodo)
         return;
 
     int construidos = this -> contar_construidos(jugador, nodo -> obtener_dato() -> obtener_nombre_del_edificio());
     nodo -> obtener_dato() -> mostrar_caracteristicas(construidos);
-    _mostrar_arbol(nodo -> obtener_derecha(), jugador);
-    _mostrar_arbol(nodo -> obtener_izquierda(), jugador);
+    mostrar_arbol_recursiva(nodo -> obtener_derecha(), jugador);
+    mostrar_arbol_recursiva(nodo -> obtener_izquierda(), jugador);
 }
 
-bool Abb::existe_el_edificio(Nodo* arbol, string nombre) {
-    bool existe = nombre == arbol -> obtener_dato() -> obtener_nombre_del_edificio();
-    if (!arbol) 
-        return existe;
-    
-    if (nombre < arbol -> obtener_dato() -> obtener_nombre_del_edificio())
-        return existe_el_edificio(arbol -> obtener_izquierda(), nombre);
-
-    return existe_el_edificio(arbol -> obtener_derecha(), nombre);
-}
-
-Edificio* Abb::buscar_edificio(string nombre) {
-    return  this -> buscar_edificio_rec(this -> raiz, nombre);
-}
-
-Edificio* Abb::buscar_edificio_rec(Nodo* arbol, string nombre) {
-    if (!arbol)
-        return nullptr;
-
-    Edificio* edificio =  arbol -> obtener_dato();
-    if (nombre == edificio -> obtener_nombre_del_edificio())
-        return edificio;
-    else if (nombre < edificio -> obtener_nombre_del_edificio())
-        return buscar_edificio_rec(arbol -> obtener_izquierda(), nombre);
-    return buscar_edificio_rec(arbol -> obtener_derecha(), nombre);
-}
 
 void Abb::borrar_arbol(Nodo* nodo) {
     if(!nodo)

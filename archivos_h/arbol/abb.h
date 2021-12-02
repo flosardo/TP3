@@ -4,16 +4,18 @@
 #include "nodo.h"
 #include "../jugador.h"
 
-class Abb{
+class Abb {
 
+    // ATRIBUTOS
     private:
 
         Nodo* raiz;
 
+    // MÉTODOS
     public:
 
         /* 
-        Post: crea un objeto de tipo Abb
+        Post: Crea un objeto de tipo Abb
         */
         Abb();
 
@@ -30,10 +32,10 @@ class Abb{
         void agregar_nodo(Edificio* nuevo_edficio);
 
         /*
-        *Pre: Que los parametros no sean null.
-        *Post: Agregará un nodo en la clase Abb.
+        *Pre:
+        *Pos:
         */
-        Nodo* agregar_nodo_rec(Nodo* arbol, Edificio* nuevo_edificio);
+        Edificio* buscar_edificio(std::string nombre);
 
         /*
         *POS:
@@ -41,29 +43,35 @@ class Abb{
         void mostrar_arbol(Jugador* jugador);
 
         /*
-        *POS:
+        *Post: Liberará la memoria utilizada por la clase a lo largo del programa.
         */
-        void _mostrar_arbol(Nodo* arbol, Jugador* jugador);
+        ~Abb();
+
+    private:
 
         /*
-        *Pre: recibe un puntero a nodo y un string
-        *Pos: devuelve verdadero en caso que el nombre exista, falso de lo contrario
+        *Pre: Que los parametros no sean null.
+        *Post: Agregará un nodo en la clase Abb.
+        */
+        Nodo* agregar_nodo_recursiva(Nodo* arbol, Edificio* nuevo_edificio);
+
+        /*
+        *Pre: Recibe un puntero a nodo y un string
+        *Pos: Devuelve un puntero a los materiales necesarios
+        */
+        Edificio* buscar_edificio_recursiva(Nodo* nodo, std::string nombre);
+
+        /*
+        *Pre: Recibe un puntero a nodo y un string
+        *Pos: Devuelve verdadero en caso que el nombre exista, falso de lo contrario
         */
         bool existe_el_edificio(Nodo* nodo, std::string nombre);
 
         /*
-        *Pre:
-        *Pos:
+        *POS:
         */
-        Edificio* buscar_edificio(std::string nombre);
+        void mostrar_arbol_recursiva(Nodo* arbol, Jugador* jugador);
 
-        /*
-        *Pre: recibe un puntero a nodo y un string
-        *Pos: devuelve un puntero a los materiales necesarios
-        */
-        Edificio* buscar_edificio_rec(Nodo* nodo, std::string nombre);
-
-        
         /*
         *Pre:
         *Pos:
@@ -74,12 +82,6 @@ class Abb{
         *Post: Liberará la memoria utilizada por la clase a lo largo del programa.
         */
         void borrar_arbol(Nodo* nodo);
-
-        /*
-        *Post: Liberará la memoria utilizada por la clase a lo largo del programa.
-        */
-        ~Abb();
-
 };
 
 #endif //_ABB_H_
