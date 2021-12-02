@@ -7,26 +7,33 @@
 #include "../archivos_h/carga_de_datos/cargar_edificios.h"
 #include "../archivos_h/mapa.h"
 #include "../archivos_h/arbol/abb.h"
+#include "../archivos_h/juego/andypolis.h"
+
 using namespace std;
+
 int main(){
     Menu_configuracion c;
     c.mostrar_menu();
     Cargar_ubicaciones car;
     Mapa map;
-    //map.crear_mapa(8, 10);
-    //car.carga_ubicaciones(&map);
-    //Nodo* nuevo_nodo = new Nodo;
-    // Edificio* mina = new Mina_oro(50,60,50,3);
+    Andypolis juego;
     Abb* nuevo_arbol = new Abb;
     Cargar_edificios edi;
     edi.carga_edificios(nuevo_arbol);
+    Edificio* edificio = nuevo_arbol -> buscar_edificio("planta electrica");
+    cout << edificio -> obtener_nombre_del_edificio() << endl;
+    unsigned int* mat_viejos = edificio -> obtener_materiales_necesarios();
+    cout << mat_viejos[0] << " " << mat_viejos[1] << " " << mat_viejos[2] << endl;
+    juego.modificar_edificio_nombre();
+    unsigned int* nuevos_mat = edificio -> obtener_materiales_necesarios();
+    cout << nuevos_mat[0] << " " << nuevos_mat[1] << " " << nuevos_mat[2] << endl;
     Madera madera(20);
     Metal metal(2);
     Bomba bomba(2);
-    delete nuevo_arbol;
     madera.saludar();
     madera.mostrar_material();
     metal.mostrar_material();
     bomba.mostrar_material();
+    delete nuevo_arbol;
     return 0;
 }

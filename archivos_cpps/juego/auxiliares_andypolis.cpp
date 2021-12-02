@@ -57,15 +57,16 @@ int Auxiliares_andypolis::pedir_nueva_cantidad_material(string material){
 }
 
 void Auxiliares_andypolis::modificar_materiales_necesarios(Edificio* edificio){
-    int nueva_piedra_necesaria = this -> pedir_nueva_cantidad_material(PIEDRA);
-    int nuevo_madera_necesaria = this -> pedir_nueva_cantidad_material(MADERA);
-    int nuevo_metal_necesario = this -> pedir_nueva_cantidad_material(METAL); 
+    unsigned int nueva_cantidad_piedra = this -> pedir_nueva_cantidad_material(PIEDRA);
+    unsigned int nueva_cantidad_madera = this -> pedir_nueva_cantidad_material(MADERA);
+    unsigned int nueva_cantidad_metal = this -> pedir_nueva_cantidad_material(METAL);
+    edificio -> establecer_nuevos_materiales(nueva_cantidad_piedra, nueva_cantidad_madera, nueva_cantidad_metal);
 }
 
 string Auxiliares_andypolis::pedir_nombre_edificio(){
     string nombre_edificio;
-    cout << "Ingrese el nombre del edificio: " << endl;
-    cout << ">> " << COLOR_DORADO << COLOR_POR_DEFECTO;
-    getline(cin.ignore(), nombre_edificio);
+    cout << "Ingrese el nombre del edificio" << COLOR_DORADO << ">> " << COLOR_POR_DEFECTO;
+    getline(cin, nombre_edificio, '\n');
+    cout << nombre_edificio << endl;
     return nombre_edificio;
 }

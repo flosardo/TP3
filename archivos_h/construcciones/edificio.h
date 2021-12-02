@@ -42,7 +42,12 @@ class Edificio{
         /*
         *Post: Devolvera la columna del edificio.
         */
-        unsigned int obtener_columna();       
+        unsigned int obtener_columna();
+
+        /*
+        *Post: Devolvera la columna del edificio.
+        */
+        void establecer_nuevos_materiales(unsigned int nueva_piedra, unsigned int nueva_madera, unsigned int nuevo_metal);
 
         /*
         *Post: Devolverá la representacion del edificio.

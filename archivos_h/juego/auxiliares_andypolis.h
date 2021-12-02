@@ -71,13 +71,13 @@ class Auxiliares_andypolis {
         *Pre:
         *Post:
         */
-        int Auxiliares_andypolis::pedir_nueva_cantidad_material(std::string material);
+        int pedir_nueva_cantidad_material(std::string material);
 
         /*
         *Pre:
         *Post:
         */
-        void Auxiliares_andypolis::modificar_materiales_necesarios(std::string edificio);
+        void modificar_materiales_necesarios(std::string edificio);
 
         /*
         *Pre: 

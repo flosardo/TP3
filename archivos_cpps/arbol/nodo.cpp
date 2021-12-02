@@ -1,15 +1,14 @@
 #include "../../archivos_h/arbol/nodo.h"
 using namespace std;
 
-
-Nodo::Nodo(Edificio* edificio) {
-    this -> edificio = edificio;
+Nodo::Nodo() {
+    this -> edificio = nullptr;
     this -> derecha = nullptr;
     this -> izquierda = nullptr;
 }
 
-Nodo::Nodo() {
-    this -> edificio = nullptr;
+Nodo::Nodo(Edificio* edificio) {
+    this -> edificio = edificio;
     this -> derecha = nullptr;
     this -> izquierda = nullptr;
 }

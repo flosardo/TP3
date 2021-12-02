@@ -35,7 +35,7 @@ Edificio::Edificio(unsigned int fila, unsigned int columna) {
     this -> afectado = false;
 }
 
-void Edificio::establecer_nuevos_materiales(int nueva_piedra, int nueva_madera, int nuevo_metal){
+void Edificio::establecer_nuevos_materiales(unsigned int nueva_piedra, unsigned int nueva_madera, unsigned int nuevo_metal){
     this -> materiales_necesarios[POS_PIEDRA] = nueva_piedra;
     this -> materiales_necesarios[POS_MADERA] = nueva_madera;
     this -> materiales_necesarios[POS_METAL] = nuevo_metal;
