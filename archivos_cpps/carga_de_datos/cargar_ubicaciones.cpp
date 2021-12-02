@@ -27,6 +27,15 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
     archivo_ubicaciones >> columna;
     archivo_ubicaciones >> basura;
     nombre.pop_back();
+    /*
+    NUNCA ENTRA EN LA CONDICIÓN DEL IF ENTONCES NUNCA ASIGNA EL VALOR NUEVO A LA CONVENCIÓN DEL JUGADOR
+    LAS COMPARACIONES QUE PUSE ABAJO SON PARA PROBAR Y DAN TODAS FALSO, NO SE POR QUE, CAPAZ HABRÍA QUE PENSEARLO DE OTRA FORMA
+    */
+    cout << (nombre == NUMERO_JUGADOR_1) << endl;
+    cout << (nombre == "1 ") << endl;
+    cout << (nombre == "1") << endl;
+    cout << (nombre == " 1") << endl;
+    cout << endl;
     if (nombre == NUMERO_JUGADOR_1 || nombre == NUMERO_JUGADOR_2) {
         if (nombre == NUMERO_JUGADOR_1)
             convencion_jugador = JUGADOR_1;

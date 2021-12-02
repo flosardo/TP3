@@ -5,13 +5,13 @@ using namespace std;
 Mapa::Mapa() {
     this -> cantidad_filas = 0;
     this -> cantidad_columnas = 0;
-    mapa = nullptr;
+    this -> mapa = nullptr;
 }
 
 void Mapa::crear_mapa(int cantidad_filas, int cantidad_columnas) {
     this -> cantidad_filas = cantidad_filas;
     this -> cantidad_columnas = cantidad_columnas;
-    this -> mapa = new Casillero** [this -> cantidad_filas];
+    this -> mapa = new Casillero**[this -> cantidad_filas];
     this -> inicializar_mapa();
 }
 

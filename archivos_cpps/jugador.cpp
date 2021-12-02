@@ -97,6 +97,7 @@ void Jugador::modificar_inventario(string material, int cantidad) {
 
 // SEGMENTATIONNNNNNNNNN
 void Jugador::listar_construidos() {
+    cout << "ENTROOOOO" << endl;
     string esta_afectado;
     unsigned int fila;
     unsigned int columna; 

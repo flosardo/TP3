@@ -4,9 +4,9 @@ using namespace std;
 
 Andypolis::Andypolis() {
     this -> edificios_disponibles = new Abb();
-    this -> mapa = nullptr;
-    this -> jugador_1 = nullptr;
-    this -> jugador_2 = nullptr;
+    this -> mapa = new Mapa();
+    this -> jugador_1 = new Jugador();
+    this -> jugador_2 = new Jugador();
     this -> jugador_actual = this -> jugador_1;
     this -> funciones_auxiliares = Auxiliares_andypolis(this -> edificios_disponibles, this -> mapa);
 }
