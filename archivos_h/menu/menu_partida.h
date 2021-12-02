@@ -15,6 +15,16 @@ class Menu_partida : public Menu{
         *Post: Mostrará el menu de partida del juego.
         */
         void mostrar_menu();
+
+        /*
+        *Post: Procesará la opcion.
+        */
+        void procesar_opcion(int opcion, Andypolis juego);
+
+        /*
+        *Post: Mostrará el mensaje de bienvenida del menu de partida.
+        */
+        void mostrar_mensaje_bienvenida();
         
 };
 

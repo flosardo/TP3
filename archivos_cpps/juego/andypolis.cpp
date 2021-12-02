@@ -42,12 +42,44 @@ void Andypolis::modificar_edificio_nombre(){
     }
 }
 
-Jugador* Andypolis::devolver_jugador(int numero_jugador) {
-    return numero_jugador == 1 ? this -> jugador_1 : this -> jugador_2;
+Jugador* Andypolis::devolver_jugador_actual() {
+    return this -> jugador_actual;
 }
 
-void Andypolis::mostrar_mapa() {
+void Andypolis::comenzar_partida(){}
+
+void Andypolis::mostrar_mapa(){
     this -> mapa -> mostrar_mapa();
+}
+
+void Andypolis::construir_edificio(string edificio, Jugador* jugadors){}
+
+void Andypolis::listar_mis_edificios(Jugador* jugador){}
+
+void Andypolis::demoler_edificio(std::string edificio, Jugador* jugador){}
+
+void Andypolis::atacar_edificio(Jugador* jugador){}
+
+void Andypolis::reparar_edificio(Jugador* jugador){}
+
+void Andypolis::comprar_bombas(Jugador* jugador){}
+
+void Andypolis::consultar_coordenada(Jugador* jugador){}
+
+void Andypolis::mostrar_inventario(Jugador* jugador){}
+
+void Andypolis::mostrar_objetivos(Jugador* jugador){}
+
+void Andypolis::recolectar_recursos(Jugador* jugador){}
+
+void Andypolis::moverse(Jugador* jugador){}
+
+void Andypolis::finalizar_turno(){}
+
+void Andypolis::guardar_y_salir(){}
+
+Jugador* Andypolis::devolver_jugador(string numero_jugador) {
+    return numero_jugador == NUMERO_JUGADOR_1 ? this -> jugador_1 : this -> jugador_2;
 }
 
 Andypolis::~Andypolis() {}

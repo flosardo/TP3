@@ -4,9 +4,14 @@ using namespace std;
 
 Menu_partida::Menu_partida() {}
 
+void Menu_partida::mostrar_mensaje_bienvenida(){
+    cout << COLOR_DORADO << "        ┌───────────────────────────────────────────────────────────┐" << endl;
+    cout << "        │" << COLOR_POR_DEFECTO << "                Hola! Bienvenido a Andypolis (:" << COLOR_DORADO << "            │" << endl;
+    cout << "        └───────────────────────────────────────────────────────────┘" << COLOR_POR_DEFECTO << endl;
+}
+
 void Menu_partida::mostrar_menu() {
     cout << endl;
-    //cout << MENU_PARTIDA << endl;
     cout << "╔═══════════════════════════════════════════╗" << endl;
     cout << "║ 1. Construir edificio por nombre  "  << EMOJI_CONSTRUIR_EDIFICIO_POR_NOMBRE  << "       ║" << endl;
     cout << "║                                           ║" << endl;
@@ -35,3 +40,5 @@ void Menu_partida::mostrar_menu() {
     cout << "║ 13.Guardar y salir  " << EMOJI_GUARDAR_Y_SALIR << "                    ║" << endl;
     cout << "╚═══════════════════════════════════════════╝" << endl;
 }
+
+void Menu_partida::procesar_opcion(int opcion, Andypolis juego){}

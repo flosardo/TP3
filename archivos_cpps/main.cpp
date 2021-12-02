@@ -9,10 +9,17 @@
 #include "../archivos_h/mapa.h"
 #include "../archivos_h/arbol/abb.h"
 #include "../archivos_h/juego/andypolis.h"
+#include "../archivos_h/programa/programa.h"
 
 using namespace std;
 
 int main(){
+    Programa programa;
+    
+    programa.empezar();
+    programa.finalizar();
+    
+    /*
     Cargar_ubicaciones cargar_ubicaciones;
     Cargar_edificios cargar_edificios;
     Cargar_mapa cargar_mapa;
@@ -35,5 +42,7 @@ int main(){
     juego.mostrar_mapa();
 
     delete nuevo_arbol;
+    */
+
     return 0;
 }

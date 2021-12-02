@@ -36,12 +36,17 @@ const std::string FONDO_AZUL = "\033[48;5;27m";
 const std::string FONDO_VERDE = "\033[48;5;2m";
 const std::string FONDO_GRIS = "\033[48;5;240m";
 
+//JUEGO
+const int OPCION_EMPEZAR_JUEGO = 66;
+const int OPCION_SALIR_JUEGO = 69;
+
 //EMOJIS MENUS
 //PRIMER MENU
 const std::string EMOJI_MODIFICAR_EDIFICIO_POR_NOMBRE = "\u270D";
 const std::string EMOJI_LISTAR_TODOS_LOS_EDIFICIOS = "\U0001f3d9";
 const std::string EMOJI_MOSTRAR_MAPA = "\U0001f30e";
 const std::string EMOJI_COMENZAR_PARTIDA = "\U0001f7e2";
+
 
 //SEGUNDO MENU
 const std::string EMOJI_CONSTRUIR_EDIFICIO_POR_NOMBRE = "\U0001f3d7";
