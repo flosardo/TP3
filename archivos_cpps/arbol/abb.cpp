@@ -77,8 +77,8 @@ void Abb::mostrar_arbol_recursiva(Nodo* nodo, Jugador* jugador) {
 
     int construidos = this -> contar_construidos(jugador, nodo -> obtener_dato() -> obtener_nombre_del_edificio());
     nodo -> obtener_dato() -> mostrar_caracteristicas(construidos);
-    mostrar_arbol_recursiva(nodo -> obtener_derecha(), jugador);
-    mostrar_arbol_recursiva(nodo -> obtener_izquierda(), jugador);
+    this -> mostrar_arbol_recursiva(nodo -> obtener_derecha(), jugador);
+    this -> mostrar_arbol_recursiva(nodo -> obtener_izquierda(), jugador);
 }
 
 

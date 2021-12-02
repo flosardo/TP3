@@ -4,10 +4,10 @@
 #include <fstream>
 #include "../jugador.h"
 #include "../materiales/andycoins.h"
-#include "../materiales/bomba.h"
-#include "../materiales/madera.h"
 #include "../materiales/piedra.h"
+#include "../materiales/madera.h"
 #include "../materiales/metal.h"
+#include "../materiales/bomba.h"
 
 class Cargar_materiales{
     
@@ -31,11 +31,10 @@ class Cargar_materiales{
     private:
 
         /*
-        *Pre: Que los parametros jugador_1 y jugador_2 no sean nulos, sumado a eso que las cantidades sean >= 0, y que reciba un nombre.
+        *Pre: Que el parámetro jugador no sea nulo, sumado a eso que la cantidad del material sea >= 0, y que reciba el tipo de material.
         *Post: Procesa el archivo.
         */
-        void procesar_archivo(std::string nombre, int cantidad_jugador_1, int cantidad_jugador_2, Jugador* jugador_1, Jugador* jugador_2);
-        
+        void procesar_archivo(std::string tipo_material, int cantidad_material, Jugador* jugador);
 };
 
 #endif //_CARGAR_MATERIALES_H_

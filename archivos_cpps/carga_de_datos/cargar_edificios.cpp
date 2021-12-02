@@ -12,57 +12,45 @@ void Cargar_edificios::carga_edificios(Abb* arbol){
         cout << COLOR_ROJO << "El archivo de edificios no existe. Para continuar, crealo y volve a correr el programa." << COLOR_POR_DEFECTO << endl;
         exit(1);
     }
+
     string nombre_edificio;
     string segunda_palabra;
-    int piedra_necesaria;
-    int madera_necesaria;
-    int metal_necesario;
-    int permitidos;
-    while (archivo_edificios >> nombre_edificio) {
-        if (nombre_edificio == NOMBRE_MINA) {
-            archivo_edificios >> segunda_palabra;
-            if (segunda_palabra == NOMBRE_ORO) {
-                archivo_edificios >> piedra_necesaria >> madera_necesaria >> metal_necesario >> permitidos;
-                nombre_edificio = NOMBRE_MINA_ORO;
-            }
-            else {
-                piedra_necesaria = stoi(segunda_palabra);
-                archivo_edificios >> madera_necesaria >> metal_necesario >> permitidos;
-            }
-        }
-        else if (nombre_edificio == NOMBRE_PLANTA) {
-            archivo_edificios >> segunda_palabra >> piedra_necesaria >> madera_necesaria >> metal_necesario >> permitidos;
-            nombre_edificio = NOMBRE_PLANTA_ELECTRICA;
+    unsigned int piedra_necesaria;
+    unsigned int madera_necesaria;
+    unsigned int metal_necesario;
+    unsigned int permitidos;
+
+    while (archivo_edificios >> nombre_edificio >> segunda_palabra) {
+        if ((nombre_edificio == NOMBRE_MINA && segunda_palabra == NOMBRE_ORO) || nombre_edificio == NOMBRE_PLANTA) {
+            nombre_edificio += " " + segunda_palabra;
+            archivo_edificios >> piedra_necesaria;
         }
         else {
-            archivo_edificios >> piedra_necesaria >> madera_necesaria >> metal_necesario >> permitidos;
+            piedra_necesaria = (unsigned int) stoi(segunda_palabra);
         }
-        this -> crear_edificios(arbol, nombre_edificio, piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
+
+        archivo_edificios >> madera_necesaria >> metal_necesario >> permitidos;
+        this -> crear_edificio(arbol, nombre_edificio, piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
     }
     archivo_edificios.close();
 }
 
-void Cargar_edificios::crear_edificios(Abb* arbol , string nombre_edificio, int piedra, int madera, int metal, int permitido) {
-    unsigned int piedra_necesaria = (unsigned int) piedra;
-    unsigned int madera_necesaria = (unsigned int) madera;
-    unsigned int metal_necesario = (unsigned int) metal;
-    unsigned int permitidos = (unsigned int) permitido;
-
+void Cargar_edificios::crear_edificio(Abb* arbol , string nombre_edificio, unsigned int piedra, unsigned int madera, unsigned int metal, unsigned int permitidos) {
     Edificio* nuevo_edificio = 0;
     if (nombre_edificio == NOMBRE_ASERRADERO)
-        nuevo_edificio = new Aserradero(piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
+        nuevo_edificio = new Aserradero(piedra, madera, metal, permitidos);
     else if (nombre_edificio == NOMBRE_ESCUELA)
-        nuevo_edificio = new Escuela(piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
+        nuevo_edificio = new Escuela(piedra, madera, metal, permitidos);
     else if (nombre_edificio == NOMBRE_MINA)
-        nuevo_edificio = new Mina(piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
+        nuevo_edificio = new Mina(piedra, madera, metal, permitidos);
     else if (nombre_edificio == NOMBRE_MINA_ORO)
-        nuevo_edificio = new Mina_oro(piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
+        nuevo_edificio = new Mina_oro(piedra, madera, metal, permitidos);
     else if (nombre_edificio == NOMBRE_FABRICA)
-        nuevo_edificio = new Fabrica(piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
+        nuevo_edificio = new Fabrica(piedra, madera, metal, permitidos);
     else if (nombre_edificio == NOMBRE_OBELISCO)
-        nuevo_edificio = new Obelisco(piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
+        nuevo_edificio = new Obelisco(piedra, madera, metal, permitidos);
     else if (nombre_edificio == NOMBRE_PLANTA_ELECTRICA)
-        nuevo_edificio = new Planta_electrica(piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
+        nuevo_edificio = new Planta_electrica(piedra, madera, metal, permitidos);
     
     arbol -> agregar_nodo(nuevo_edificio);
     nuevo_edificio = 0;
