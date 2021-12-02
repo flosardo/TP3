@@ -61,11 +61,12 @@ class Abb {
         */
         Edificio* buscar_edificio_recursiva(Nodo* nodo, std::string nombre);
 
-        /*
-        *Pre: Recibe un puntero a nodo y un string
-        *Pos: Devuelve verdadero en caso que el nombre exista, falso de lo contrario
-        */
-        bool existe_el_edificio(Nodo* nodo, std::string nombre);
+        // NO SE USA NUNCA, PORQUE USAMOS BUSCAR_EDIFICIO
+        // /*
+        // *Pre: Recibe un puntero a nodo y un string
+        // *Pos: Devuelve verdadero en caso que el nombre exista, falso de lo contrario
+        // */
+        // bool existe_el_edificio(Nodo* nodo, std::string nombre);
 
         /*
         *POS:

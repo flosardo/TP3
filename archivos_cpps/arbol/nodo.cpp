@@ -7,10 +7,15 @@ Nodo::Nodo() {
     this -> izquierda = nullptr;
 }
 
-Nodo::Nodo(Edificio* edificio) {
-    this -> edificio = edificio;
+Nodo::Nodo(Edificio* nuevo_edificio) {
+    this -> edificio = nuevo_edificio;
     this -> derecha = nullptr;
     this -> izquierda = nullptr;
+}
+
+
+Edificio* Nodo::obtener_dato() {
+    return this -> edificio;
 }
 
 Nodo* Nodo::obtener_izquierda() {
@@ -21,17 +26,15 @@ Nodo* Nodo::obtener_derecha() {
     return this -> derecha;
 }
 
-Edificio* Nodo::obtener_dato() {
-    return this -> edificio;
+
+void Nodo::establecer_derecha(Nodo* nuevo_nodo){
+    this -> derecha = nuevo_nodo;
 }
 
-void Nodo::establecer_derecha(Nodo* derecha){
-    this -> derecha = derecha;
+void Nodo::establecer_izquierda(Nodo* nuevo_nodo) {
+    this -> izquierda = nuevo_nodo;
 }
 
-void Nodo::establecer_izquierda(Nodo* izquierda) {
-    this -> izquierda = izquierda;
-}
 
 Nodo::~Nodo() {
     delete this -> edificio;

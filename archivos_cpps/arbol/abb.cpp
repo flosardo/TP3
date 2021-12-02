@@ -19,9 +19,9 @@ Nodo* Abb::agregar_nodo_recursiva(Nodo* nodo, Edificio* nuevo_edificio) {
     if (!nodo)
         nodo = new Nodo(nuevo_edificio);
     else if (nuevo_edificio -> obtener_nombre_del_edificio() > nodo -> obtener_dato() -> obtener_nombre_del_edificio())
-        nodo -> establecer_derecha(agregar_nodo_recursiva(nodo -> obtener_derecha(), nuevo_edificio));
+        nodo -> establecer_derecha(this -> agregar_nodo_recursiva(nodo -> obtener_derecha(), nuevo_edificio));
     else
-        nodo -> establecer_izquierda(agregar_nodo_recursiva(nodo -> obtener_izquierda(), nuevo_edificio));
+        nodo -> establecer_izquierda(this -> agregar_nodo_recursiva(nodo -> obtener_izquierda(), nuevo_edificio));
     
     return nodo;
 }
@@ -41,22 +41,24 @@ Edificio* Abb::buscar_edificio_recursiva(Nodo* arbol, string nombre_edificio_bus
     if (nombre_edificio_buscado == nombre_edificio_guardado)
         return edificio_guardado;
     else if (nombre_edificio_buscado < nombre_edificio_guardado)
-        return buscar_edificio_recursiva(arbol -> obtener_izquierda(), nombre_edificio_buscado);
+        return this -> buscar_edificio_recursiva(arbol -> obtener_izquierda(), nombre_edificio_buscado);
 
-    return buscar_edificio_recursiva(arbol -> obtener_derecha(), nombre_edificio_buscado);
+    return this -> buscar_edificio_recursiva(arbol -> obtener_derecha(), nombre_edificio_buscado);
 }
 
-bool Abb::existe_el_edificio(Nodo* arbol, string nombre_edificio_buscado) {
-    string nombre_edificio_guardado =  arbol -> obtener_dato() -> obtener_nombre_del_edificio();
 
-    if (!arbol) 
-        return nombre_edificio_buscado == nombre_edificio_guardado;
+// NO SE USA NUNCA, PORQUE USAMOS BUSCAR_EDIFICIO
+// bool Abb::existe_el_edificio(Nodo* nodo_actual, string nombre_edificio_buscado) {
+//     string nombre_edificio_guardado =  nodo_actual -> obtener_dato() -> obtener_nombre_del_edificio();
 
-    if (nombre_edificio_buscado < nombre_edificio_guardado)
-        return existe_el_edificio(arbol -> obtener_izquierda(), nombre_edificio_buscado);
+//     if (!nodo_actual) 
+//         return nombre_edificio_buscado == nombre_edificio_guardado;
 
-    return existe_el_edificio(arbol -> obtener_derecha(), nombre_edificio_buscado);
-}
+//     if (nombre_edificio_buscado < nombre_edificio_guardado)
+//         return this -> existe_el_edificio(nodo_actual -> obtener_izquierda(), nombre_edificio_buscado);
+
+//     return this -> existe_el_edificio(nodo_actual -> obtener_derecha(), nombre_edificio_buscado);
+// }
 
 
 int Abb::contar_construidos(Jugador* jugador, std::string nombre_edificio) {
