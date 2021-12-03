@@ -3,7 +3,7 @@
 
 #include "material.h"
 
-class Bomba: public Material{
+class Bomba: public Material {
 
     public:
 

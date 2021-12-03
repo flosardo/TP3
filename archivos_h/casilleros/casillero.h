@@ -5,7 +5,7 @@
 #include "../materiales/material.h"
 #include "../jugador.h"
 
-class Casillero{
+class Casillero {
 
     protected:
 

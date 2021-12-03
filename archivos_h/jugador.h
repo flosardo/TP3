@@ -5,7 +5,7 @@
 #include "materiales/energia.h"
 #include "construcciones/edificio.h"
 
-class Jugador{
+class Jugador {
 
     private:
 

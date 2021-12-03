@@ -3,7 +3,7 @@
 
 #include "../constantes.h"
 
-class Objetivo{
+class Objetivo {
 
     protected:
 

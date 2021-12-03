@@ -19,5 +19,5 @@ void Madera::saludar() {
 }
 
 void Madera::mostrar_material() {
-    cout << "--> Material: madera, cantidad: " << this ->cantidad << endl;
+    cout << "--> Material: madera, cantidad: " << this -> cantidad << endl;
 }

@@ -3,7 +3,7 @@
 
 #include "../constantes.h"
 
-class Edificio{
+class Edificio {
 
     protected:
 

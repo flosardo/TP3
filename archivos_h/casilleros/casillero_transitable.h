@@ -3,7 +3,7 @@
 
 #include "casillero.h"
 
-class Casillero_transitable: public Casillero{
+class Casillero_transitable: public Casillero {
 
     private:
 

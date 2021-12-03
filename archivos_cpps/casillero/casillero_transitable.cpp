@@ -30,7 +30,7 @@ void Casillero_transitable::mostrar() {
     else if (this -> jugador) {
         cout << COLOR_VERDE_AGUA << "Soy un casillero transitable y no me encuentro vacio" << COLOR_POR_DEFECTO << endl << endl;
     }
-    else{
+    else {
         cout << COLOR_VERDE_AGUA << "Soy un casillero transitable y no me encuentro vacio" << COLOR_POR_DEFECTO << endl << endl;
         this -> material -> saludar();
     }

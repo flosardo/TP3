@@ -3,7 +3,7 @@
 
 #include "objetivo.h"
 
-class Objetivo_energetico: public Objetivo{
+class Objetivo_energetico: public Objetivo {
 
     private:
 

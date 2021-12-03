@@ -3,7 +3,7 @@
 
 #include "../construcciones/edificio.h"
 
-class Nodo{
+class Nodo {
 
     private:
 

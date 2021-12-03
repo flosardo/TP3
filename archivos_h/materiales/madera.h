@@ -3,7 +3,7 @@
 
 #include "material.h"
 
-class Madera : public Material{
+class Madera : public Material {
 
     public:
 

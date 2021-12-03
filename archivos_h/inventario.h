@@ -2,7 +2,7 @@
 #define _INVENTARIO_H_
 #include "materiales/material.h"
 
-class Inventario{
+class Inventario {
 
     private:
 

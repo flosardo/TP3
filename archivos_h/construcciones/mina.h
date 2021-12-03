@@ -3,7 +3,7 @@
 
 #include "edificio.h"
 
-class Mina : public Edificio{
+class Mina : public Edificio {
 
     public:
 

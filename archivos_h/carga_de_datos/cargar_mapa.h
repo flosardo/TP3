@@ -4,7 +4,7 @@
 #include <fstream>
 #include "../mapa.h"
 
-class Cargar_mapa{
+class Cargar_mapa {
     
     private:
 

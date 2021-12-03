@@ -8,7 +8,7 @@
 
 #include <cstdlib>
 
-class Mapa{
+class Mapa {
 
     private:
 

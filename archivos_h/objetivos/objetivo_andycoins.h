@@ -3,7 +3,7 @@
 
 #include "objetivo.h"
 
-class Objetivo_andycoins: public Objetivo{
+class Objetivo_andycoins: public Objetivo {
 
     private:
 

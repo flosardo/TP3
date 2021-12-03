@@ -9,5 +9,5 @@ Bomba::Bomba(int cantidad_inventario) {
 }
 
 void Bomba::mostrar_material() {
-    cout << "--> Material: bomba, cantidad: " << this ->cantidad << endl;
+    cout << "--> Material: bomba, cantidad: " << this -> cantidad << endl;
 }

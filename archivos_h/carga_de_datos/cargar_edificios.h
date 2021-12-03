@@ -11,7 +11,7 @@
 #include "../construcciones/obelisco.h"
 #include "../construcciones/planta_electrica.h"
 
-class Cargar_edificios{
+class Cargar_edificios {
     
     private:
 

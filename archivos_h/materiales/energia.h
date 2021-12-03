@@ -3,7 +3,7 @@
 
 #include "material.h"
 
-class Energia : public Material{
+class Energia : public Material {
 
     public:
 

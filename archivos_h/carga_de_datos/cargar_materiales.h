@@ -9,7 +9,7 @@
 #include "../materiales/metal.h"
 #include "../materiales/bomba.h"
 
-class Cargar_materiales{
+class Cargar_materiales {
     
     private:
 

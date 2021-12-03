@@ -3,7 +3,7 @@
 
 #include "casillero.h"
 
-class Casillero_inaccesible : public Casillero{
+class Casillero_inaccesible : public Casillero {
     
     public:
     

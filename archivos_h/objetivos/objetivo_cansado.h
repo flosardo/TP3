@@ -3,7 +3,7 @@
 
 #include "objetivo.h"
 
-class Objetivo_cansado: public Objetivo{
+class Objetivo_cansado: public Objetivo {
 
     private:
     

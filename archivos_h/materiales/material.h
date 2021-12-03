@@ -2,7 +2,7 @@
 #define _MATERIAL_H_
 #include "../constantes.h"
 
-class Material{
+class Material {
 
     protected:
 

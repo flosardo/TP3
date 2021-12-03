@@ -3,7 +3,7 @@
 
 #include "material.h"
 
-class Andycoins: public Material{
+class Andycoins: public Material {
 
     public:
 

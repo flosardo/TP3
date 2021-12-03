@@ -3,7 +3,7 @@
 
 #include "edificio.h"
 
-class Planta_electrica : public Edificio{
+class Planta_electrica : public Edificio {
 
     public:
 

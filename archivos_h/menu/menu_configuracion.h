@@ -2,7 +2,7 @@
 #define _MENU_CONFIGURACION_H_
 #include "menu.h"
 
-class Menu_configuracion: public Menu{
+class Menu_configuracion: public Menu {
 
     public:
 

@@ -15,7 +15,7 @@
 #include "../construcciones/obelisco.h"
 #include "../construcciones/planta_electrica.h"
 
-class Cargar_ubicaciones{
+class Cargar_ubicaciones {
 
     private:
 
