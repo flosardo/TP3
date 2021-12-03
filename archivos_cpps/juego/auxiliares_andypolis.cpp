@@ -23,31 +23,35 @@ bool Auxiliares_andypolis::es_posible_comprar_bombas(int & cantidad_de_bombas, i
 int* Auxiliares_andypolis::pedir_coordenadas() {
     int* coordenadas = new int[MAX_COORDENADAS];
     do {
-        cout << "Ingrese la fila: " << endl;
+        cout << "Ingrese la fila" << endl;
         cout << ">> " << COLOR_DORADO << COLOR_POR_DEFECTO;
         cin >> coordenadas[POSICION_FILA];
-        cout << "Ingrese la columna: " << endl;
+        cout << "Ingrese la columna" << endl;
         cout << ">> " << COLOR_DORADO << COLOR_POR_DEFECTO;
         cin >> coordenadas[POSICION_COLUMNA];
-    } while (this -> validar_coordenadas(coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]));
+    } while (!this -> validar_coordenadas(coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]));
     return coordenadas;
 }
 
 bool Auxiliares_andypolis::validar_coordenadas(int fila, int columna) {
+    cout << this -> mapa -> coordenadas_fuera_de_rango(fila, columna) << ", " << this -> es_casillero_valido(fila, columna) << endl;
     return !this -> mapa -> coordenadas_fuera_de_rango(fila, columna) && this -> es_casillero_valido(fila, columna);
 }
 
 bool Auxiliares_andypolis::es_casillero_valido(int fila, int columna) {
-    cout << "hola" << endl;
-    cout << fila << columna << endl;
-    bool es_valido = !this -> mapa -> esta_ocupado(fila, columna);
+    bool es_valido = !this -> mapa -> esta_ocupado(fila, columna) && this -> mapa -> obtener_tipo_casillero(fila, columna);
     if (!es_valido)
         cout << COLOR_ROJO << "Las coordenadas que ingresaste no pertenecen a un casillero válido" << COLOR_POR_DEFECTO << endl;
     return es_valido;
+
+    /*char tipo_terreno = this -> mapa -> obtener_tipo_casillero(fila, columna);
+    if (tipo_terreno == LAGO)
+        cout << COLOR_ROJO << "Las coordenadas que ingresaste no pertenecen a un casillero válido" << COLOR_POR_DEFECTO << endl;
+    return tipo_terreno != LAGO;*/
 }
 
 void Auxiliares_andypolis::seleccionar_jugador(string & nombre_jugador_1, string & nombre_jugador_2) {
-    cout << "¿Que jugador quiere ser? Ingrese 1 para ser el primer jugador, 2 para el segundo: " << endl;
+    cout << "¿Que jugador quiere ser? Ingrese 1 para ser el primer jugador, 2 para el segundo" << endl;
     cout << ">> " << COLOR_DORADO << COLOR_POR_DEFECTO;
     cin >> nombre_jugador_1;
     if (nombre_jugador_1 != NUMERO_JUGADOR_2)

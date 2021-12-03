@@ -51,19 +51,26 @@ void Andypolis::comenzar_partida() {
     string nombre_jugador_2;
     int numero_jugador = 1;
     int* coordenadas = 0;
-    bool estan_ubicados = false;
+    //bool estan_ubicados = false;
+    bool jugador_1_ubicado = false;
+    bool jugador_2_ubicado = false;
     this -> funciones_auxiliares.seleccionar_jugador(nombre_jugador_1, nombre_jugador_2);
-    while (!estan_ubicados) {
+    while (!jugador_1_ubicado && !jugador_2_ubicado) {
         coordenadas = this -> funciones_auxiliares.pedir_coordenadas();
-        if (this -> funciones_auxiliares.validar_coordenadas(coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA])) {
+        int fila = coordenadas[POSICION_FILA];
+        int columna = coordenadas[POSICION_COLUMNA];
+        if (this -> funciones_auxiliares.validar_coordenadas(fila, columna)) {
             if (numero_jugador == 1) {
-                this -> jugador_1 = new Jugador(JUGADOR_1, coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]);
+                this -> jugador_1 = new Jugador(JUGADOR_1, fila, columna);
                 this -> jugador_1 -> establecer_nombre(nombre_jugador_1);
                 numero_jugador = 2;
+                jugador_1_ubicado = true;
+
             }
             else {
-                this -> jugador_2 = new Jugador(JUGADOR_2, coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]);
+                this -> jugador_2 = new Jugador(JUGADOR_2, fila, columna);
                 this -> jugador_2 -> establecer_nombre(nombre_jugador_2);
+                jugador_2_ubicado = true;
             }
         }
     }

@@ -83,11 +83,11 @@ void Mapa::liberar_posicion(int fila, int columna) {
 }
 
 bool Mapa::coordenadas_fuera_de_rango(int fila, int columna) {
-    return (columna < 0 || columna >= cantidad_filas) || (fila < 0 ||fila >= cantidad_columnas);
+    return ((fila < 0 || fila >= cantidad_filas) || (columna < 0 || columna >= cantidad_columnas));
 }
 
 void Mapa::consultar_coordenada(int fila, int columna) {
-    if (!coordenadas_fuera_de_rango(columna, fila)) {
+    if (this -> coordenadas_fuera_de_rango(fila, columna)) {
         this -> mapa[fila][columna] -> mostrar();
     }
     else {
