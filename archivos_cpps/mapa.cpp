@@ -63,7 +63,7 @@ bool Mapa::esta_ocupado(int fila, int columna) {
 bool Mapa::coordenadas_fuera_de_rango(int fila, int columna) {
     bool esta_fuera_de_rango = (fila < 0 || fila >= cantidad_filas) || (columna < 0 || columna >= cantidad_columnas);
     if (esta_fuera_de_rango)
-        this -> consultar_coordenada(fila, columna);
+        cout << COLOR_ROJO << "Oops!, intentaste acceder a una coordenada fuera de rango, intenta nuevamente" << COLOR_POR_DEFECTO << endl;
     return esta_fuera_de_rango;
 }
 

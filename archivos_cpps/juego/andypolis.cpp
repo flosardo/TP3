@@ -62,7 +62,7 @@ void Andypolis::comenzar_partida() {
             this -> jugador_1 -> establecer_nombre(nombre_jugador_1);
             this -> mapa -> ubicar_jugador(this -> jugador_1, fila, columna);
             jugador_1_ubicado = true;
-            cout << "Siguiente jugador: " << endl;
+            cout << "Siguiente jugador" << endl;
         }
         else {
             this -> jugador_2 = new Jugador(JUGADOR_2, fila, columna);

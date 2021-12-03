@@ -33,15 +33,6 @@ int* Auxiliares_andypolis::pedir_coordenadas() {
         ubicado = this -> validar_coordenadas(coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]);
     }
     return coordenadas;
-    // do {
-    //     cout << "Ingrese la fila" << endl;
-    //     cout << COLOR_DORADO << ">> " << COLOR_POR_DEFECTO;
-    //     cin >> coordenadas[POSICION_FILA];
-    //     cout << "Ingrese la columna" << endl;
-    //     cout << COLOR_DORADO << ">> " << COLOR_POR_DEFECTO;
-    //     cin >> coordenadas[POSICION_COLUMNA];
-    // } while (!this -> validar_coordenadas(coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]));
-    // return coordenadas;
 }
 
 bool Auxiliares_andypolis::validar_coordenadas(int fila, int columna) {
@@ -53,11 +44,6 @@ bool Auxiliares_andypolis::es_casillero_valido(int fila, int columna) {
     if (!es_valido)
         cout << COLOR_ROJO << "Las coordenadas que ingresaste no pertenecen a un casillero válido" << COLOR_POR_DEFECTO << endl;
     return es_valido;
-
-    /*char tipo_terreno = this -> mapa -> obtener_tipo_casillero(fila, columna);
-    if (tipo_terreno == LAGO)
-        cout << COLOR_ROJO << "Las coordenadas que ingresaste no pertenecen a un casillero válido" << COLOR_POR_DEFECTO << endl;
-    return tipo_terreno != LAGO;*/
 }
 
 void Auxiliares_andypolis::seleccionar_jugador(string & nombre_jugador_1, string & nombre_jugador_2) {
