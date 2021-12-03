@@ -41,9 +41,7 @@ void Mapa::ubicar_edificio(Edificio* edificio, int fila, int columna) {
 }
 
 void Mapa::ubicar_jugador(Jugador* jugador, int fila, int columna) {
-    if (this -> coordenadas_fuera_de_rango(fila, columna))
-        this -> consultar_coordenada(fila, columna);
-    else if (!this -> esta_ocupado(fila, columna))
+    if (!this -> coordenadas_fuera_de_rango(fila, columna) && !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) != LAGO)
         this -> mapa[fila][columna] -> agregar_jugador(jugador);
 }
 
@@ -52,12 +50,10 @@ char Mapa::obtener_tipo_casillero(int fila, int columna) {
 }
 
 void Mapa::consultar_coordenada(int fila, int columna) {
-    if (this -> coordenadas_fuera_de_rango(fila, columna)) {
+    if (!this -> coordenadas_fuera_de_rango(fila, columna))
         this -> mapa[fila][columna] -> mostrar();
-    }
-    else {
+    else
         cout << COLOR_ROJO << "Oops!, intentaste acceder a una coordenada fuera de rango, intenta nuevamente" << COLOR_POR_DEFECTO << endl;
-    }
 }
 
 bool Mapa::esta_ocupado(int fila, int columna) {
@@ -65,7 +61,10 @@ bool Mapa::esta_ocupado(int fila, int columna) {
 }
 
 bool Mapa::coordenadas_fuera_de_rango(int fila, int columna) {
-    return ((fila < 0 || fila >= cantidad_filas) || (columna < 0 || columna >= cantidad_columnas));
+    bool esta_fuera_de_rango = (fila < 0 || fila >= cantidad_filas) || (columna < 0 || columna >= cantidad_columnas);
+    if (esta_fuera_de_rango)
+        this -> consultar_coordenada(fila, columna);
+    return esta_fuera_de_rango;
 }
 
 bool Mapa::es_posible_insertar_materiales(int cantidad_a_insertar) {

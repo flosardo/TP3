@@ -1,5 +1,7 @@
 #include "../../archivos_h/programa/programa.h"
 
+using namespace std;
+
 Programa::Programa() {
     this -> juego = Andypolis();
     edificios.carga_edificios(juego.devolver_arbol());
@@ -19,8 +21,6 @@ void Programa::empezar() {
         menu_configuracion.mostrar_menu();
         opcion = menu_configuracion.pedir_opcion();
         menu_configuracion.procesar_opcion(opcion, juego);
-        if (opcion == 4)
-            juego.comenzar_partida();
     }
 
     opcion = OPCION_EMPEZAR_JUEGO;
