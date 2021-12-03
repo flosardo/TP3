@@ -38,6 +38,12 @@ class Abb {
         Edificio* buscar_edificio(std::string nombre);
 
         /*
+        *Pre:
+        *Pos:
+        */
+        int contar_construidos(Jugador* jugador, std::string nombre_edificio);
+
+        /*
         *POS:
         */
         void mostrar_arbol(Jugador* jugador);
@@ -72,12 +78,6 @@ class Abb {
         *POS:
         */
         void mostrar_arbol_recursiva(Nodo* arbol, Jugador* jugador);
-
-        /*
-        *Pre:
-        *Pos:
-        */
-        int contar_construidos(Jugador* jugador, std::string nombre_edificio);
 
         /*
         *Post: Liberará la memoria utilizada por la clase a lo largo del programa.

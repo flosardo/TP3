@@ -3,6 +3,7 @@
 #include "../../archivos_h/arbol/abb.h"
 #include "../../archivos_h/mapa.h"
 #include <iostream>
+#include <algorithm>
 
 class Auxiliares_andypolis {
 
@@ -108,7 +109,7 @@ class Auxiliares_andypolis {
         *Pre: 
         *Post:
         */
-        void validar_construccion(Jugador* jugador_actual, std::string edificio_a_construir);
+        void validar_construccion(Abb* arbol, Jugador* jugador_actual, std::string edificio_a_construir);
         
         /*
         *Pre: 
