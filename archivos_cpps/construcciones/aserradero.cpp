@@ -14,7 +14,7 @@ Aserradero::Aserradero(int fila, int columna) : Edificio(fila, columna) {
     this -> inicializar_atributos();
 }
 
-void Aserradero::inicializar_atributos(){
+void Aserradero::inicializar_atributos() {
     this -> nombre_material = MADERA;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_ASERRADERO;
     this -> nombre_del_edificio = NOMBRE_ASERRADERO;

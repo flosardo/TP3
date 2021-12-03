@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Cargar_materiales::Cargar_materiales(){
+Cargar_materiales::Cargar_materiales() {
     this -> archivo_ruta = RUTA_MATERIALES;
 }
 
@@ -17,7 +17,7 @@ void Cargar_materiales::carga_materiales(Jugador* jugador_1, Jugador* jugador_2)
     int cantidad_material_jugador_1;
     int cantidad_material_jugador_2;
 
-    while(archivo_materiales >> tipo_material >> cantidad_material_jugador_1 >> cantidad_material_jugador_2) {
+    while (archivo_materiales >> tipo_material >> cantidad_material_jugador_1 >> cantidad_material_jugador_2) {
         procesar_archivo(tipo_material, cantidad_material_jugador_1, jugador_1);
         procesar_archivo(tipo_material, cantidad_material_jugador_2, jugador_2);
     }
@@ -25,7 +25,7 @@ void Cargar_materiales::carga_materiales(Jugador* jugador_1, Jugador* jugador_2)
 }
 
 void Cargar_materiales::procesar_archivo(string tipo_material, int cantidad_material, Jugador* jugador) {
-    Material*nuevo_material = 0;
+    Material* nuevo_material = 0;
 
     if (tipo_material == ANDYCOINS) {
        nuevo_material = new Andycoins(cantidad_material);

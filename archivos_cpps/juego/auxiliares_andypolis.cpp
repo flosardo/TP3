@@ -22,13 +22,28 @@ bool Auxiliares_andypolis::es_posible_comprar_bombas(int & cantidad_de_bombas, i
 
 int* Auxiliares_andypolis::pedir_coordenadas() {
     int* coordenadas = new int[MAX_COORDENADAS];
-    cout << "Ingrese la fila: " << endl;
-    cout << ">> " << COLOR_DORADO << COLOR_POR_DEFECTO;
-    cin >> coordenadas[POSICION_FILA];
-    cout << "Ingrese la columna: " << endl;
-    cout << ">> " << COLOR_DORADO << COLOR_POR_DEFECTO;
-    cin >> coordenadas[POSICION_COLUMNA];
+    do {
+        cout << "Ingrese la fila: " << endl;
+        cout << ">> " << COLOR_DORADO << COLOR_POR_DEFECTO;
+        cin >> coordenadas[POSICION_FILA];
+        cout << "Ingrese la columna: " << endl;
+        cout << ">> " << COLOR_DORADO << COLOR_POR_DEFECTO;
+        cin >> coordenadas[POSICION_COLUMNA];
+    } while (this -> validar_coordenadas(coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]));
     return coordenadas;
+}
+
+bool Auxiliares_andypolis::validar_coordenadas(int fila, int columna) {
+    return !this -> mapa -> coordenadas_fuera_de_rango(fila, columna) && this -> es_casillero_valido(fila, columna);
+}
+
+bool Auxiliares_andypolis::es_casillero_valido(int fila, int columna) {
+    cout << "hola" << endl;
+    cout << fila << columna << endl;
+    bool es_valido = !this -> mapa -> esta_ocupado(fila, columna);
+    if (!es_valido)
+        cout << COLOR_ROJO << "Las coordenadas que ingresaste no pertenecen a un casillero válido" << COLOR_POR_DEFECTO << endl;
+    return es_valido;
 }
 
 void Auxiliares_andypolis::seleccionar_jugador(string & nombre_jugador_1, string & nombre_jugador_2) {
@@ -41,15 +56,12 @@ void Auxiliares_andypolis::seleccionar_jugador(string & nombre_jugador_1, string
         nombre_jugador_2 = NUMERO_JUGADOR_1;
 }
 
-bool Auxiliares_andypolis::validar_coordenadas(int fila, int columna) {
-    return this -> mapa -> coordenadas_fuera_de_rango(fila, columna);
-}
 
 bool Auxiliares_andypolis::hay_energia_suficiente(int energia_necesaria, int energia_del_jugador) {
     return energia_del_jugador >= energia_necesaria;
 }
 
-int Auxiliares_andypolis::pedir_nueva_cantidad_material(string material){
+int Auxiliares_andypolis::pedir_nueva_cantidad_material(string material) {
     int cantidad = -1;
     while (cantidad < MIN_VALOR_MATERIAL || cantidad > MAX_VALOR_MATERIALES) {
         cout << "Ingrese la nueva cantidad de " << material << " >> " << COLOR_DORADO << COLOR_POR_DEFECTO;
@@ -58,17 +70,16 @@ int Auxiliares_andypolis::pedir_nueva_cantidad_material(string material){
     return cantidad;
 }
 
-void Auxiliares_andypolis::modificar_materiales_necesarios(Edificio* edificio){
+void Auxiliares_andypolis::modificar_materiales_necesarios(Edificio* edificio) {
     int nueva_cantidad_piedra = this -> pedir_nueva_cantidad_material(PIEDRA);
     int nueva_cantidad_madera = this -> pedir_nueva_cantidad_material(MADERA);
     int nueva_cantidad_metal = this -> pedir_nueva_cantidad_material(METAL);
     edificio -> establecer_nuevos_materiales(nueva_cantidad_piedra, nueva_cantidad_madera, nueva_cantidad_metal);
 }
 
-string Auxiliares_andypolis::pedir_nombre_edificio(){
+string Auxiliares_andypolis::pedir_nombre_edificio() {
     string nombre_edificio;
     cout << "Ingrese el nombre del edificio" << COLOR_DORADO << " >> " << COLOR_POR_DEFECTO;
-    getline(cin, nombre_edificio, '\n');
-    cout << nombre_edificio << endl;
+    getline(cin.ignore(), nombre_edificio);
     return nombre_edificio;
 }

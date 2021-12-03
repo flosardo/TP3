@@ -14,7 +14,7 @@ Fabrica::Fabrica(int fila, int columna) : Edificio(fila, columna) {
     this -> inicializar_atributos();
 }
 
-void Fabrica::inicializar_atributos(){
+void Fabrica::inicializar_atributos() {
     this -> nombre_material = METAL;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_FABRICA;
     this -> nombre_del_edificio = NOMBRE_FABRICA;

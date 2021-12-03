@@ -1,6 +1,7 @@
 #ifndef _MENU_H_
 #define _MENU_H_
-#include "../constantes.h"
+
+#include <iomanip>
 #include "../system.h"
 #include "../juego/andypolis.h"
 

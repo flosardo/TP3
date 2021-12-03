@@ -9,4 +9,4 @@ int Menu::pedir_opcion() {
     return this -> opcion_ingresada;
 }
 
-Menu::~Menu(){}
+Menu::~Menu() {}

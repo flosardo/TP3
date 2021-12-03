@@ -2,11 +2,11 @@
 
 using namespace std;
 
-Cargar_edificios::Cargar_edificios(){
+Cargar_edificios::Cargar_edificios() {
     this -> archivo_ruta = RUTA_EDIFICIOS;
 }
 
-void Cargar_edificios::carga_edificios(Abb* arbol){
+void Cargar_edificios::carga_edificios(Abb* arbol) {
     ifstream archivo_edificios(this -> archivo_ruta);
     if (!archivo_edificios) {
         cout << COLOR_ROJO << "El archivo de edificios no existe. Para continuar, crealo y volve a correr el programa." << COLOR_POR_DEFECTO << endl;

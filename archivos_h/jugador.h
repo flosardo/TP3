@@ -12,9 +12,10 @@ class Jugador{
         Energia energia;
         int* coordenadas;
         Inventario* inventario;
-        char nombre;
+         char convencion_jugador;
         Edificio** edificios_construidos;
         int cantidad_construidos;
+        std::string nombre;
 
     public:
 
@@ -25,7 +26,7 @@ class Jugador{
         *Pre: Que las coordenadas recibidas por parametro sean >= 0.
         *Post: Creará un objeto de tipo Jugador con las coordenadas recibidad por parametro.
         */
-        Jugador(char convencion_jugador, int coordenada_x, int coordenada_y);
+        Jugador(char convencion_jugador, int columna, int fila);
 
         /*
         *Pre: Que el parámetro no sea null.
@@ -41,6 +42,16 @@ class Jugador{
         /*
         *Post:
         */
+        void establecer_nombre(std::string nombre);
+
+        /*
+        *Post: Establecera el nombre del jugador.
+        */
+        void establecer_convencion_jugador(char nombre);
+
+        /*
+        *Post:
+        */
         int obtener_cantidad_construidos(std::string nombre_edificio);
 
         /*
@@ -48,10 +59,6 @@ class Jugador{
         */
         void redimensionar_edificio(int nueva_longitud);
 
-        /*
-        *Post: Establecera el nombre del jugador.
-        */
-        void establecer_nombre(char nombre);
 
         /*
         *Post: Devolvera el nombre del jugador.
@@ -73,7 +80,7 @@ class Jugador{
         *Pre: Que las coordenadas recibidas por parametro sean >= 0.
         *Post: Mueve el jugador a las coordenadas x e y usando los caminos minimos.
         */
-        void mover(int coordenada_x, int coordenada_y);
+        void mover(int columna, int fila);
 
         /*
         *Pre: Que la cantidad de energia sea >= 0.

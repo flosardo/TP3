@@ -2,16 +2,17 @@
 
 using namespace std;
 
-Cargar_ubicaciones::Cargar_ubicaciones(){
+Cargar_ubicaciones::Cargar_ubicaciones() {
     this -> archivo_ruta = RUTA_UBICACIONES;
 }
 
-bool Cargar_ubicaciones::carga_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2){
+bool Cargar_ubicaciones::carga_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2) {
     ifstream archivo_ubicaciones(this -> archivo_ruta);
-    bool existe_el_archivo = (bool) archivo_ubicaciones;
+    bool existe_el_archivo = false;
     string nombre;
     char convencion_jugador = VACIO;
-    while(existe_el_archivo && getline(archivo_ubicaciones, nombre, '(')) {
+    while (getline(archivo_ubicaciones, nombre, '(')) {
+        existe_el_archivo = true;
         procesar_archivo(archivo_ubicaciones, mapa, jugador_1, jugador_2, nombre, convencion_jugador);
     }
     archivo_ubicaciones.close();

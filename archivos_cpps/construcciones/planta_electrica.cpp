@@ -14,7 +14,7 @@ Planta_electrica::Planta_electrica(int fila, int columna) : Edificio(fila, colum
     this -> inicializar_atributos();
 }
 
-void Planta_electrica::inicializar_atributos(){
+void Planta_electrica::inicializar_atributos() {
     this -> nombre_material = VACIO;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_PLANTA_ELECTRICA;
     this -> nombre_del_edificio = NOMBRE_PLANTA_ELECTRICA;

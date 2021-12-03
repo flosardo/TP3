@@ -19,5 +19,5 @@ void Metal::saludar() {
 }
 
 void Metal::mostrar_material() {
-    cout << "--> Material: metal, cantidad: " << this->cantidad << endl;
+    cout << "--> Material: metal, cantidad: " << this ->cantidad << endl;
 }

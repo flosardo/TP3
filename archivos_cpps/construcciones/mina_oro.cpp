@@ -14,7 +14,7 @@ Mina_oro::Mina_oro(int fila, int columna) : Edificio(fila, columna) {
     this -> inicializar_atributos();
 }
 
-void Mina_oro::inicializar_atributos(){
+void Mina_oro::inicializar_atributos() {
     this -> nombre_material = PIEDRA;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_MINA_ORO;
     this -> nombre_del_edificio = NOMBRE_MINA_ORO;

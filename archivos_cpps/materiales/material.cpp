@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Material::Material(){
+Material::Material() {
     this -> nombre = VACIO;
     this -> codigo_emoji = VACIO;
     this -> cantidad = 0;

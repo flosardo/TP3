@@ -30,11 +30,11 @@ void Andypolis::determinar_turno() {
         this -> jugador_actual = this -> jugador_1;
 }
 
-void Andypolis::modificar_edificio_nombre(){
+void Andypolis::modificar_edificio_nombre() {
     string nombre = this -> funciones_auxiliares.pedir_nombre_edificio();
     Edificio* edificio_a_modificar = this -> edificios_disponibles -> buscar_edificio(nombre);
    
-    if(!edificio_a_modificar)
+    if (!edificio_a_modificar)
         cout << COLOR_ROJO << "El edificio que desea modificar, no existe :( " << COLOR_POR_DEFECTO << endl;
     else {
         this -> funciones_auxiliares.modificar_materiales_necesarios(edificio_a_modificar);
@@ -46,37 +46,58 @@ Jugador* Andypolis::devolver_jugador_actual() {
     return this -> jugador_actual;
 }
 
-void Andypolis::comenzar_partida(){}
+void Andypolis::comenzar_partida() {
+    string nombre_jugador_1; // TAL VEZ HAYA QUE PONERLAS EN PROGRAMA
+    string nombre_jugador_2;
+    int numero_jugador = 1;
+    int* coordenadas = 0;
+    bool estan_ubicados = false;
+    this -> funciones_auxiliares.seleccionar_jugador(nombre_jugador_1, nombre_jugador_2);
+    while (!estan_ubicados) {
+        coordenadas = this -> funciones_auxiliares.pedir_coordenadas();
+        if (this -> funciones_auxiliares.validar_coordenadas(coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA])) {
+            if (numero_jugador == 1) {
+                this -> jugador_1 = new Jugador(JUGADOR_1, coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]);
+                this -> jugador_1 -> establecer_nombre(nombre_jugador_1);
+                numero_jugador = 2;
+            }
+            else {
+                this -> jugador_2 = new Jugador(JUGADOR_2, coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]);
+                this -> jugador_2 -> establecer_nombre(nombre_jugador_2);
+            }
+        }
+    }
+}
 
-void Andypolis::mostrar_mapa(){
+void Andypolis::mostrar_mapa() {
     this -> mapa -> mostrar_mapa();
 }
 
-void Andypolis::construir_edificio(string edificio, Jugador* jugadors){}
+void Andypolis::construir_edificio(string edificio, Jugador* jugadors) {}
 
-void Andypolis::listar_mis_edificios(Jugador* jugador){}
+void Andypolis::listar_mis_edificios(Jugador* jugador) {}
 
-void Andypolis::demoler_edificio(std::string edificio, Jugador* jugador){}
+void Andypolis::demoler_edificio(std::string edificio, Jugador* jugador) {}
 
-void Andypolis::atacar_edificio(Jugador* jugador){}
+void Andypolis::atacar_edificio(Jugador* jugador) {}
 
-void Andypolis::reparar_edificio(Jugador* jugador){}
+void Andypolis::reparar_edificio(Jugador* jugador) {}
 
-void Andypolis::comprar_bombas(Jugador* jugador){}
+void Andypolis::comprar_bombas(Jugador* jugador) {}
 
-void Andypolis::consultar_coordenada(Jugador* jugador){}
+void Andypolis::consultar_coordenada(Jugador* jugador) {}
 
-void Andypolis::mostrar_inventario(Jugador* jugador){}
+void Andypolis::mostrar_inventario(Jugador* jugador) {}
 
-void Andypolis::mostrar_objetivos(Jugador* jugador){}
+void Andypolis::mostrar_objetivos(Jugador* jugador) {}
 
-void Andypolis::recolectar_recursos(Jugador* jugador){}
+void Andypolis::recolectar_recursos(Jugador* jugador) {}
 
-void Andypolis::moverse(Jugador* jugador){}
+void Andypolis::moverse(Jugador* jugador) {}
 
-void Andypolis::finalizar_turno(){}
+void Andypolis::finalizar_turno() {}
 
-void Andypolis::guardar_y_salir(){}
+void Andypolis::guardar_y_salir() {}
 
 Jugador* Andypolis::devolver_jugador(string numero_jugador) {
     return numero_jugador == NUMERO_JUGADOR_1 ? this -> jugador_1 : this -> jugador_2;

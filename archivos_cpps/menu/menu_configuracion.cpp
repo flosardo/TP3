@@ -4,25 +4,30 @@ using namespace std;
 
 Menu_configuracion::Menu_configuracion() {}
 
-void Menu_configuracion::mostrar_mensaje_bienvenida(){
-    cout << COLOR_DORADO << "        ┌───────────────────────────────────────────────────────────┐" << endl;
-    cout << "        │" << COLOR_ROJO << "                No se encontro una partida guardada :(" << COLOR_DORADO << "            │" << endl;
-    cout << "        └───────────────────────────────────────────────────────────┘"  << COLOR_POR_DEFECTO << endl;
+void Menu_configuracion::mostrar_mensaje_bienvenida() {
+    string mensaje = COLOR_ROJO + "   No se encontro una partida guardada :(  " + COLOR_DORADO;
+    cout << COLOR_DORADO;
+    cout << "┌───────────────────────────────────────────┐" << endl;
+    cout << "│" <<              mensaje              << "│" << endl;
+    cout << "└───────────────────────────────────────────┘" << COLOR_POR_DEFECTO;
+    cout << endl << endl;
 }
 
 void Menu_configuracion::mostrar_menu() {
+    string borde = COLOR_DORADO + "║" + COLOR_POR_DEFECTO;
+    cout << COLOR_DORADO;
+    cout << "╔═══════════════════════════════════════════╗" << endl;
+    cout << borde << " 1. Modificar edificio por nombre "   << EMOJI_MODIFICAR_EDIFICIO_POR_NOMBRE  << setw(20) << borde << endl;
+    cout << borde                                                                                   << setw(55) << borde << endl;
+    cout << borde << " 2. Listar los edificios "            << EMOJI_LISTAR_TODOS_LOS_EDIFICIOS     << setw(29) << borde << endl;
+    cout << borde                                                                                   << setw(55) << borde << endl;
+    cout << borde << " 3. Mostrar mapa "                    << EMOJI_MOSTRAR_MAPA                   << setw(36) << borde << endl;
+    cout << borde                                                                                   << setw(55) << borde << endl;
+    cout << borde << " 4. Comenzar partida "                << EMOJI_COMENZAR_PARTIDA               << setw(32) << borde << endl;
+    cout << borde                                                                                   << setw(55) << borde << endl;
+    cout << borde << " 5. Guardar y salir "                 << EMOJI_GUARDAR_Y_SALIR                << setw(33) << borde << endl << COLOR_DORADO;
+    cout << "╚═══════════════════════════════════════════╝" << COLOR_POR_DEFECTO;
     cout << endl;
-    cout << COLOR_DORADO << "╔═══════════════════════════════════════════╗" << endl;
-    cout << "║ " << COLOR_POR_DEFECTO << "1. Modificar edificio por nombre "  << COLOR_DORADO <<  EMOJI_MODIFICAR_EDIFICIO_POR_NOMBRE  << "        ║" << endl;
-    cout << "║                                           ║" << endl;
-    cout << "║ " << COLOR_POR_DEFECTO << "2. Listar los edificios " << COLOR_DORADO << EMOJI_LISTAR_TODOS_LOS_EDIFICIOS << "                 ║" << endl;
-    cout << "║                                           ║" << endl;
-    cout << "║ " << COLOR_POR_DEFECTO << "3. Mostrar mapa " <<  COLOR_DORADO << EMOJI_MOSTRAR_MAPA << "                        ║" << endl;
-    cout << "║                                           ║" << endl;
-    cout << "║ " << COLOR_POR_DEFECTO << "4. Comenzar partida " << COLOR_DORADO << EMOJI_COMENZAR_PARTIDA <<  "                    ║" << endl;
-    cout << "║                                           ║" << endl;
-    cout << "║ " << COLOR_POR_DEFECTO << "5. Guardar y salir " << COLOR_DORADO << EMOJI_GUARDAR_Y_SALIR << "                     ║" << endl;
-    cout << "╚═══════════════════════════════════════════╝" << COLOR_POR_DEFECTO << endl;
 } 
 
 void Menu_configuracion::procesar_opcion(int opcion, Andypolis juego) {

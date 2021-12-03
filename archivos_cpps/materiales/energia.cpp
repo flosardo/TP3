@@ -14,7 +14,7 @@ Energia::Energia(int cantidad_energia) {
     this -> codigo_emoji = EMOJI_ENERGIA;
 }
 
-void Energia::modificar_cantidad(int cantidad_a_modificar){
+void Energia::modificar_cantidad(int cantidad_a_modificar) {
     if ( (this -> cantidad + cantidad_a_modificar) > MAXIMO_ENERGIA )
         this -> cantidad = MAXIMO_ENERGIA;
     else
@@ -22,5 +22,5 @@ void Energia::modificar_cantidad(int cantidad_a_modificar){
 }
 
 void Energia::mostrar_material() {
-    cout << "--> Material: energia, cantidad: " << this->cantidad << endl;
+    cout << "--> Material: energia, cantidad: " << this ->cantidad << endl;
 }

@@ -33,7 +33,7 @@ class Mapa{
         *Pre: Recibe dos coordenadas
         *Post: Devuleve true si el casillero en las coordenadas recibidas esta ocupado, falso en caso contrario.
         */
-        bool esta_ocupado(int coord_x, int coord_y);
+        bool esta_ocupado(int columna, int fila);
 
         /*
         *Pre: Que jugador no sea null y que las coordenadas sean .
@@ -58,25 +58,19 @@ class Mapa{
         *Pre: Recibe dos coordenadas que deben ser >= 0.
         *Post: Libera el casillero en las coordenas recibidas.
         */
-        void liberar_posicion(int coordenada_x, int coordenada_y);
-
-        /*
-        *Pre: Recibe dos coordenadas que deben ser >= 0.
-        *Post: Devuelve true en caso que se pueda construir en las coordenadas recibidas, falso en caso contrario.
-        */
-        bool se_puede_construir(int coord_x, int coord_y);
+        void liberar_posicion(int columna, int fila);
 
         /*
         *Pre: Recibe dos coordenadas que deben ser >= 0.
         *Post: Devuelve true en caso que las coordenadas recibidas esten fuera de rango, falso en caso contrario
         */
-        bool coordenadas_fuera_de_rango(int coord_x, int coord_y);
+        bool coordenadas_fuera_de_rango(int columna, int fila);
 
         /*
         *Pre: Recibe dos coordenadas que deben ser >= 0.
         *Post: Muestra el saludo del objeto que se encuentra en las coordenadas recibidas (en caso de existir un objeto en dichas coordenadas).
         */
-        void consultar_coordenada(int coord_x, int coord_y);
+        void consultar_coordenada(int columna, int fila);
 
         /*
         *Pre: Recibe la cantidad de material a insertar.
@@ -90,21 +84,15 @@ class Mapa{
         int* generar_coordenadas_validas();
 
         /*
-        *Pre: Recibe dos coordenadas.
-        *Post: Devuelve un puntero a edificio, que se encuentra en las coordenadas recibidas.
-        */
-        Edificio* obtener_elemento(int coord_x , int coord_y);
-
-        /*
         *Post: Mostrará el mapa.
         */
         void mostrar_mapa();
 
         /*
-        *Pre: Que coordenada_x y coordenada_y sean >= 0
+        *Pre: Que columna y fila sean >= 0
         *Post: Devuelve el tipo del casillero en las coordenadas recibidas.
         */
-        char obtener_casillero(int coordenada_x, int coordenada_y);
+        char obtener_tipo_casillero(int columna, int fila);
 
         /*
         * PRE: Que fil y col sean >= 0.

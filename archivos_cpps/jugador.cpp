@@ -9,19 +9,29 @@ Jugador::Jugador() {
     this -> coordenadas = new int [MAX_COORDENADAS];
     this -> coordenadas[POSICION_FILA] = 0;
     this -> coordenadas[POSICION_COLUMNA] = 2;
-    this -> inventario = nullptr;
+    this -> inventario = new Inventario();
+    this -> convencion_jugador = VACIO;
     this -> nombre = VACIO;
 }
 
-Jugador::Jugador(char convencion_jugador, int coordenada_x, int coordenada_y) {
+Jugador::Jugador(char convencion_jugador, int columna, int fila) {
     this -> cantidad_construidos = 0;
     this -> edificios_construidos = new Edificio* [this -> cantidad_construidos];
     this -> energia = ENERGIA_INICIAL;
     this -> coordenadas = new int [MAX_COORDENADAS];
-    this -> coordenadas[POSICION_FILA] = coordenada_y;
-    this -> coordenadas[POSICION_COLUMNA] = coordenada_x;
-    this -> inventario = nullptr;
-    this -> nombre = convencion_jugador;
+    this -> coordenadas[POSICION_FILA] = fila;
+    this -> coordenadas[POSICION_COLUMNA] = columna;
+    this -> inventario = new Inventario();
+    this -> convencion_jugador = convencion_jugador;
+    this -> nombre = VACIO;
+}
+
+void Jugador::establecer_nombre(string nombre) { // PARA COMENZAR PARTIDA
+    this -> nombre = nombre;
+}
+
+void Jugador::establecer_convencion_jugador(char convencion_jugador) {
+    this -> convencion_jugador = convencion_jugador;
 }
 
 void Jugador::cargar_edificio(Edificio* edificio) {
@@ -46,8 +56,8 @@ void Jugador::redimensionar_edificio(int nueva_longitud) {
 void Jugador::eliminar_edificio(int fila, int columna) {
     bool se_elimino = false;
     int i = 0;
-    while (i < this -> cantidad_construidos && !se_elimino){
-        if(this -> edificios_construidos[i] -> obtener_fila() == fila && this -> edificios_construidos[i] -> obtener_columna() == columna){
+    while (i < this -> cantidad_construidos && !se_elimino) {
+        if (this -> edificios_construidos[i] -> obtener_fila() == fila && this -> edificios_construidos[i] -> obtener_columna() == columna) {
             this -> redimensionar_edificio(this -> cantidad_construidos - 1);
             this -> cantidad_construidos--;
             delete this -> edificios_construidos[i];
@@ -59,12 +69,8 @@ void Jugador::eliminar_edificio(int fila, int columna) {
     
 }
 
-void Jugador::establecer_nombre(char nombre) {
-    this -> nombre = nombre;
-}
-
 char Jugador::obtener_nombre() {
-    return this -> nombre;
+    return this -> convencion_jugador;
 }
 
 int* Jugador::devolver_coordenadas() {
@@ -80,7 +86,7 @@ int Jugador::obtener_cantidad_construidos(string nombre_edificio) {
     return construidos;
 }
 
-void Jugador::mover(int coordenada_x, int coordenada_y) {
+void Jugador::mover(int columna, int fila) {
     /* HACER A FUTURO CON GRAFOS (CAMINOS MINIMOS). */
 }
 
@@ -113,7 +119,7 @@ void Jugador::listar_construidos() {
     }
 }
 
-Jugador::~Jugador(){
+Jugador::~Jugador() {
     delete [] this -> inventario;
     delete [] this -> coordenadas;
     this -> coordenadas = nullptr;

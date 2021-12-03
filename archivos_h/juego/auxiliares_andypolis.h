@@ -47,6 +47,12 @@ class Auxiliares_andypolis {
         *Pre:
         *Post:
         */
+        bool es_casillero_valido(int fila, int columna);
+
+        /*
+        *Pre:
+        *Post:
+        */
         bool hay_energia_suficiente(int energia_necesaria, int energia_del_jugador);
 
         /*

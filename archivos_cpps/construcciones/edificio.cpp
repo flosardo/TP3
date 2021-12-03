@@ -37,7 +37,7 @@ Edificio::Edificio(int fila, int columna) {
     this -> permitidos = 0;
 }
 
-void Edificio::establecer_nuevos_materiales(int nueva_piedra, int nueva_madera, int nuevo_metal){
+void Edificio::establecer_nuevos_materiales(int nueva_piedra, int nueva_madera, int nuevo_metal) {
     this -> materiales_necesarios[POS_PIEDRA] = nueva_piedra;
     this -> materiales_necesarios[POS_MADERA] = nueva_madera;
     this -> materiales_necesarios[POS_METAL] = nuevo_metal;
@@ -47,11 +47,11 @@ int* Edificio::obtener_materiales_necesarios() {
     return this -> materiales_necesarios;
 }
 
-int Edificio::obtener_fila(){
+int Edificio::obtener_fila() {
     return this -> fila;
 }
 
-int Edificio::obtener_columna(){
+int Edificio::obtener_columna() {
     return this -> columna;
 }
 

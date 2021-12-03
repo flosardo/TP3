@@ -23,7 +23,7 @@ Jugador* Casillero::obtener_puntero_jugador() {
     return nullptr;
 }
 
-string Casillero::obtener_color(){
+string Casillero::obtener_color() {
     return this -> codigo_color;
 }
 

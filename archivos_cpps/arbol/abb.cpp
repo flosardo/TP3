@@ -83,7 +83,7 @@ void Abb::mostrar_arbol_recursiva(Nodo* nodo, Jugador* jugador) {
 
 
 void Abb::borrar_arbol(Nodo* nodo) {
-    if(!nodo)
+    if (!nodo)
         return;
     this -> borrar_arbol(nodo -> obtener_izquierda());
     this -> borrar_arbol(nodo -> obtener_derecha());

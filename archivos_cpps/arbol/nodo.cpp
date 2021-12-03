@@ -27,7 +27,7 @@ Nodo* Nodo::obtener_derecha() {
 }
 
 
-void Nodo::establecer_derecha(Nodo* nuevo_nodo){
+void Nodo::establecer_derecha(Nodo* nuevo_nodo) {
     this -> derecha = nuevo_nodo;
 }
 

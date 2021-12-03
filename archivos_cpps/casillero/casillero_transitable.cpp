@@ -22,7 +22,7 @@ Jugador* Casillero_transitable::obtener_puntero_jugador() {
 }
 
 void Casillero_transitable::mostrar() {
-    if (!this -> material && !this -> jugador){
+    if (!this -> material && !this -> jugador) {
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
         cout << COLOR_VERDE << "Soy un casillero transitable " << EMOJI_CAMINO << " y me encuentro vacío." << COLOR_POR_DEFECTO << endl;
         cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
