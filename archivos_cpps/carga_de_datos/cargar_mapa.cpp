@@ -28,7 +28,7 @@ void Cargar_mapa::procesar_archivo(ifstream & archivo_mapa, Mapa* mapa, int cant
     for (int fila = 0; fila < cantidad_filas; fila++) {
         for (int columna = 0; columna < cantidad_columnas; columna++) {
             archivo_mapa >> caracter;
-            mapa -> llenar_casillero(caracter, fila, columna);
+            mapa -> inicializar_casillero(caracter, fila, columna);
         }
     }
 }

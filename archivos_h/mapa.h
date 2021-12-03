@@ -28,6 +28,42 @@ class Mapa {
         *Post: Creará el mapa con la cantidad_filas y cantidad_columnas recibidas por parámetro.
         */
         void crear_mapa(int cantidad_filas, int cantidad_columnas);
+
+        /*
+        * PRE: Que fil y col sean >= 0.
+        * POST: Llenará los casilleros del mapa dependiendo del tipo de terreno que sea (Lago, Terreno, Camino).
+        */
+        void inicializar_casillero(char terreno, int fil, int col);
+
+        /*
+        *Pre: Que material no sea null, fila >= 0, columna >= 0.
+        *Post: Agregará un material al casillero.
+        */
+        void ubicar_material(Material* material, int fila, int columna);
+
+        /*
+        *Pre:  Que edificio no sea null, fila >= 0, columna >= 0
+        *Post: Agregará un edificio al casillero.
+        */
+        void ubicar_edificio(Edificio* edificio, int fila, int columna);
+
+        /*
+        *Pre: Que jugador no sea null y que las coordenadas sean .
+        *Post: Posicionará al jugador en el mapa.
+        */
+        void ubicar_jugador(Jugador* jugador, int fila, int columna);
+
+        /*
+        *Pre: Que columna y fila sean >= 0
+        *Post: Devuelve el tipo del casillero en las coordenadas recibidas.
+        */
+        char obtener_tipo_casillero(int fila, int columna);
+
+        /*
+        *Pre: Recibe dos coordenadas que deben ser >= 0.
+        *Post: Muestra el saludo del objeto que se encuentra en las coordenadas recibidas (en caso de existir un objeto en dichas coordenadas).
+        */
+        void consultar_coordenada(int fila, int columna);
         
         /*
         *Pre: Recibe dos coordenadas
@@ -36,41 +72,11 @@ class Mapa {
         bool esta_ocupado(int fila, int columna);
 
         /*
-        *Pre: Que jugador no sea null y que las coordenadas sean .
-        *Post: Posicionará al jugador en el mapa.
-        */
-        void posicionar_jugador(Jugador* jugador, int fila, int columna);
-
-        /*
-        *Pre: Que material no sea null, fila >= 0, columna >= 0.
-        *Post: Agregará un material al casillero.
-        */
-        void agregar_material_casillero(Material* material, int fila, int columna);
-
-        /*
-        *Pre:  Que edificio no sea null, fila >= 0, columna >= 0
-        *Post: Agregará un edificio al casillero.
-        */
-        void agregar_edificio_casillero(Edificio* edificio, int fila, int columna);
-
-
-        /*
-        *Pre: Recibe dos coordenadas que deben ser >= 0.
-        *Post: Libera el casillero en las coordenas recibidas.
-        */
-        void liberar_posicion(int fila, int columna);
-
-        /*
         *Pre: Recibe dos coordenadas que deben ser >= 0.
         *Post: Devuelve true en caso que las coordenadas recibidas esten fuera de rango, falso en caso contrario
         */
         bool coordenadas_fuera_de_rango(int fila, int columna);
-
-        /*
-        *Pre: Recibe dos coordenadas que deben ser >= 0.
-        *Post: Muestra el saludo del objeto que se encuentra en las coordenadas recibidas (en caso de existir un objeto en dichas coordenadas).
-        */
-        void consultar_coordenada(int fila, int columna);
+        
 
         /*
         *Pre: Recibe la cantidad de material a insertar.
@@ -84,21 +90,15 @@ class Mapa {
         int* generar_coordenadas_validas();
 
         /*
+        *Pre: Recibe dos coordenadas que deben ser >= 0.
+        *Post: Libera el casillero en las coordenas recibidas.
+        */
+        void liberar_posicion(int fila, int columna);
+
+        /*
         *Post: Mostrará el mapa.
         */
         void mostrar_mapa();
-
-        /*
-        *Pre: Que columna y fila sean >= 0
-        *Post: Devuelve el tipo del casillero en las coordenadas recibidas.
-        */
-        char obtener_tipo_casillero(int fila, int columna);
-
-        /*
-        * PRE: Que fil y col sean >= 0.
-        * POST: Llenará los casilleros del mapa dependiendo del tipo de terreno que sea (Lago, Terreno, Camino).
-        */
-        void llenar_casillero(char terreno, int fil, int col);
 
         /*
         *Post: Liberará la memoria utilizada por el mapa a lo largo del programa.
