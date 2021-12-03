@@ -14,7 +14,7 @@ Jugador::Jugador() {
     this -> nombre = VACIO;
 }
 
-Jugador::Jugador(char convencion_jugador, int columna, int fila) {
+Jugador::Jugador(char convencion_jugador, int fila, int columna) {
     this -> cantidad_construidos = 0;
     this -> edificios_construidos = new Edificio* [this -> cantidad_construidos];
     this -> energia = ENERGIA_INICIAL;
@@ -86,7 +86,7 @@ int Jugador::obtener_cantidad_construidos(string nombre_edificio) {
     return construidos;
 }
 
-void Jugador::mover(int columna, int fila) {
+void Jugador::mover(int fila, int columna) {
     /* HACER A FUTURO CON GRAFOS (CAMINOS MINIMOS). */
 }
 

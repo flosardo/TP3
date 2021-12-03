@@ -26,7 +26,7 @@ class Jugador{
         *Pre: Que las coordenadas recibidas por parametro sean >= 0.
         *Post: Creará un objeto de tipo Jugador con las coordenadas recibidad por parametro.
         */
-        Jugador(char convencion_jugador, int columna, int fila);
+        Jugador(char convencion_jugador, int fila, int columna);
 
         /*
         *Pre: Que el parámetro no sea null.
@@ -80,7 +80,7 @@ class Jugador{
         *Pre: Que las coordenadas recibidas por parametro sean >= 0.
         *Post: Mueve el jugador a las coordenadas x e y usando los caminos minimos.
         */
-        void mover(int columna, int fila);
+        void mover(int fila, int columna);
 
         /*
         *Pre: Que la cantidad de energia sea >= 0.

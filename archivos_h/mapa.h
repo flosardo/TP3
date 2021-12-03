@@ -33,7 +33,7 @@ class Mapa{
         *Pre: Recibe dos coordenadas
         *Post: Devuleve true si el casillero en las coordenadas recibidas esta ocupado, falso en caso contrario.
         */
-        bool esta_ocupado(int columna, int fila);
+        bool esta_ocupado(int fila, int columna);
 
         /*
         *Pre: Que jugador no sea null y que las coordenadas sean .
@@ -58,19 +58,19 @@ class Mapa{
         *Pre: Recibe dos coordenadas que deben ser >= 0.
         *Post: Libera el casillero en las coordenas recibidas.
         */
-        void liberar_posicion(int columna, int fila);
+        void liberar_posicion(int fila, int columna);
 
         /*
         *Pre: Recibe dos coordenadas que deben ser >= 0.
         *Post: Devuelve true en caso que las coordenadas recibidas esten fuera de rango, falso en caso contrario
         */
-        bool coordenadas_fuera_de_rango(int columna, int fila);
+        bool coordenadas_fuera_de_rango(int fila, int columna);
 
         /*
         *Pre: Recibe dos coordenadas que deben ser >= 0.
         *Post: Muestra el saludo del objeto que se encuentra en las coordenadas recibidas (en caso de existir un objeto en dichas coordenadas).
         */
-        void consultar_coordenada(int columna, int fila);
+        void consultar_coordenada(int fila, int columna);
 
         /*
         *Pre: Recibe la cantidad de material a insertar.
@@ -92,7 +92,7 @@ class Mapa{
         *Pre: Que columna y fila sean >= 0
         *Post: Devuelve el tipo del casillero en las coordenadas recibidas.
         */
-        char obtener_tipo_casillero(int columna, int fila);
+        char obtener_tipo_casillero(int fila, int columna);
 
         /*
         * PRE: Que fil y col sean >= 0.

@@ -54,11 +54,11 @@ int* Mapa::generar_coordenadas_validas() {
     return coordenadas_validas;
 }
 
-bool Mapa::esta_ocupado(int columna, int fila) {
+bool Mapa::esta_ocupado(int fila, int columna) {
     return this -> mapa[fila][columna] -> esta_ocupado();
 }
 
-char Mapa::obtener_tipo_casillero(int columna, int fila) {
+char Mapa::obtener_tipo_casillero(int fila, int columna) {
     return this -> mapa[fila][columna] -> obtener_tipo_de_terreno();
 }
 
@@ -78,15 +78,15 @@ void Mapa::posicionar_jugador(Jugador* jugador, int fila, int columna) {
         this -> mapa[fila][columna] -> agregar_jugador(jugador);
 }
 
-void Mapa::liberar_posicion(int columna, int fila) {
+void Mapa::liberar_posicion(int fila, int columna) {
     this -> mapa[fila][columna] -> limpiar_casillero();
 }
 
-bool Mapa::coordenadas_fuera_de_rango(int columna, int fila) {
+bool Mapa::coordenadas_fuera_de_rango(int fila, int columna) {
     return (columna < 0 || columna >= cantidad_filas) || (fila < 0 ||fila >= cantidad_columnas);
 }
 
-void Mapa::consultar_coordenada(int columna, int fila) {
+void Mapa::consultar_coordenada(int fila, int columna) {
     if (!coordenadas_fuera_de_rango(columna, fila)) {
         this -> mapa[fila][columna] -> mostrar();
     }
