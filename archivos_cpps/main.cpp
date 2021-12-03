@@ -3,6 +3,7 @@
 using namespace std;
 
 int main() {
+    srand((unsigned)time(NULL));
     Programa programa;
     programa.empezar();
     programa.finalizar();

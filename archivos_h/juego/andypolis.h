@@ -58,7 +58,7 @@ class Andypolis {
         *Pre:
         *Post:
         */
-        void listar_edificios(Jugador* jugador);
+        void listar_edificios();
         
         // FIN, GURADAR_Y_SALIR COMPARTEN
 
@@ -72,67 +72,67 @@ class Andypolis {
         *Pre:
         *Post:
         */
-        void construir_edificio(std::string edificio, Jugador* jugador);
+        void construir_edificio();
 
         /*
         *Pre:
         *Post:
         */
-        void listar_mis_edificios(Jugador* jugador);
+        void listar_mis_edificios();
 
         /*
         *Pre:
         *Post:
         */
-        void demoler_edificio(std::string edificio, Jugador* jugador);
+        void demoler_edificio();
 
         /*
         *Pre:
         *Post:
         */
-        void atacar_edificio(Jugador* jugador);
+        void atacar_edificio();
 
         /*
         *Pre:
         *Post:
         */
-        void reparar_edificio(Jugador* jugador);
+        void reparar_edificio();
 
         /*
         *Pre:
         *Post:
         */
-        void comprar_bombas(Jugador* jugador);
+        void comprar_bombas();
 
         /*
         *Pre:
         *Post:
         */
-        void consultar_coordenada(Jugador* jugador);
+        void consultar_coordenada();
 
         /*
         *Pre:
         *Post:
         */
-        void mostrar_inventario(Jugador* jugador);
+        void mostrar_inventario();
 
         /*
         *Pre:
         *Post:
         */
-        void mostrar_objetivos(Jugador* jugador);
+        void mostrar_objetivos();
 
         /*
         *Pre:
         *Post:
         */
-        void recolectar_recursos(Jugador* jugador);
+        void recolectar_recursos();
 
         /*
         *Pre:
         *Post:
         */
-        void moverse(Jugador* jugador);
+        void moverse();
 
         /*
         *Pre:

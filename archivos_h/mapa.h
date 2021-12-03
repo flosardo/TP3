@@ -39,19 +39,19 @@ class Mapa {
         *Pre: Que material no sea null, fila >= 0, columna >= 0.
         *Post: Agregará un material al casillero.
         */
-        void ubicar_material(Material* material, int fila, int columna);
+        bool ubicar_material(Material* material, int fila, int columna);
 
         /*
         *Pre:  Que edificio no sea null, fila >= 0, columna >= 0
         *Post: Agregará un edificio al casillero.
         */
-        void ubicar_edificio(Edificio* edificio, int fila, int columna);
+        bool ubicar_edificio(Edificio* edificio, int fila, int columna);
 
         /*
         *Pre: Que jugador no sea null y que las coordenadas sean .
         *Post: Posicionará al jugador en el mapa.
         */
-        void ubicar_jugador(Jugador* jugador, int fila, int columna);
+        bool ubicar_jugador(Jugador* jugador, int fila, int columna);
 
         /*
         *Pre: Que columna y fila sean >= 0

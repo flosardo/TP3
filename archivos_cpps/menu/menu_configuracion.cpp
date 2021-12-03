@@ -36,7 +36,7 @@ void Menu_configuracion::procesar_opcion(int opcion, Andypolis juego) {
             juego.modificar_edificio_nombre();
             break;
         case 2:
-            juego.listar_edificios(juego.devolver_jugador_actual());
+            juego.listar_edificios();
             break;
         case 3:
             juego.mostrar_mapa();

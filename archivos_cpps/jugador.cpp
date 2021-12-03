@@ -5,7 +5,7 @@ using namespace std;
 Jugador::Jugador() {
     this -> cantidad_construidos = 0;
     this -> edificios_construidos = new Edificio* [this -> cantidad_construidos];
-    this -> energia = ENERGIA_INICIAL;
+    this -> energia = Energia();
     this -> coordenadas = new int [MAX_COORDENADAS];
     this -> coordenadas[POSICION_FILA] = 0;
     this -> coordenadas[POSICION_COLUMNA] = 2;
@@ -17,7 +17,7 @@ Jugador::Jugador() {
 Jugador::Jugador(char convencion_jugador, int fila, int columna) {
     this -> cantidad_construidos = 0;
     this -> edificios_construidos = new Edificio* [this -> cantidad_construidos];
-    this -> energia = ENERGIA_INICIAL;
+    this -> energia = Energia();
     this -> coordenadas = new int [MAX_COORDENADAS];
     this -> coordenadas[POSICION_FILA] = fila;
     this -> coordenadas[POSICION_COLUMNA] = columna;
@@ -77,6 +77,10 @@ int* Jugador::devolver_coordenadas() {
     return this -> coordenadas;
 }
 
+int Jugador::devolver_energia_actual() {
+    return this -> energia.obtener_energia_actual();
+}
+
 int Jugador::obtener_cantidad_construidos(string nombre_edificio) {
     int construidos = 0;
     for (int i = 0; i < this -> cantidad_construidos; i++) {
@@ -117,6 +121,10 @@ void Jugador::listar_construidos() {
         cout << "Coordenadas: " << '(' << fila << "," << columna << ')' << endl;
         cout << COLOR_MARRON << LINEA_DIVISORIA << COLOR_POR_DEFECTO << endl;
     }
+}
+
+Inventario* Jugador::obtener_inventario() {
+    return this -> inventario;
 }
 
 Jugador::~Jugador() {

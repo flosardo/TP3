@@ -19,8 +19,8 @@ Abb* Andypolis::devolver_arbol() {
     return this -> edificios_disponibles;
 }
 
-void Andypolis::listar_edificios(Jugador* jugador) {
-    this -> edificios_disponibles -> mostrar_arbol(jugador);
+void Andypolis::listar_edificios() {
+    this -> edificios_disponibles -> mostrar_arbol(this -> jugador_actual);
 }
 
 void Andypolis::determinar_turno() {
@@ -77,27 +77,32 @@ void Andypolis::mostrar_mapa() {
     this -> mapa -> mostrar_mapa();
 }
 
-void Andypolis::construir_edificio(string edificio, Jugador* jugadors) {}
 
-void Andypolis::listar_mis_edificios(Jugador* jugador) {}
 
-void Andypolis::demoler_edificio(std::string edificio, Jugador* jugador) {}
 
-void Andypolis::atacar_edificio(Jugador* jugador) {}
+void Andypolis::construir_edificio() {
 
-void Andypolis::reparar_edificio(Jugador* jugador) {}
+}
 
-void Andypolis::comprar_bombas(Jugador* jugador) {}
+void Andypolis::listar_mis_edificios() {}
 
-void Andypolis::consultar_coordenada(Jugador* jugador) {}
+void Andypolis::demoler_edificio() {}
 
-void Andypolis::mostrar_inventario(Jugador* jugador) {}
+void Andypolis::atacar_edificio() {}
 
-void Andypolis::mostrar_objetivos(Jugador* jugador) {}
+void Andypolis::reparar_edificio() {}
 
-void Andypolis::recolectar_recursos(Jugador* jugador) {}
+void Andypolis::comprar_bombas() {}
 
-void Andypolis::moverse(Jugador* jugador) {}
+void Andypolis::consultar_coordenada() {}
+
+void Andypolis::mostrar_inventario() {}
+
+void Andypolis::mostrar_objetivos() {}
+
+void Andypolis::recolectar_recursos() {}
+
+void Andypolis::moverse() {}
 
 void Andypolis::finalizar_turno() {}
 

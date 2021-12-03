@@ -24,3 +24,7 @@ void Energia::modificar_cantidad(int cantidad_a_modificar) {
 void Energia::mostrar_material() {
     cout << "--> Material: energia, cantidad: " << this -> cantidad << endl;
 }
+
+int Energia::obtener_energia_actual() {
+    return this -> cantidad;
+}

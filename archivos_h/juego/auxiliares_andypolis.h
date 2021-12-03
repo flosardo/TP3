@@ -91,6 +91,44 @@ class Auxiliares_andypolis {
         */
         std::string pedir_nombre_edificio();
         
+
+        /*
+        *Pre: 
+        *Post:
+        */
+        void asignar_turno(Jugador* & jugador_actual, Jugador* jugador_1, Jugador* jugador_2);
+        
+        /*
+        *Pre: 
+        *Post:
+        */
+        void modificar_energia(Jugador* jugador_actual, int cantidad_a_modificar);
+
+        /*
+        *Pre: 
+        *Post:
+        */
+        void validar_construccion(Jugador* jugador_actual, std::string edificio_a_construir);
+        
+        /*
+        *Pre: 
+        *Post:
+        */
+        bool hay_materiales_suficientes(Jugador* jugador_actual, std::string edificio_a_construir);
+        
+        /*
+        *Pre: 
+        *Post:
+        */
+        bool se_alcanzo_maximo_permitido(Abb* arbol, Jugador* jugador, std::string edificio_a_construir);
+        
+        /*
+        *Pre: 
+        *Post:
+        */
+        bool confirmar_construccion(std::string edificio_a_construir);
+    
+        
 };
 
 

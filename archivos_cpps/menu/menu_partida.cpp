@@ -44,4 +44,49 @@ void Menu_partida::mostrar_menu() {
     cout << "╚═══════════════════════════════════════════╝" << endl;
 }
 
-void Menu_partida::procesar_opcion(int opcion, Andypolis juego) {}
+void Menu_partida::procesar_opcion(int opcion, Andypolis juego) {
+        switch (opcion_ingresada) {
+        case 1:
+            juego.construir_edificio();
+            break;
+        case 2:
+            juego.listar_mis_edificios();
+            break;
+        case 3:
+            juego.demoler_edificio();
+            break;
+        case 4:
+            juego.atacar_edificio();
+            break;
+        case 5:
+            juego.reparar_edificio();
+            break;
+        case 6:
+            juego.comprar_bombas();
+            break;
+        case 7:
+            juego.consultar_coordenada();
+            break;
+        case 8:
+            juego.mostrar_inventario();
+            break;
+        case 9:
+            juego.mostrar_objetivos();
+            break;
+        case 10:
+            juego.recolectar_recursos();
+            break;
+        case 11:
+            juego.moverse();
+            break;
+        case 12:
+            juego.finalizar_turno();
+            break;
+        case 13:
+            juego.guardar_y_salir();
+            break;
+        default:
+            cout << COLOR_ROJO << "Oops :(, opcion incorrecta. Intenta nuevamente" << COLOR_POR_DEFECTO << endl;
+            break;
+    }
+}

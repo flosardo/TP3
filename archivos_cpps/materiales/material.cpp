@@ -16,7 +16,7 @@ string Material::obtener_codigo_emoji() {
     return this -> codigo_emoji;
 }
 
-int Material::cantidad_material() {
+int Material::obtener_cantidad_material() {
     return this -> cantidad;
 }
 

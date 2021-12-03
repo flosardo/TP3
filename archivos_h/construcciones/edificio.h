@@ -88,6 +88,10 @@ class Edificio {
         Pos: devuelve el nombre del edificio
         */
         std::string obtener_nombre_del_edificio();
+        /*
+        *Post: Inicializara los atributos, según el comportamiento de cada hija.
+        */
+        int obtener_permitidos();
 
         /*
         Pos:

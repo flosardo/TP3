@@ -11,7 +11,6 @@ const std::string BOMBA = "bombas";
 const std::string ANDYCOINS = "andycoins";
 const std::string ENERGIA = "energia";
 const char VACIO = ' ';
-const char VACIO2 = 'Q';
 const int MATERIALES_DISPONIBLES = 5;
 const int BRINDAR_MATERIALES_MINA = 15; //piedras
 const int BRINDAR_MATERIALES_ASERRADERO = 25; //maderas

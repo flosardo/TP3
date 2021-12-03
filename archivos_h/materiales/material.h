@@ -20,7 +20,7 @@ class Material {
         /*
         *Post: Devolverá la cantidad de material.
         */
-        int cantidad_material();
+        int obtener_cantidad_material();
 
         /*
         *Post: Devolverá el tipo de material.

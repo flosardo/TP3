@@ -12,7 +12,7 @@ class Jugador {
         Energia energia;
         int* coordenadas;
         Inventario* inventario;
-         char convencion_jugador;
+        char convencion_jugador;
         Edificio** edificios_construidos;
         int cantidad_construidos;
         std::string nombre;
@@ -95,6 +95,10 @@ class Jugador {
         void modificar_inventario(std::string material, int cantidad);
 
         void listar_construidos();
+
+        int devolver_energia_actual();
+
+        Inventario* obtener_inventario();
 
         /*
         *Post: Liberará la memoria usada durante la creacion del objeto Jugador.

@@ -27,6 +27,11 @@ class Energia : public Material {
         */
         void mostrar_material();
 
+        /*
+        *Post: Mostrará el estado en el que se encuentra el material.
+        */
+        int obtener_energia_actual();
+
 };
 
 #endif //_ENERGIA_H_

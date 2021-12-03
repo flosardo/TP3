@@ -32,17 +32,21 @@ void Mapa::inicializar_casillero(char terreno, int fila, int columna) {
         this -> mapa[fila][columna] = new Casillero_transitable();
 }
 
-void Mapa::ubicar_material(Material* material, int fila, int columna) {
+bool Mapa::ubicar_material(Material* material, int fila, int columna) {
     this -> mapa[fila][columna] -> agregar_material(material);
+    return false;
 }
 
-void Mapa::ubicar_edificio(Edificio* edificio, int fila, int columna) {
+bool Mapa::ubicar_edificio(Edificio* edificio, int fila, int columna) {
     this -> mapa[fila][columna] -> agregar_edificio(edificio);
+    return false;
 }
 
-void Mapa::ubicar_jugador(Jugador* jugador, int fila, int columna) {
-    if (!this -> coordenadas_fuera_de_rango(fila, columna) && !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) != LAGO)
+bool Mapa::ubicar_jugador(Jugador* jugador, int fila, int columna) {
+    bool coordenada_valida = !this -> coordenadas_fuera_de_rango(fila, columna) && !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) != LAGO;
+    if (coordenada_valida)
         this -> mapa[fila][columna] -> agregar_jugador(jugador);
+    return coordenada_valida;
 }
 
 char Mapa::obtener_tipo_casillero(int fila, int columna) {

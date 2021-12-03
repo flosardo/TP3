@@ -71,6 +71,10 @@ int Edificio::obtener_cantidad_de_material_producido() {
     return this -> cantidad_material_producido;
 }
 
+int Edificio::obtener_permitidos() {
+    return this -> permitidos;
+}
+
 bool Edificio::esta_afectado() {
     return this -> afectado;
 }
