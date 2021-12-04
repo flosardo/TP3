@@ -30,7 +30,7 @@ int* Auxiliares_andypolis::pedir_coordenadas() {
         cout << "Ingrese la columna" << endl;
         cout << COLOR_DORADO << ">> " << COLOR_POR_DEFECTO;
         cin >> coordenadas[POSICION_COLUMNA];
-        ubicado = this -> validar_coordenadas(coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]);
+        ubicado = this -> validar_coordenadas(coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]);//hay q cambiar esto para q pida solo las coordenadas, cambia la validacion si es ataque, defensa, etc
     }
     return coordenadas;
 }
@@ -114,6 +114,36 @@ bool Auxiliares_andypolis::confirmar_construccion(string edificio_a_construir) {
     return (decision == "s");
 }
 
+
+Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int columna) { //metodo repetido
+    Edificio* edificio_creado = 0;
+    if (nombre == NOMBRE_ASERRADERO)
+        edificio_creado = new Aserradero(fila, columna);
+    else if (nombre == NOMBRE_ESCUELA) 
+        edificio_creado = new Escuela(fila, columna);
+    else if (nombre == NOMBRE_FABRICA) 
+        edificio_creado = new Fabrica(fila, columna);
+    else if (nombre == NOMBRE_MINA) 
+        edificio_creado = new Mina(fila, columna);
+    else if (nombre == NOMBRE_OBELISCO) 
+        edificio_creado = new Obelisco(fila, columna);
+    else if (nombre == NOMBRE_PLANTA_ELECTRICA) 
+        edificio_creado = new Planta_electrica(fila, columna);
+    else if (nombre == NOMBRE_MINA_ORO) 
+        edificio_creado = new Mina_oro(fila, columna);
+
+    return edificio_creado;
+}
+
+void Auxiliares_andypolis::actualizar_cant_materiales(Jugador* jugador_actual, string edificio_construido) {
+    Edificio* edificio = this -> edificios_disponibles -> buscar_edificio(edificio_construido);
+    int* materiales_necesarios = edificio -> obtener_materiales_necesarios();
+    Inventario* inventario = jugador_actual -> obtener_inventario();
+    inventario -> modificar_cantidad_material(POS_PIEDRA, materiales_necesarios[POS_PIEDRA]);
+    inventario -> modificar_cantidad_material(POS_MADERA, materiales_necesarios[POS_MADERA]);
+    inventario -> modificar_cantidad_material(POS_METAL, materiales_necesarios[POS_METAL]);
+}
+
 void Auxiliares_andypolis::validar_construccion(Abb* arbol, Jugador* jugador_actual, string edificio_a_construir) {
     if (!this -> hay_energia_suficiente(ENERGIA_CONSTRUIR_EDIFICIO, jugador_actual -> devolver_energia_actual()))
         cout << COLOR_ROJO << "No hay energia suficiente para construir " << edificio_a_construir << COLOR_POR_DEFECTO << endl;
@@ -126,11 +156,18 @@ void Auxiliares_andypolis::validar_construccion(Abb* arbol, Jugador* jugador_act
     else {
         if (!this -> confirmar_construccion(edificio_a_construir)) 
             cout << COLOR_VERDE << "Operacion cancelada" << COLOR_POR_DEFECTO << endl;
-
-            /*
-            
-            TERMINARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
-            
-            */
+        else {
+            int* coordenadas = this -> pedir_coordenadas();
+            int fila = coordenadas[POSICION_FILA];
+            int columna = coordenadas[POSICION_COLUMNA];
+            Edificio* nuevo_edificio = this -> crear_edificio(edificio_a_construir, coordenadas[POSICION_FILA], coordenadas[POSICION_COLUMNA]);
+            this -> actualizar_cant_materiales(jugador_actual, edificio_a_construir);
+            jugador_actual -> modificar_energia(-ENERGIA_CONSTRUIR_EDIFICIO);
+            bool nose_para_que = this -> mapa -> ubicar_edificio(nuevo_edificio, fila, columna);
+            cout << COLOR_VERDE << "El edificio fue construido statisfactoriamente" << COLOR_POR_DEFECTO << endl;
+            cout << nose_para_que << endl; //borrar
+            delete [] coordenadas;
+            coordenadas = nullptr;
+        }
     }
 }

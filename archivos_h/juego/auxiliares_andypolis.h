@@ -2,6 +2,14 @@
 #define _AUXILIARES_ANDYPOLIS_H_
 #include "../../archivos_h/arbol/abb.h"
 #include "../../archivos_h/mapa.h"
+#include "../construcciones/aserradero.h"
+#include "../construcciones/mina.h"
+#include "../construcciones/mina_oro.h"
+#include "../construcciones/fabrica.h"
+#include "../construcciones/escuela.h"
+#include "../construcciones/planta_electrica.h"
+#include "../construcciones/obelisco.h"
+
 #include <iostream>
 #include <algorithm>
 
@@ -128,6 +136,17 @@ class Auxiliares_andypolis {
         *Post:
         */
         bool confirmar_construccion(std::string edificio_a_construir);
+
+        /*
+        *Post: Devolverá un puntero de tipo Edificio, que contendra la información del edificio creado.
+        */
+        Edificio* crear_edificio(std::string nombre, int fila, int columna);
+
+        /*
+        *Pre:
+        *Pos:
+        */
+       void actualizar_cant_materiales(Jugador* jugador_actual, std::string edificio_construido);
     
         
 };

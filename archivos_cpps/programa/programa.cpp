@@ -29,7 +29,7 @@ void Programa::empezar() {
 
         menu_partida.mostrar_mensaje_bienvenida();
         menu_partida.mostrar_menu();
-        opcion = menu_configuracion.pedir_opcion();
+        opcion = menu_partida.pedir_opcion();
         menu_partida.procesar_opcion(opcion, juego);
     }
 }

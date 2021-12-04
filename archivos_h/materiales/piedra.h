@@ -27,6 +27,11 @@ class Piedra : public Material {
         */
         void mostrar_material();
 
+        /*
+        *Post: modifica la cantidad del material segun el parametro recibido.
+        */
+        void modificar_cantidad(int cantidad_a_modificar);
+
 };
 
 #endif //_PIEDRA_H_

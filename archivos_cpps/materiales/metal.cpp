@@ -21,3 +21,6 @@ void Metal::saludar() {
 void Metal::mostrar_material() {
     cout << "--> Material: metal, cantidad: " << this -> cantidad << endl;
 }
+void Metal::modificar_cantidad(int cantidad_a_modificar) {
+    this -> cantidad -= cantidad_a_modificar;
+}

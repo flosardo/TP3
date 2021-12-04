@@ -103,7 +103,7 @@ void Jugador::cargar_material(Material* material) {
 }
 
 void Jugador::modificar_inventario(string material, int cantidad) {
-    int indice = this -> inventario -> obtener_indice_del_material(material);
+    int indice = this -> inventario -> obtener_indice_del_material(material);//se puede borrar
     this -> inventario -> modificar_cantidad_material(indice, cantidad);
 }
 

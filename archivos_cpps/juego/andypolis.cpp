@@ -81,7 +81,8 @@ void Andypolis::mostrar_mapa() {
 
 
 void Andypolis::construir_edificio() {
-
+    string edificio_a_construir = this -> funciones_auxiliares.pedir_nombre_edificio();
+    this -> funciones_auxiliares.validar_construccion(this -> edificios_disponibles , this -> jugador_actual, edificio_a_construir);
 }
 
 void Andypolis::listar_mis_edificios() {}

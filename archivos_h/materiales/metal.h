@@ -26,6 +26,11 @@ class Metal : public Material {
         *Post: Mostrará el estado en el que se encuentra el material.
         */
         void mostrar_material();
+
+        /*
+        *Post: modifica la cantidad del material segun el parametro recibido.
+        */
+        void modificar_cantidad(int cantidad_a_modificar);
     
 };
 

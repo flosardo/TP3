@@ -37,6 +37,8 @@ bool Mapa::ubicar_material(Material* material, int fila, int columna) {
                             && this -> obtener_tipo_casillero(fila, columna) != LAGO && this -> obtener_tipo_casillero(fila, columna) != TERRENO;
     if (coordenada_valida)
         this -> mapa[fila][columna] -> agregar_material(material);
+    else
+        cout << COLOR_ROJO << "No se pudo posicionar al material en las coordenadas ingresadas, intente nuevamente" << COLOR_POR_DEFECTO << endl;
     return coordenada_valida;
 }
 
@@ -44,6 +46,8 @@ bool Mapa::ubicar_edificio(Edificio* edificio, int fila, int columna) {
     bool coordenada_valida = !this -> coordenadas_fuera_de_rango(fila, columna) && !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) == TERRENO;
     if (coordenada_valida)
         this -> mapa[fila][columna] -> agregar_edificio(edificio);
+    else
+        cout << COLOR_ROJO << "No se pudo posicionar el edificio en las coordenadas ingresadas, intente nuevamente" << COLOR_POR_DEFECTO << endl;
     return coordenada_valida;
 }
 
@@ -51,6 +55,8 @@ bool Mapa::ubicar_jugador(Jugador* jugador, int fila, int columna) {
     bool coordenada_valida = !this -> coordenadas_fuera_de_rango(fila, columna) && !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) != LAGO;
     if (coordenada_valida)
         this -> mapa[fila][columna] -> agregar_jugador(jugador);
+    else
+        cout << COLOR_ROJO << "No se pudo posicionar al jugador en las coordenadas ingresadas, intente nuevamente" << COLOR_POR_DEFECTO << endl;
     return coordenada_valida;
 }
 

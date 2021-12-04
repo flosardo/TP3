@@ -21,3 +21,7 @@ void Piedra::saludar() {
 void Piedra::mostrar_material() {
     cout << "--> Material: piedra, cantidad: " << this -> cantidad << endl;
 }
+
+void Piedra::modificar_cantidad(int cantidad_a_modificar) {
+    this -> cantidad -= cantidad_a_modificar;
+}
