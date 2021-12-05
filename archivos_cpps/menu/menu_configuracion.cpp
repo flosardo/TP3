@@ -30,7 +30,7 @@ void Menu_configuracion::mostrar_menu() {
     cout << endl;
 } 
 
-void Menu_configuracion::procesar_opcion(int opcion, Andypolis juego) {
+void Menu_configuracion::procesar_opcion(int opcion, Andypolis & juego) {
     switch (opcion_ingresada) {
         case 1:
             juego.modificar_edificio_nombre();

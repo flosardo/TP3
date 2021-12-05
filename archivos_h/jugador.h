@@ -19,20 +19,26 @@ class Jugador {
 
     public:
 
-        // Debugueo
-        Jugador();
 
-        /*
-        *Pre: Que las coordenadas recibidas por parametro sean >= 0.
-        *Post: Creará un objeto de tipo Jugador con las coordenadas recibidad por parametro.
-        */
-        Jugador(char convencion_jugador, int fila, int columna);
+        Jugador();
 
         /*
         *Pre: Que el parámetro no sea null.
         *Post: Cargara el edificio.
         */
         void cargar_edificio(Edificio* edificio);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void establecer_coordenadas(int fila, int columna);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void establecer_convencion(char convencion);
 
         /*
         *Post: Eliminará el edificio.
@@ -96,7 +102,7 @@ class Jugador {
 
         void listar_construidos();
 
-        int devolver_energia_actual();
+        int obtener_energia_actual();
 
         Inventario* obtener_inventario();
 

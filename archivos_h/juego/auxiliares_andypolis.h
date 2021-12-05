@@ -1,5 +1,6 @@
 #ifndef _AUXILIARES_ANDYPOLIS_H_
 #define _AUXILIARES_ANDYPOLIS_H_
+
 #include "../../archivos_h/arbol/abb.h"
 #include "../../archivos_h/mapa.h"
 #include "../construcciones/aserradero.h"
@@ -18,6 +19,9 @@ class Auxiliares_andypolis {
 
         Abb* edificios_disponibles;
         Mapa* mapa;
+        Jugador* jugador_1;
+        Jugador* jugador_2;
+        Jugador* jugador_actual;
 
     public:
 
@@ -31,7 +35,7 @@ class Auxiliares_andypolis {
         *Pre:
         *Post:
         */
-        Auxiliares_andypolis(Abb* edificios_disponibles, Mapa* mapa);
+        Auxiliares_andypolis(Abb* edificios_disponibles, Mapa* & mapa, Jugador* & jugador_actual, Jugador* & jugador_1, Jugador* & jugador_2);
 
         /*
         *Pre:
@@ -43,7 +47,7 @@ class Auxiliares_andypolis {
         *Pre: 
         *Post:
         */
-        void asignar_turno(Jugador* & jugador_actual, Jugador* jugador_1, Jugador* jugador_2);
+        void asignar_turno();
 
         /*
         *Pre:
@@ -91,7 +95,7 @@ class Auxiliares_andypolis {
         *Pre: 
         *Post:
         */
-        void modificar_energia(Jugador* jugador_actual, int cantidad_a_modificar);
+        void modificar_energia(int cantidad_a_modificar);
 
         /*
         *Pre:
@@ -103,13 +107,13 @@ class Auxiliares_andypolis {
         *Pre: 
         *Post:
         */
-        void validar_construccion(Jugador* jugador_actual, std::string edificio_a_construir);
+        void construir_edificio_auxiliar(std::string edificio_a_construir);
 
         /*
         *Pre: 
         *Post:
         */
-        bool se_alcanzo_maximo_permitido(Jugador* jugador, Edificio* edificio_a_construir);
+        bool se_alcanzo_maximo_permitido(Edificio* edificio_a_construir);
 
         /*
         *Pre:

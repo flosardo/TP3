@@ -5,8 +5,8 @@ using namespace std;
 Programa::Programa() {
     this -> juego = Andypolis();
     edificios.carga_edificios(juego.devolver_arbol());
-    materiales.carga_materiales(juego.devolver_jugador(NUMERO_JUGADOR_1), juego.devolver_jugador(NUMERO_JUGADOR_2));
     mapa.carga_mapa(juego.devolver_mapa());
+    materiales.carga_materiales(juego.devolver_jugador(NUMERO_JUGADOR_1), juego.devolver_jugador(NUMERO_JUGADOR_2));
     this -> existe_ubicaciones = ubicacion.carga_ubicaciones(juego.devolver_mapa(), juego.devolver_jugador(NUMERO_JUGADOR_1), juego.devolver_jugador(NUMERO_JUGADOR_2));
 }
 
@@ -25,7 +25,9 @@ void Programa::empezar() {
     opcion = OPCION_EMPEZAR_JUEGO;
 
     while (opcion != OPCION_SALIR_JUEGO) {
+        juego.verificar_energia(opcion);
         menu_partida.mostrar_mensaje_bienvenida();
+        cout << "TURNO DEL JUGADOR: " << this -> juego.devolver_jugador_actual() -> obtener_nombre() << endl;
         menu_partida.mostrar_menu();
         opcion = menu_partida.pedir_opcion();
         menu_partida.procesar_opcion(opcion, juego);

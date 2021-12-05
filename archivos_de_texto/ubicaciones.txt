@@ -1,4 +1,4 @@
-madera (1, 1)
+madera (1, 5)
 1 (7, 6)
 escuela (1, 8)
 escuela (4, 2)

@@ -7,27 +7,20 @@ Jugador::Jugador() {
     this -> edificios_construidos = new Edificio* [this -> cantidad_construidos];
     this -> energia = Energia();
     this -> coordenadas = new int [MAX_COORDENADAS];
-    this -> coordenadas[INDICE_FILA] = 0;
-    this -> coordenadas[INDICE_COLUMNA] = 2;
+    this -> coordenadas[INDICE_FILA] = -1;
+    this -> coordenadas[INDICE_COLUMNA] = -1;
     this -> inventario = new Inventario();
     this -> convencion_jugador = VACIO;
     this -> nombre = VACIO;
 }
 
-Jugador::Jugador(char convencion_jugador, int fila, int columna) {
-    this -> cantidad_construidos = 0;
-    this -> edificios_construidos = new Edificio* [this -> cantidad_construidos];
-    this -> energia = Energia();
-    this -> coordenadas = new int [MAX_COORDENADAS];
-    this -> coordenadas[INDICE_FILA] = fila;
-    this -> coordenadas[INDICE_COLUMNA] = columna;
-    this -> inventario = new Inventario();
-    this -> convencion_jugador = convencion_jugador;
-    this -> nombre = VACIO;
-}
-
 void Jugador::establecer_nombre(string nombre) { // PARA COMENZAR PARTIDA
     this -> nombre = nombre;
+}
+
+void Jugador::establecer_coordenadas(int fila, int columna) {
+    this -> coordenadas[INDICE_FILA] =  fila;
+    this -> coordenadas[INDICE_COLUMNA] = columna;
 }
 
 void Jugador::establecer_convencion_jugador(char convencion_jugador) {
@@ -77,7 +70,7 @@ int* Jugador::devolver_coordenadas() {
     return this -> coordenadas;
 }
 
-int Jugador::devolver_energia_actual() {
+int Jugador::obtener_energia_actual() {
     return this -> energia.obtener_energia_actual();
 }
 

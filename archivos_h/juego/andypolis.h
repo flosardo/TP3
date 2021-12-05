@@ -46,7 +46,13 @@ class Andypolis {
         *Pre:
         *Post:
         */
-        void determinar_turno();
+        void verificar_energia(int & opcion_ingresada);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void cambiar_turno();
 
         /*
         *Pre:

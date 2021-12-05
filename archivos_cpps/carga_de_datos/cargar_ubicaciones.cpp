@@ -32,7 +32,16 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
 
     if (nombre == NUMERO_JUGADOR_1 || nombre == NUMERO_JUGADOR_2) {
         convencion_jugador = nombre == NUMERO_JUGADOR_1 ? JUGADOR_1 : JUGADOR_2;
-        mapa -> ubicar_jugador(new Jugador(convencion_jugador, fila, columna), fila, columna);
+        if (nombre == NUMERO_JUGADOR_1) {
+            jugador_1 -> establecer_coordenadas(fila, columna);
+            jugador_1 -> establecer_convencion_jugador(convencion_jugador);
+            mapa -> ubicar_jugador(jugador_1, fila, columna);
+        }
+        else {
+            jugador_2 -> establecer_coordenadas(fila, columna);
+            jugador_2 -> establecer_convencion_jugador(convencion_jugador);
+            mapa -> ubicar_jugador(jugador_2, fila, columna);
+        }
     }
     else if (convencion_jugador != VACIO) {
         Edificio* edificio_creado = crear_edificio(nombre, fila, columna);

@@ -33,7 +33,7 @@ void Mapa::inicializar_casillero(char terreno, int fila, int columna) {
 }
 
 bool Mapa::ubicar_material(Material* material, int fila, int columna) {
-    bool coordenada_valida = !this -> coordenadas_fuera_de_rango(fila, columna) && !this -> esta_ocupado(fila, columna) 
+    bool coordenada_valida = !this -> esta_ocupado(fila, columna) 
                             && this -> obtener_tipo_casillero(fila, columna) != LAGO && this -> obtener_tipo_casillero(fila, columna) != TERRENO;
     if (coordenada_valida)
         this -> mapa[fila][columna] -> agregar_material(material);
@@ -43,7 +43,7 @@ bool Mapa::ubicar_material(Material* material, int fila, int columna) {
 }
 
 bool Mapa::ubicar_edificio(Edificio* edificio, int fila, int columna) {
-    bool coordenada_valida = !this -> coordenadas_fuera_de_rango(fila, columna) && !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) == TERRENO;
+    bool coordenada_valida = !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) == TERRENO;
     if (coordenada_valida)
         this -> mapa[fila][columna] -> agregar_edificio(edificio);
     else
@@ -52,7 +52,7 @@ bool Mapa::ubicar_edificio(Edificio* edificio, int fila, int columna) {
 }
 
 bool Mapa::ubicar_jugador(Jugador* jugador, int fila, int columna) {
-    bool coordenada_valida = !this -> coordenadas_fuera_de_rango(fila, columna) && !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) != LAGO;
+    bool coordenada_valida = !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) != LAGO;
     if (coordenada_valida)
         this -> mapa[fila][columna] -> agregar_jugador(jugador);
     else

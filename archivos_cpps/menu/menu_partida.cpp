@@ -44,8 +44,8 @@ void Menu_partida::mostrar_menu() {
     cout << "╚═══════════════════════════════════════════╝" << endl;
 }
 
-void Menu_partida::procesar_opcion(int opcion, Andypolis juego) {
-        switch (opcion_ingresada) {
+void Menu_partida::procesar_opcion(int opcion_ingresada, Andypolis & juego) {
+    switch (opcion_ingresada) {
         case 1:
             juego.construir_edificio();
             break;
@@ -81,6 +81,7 @@ void Menu_partida::procesar_opcion(int opcion, Andypolis juego) {
             break;
         case 12:
             juego.finalizar_turno();
+            cout << "entro" << endl;
             break;
         case 13:
             juego.guardar_y_salir();

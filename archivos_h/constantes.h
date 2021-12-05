@@ -105,14 +105,17 @@ const std::string RUTA_EDIFICIOS = "archivos_de_texto/edificios.txt";
 const std::string RUTA_MAPA = "archivos_de_texto/mapa.txt";
 const std::string RUTA_UBICACIONES = "archivos_de_texto/ubicaciones.txt";
 
-//EDIFICIOS
+// ENERGÍA
+const int ENERGIA_FINALIZAR_TURNO = 20;
 const int MAX_EDIFICIOS_DISPONIBLES = 7;
-const int ENERGIA_CONSTRUIR_EDIFICIO = 15;
+const int ENERGIA_CONSTRUIR_EDIFICIO = 50;
 const int ENERGIA_DEMOLER_EDIFICIO_COORDENADA = 15;
 const int ENERGIA_ATACAR_EDIFICIO_COORDENADA = 30;
 const int ENERGIA_REPARAR_EDIFICIO = 25;
 const int ENERGIA_COMPRAR_BOMBA = 5;
 const int ENERGIA_RECOLECTAR_RECURSOS = 20;
+
+//EDIFICIOS
 const std::string NOMBRE_PLANTA_ELECTRICA = "planta electrica";
 const std::string NOMBRE_ASERRADERO = "aserradero";
 const std::string NOMBRE_ESCUELA = "escuela";
