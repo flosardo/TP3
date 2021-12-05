@@ -10,7 +10,6 @@
 #include "../construcciones/planta_electrica.h"
 #include "../construcciones/obelisco.h"
 
-#include <iostream>
 #include <algorithm>
 
 class Auxiliares_andypolis {
@@ -38,31 +37,13 @@ class Auxiliares_andypolis {
         *Pre:
         *Post:
         */
-        bool es_edificio_valido(std::string edificio);
+        void seleccionar_jugador(std::string & nombre_1, std::string & nombre_2);
 
         /*
-        *Pre:
+        *Pre: 
         *Post:
         */
-        bool validar_coordenadas(int fila, int columna);
-
-        /*
-        *Pre:
-        *Post:
-        */
-        bool es_posible_comprar_bombas(int & cantidad_bombas, int cantidad_andycoins);
-
-        /*
-        *Pre:
-        *Post:
-        */
-        bool es_casillero_valido(int fila, int columna);
-
-        /*
-        *Pre:
-        *Post:
-        */
-        bool hay_energia_suficiente(int energia_necesaria, int energia_del_jugador);
+        void asignar_turno(Jugador* & jugador_actual, Jugador* jugador_1, Jugador* jugador_2);
 
         /*
         *Pre:
@@ -74,13 +55,19 @@ class Auxiliares_andypolis {
         *Pre:
         *Post:
         */
-        void modificar_materiales_necesarios(Edificio* edificio);
+        bool validar_coordenadas(int fila, int columna);
 
         /*
         *Pre:
         *Post:
         */
-        void seleccionar_jugador(std::string & nombre_1, std::string & nombre_2);
+        bool es_casillero_valido(int fila, int columna);
+
+        /*
+        *Pre: 
+        *Post:
+        */
+        std::string pedir_nombre_edificio();
 
         /*
         *Pre:
@@ -92,21 +79,14 @@ class Auxiliares_andypolis {
         *Pre:
         *Post:
         */
-        void modificar_materiales_necesarios(std::string edificio);
+        void modificar_materiales_necesarios(Edificio* edificio);
 
         /*
-        *Pre: 
+        *Pre:
         *Post:
         */
-        std::string pedir_nombre_edificio();
-        
+        bool hay_energia_suficiente(int energia_necesaria, int energia_del_jugador);
 
-        /*
-        *Pre: 
-        *Post:
-        */
-        void asignar_turno(Jugador* & jugador_actual, Jugador* jugador_1, Jugador* jugador_2);
-        
         /*
         *Pre: 
         *Post:
@@ -114,23 +94,41 @@ class Auxiliares_andypolis {
         void modificar_energia(Jugador* jugador_actual, int cantidad_a_modificar);
 
         /*
-        *Pre: 
+        *Pre:
         *Post:
         */
-        void validar_construccion(Abb* arbol, Jugador* jugador_actual, std::string edificio_a_construir);
-        
+        bool es_posible_comprar_bombas(int cantidad_bombas, int cantidad_andycoins);
+
         /*
         *Pre: 
         *Post:
         */
-        bool hay_materiales_suficientes(Jugador* jugador_actual, std::string edificio_a_construir);
-        
+        void validar_construccion(Jugador* jugador_actual, std::string edificio_a_construir);
+
         /*
         *Pre: 
         *Post:
         */
-        bool se_alcanzo_maximo_permitido(Abb* arbol, Jugador* jugador, std::string edificio_a_construir);
-        
+        bool se_alcanzo_maximo_permitido(Jugador* jugador, Edificio* edificio_a_construir);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void modificar_materiales_necesarios(std::string edificio);
+
+        /*
+        *Pre: 
+        *Post:
+        */
+        bool hay_material_suficiente(std::string material, Inventario* inventario, Edificio* edificio);
+
+        /*
+        *Pre:
+        *Pos:
+        */
+       void actualizar_inventario(Inventario* inventario, Edificio* edificio);
+
         /*
         *Pre: 
         *Post:
@@ -141,14 +139,6 @@ class Auxiliares_andypolis {
         *Post: Devolverá un puntero de tipo Edificio, que contendra la información del edificio creado.
         */
         Edificio* crear_edificio(std::string nombre, int fila, int columna);
-
-        /*
-        *Pre:
-        *Pos:
-        */
-       void actualizar_cant_materiales(Jugador* jugador_actual, std::string edificio_construido);
-    
-        
 };
 
 

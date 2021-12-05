@@ -67,7 +67,7 @@ class Edificio {
         /*
         Post: devuelve un puntero al vector que contiene los materiales necesarios
         */
-        int* obtener_materiales_necesarios();
+        int obtener_cantidad_necesaria(std::string material);
 
         /*
         *Post: Devolverá el estado del edificio.
@@ -87,7 +87,7 @@ class Edificio {
         /*
         Pos: devuelve el nombre del edificio
         */
-        std::string obtener_nombre_del_edificio();
+        std::string obtener_nombre();
         /*
         *Post: Inicializara los atributos, según el comportamiento de cada hija.
         */

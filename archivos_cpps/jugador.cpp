@@ -7,8 +7,8 @@ Jugador::Jugador() {
     this -> edificios_construidos = new Edificio* [this -> cantidad_construidos];
     this -> energia = Energia();
     this -> coordenadas = new int [MAX_COORDENADAS];
-    this -> coordenadas[POSICION_FILA] = 0;
-    this -> coordenadas[POSICION_COLUMNA] = 2;
+    this -> coordenadas[INDICE_FILA] = 0;
+    this -> coordenadas[INDICE_COLUMNA] = 2;
     this -> inventario = new Inventario();
     this -> convencion_jugador = VACIO;
     this -> nombre = VACIO;
@@ -19,8 +19,8 @@ Jugador::Jugador(char convencion_jugador, int fila, int columna) {
     this -> edificios_construidos = new Edificio* [this -> cantidad_construidos];
     this -> energia = Energia();
     this -> coordenadas = new int [MAX_COORDENADAS];
-    this -> coordenadas[POSICION_FILA] = fila;
-    this -> coordenadas[POSICION_COLUMNA] = columna;
+    this -> coordenadas[INDICE_FILA] = fila;
+    this -> coordenadas[INDICE_COLUMNA] = columna;
     this -> inventario = new Inventario();
     this -> convencion_jugador = convencion_jugador;
     this -> nombre = VACIO;
@@ -84,7 +84,7 @@ int Jugador::devolver_energia_actual() {
 int Jugador::obtener_cantidad_construidos(string nombre_edificio) {
     int construidos = 0;
     for (int i = 0; i < this -> cantidad_construidos; i++) {
-        if (this -> edificios_construidos[i] -> obtener_nombre_del_edificio() == nombre_edificio)
+        if (this -> edificios_construidos[i] -> obtener_nombre() == nombre_edificio)
             construidos++;
     }
     return construidos;
@@ -103,8 +103,7 @@ void Jugador::cargar_material(Material* material) {
 }
 
 void Jugador::modificar_inventario(string material, int cantidad) {
-    int indice = this -> inventario -> obtener_indice_del_material(material);//se puede borrar
-    this -> inventario -> modificar_cantidad_material(indice, cantidad);
+    this -> inventario -> modificar_cantidad_material(material, cantidad);
 }
 
 
@@ -116,7 +115,7 @@ void Jugador::listar_construidos() {
         esta_afectado = this -> edificios_construidos[i] -> esta_afectado() ? "SI" : "NO";
         fila =  this -> edificios_construidos[i] -> obtener_fila();
         columna =  this -> edificios_construidos[i] -> obtener_columna(); 
-        cout << this -> edificios_construidos[i] -> obtener_nombre_del_edificio() << endl;
+        cout << this -> edificios_construidos[i] -> obtener_nombre() << endl;
         cout << "Afectado: " << esta_afectado << endl;
         cout << "Coordenadas: " << '(' << fila << "," << columna << ')' << endl;
         cout << COLOR_MARRON << LINEA_DIVISORIA << COLOR_POR_DEFECTO << endl;

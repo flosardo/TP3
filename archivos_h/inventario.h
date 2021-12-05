@@ -17,9 +17,10 @@ class Inventario {
         Inventario();
 
         /*
-        *Post: Devolvera la cantidad de materiales.
+        *Pre: Que el puntero material no sea null.
+        *Post: Agregará un material.
         */
-        int obtener_cantidad_materiales();
+        void agregar_material(Material* material);
 
         /*
         *Post: Devuelve un puntero al inventario.
@@ -27,27 +28,26 @@ class Inventario {
         Material** obtener_inventario();
 
         /*
-        *Pre: Recibe el nombre del materia válido.
-        *Post: Devuelve la posicion del material recibido
+        *Post: Devolvera la cantidad de materiales.
         */
-        int obtener_indice_del_material(std::string material);
+        int obtener_cantidad_materiales();
 
         /*
-        *Pre: Que el puntero material no sea null.
-        *Post: Agregará un material.
+        *Pre:
+        *Pos:
         */
-        void agregar_material(Material* material);
+        Material* obtener_material(std::string material_pedido);
+
+        /*
+        *Pre:
+        *Pos:
+        */
+        void modificar_cantidad_material(std::string material_a_modificar, int cantidad);
 
         /*
         *Post: Mostrará el inventario.
         */
         void mostrar_inventario();
-        
-        /*
-        *Pre: Que el indice sea > 0.
-        *Post: Modificiará la cantidad del material.
-        */
-        void modificar_cantidad_material(int indice, int cantidad);
 
         /*
         *Post: Liberará la memoria utilizada a lo largo del programa por inventario.
@@ -55,5 +55,17 @@ class Inventario {
         ~Inventario();
         
 };
+
+        // /*
+        // *Pre: Que el indice sea > 0.
+        // *Post: Modificiará la cantidad del material.
+        // */
+        // void modificar_cantidad_material(int indice, int cantidad);
+
+        // /*
+        // *Pre: Recibe el nombre del materia válido.
+        // *Post: Devuelve la posicion del material recibido
+        // */
+        // int obtener_indice_del_material(std::string material);
 
 #endif //_INVENTARIO_H_

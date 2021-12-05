@@ -105,8 +105,8 @@ int* Mapa::generar_coordenadas_validas() {
         int columna = (rand() % this -> cantidad_columnas);
         if (this -> obtener_tipo_casillero(fila, columna) != TERRENO && this -> obtener_tipo_casillero(fila, columna) != LAGO && !this -> esta_ocupado(fila, columna)) {
             coordenadas_validas = new int[MAX_COORDENADAS];
-            coordenadas_validas[POSICION_FILA] = fila;
-            coordenadas_validas[POSICION_COLUMNA] = columna;
+            coordenadas_validas[INDICE_FILA] = fila;
+            coordenadas_validas[INDICE_COLUMNA] = columna;
         }
     }
 

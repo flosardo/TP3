@@ -161,8 +161,8 @@ const char JUGADOR_2 = 'U';
 const std::string NUMERO_JUGADOR_1 = "1";
 const std::string NUMERO_JUGADOR_2 = "2";
 const int MAX_COORDENADAS = 2;
-const int POSICION_FILA = 0;
-const int POSICION_COLUMNA = 1;
+const int INDICE_FILA = 0;
+const int INDICE_COLUMNA = 1;
 
 //CASILLEROS
 const char LAGO = 'L';

@@ -55,8 +55,8 @@ void Andypolis::comenzar_partida() {
     this -> funciones_auxiliares.seleccionar_jugador(nombre_jugador_1, nombre_jugador_2);
     while (!jugador_1_ubicado || !jugador_2_ubicado) {
         coordenadas = this -> funciones_auxiliares.pedir_coordenadas();
-        int fila = coordenadas[POSICION_FILA];
-        int columna = coordenadas[POSICION_COLUMNA];
+        int fila = coordenadas[INDICE_FILA];
+        int columna = coordenadas[INDICE_COLUMNA];
         if (!jugador_1_ubicado) {
             this -> jugador_1 = new Jugador(JUGADOR_1, fila, columna);
             this -> jugador_1 -> establecer_nombre(nombre_jugador_1);
@@ -77,12 +77,11 @@ void Andypolis::mostrar_mapa() {
     this -> mapa -> mostrar_mapa();
 }
 
-
-
-
 void Andypolis::construir_edificio() {
-    string edificio_a_construir = this -> funciones_auxiliares.pedir_nombre_edificio();
-    this -> funciones_auxiliares.validar_construccion(this -> edificios_disponibles , this -> jugador_actual, edificio_a_construir);
+    if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_CONSTRUIR_EDIFICIO, jugador_actual -> devolver_energia_actual())) {
+        string edificio_a_construir = this -> funciones_auxiliares.pedir_nombre_edificio();
+        this -> funciones_auxiliares.validar_construccion(this -> jugador_actual, edificio_a_construir);
+    }
 }
 
 void Andypolis::listar_mis_edificios() {}

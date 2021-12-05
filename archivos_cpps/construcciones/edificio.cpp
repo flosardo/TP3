@@ -43,8 +43,13 @@ void Edificio::establecer_nuevos_materiales(int nueva_piedra, int nueva_madera, 
     this -> materiales_necesarios[POS_METAL] = nuevo_metal;
 }
 
-int* Edificio::obtener_materiales_necesarios() {
-    return this -> materiales_necesarios;
+int Edificio::obtener_cantidad_necesaria(string material) {
+    int indice = POS_PIEDRA;
+    if (material == MADERA)
+        indice = POS_MADERA;
+    else if (material == METAL)
+        indice = POS_METAL;
+    return this -> materiales_necesarios[indice];
 }
 
 int Edificio::obtener_fila() {
@@ -59,7 +64,7 @@ string Edificio::obtener_codigo_emoji() {
     return this -> codigo_emoji;
 }
 
-string Edificio::obtener_nombre_del_edificio() {
+string Edificio::obtener_nombre() {
     return this -> nombre_del_edificio;
 }
 
