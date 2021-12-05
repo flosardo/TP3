@@ -58,14 +58,14 @@ void Andypolis::comenzar_partida() {
         int fila = coordenadas[INDICE_FILA];
         int columna = coordenadas[INDICE_COLUMNA];
         if (!jugador_1_ubicado) {
-            this -> jugador_1 = new Jugador(JUGADOR_1, fila, columna);
+            this -> jugador_1 = new Jugador(JUGADOR_1, fila, columna); // REVISAR
             this -> jugador_1 -> establecer_nombre(nombre_jugador_1);
             this -> mapa -> ubicar_jugador(this -> jugador_1, fila, columna);
             jugador_1_ubicado = true;
             cout << "Siguiente jugador" << endl;
         }
         else {
-            this -> jugador_2 = new Jugador(JUGADOR_2, fila, columna);
+            this -> jugador_2 = new Jugador(JUGADOR_2, fila, columna); // REVISAR
             this -> jugador_2 -> establecer_nombre(nombre_jugador_2);
             this -> mapa -> ubicar_jugador(this -> jugador_2, fila, columna);
             jugador_2_ubicado = true;

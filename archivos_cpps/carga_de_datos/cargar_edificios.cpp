@@ -25,9 +25,8 @@ void Cargar_edificios::carga_edificios(Abb* arbol) {
             nombre_edificio += " " + segunda_palabra;
             archivo_edificios >> piedra_necesaria;
         }
-        else {
+        else
             piedra_necesaria =  stoi(segunda_palabra);
-        }
 
         archivo_edificios >> madera_necesaria >> metal_necesario >> permitidos;
         this -> crear_edificio(arbol, nombre_edificio, piedra_necesaria, madera_necesaria, metal_necesario, permitidos);

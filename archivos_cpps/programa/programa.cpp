@@ -17,7 +17,6 @@ void Programa::empezar() {
         menu_configuracion.mostrar_mensaje_bienvenida();
 
     while (!this -> existe_ubicaciones && (opcion != 4 && opcion != 5)) {
-
         menu_configuracion.mostrar_menu();
         opcion = menu_configuracion.pedir_opcion();
         menu_configuracion.procesar_opcion(opcion, juego);
@@ -26,7 +25,6 @@ void Programa::empezar() {
     opcion = OPCION_EMPEZAR_JUEGO;
 
     while (opcion != OPCION_SALIR_JUEGO) {
-
         menu_partida.mostrar_mensaje_bienvenida();
         menu_partida.mostrar_menu();
         opcion = menu_partida.pedir_opcion();

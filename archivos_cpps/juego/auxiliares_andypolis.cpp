@@ -71,10 +71,10 @@ void Auxiliares_andypolis::modificar_materiales_necesarios(Edificio* edificio) {
 }
 
 bool Auxiliares_andypolis::hay_energia_suficiente(int energia_necesaria, int energia_del_jugador) {
-    bool energía_suficiente = energia_del_jugador >= energia_necesaria;
-    if (!energía_suficiente)
+    bool energia_suficiente = energia_del_jugador >= energia_necesaria;
+    if (!energia_suficiente)
         cout << COLOR_ROJO << "No hay energia suficiente para construir " << COLOR_POR_DEFECTO << endl;
-    return energía_suficiente;
+    return energia_suficiente;
 }
 
 void Auxiliares_andypolis::modificar_energia(Jugador* jugador_actual, int cantidad_a_modificar) {
@@ -85,12 +85,12 @@ bool Auxiliares_andypolis::es_posible_comprar_bombas(int cantidad_de_bombas, int
     return cantidad_andycoins >= (cantidad_de_bombas * COSTO_ANDYCOINS_BOMBA);
 }
 
-void Auxiliares_andypolis::validar_construccion(Jugador* jugador_actual, string edificio_a_construir) {
+void Auxiliares_andypolis::validar_construccion(Jugador* jugador_actual, string edificio_a_construir) { // REVISAR NOMBRE
     Edificio* edificio = this -> edificios_disponibles -> buscar_edificio(edificio_a_construir);
-    if (!edificio) 
+    if (!edificio)
         cout << COLOR_ROJO << "El edificio ingresado no existe, intente nuevamente" << COLOR_POR_DEFECTO << endl;
 
-    else if (this -> se_alcanzo_maximo_permitido(jugador_actual, edificio)) 
+    else if (this -> se_alcanzo_maximo_permitido(jugador_actual, edificio))
         cout << COLOR_ROJO << "Ya estan construidos la cantidad maxima de " << edificio_a_construir << " posibles" << COLOR_POR_DEFECTO << endl;
 
     else {
@@ -98,7 +98,7 @@ void Auxiliares_andypolis::validar_construccion(Jugador* jugador_actual, string 
         if (!this -> hay_material_suficiente(PIEDRA, inventario, edificio) || !this -> hay_material_suficiente(MADERA, inventario, edificio) || !this -> hay_material_suficiente(METAL, inventario, edificio))
             cout << COLOR_ROJO << "No hay materiales suficientes para construir" << edificio_a_construir << COLOR_POR_DEFECTO << endl;
 
-        else if (!this -> confirmar_construccion(edificio_a_construir)) 
+        else if (!this -> confirmar_construccion(edificio_a_construir))
             cout << COLOR_VERDE << "Operacion cancelada" << COLOR_POR_DEFECTO << endl;
 
         else {
@@ -110,11 +110,8 @@ void Auxiliares_andypolis::validar_construccion(Jugador* jugador_actual, string 
             cout << COLOR_VERDE << "El edificio fue construido satisfactoriamente" << COLOR_POR_DEFECTO << endl;
             delete [] coordenadas;
             coordenadas = nullptr;
-            nuevo_edificio = nullptr;
         }
-        inventario = nullptr;
     }
-    edificio = nullptr;
 }
 
 bool Auxiliares_andypolis::se_alcanzo_maximo_permitido(Jugador* jugador_actual, Edificio* edificio_a_construir) {
