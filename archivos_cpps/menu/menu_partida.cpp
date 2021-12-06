@@ -46,44 +46,44 @@ void Menu_partida::mostrar_menu() {
 
 void Menu_partida::procesar_opcion(int opcion_ingresada, Andypolis & juego) {
     switch (opcion_ingresada) {
-        case 1:
+        case OPCION_CONSTRUIR_EDIFICIO:
             juego.construir_edificio();
             break;
-        case 2:
+        case OPCION_LISTAR_MIS_EDIFICIOS:
             juego.listar_mis_edificios();
             break;
-        case 3:
+        case OPCION_DEMOLER_EDIFICIO:
             juego.demoler_edificio();
             break;
-        case 4:
+        case OPCION_ATACAR_EDIFICIO_COORDENADA:
             juego.atacar_edificio();
             break;
-        case 5:
+        case OPCION_REPARAR_EDIFICO_COODENADA:
             juego.reparar_edificio();
             break;
-        case 6:
+        case OPCION_COMPRAR_BOMBAS:
             juego.comprar_bombas();
             break;
-        case 7:
+        case OPCION_CONSULTAR_COORDENADAS:
             juego.consultar_coordenada();
             break;
-        case 8:
+        case OPCION_MOSTRAR_INVENTARIO:
             juego.mostrar_inventario();
             break;
-        case 9:
+        case OPCION_MOSTRAR_OBJETIVO:
             juego.mostrar_objetivos();
             break;
-        case 10:
+        case OPCION_RECOLECTAR_RECURSOS_PRODUCIOS:
             juego.recolectar_recursos();
             break;
-        case 11:
+        case OPCION_MOVERSE_UNA_COORDENADA:
             juego.moverse();
             break;
-        case 12:
+        case OPCION_FINALIZAR_TURNO:
             juego.finalizar_turno();
             cout << "entro" << endl;
             break;
-        case 13:
+        case OPCION_GUARDAR_SALIR_PARTIDA:
             juego.guardar_y_salir();
             break;
         default:
