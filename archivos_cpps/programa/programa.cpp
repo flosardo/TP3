@@ -16,7 +16,7 @@ void Programa::empezar() {
     if (!this -> existe_ubicaciones)
         menu_configuracion.mostrar_mensaje_bienvenida();
 
-    while (!this -> existe_ubicaciones && (opcion != 4 && opcion != 5)) {
+    while (!this -> existe_ubicaciones && (opcion != OPCION_GUARDAR_SALIR_CONFIGURACION && opcion != OPCION_COMENZAR_PARTIDA)) {
         menu_configuracion.mostrar_menu();
         opcion = menu_configuracion.pedir_opcion();
         menu_configuracion.procesar_opcion(opcion, juego);
@@ -26,9 +26,10 @@ void Programa::empezar() {
 
     while (opcion != OPCION_SALIR_JUEGO) {
         juego.verificar_energia(opcion);
-        menu_partida.mostrar_mensaje_bienvenida();
         cout << "TURNO DEL JUGADOR: " << this -> juego.devolver_jugador_actual() -> obtener_nombre() << endl;
+        menu_partida.mostrar_mensaje_bienvenida();
         menu_partida.mostrar_menu();
+        juego.mostrar_mapa();
         opcion = menu_partida.pedir_opcion();
         menu_partida.procesar_opcion(opcion, juego);
     }

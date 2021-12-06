@@ -26,17 +26,17 @@ class Programa {
     public:
 
         /*
-        * Post: Creará un objeto de tipo programa, dejando los atributos correctamente cargados con sus valores por defecto.
+        *Post: Creará un objeto de tipo programa, dejando los atributos correctamente cargados con sus valores por defecto.
         */
         Programa();
 
         /*
-        * Post: Emperzará el programa.
+        *Post: Emperzará el programa.
         */
         void empezar();
 
         /*
-        * Post: Finalizará el programa, dejandolo con todos los cambios realizados actualizados.
+        *Post: Finalizará el programa, dejandolo con todos los cambios realizados actualizados.
         */
         void finalizar();
 

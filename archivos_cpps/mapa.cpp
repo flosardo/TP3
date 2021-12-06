@@ -1,5 +1,6 @@
 #include "../archivos_h/mapa.h"
 
+
 using namespace std;
 
 Mapa::Mapa() {
@@ -21,6 +22,21 @@ void Mapa::inicializar_mapa() {
         for (int columna = 0; columna < this -> cantidad_columnas; columna++)
             mapa[fila][columna] = nullptr;
     }
+}
+
+void Mapa::mostrar_simbologia(){
+    cout << COLOR_DORADO << " ╔■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╗" << endl;
+    cout << " ■ " << COLOR_POR_DEFECTO << "SIMBOLOGIA " << COLOR_DORADO << setw(110) << "■" << endl; 
+    cout << " ■ " << COLOR_POR_DEFECTO << "1. Convenciones Casillero Construible: " << COLOR_DORADO << setw(82) << "■" << endl; 
+    cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Aserradero: " << EMOJI_ASERRADERO << " Fábrica: "  << EMOJI_FABRICA 
+                                       << " Escuela: " << EMOJI_ESCUELA << "Obelisco: " << EMOJI_OBELISCO << "Mina: " << EMOJI_MINA 
+                                       << "Planta Electrica: " << EMOJI_PLANTA_ELECTRICA << " Terreno: \033[48;5;2m  \033[0m" << setw(25) << COLOR_DORADO << "■" << endl;
+    cout << " ■ " << COLOR_POR_DEFECTO << "2. Convenciones Casillero Inaccesible: " << COLOR_DORADO << setw(82) << "■" << endl;                              
+    cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Lago: \033[48;5;27m  \033[0m" << COLOR_DORADO << setw(105) << "■" << endl;                     
+    cout << " ■ " << COLOR_POR_DEFECTO << "3. Convenciones Casillero Transitable: " << COLOR_DORADO << setw(82) << "■" << endl;
+    cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Camino: \033[48;5;240m  \033[0m" << "  Piedra: "  << EMOJI_PIEDRA << " Madera: " << EMOJI_MADERA
+                                       << " Metal: " << EMOJI_METAL << COLOR_DORADO << setw(71) << "■" << endl;
+    cout << " ╚■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╝" << COLOR_POR_DEFECTO << endl;
 }
 
 void Mapa::inicializar_casillero(char terreno, int fila, int columna) {
@@ -118,21 +134,27 @@ void Mapa::liberar_posicion(int fila, int columna) {
 }
 
 void Mapa::mostrar_mapa() {
-    for (int fila = 0; fila < this -> cantidad_filas; fila++) {
+    cout << endl;
+    this -> mostrar_simbologia();
+    cout << endl;
+    for (int fila = 0; fila < this -> cantidad_filas; fila++) { 
+        //cout << "\t\t\t\t\t\t";
+        cout << " " << fila << " ";
         for (int columna = 0; columna < this -> cantidad_columnas; columna++) {
             if (!this -> esta_ocupado(fila, columna))
-                cout << mapa[fila][columna] -> obtener_color() + VACIO;
+                cout << mapa[fila][columna] -> obtener_color() << setw(6);
             else if (this -> mapa[fila][columna] -> obtener_puntero_jugador())
-                cout << mapa[fila][columna] -> obtener_puntero_jugador() -> obtener_nombre();
+                cout << mapa[fila][columna] -> obtener_color() + mapa[fila][columna] -> obtener_puntero_jugador() -> obtener_nombre() << setw(5);
             else if (this -> obtener_tipo_casillero(fila, columna) == TERRENO) 
-                cout << this -> mapa[fila][columna] -> obtener_color() + this -> mapa[fila][columna] -> obtener_puntero_edificio() -> obtener_codigo_emoji();
+                cout << this -> mapa[fila][columna] -> obtener_color() + this -> mapa[fila][columna] -> obtener_puntero_edificio() -> obtener_codigo_emoji() << setw(4);
             else 
-                cout << this -> mapa[fila][columna] -> obtener_color() + this -> mapa[fila][columna] -> obtener_puntero_material() -> obtener_codigo_emoji();
+                cout << this -> mapa[fila][columna] -> obtener_color() + this -> mapa[fila][columna] -> obtener_puntero_material() -> obtener_codigo_emoji() << setw(4);
 
-            cout << COLOR_POR_DEFECTO;
+            cout << COLOR_POR_DEFECTO << setw(2) << VACIO;
         }
-        cout << endl;
+        cout << endl << endl;
     }
+    
 }
 
 Mapa::~Mapa() {

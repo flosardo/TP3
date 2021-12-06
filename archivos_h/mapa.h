@@ -5,7 +5,7 @@
 #include "casilleros/casillero_transitable.h"
 #include "casilleros/casillero_inaccesible.h"
 #include "jugador.h"
-
+#include <iomanip>
 #include <cstdlib>
 
 class Mapa {
@@ -111,6 +111,11 @@ class Mapa {
         *Post: Inicializará el mapa, dejando en 0 (null) sus casilleros.
         */
         void inicializar_mapa();
+
+        /*
+        *Post: Mostrá el inventario del mapa.
+        */
+        void mostrar_simbologia();
 
 };
 

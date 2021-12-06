@@ -14,34 +14,35 @@ void Menu_partida::mostrar_mensaje_bienvenida() {
 }
 
 void Menu_partida::mostrar_menu() {
-    cout << endl;
+    string borde = COLOR_DORADO + "║" + COLOR_POR_DEFECTO;
+    cout << COLOR_DORADO;
     cout << "╔═══════════════════════════════════════════╗" << endl;
-    cout << "║ 1. Construir edificio por nombre "           << EMOJI_CONSTRUIR_EDIFICIO_POR_NOMBRE  << setw(11) << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 2. Listar mis edificios construidos "        << EMOJI_LISTAR_CONSTRUIDOS             << setw(7)  << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 3. Demoler un edificio por coordenada "      << EMOJI_DEMOLER_POR_COORDENADA         << setw(5)  << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 4. Atacar un edificio por coordenada "       << EMOJI_ATACAR_POR_COORDENADA          << setw(6)  << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 5. Reparar un edificio por coordenada "      << EMOJI_REPARAR_POR_COORDENADA         << setw(5)  << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 6. Comprar bombas "                          << EMOJI_COMPRAR_BOMBAS                 << setw(25) << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 7. Consultar coordenada "                    << EMOJI_CONSULTAR_COORDENADAS          << setw(20) << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 8. Mostrar inventario "                      << EMOJI_INVENTARIO                     << setw(21) << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 9. Mostrar objetivos "                       << EMOJI_OBJETIVOS                      << setw(22) << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 10.Recolectar recursos producidos "          << EMOJI_RECURSOS_PRODUCIDOS            << setw(10) << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 11.Moverse a una coordenada "                << EMOJI_MOVERSE_A_UNA_COORDENADA       << setw(15) << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 12.Finalizar turno "                         << EMOJI_FINALIZAR_TURNO                << setw(24) << "║" << endl;
-    cout << "║"                                                                                     << setw(46) << "║" << endl;
-    cout << "║ 13.Guardar y salir "                         << EMOJI_GUARDAR_Y_SALIR                << setw(24) << "║" << endl;
-    cout << "╚═══════════════════════════════════════════╝" << endl;
+    cout << borde << " 1. Construir edificio por nombre "           << EMOJI_CONSTRUIR_EDIFICIO_POR_NOMBRE  << setw(20) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 2. Listar mis edificios construidos "        << EMOJI_LISTAR_CONSTRUIDOS             << setw(16) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 3. Demoler un edificio por coordenada "      << EMOJI_DEMOLER_POR_COORDENADA         << setw(14) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 4. Atacar un edificio por coordenada "       << EMOJI_ATACAR_POR_COORDENADA          << setw(15) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 5. Reparar un edificio por coordenada "      << EMOJI_REPARAR_POR_COORDENADA         << setw(14) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 6. Comprar bombas "                          << EMOJI_COMPRAR_BOMBAS                 << setw(34) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 7. Consultar coordenada "                    << EMOJI_CONSULTAR_COORDENADAS          << setw(29) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 8. Mostrar inventario "                      << EMOJI_INVENTARIO                     << setw(30) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 9. Mostrar objetivos "                       << EMOJI_OBJETIVOS                      << setw(31) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 10.Recolectar recursos producidos "          << EMOJI_RECURSOS_PRODUCIDOS            << setw(19) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 11.Moverse a una coordenada "                << EMOJI_MOVERSE_A_UNA_COORDENADA       << setw(24) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 12.Finalizar turno "                         << EMOJI_FINALIZAR_TURNO                << setw(33) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 13.Guardar y salir "                         << EMOJI_GUARDAR_Y_SALIR                << setw(33) << borde << endl << COLOR_DORADO;
+    cout << "╚═══════════════════════════════════════════╝" << COLOR_POR_DEFECTO << endl;
 }
 
 void Menu_partida::procesar_opcion(int opcion_ingresada, Andypolis & juego) {
