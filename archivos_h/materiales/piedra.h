@@ -26,6 +26,7 @@ class Piedra : public Material {
         *Post: Mostrará el estado en el que se encuentra el material.
         */
         void mostrar_material();
+        
 };
 
 #endif //_PIEDRA_H_

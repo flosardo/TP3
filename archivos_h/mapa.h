@@ -30,8 +30,8 @@ class Mapa {
         void crear_mapa(int cantidad_filas, int cantidad_columnas);
 
         /*
-        * PRE: Que fil y col sean >= 0.
-        * POST: Llenará los casilleros del mapa dependiendo del tipo de terreno que sea (Lago, Terreno, Camino).
+        *Pre: Que fil y col sean >= 0.
+        *Post: Llenará los casilleros del mapa dependiendo del tipo de terreno que sea (Lago, Terreno, Camino).
         */
         void inicializar_casillero(char terreno, int fil, int col);
 
@@ -76,7 +76,6 @@ class Mapa {
         *Post: Devuelve true en caso que las coordenadas recibidas esten fuera de rango, falso en caso contrario
         */
         bool coordenadas_fuera_de_rango(int fila, int columna);
-        
 
         /*
         *Pre: Recibe la cantidad de material a insertar.

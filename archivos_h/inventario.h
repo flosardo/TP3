@@ -33,14 +33,13 @@ class Inventario {
         int obtener_cantidad_materiales();
 
         /*
-        *Pre:
-        *Pos:
+        *Post: Devolvera un puntero del material pedido.
         */
         Material* obtener_material(std::string material_pedido);
 
         /*
-        *Pre:
-        *Pos:
+        *Pre: Que el parámetro cantidad sea >= 0.
+        *Post: Modificará la cantidad del material pasado por parámetro.
         */
         void modificar_cantidad_material(std::string material_a_modificar, int cantidad);
 

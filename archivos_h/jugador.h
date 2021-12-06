@@ -19,7 +19,9 @@ class Jugador {
 
     public:
 
-
+        /*
+        *Post: Construirá un objeto de tipo Jugador, con sus valores por defecto.
+        */
         Jugador();
 
         /*
@@ -29,34 +31,34 @@ class Jugador {
         void cargar_edificio(Edificio* edificio);
 
         /*
-        *Pre:
-        *Post:
+        *Pre: Que los parámetros sea >= 0.
+        *Post: Establecerá las coordenadas del jugador.
         */
         void establecer_coordenadas(int fila, int columna);
 
         /*
-        *Pre:
-        *Post:
+        *Post: Establecerá la convencion del jugador.
         */
         void establecer_convencion(char convencion);
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Eliminará el edificio.
         */
         void eliminar_edificio(int fila, int columna);
 
         /*
-        *Post:
+        *Post: Establecerá el nombre del jugador.
         */
         void establecer_nombre(std::string nombre);
 
         /*
-        *Post: Establecera el nombre del jugador.
+        *Post: Establecera la convencion del jugador.
         */
         void establecer_convencion_jugador(char nombre);
 
         /*
-        *Post:
+        *Post: Devolverá la cantidad de construidos, del edificio pedido.
         */
         int obtener_cantidad_construidos(std::string nombre_edificio);
 
@@ -100,10 +102,19 @@ class Jugador {
         */
         void modificar_inventario(std::string material, int cantidad);
 
+        /*
+        *Post: Listará los construidos del jugador.
+        */
         void listar_construidos();
 
+        /*
+        *Post: Devolverá la energía actual del jugador actual.
+        */
         int obtener_energia_actual();
 
+        /*
+        *Post: Devolverá el puntero con el inventario del jugador.
+        */
         Inventario* obtener_inventario();
 
         /*
