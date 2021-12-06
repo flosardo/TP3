@@ -6,12 +6,10 @@
 
 class Abb {
 
-    // ATRIBUTOS
     private:
 
         Nodo* raiz;
 
-    // MÉTODOS
     public:
 
         /* 
@@ -32,19 +30,19 @@ class Abb {
         void agregar_nodo(Edificio* nuevo_edficio);
 
         /*
-        *Pre:
-        *Pos:
+        *Post: Devolvera null si no se encontro el edificio, en caso contrario devolverá un puntero de tipo edificio, del edificio buscado. 
         */
         Edificio* buscar_edificio(std::string nombre);
 
         /*
-        *Pre:
-        *Pos:
+        *Pre: Que el parámetro jugador no sea null.
+        *Pos: Devolvera la cantidad de edificios construidos.
         */
         int contar_construidos(Jugador* jugador, std::string nombre_edificio);
 
         /*
-        *POS:
+        *Pre: Que el parametro jugador no sea null.
+        *Post: Mostrará el arbol.
         */
         void mostrar_arbol(Jugador* jugador);
 
@@ -63,7 +61,7 @@ class Abb {
 
         /*
         *Pre: Recibe un puntero a nodo y un string
-        *Pos: Devuelve un puntero a los materiales necesarios
+        *Post: Devuelve un puntero a los materiales necesarios
         */
         Edificio* buscar_edificio_recursiva(Nodo* nodo, std::string nombre);
 
@@ -75,7 +73,8 @@ class Abb {
         // bool existe_el_edificio(Nodo* nodo, std::string nombre);
 
         /*
-        *POS:
+        *Pre: Que los parámetros no sean null.
+        *Post: Mostrará el arbol.
         */
         void mostrar_arbol_recursiva(Nodo* arbol, Jugador* jugador);
 
@@ -83,6 +82,7 @@ class Abb {
         *Post: Liberará la memoria utilizada por la clase a lo largo del programa.
         */
         void borrar_arbol(Nodo* nodo);
+        
 };
 
 #endif //_ABB_H_

@@ -40,7 +40,7 @@ class Casillero_construible: public Casillero {
         Edificio* obtener_puntero_edificio();
 
         /*
-        *Post:
+        *Post: Devolvera null si no hay puntero jugador, en caso contrario devolvera el puntero de tipo Jugador, con el jugador pedido.
         */
         virtual Jugador* obtener_puntero_jugador();
 
@@ -55,8 +55,8 @@ class Casillero_construible: public Casillero {
         void limpiar_casillero();
 
         /*
-        *Pre:
-        *Post:
+        *Pre: Que el parametro jugador no sea null.
+        *Post: Agregará un jugador al casillero construible.
         */
         void agregar_jugador(Jugador* jugador);
 

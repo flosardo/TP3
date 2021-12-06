@@ -13,11 +13,13 @@ class Escuela : public Edificio {
         Escuela();
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Creará un objeto de tipo Escuela, usando los parámetros que recibe.
         */
         Escuela(int piedra_necesaria, int madera_necesaria, int metal_necesario, int permitidos);
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Creará un objeto de tipo Escuela usando los parametros que recibe.
         */
         Escuela(int fila, int columna); 
@@ -28,7 +30,8 @@ class Escuela : public Edificio {
         Escuela(char jugador);
 
         /*
-        Pos:
+        *Pre: Que el parametro sea >= 0.
+        *Post: Mostrará las caracteristicas.
         */
         void mostrar_caracteristicas(int construidos);
 

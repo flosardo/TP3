@@ -25,11 +25,13 @@ class Edificio {
         Edificio();
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Creará un objeto de tipo Edificio con los parametros jugador, piedra_necesaria, metal_necesario, madera_necesaria.
         */
         Edificio(int piedra_necesaria, int madera_necesaria, int metal_necesario, int permitidos);
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Creará un objeto de tipo Edificio con los valores de los parametros recibidos.
         */
         Edificio(int fila, int columna);
@@ -45,6 +47,7 @@ class Edificio {
         int obtener_columna();
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Devolvera la columna del edificio.
         */
         void establecer_nuevos_materiales(int nueva_piedra, int nueva_madera, int nuevo_metal);
@@ -88,13 +91,15 @@ class Edificio {
         Pos: devuelve el nombre del edificio
         */
         std::string obtener_nombre();
+        
         /*
         *Post: Inicializara los atributos, según el comportamiento de cada hija.
         */
         int obtener_permitidos();
 
         /*
-        Pos:
+        *Pre: Que el parametro sea >= 0.
+        *Post: Mostrará las caracteristicas.
         */
         void virtual mostrar_caracteristicas(int construidos) = 0;
 
@@ -104,7 +109,7 @@ class Edificio {
         virtual void inicializar_atributos() = 0;
 
         /*
-        Post: libera la memoria pedida
+        *Post: libera la memoria pedida.
         */
         virtual ~Edificio();
 

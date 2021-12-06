@@ -13,17 +13,20 @@ class Mina_oro : public Edificio {
         Mina_oro();
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Creará un objeto de tipo mina_oro con los parámetros recibidos.
         */
         Mina_oro(int piedra_necesaria, int madera_necesaria, int metal_necesario, int permitidos);
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Creará un objeto de tipo Mina_oro usando los parámetros que recibe.
         */
         Mina_oro(int fila, int columna);
 
         /*
-        Pos:
+        *Pre: Que el parametro sea >= 0.
+        *Post: Mostrará las caracteristicas.
         */
         void mostrar_caracteristicas(int construidos);
 
@@ -38,7 +41,6 @@ class Mina_oro : public Edificio {
         *Post: Inicializara los atributos de la clase.
         */
         void inicializar_atributos();
-
 
 };
 

@@ -46,6 +46,7 @@ class Cargar_ubicaciones {
         void guardar_ubicaciones();
 
         /*
+        *Pre: Que los parametros fila y columna sean >= 0.
         *Post: Devolverá un puntero de tipo Edificio, que contendra la información del edificio creado.
         */
         Edificio* crear_edificio(std::string nombre, int fila, int columna);

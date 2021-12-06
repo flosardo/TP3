@@ -40,22 +40,22 @@ class Nodo {
         Edificio* obtener_dato();
 
         /*
-        *Pre:
-        *Post:
+        *Pre: Que el parámetro no sea null
+        *Post: Establecerá el nodo de la derecha (hijo derecho).
         */
         void establecer_derecha(Nodo* derecha);
 
         /*
-        *Pre:
-        *Post:
+        *Pre: Que el parámetro no sea null
+        *Post: Establecera el nodo de la izquierda (hijo izquierdo).
         */
         void establecer_izquierda(Nodo* izquierda);
 
         /*
-        *Pre:
-        *Post:
+        *Post: Liberará la memoria utilizada por el nodo.
         */
         ~Nodo();
+        
 };
 
 #endif //_NODO_H_

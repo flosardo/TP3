@@ -34,7 +34,7 @@ class Casillero_transitable: public Casillero {
         Material* obtener_puntero_material();
 
         /*
-        *Post:
+        *Post: Devolvera el puntero de tipo jugador del jugador pedido, en caso contrario devolverá null.
         */
         Jugador* obtener_puntero_jugador();
 
@@ -50,8 +50,8 @@ class Casillero_transitable: public Casillero {
         void agregar_material(Material* material_a_agregar);
 
         /*
-        *Pre:
-        *Post:
+        *Pre: Que el parametro no sea null.
+        *Post: Agregará un jugador al casillero transitable.
         */
         void agregar_jugador(Jugador* jugador);
         

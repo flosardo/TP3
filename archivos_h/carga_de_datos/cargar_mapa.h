@@ -26,7 +26,7 @@ class Cargar_mapa {
     private: 
 
         /*
-        *Pre: Que el archivo exista, que mapa no sea null, que fila y columna sean >= 0.
+        *Pre: Que el archivo exista, que mapa no sea null, que cantidad_filas y cantidad_columnas sean >= 0.
         *Post: Procesará el archivo.
         */
         void procesar_archivo(std::ifstream & archivo_mapa, Mapa* mapa, int cantidad_filas, int cantidad_columnas);

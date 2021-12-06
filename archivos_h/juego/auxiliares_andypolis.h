@@ -26,7 +26,6 @@ class Auxiliares_andypolis {
     public:
 
         /*
-        *Pre:
         *Post:
         */
         Auxiliares_andypolis();

@@ -35,6 +35,7 @@ class Cargar_materiales {
         *Post: Procesa el archivo.
         */
         void procesar_archivo(std::string tipo_material, int cantidad_material, Jugador* jugador);
+        
 };
 
 #endif //_CARGAR_MATERIALES_H_

@@ -13,17 +13,20 @@ class Obelisco : public Edificio {
         Obelisco();
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Creará un objeto de tipo Obelisco, usando los parámetros que recibe.
         */
         Obelisco(int piedra_necesaria, int madera_necesaria, int metal_necesario, int permitidos);
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Creará un objeto de tipo Obelisco usando los parámetros que recibe.
         */
         Obelisco(int fila, int columna);
 
         /*
-        Pos:
+        *Pre: Que el parametro sea >= 0.
+        *Post: Mostrará las caracteristicas.
         */
         void mostrar_caracteristicas(int construidos);
 

@@ -13,17 +13,20 @@ class Planta_electrica : public Edificio {
         Planta_electrica();
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Creará un objeto de tipo Planta_electrica con los parámetros recibidos.
         */
         Planta_electrica(int piedra_necesaria, int madera_necesaria, int metal_necesario, int permitidos);
 
         /*
+        *Pre: Que los parametros sean >= 0.
         *Post: Creará un objeto de tipo Planta_electrica usando los parámetros que recibe.
         */
         Planta_electrica(int fila, int columna);
 
         /*
-        Pos:
+        *Pre: Que el parametro sea >= 0.
+        *Post: Mostrará las caracteristicas.
         */
         void mostrar_caracteristicas(int construidos);
 

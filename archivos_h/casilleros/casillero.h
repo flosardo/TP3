@@ -67,8 +67,8 @@ class Casillero {
         virtual void agregar_edificio(Edificio* edificio_a_agregar);
 
         /*
-        *Pre:
-        *Post:
+        *Pre: Que el parámetro no sea null.
+        *Post: Agregará un jugador a un casillero.
         */
         virtual void agregar_jugador(Jugador* jugador);
 
@@ -84,4 +84,4 @@ class Casillero {
 
 };
 
-#endif // _CASILLERO_H_
+#endif //_CASILLERO_H_
