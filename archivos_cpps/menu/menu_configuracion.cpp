@@ -30,21 +30,23 @@ void Menu_configuracion::mostrar_menu() {
     cout << endl;
 } 
 
-void Menu_configuracion::procesar_opcion(int opcion, Andypolis & juego) {
+void Menu_configuracion::procesar_opcion(int & opcion, Andypolis & juego) {
     switch (opcion_ingresada) {
-        case OPCION_MODIFICAR_EDIFICIO_NOMBRE:
+        case 1:
             juego.modificar_edificio_nombre();
             break;
-        case OPCION_LISTAR_TOTAL_EDIFICIOS:
+        case 2:
             juego.listar_edificios();
             break;
-        case OPCION_MOSTRAR_MAPA:
+        case 3:
             juego.mostrar_mapa();
             break;
-        case OPCION_COMENZAR_PARTIDA:
+        case 4:
+            opcion = OPCION_SALIR;
             juego.comenzar_partida();
             break;
-        case OPCION_GUARDAR_SALIR_CONFIGURACION:
+        case 5:
+            opcion = OPCION_SALIR_JUEGO;
             juego.guardar_y_salir();
             break;
         default:

@@ -19,7 +19,7 @@ class Menu_partida : public Menu {
         /*
         *Post: Procesará la opcion.
         */
-        void procesar_opcion(int opcion, Andypolis & juego);
+        void procesar_opcion(int & opcion, Andypolis & juego);
 
         /*
         *Post: Mostrará el mensaje de bienvenida del menu de partida.

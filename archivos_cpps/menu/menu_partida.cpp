@@ -45,46 +45,47 @@ void Menu_partida::mostrar_menu() {
     cout << "╚═══════════════════════════════════════════╝" << COLOR_POR_DEFECTO << endl;
 }
 
-void Menu_partida::procesar_opcion(int opcion_ingresada, Andypolis & juego) {
+void Menu_partida::procesar_opcion(int & opcion_ingresada, Andypolis & juego) {
     switch (opcion_ingresada) {
-        case OPCION_CONSTRUIR_EDIFICIO:
+        case 1:
             juego.construir_edificio();
             break;
-        case OPCION_LISTAR_MIS_EDIFICIOS:
+        case 2:
             juego.listar_mis_edificios();
             break;
-        case OPCION_DEMOLER_EDIFICIO:
+        case 3:
             juego.demoler_edificio();
             break;
-        case OPCION_ATACAR_EDIFICIO_COORDENADA:
+        case 4:
             juego.atacar_edificio();
             break;
-        case OPCION_REPARAR_EDIFICO_COODENADA:
+        case 5:
             juego.reparar_edificio();
             break;
-        case OPCION_COMPRAR_BOMBAS:
+        case 6:
             juego.comprar_bombas();
             break;
-        case OPCION_CONSULTAR_COORDENADAS:
+        case 7:
             juego.consultar_coordenada();
             break;
-        case OPCION_MOSTRAR_INVENTARIO:
+        case 8:
             juego.mostrar_inventario();
             break;
-        case OPCION_MOSTRAR_OBJETIVO:
+        case 9:
             juego.mostrar_objetivos();
             break;
-        case OPCION_RECOLECTAR_RECURSOS_PRODUCIOS:
+        case 10:
             juego.recolectar_recursos();
             break;
-        case OPCION_MOVERSE_UNA_COORDENADA:
+        case 11:
             juego.moverse();
             break;
-        case OPCION_FINALIZAR_TURNO:
+        case 12:
+            opcion_ingresada = OPCION_SALIR;
             juego.finalizar_turno();
-            cout << "entro" << endl;
             break;
-        case OPCION_GUARDAR_SALIR_PARTIDA:
+        case 13:
+            opcion_ingresada = OPCION_SALIR_JUEGO;
             juego.guardar_y_salir();
             break;
         default:

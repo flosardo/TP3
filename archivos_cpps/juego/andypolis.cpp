@@ -20,8 +20,11 @@ Abb* Andypolis::devolver_arbol() {
 }
 
 void Andypolis::verificar_energia(int & opcion_ingresada) {
-    if (this -> jugador_actual -> obtener_energia_actual() == 0)
-        opcion_ingresada = OPCION_FINALIZAR_TURNO;
+    if (this -> jugador_actual -> obtener_energia_actual() == 0) {
+        opcion_ingresada = 12;
+        cout << this -> jugador_actual -> obtener_codigo_emoji() << COLOR_ROJO << "Te quedaste sin energia :( Ahora es turno del siguiente jugador" << COLOR_POR_DEFECTO << endl;
+        sleep(3);
+    }
 }
 
 void Andypolis::listar_edificios() {

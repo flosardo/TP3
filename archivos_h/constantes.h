@@ -39,11 +39,12 @@ const std::string FONDO_VERDE = "\033[48;5;2m";
 const std::string FONDO_GRIS = "\033[48;5;240m";
 
 // JUEGO
-const int OPCION_EMPEZAR_JUEGO = 66;
-const int OPCION_SALIR_JUEGO = 69;
+const int OPCION_EMPEZAR = 66;
+const int OPCION_SALIR = 69;
+const int OPCION_SALIR_JUEGO = 20;
 
 // OPCIONES MENU DE CONFIGURACION
-const int OPCION_MODIFICAR_EDIFICIO_NOMBRE = 1;
+/*const int OPCION_MODIFICAR_EDIFICIO_NOMBRE = 1;
 const int OPCION_LISTAR_TOTAL_EDIFICIOS = 2;
 const int OPCION_MOSTRAR_MAPA = 3;
 const int OPCION_COMENZAR_PARTIDA = 4;
@@ -62,7 +63,7 @@ const int OPCION_MOSTRAR_OBJETIVO = 9;
 const int OPCION_RECOLECTAR_RECURSOS_PRODUCIOS = 10;
 const int OPCION_MOVERSE_UNA_COORDENADA = 11;
 const int OPCION_FINALIZAR_TURNO = 12;
-const int OPCION_GUARDAR_SALIR_PARTIDA = 13;
+const int OPCION_GUARDAR_SALIR_PARTIDA = 13;*/
 
 
 // EMOJIS MENUS
@@ -132,7 +133,7 @@ const std::string RUTA_UBICACIONES = "archivos_de_texto/ubicaciones.txt";
 // ENERGÍA
 const int ENERGIA_FINALIZAR_TURNO = 20;
 const int MAX_EDIFICIOS_DISPONIBLES = 7;
-const int ENERGIA_CONSTRUIR_EDIFICIO = 50;
+const int ENERGIA_CONSTRUIR_EDIFICIO = 50;//15
 const int ENERGIA_DEMOLER_EDIFICIO_COORDENADA = 15;
 const int ENERGIA_ATACAR_EDIFICIO_COORDENADA = 30;
 const int ENERGIA_REPARAR_EDIFICIO = 25;
@@ -149,8 +150,6 @@ const std::string NOMBRE_MINA = "mina";
 const std::string NOMBRE_MINA_ORO = "mina oro";
 const std::string NOMBRE_ORO = "oro";
 const std::string NOMBRE_PLANTA = "planta";
-const std::string OPCION_SI = "SI";
-const std::string OPCION_NO = "NO";
 
 // OBJETIVOS 
 const std::string NOMBRE_OBJETIVO_ANDYCOINS = "andycoins por los cielos";

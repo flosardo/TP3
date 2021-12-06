@@ -22,7 +22,7 @@ void Mina::inicializar_atributos() {
 }
 
 void Mina::mostrar_caracteristicas(int construidos) {
-    string brinda_material = this -> nombre_del_edificio != NOMBRE_OBELISCO ? OPCION_SI : OPCION_NO;
+    string brinda_material = this -> nombre_del_edificio != NOMBRE_OBELISCO ? "SI" : "NO";
     cout << "--> " << COLOR_VERDE_AGUA << this -> nombre_del_edificio << COLOR_POR_DEFECTO << endl;
     cout << "Piedra requerida: " << this -> materiales_necesarios[POS_PIEDRA] << endl;
     cout << "Madera requerida: " << this -> materiales_necesarios[POS_MADERA] << endl;

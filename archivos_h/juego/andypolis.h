@@ -4,7 +4,7 @@
 #include "../mapa.h"
 #include "../arbol/abb.h"
 #include "auxiliares_andypolis.h"
-
+#include <unistd.h>
 
 class Andypolis {
 
