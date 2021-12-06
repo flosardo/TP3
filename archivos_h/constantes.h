@@ -70,7 +70,7 @@ const int OPCION_GUARDAR_SALIR_PARTIDA = 13;
 const std::string EMOJI_MODIFICAR_EDIFICIO_POR_NOMBRE = "\u270D";
 const std::string EMOJI_LISTAR_TODOS_LOS_EDIFICIOS = "\U0001f3d9";
 const std::string EMOJI_MOSTRAR_MAPA = "\U0001f30e";
-const std::string EMOJI_COMENZAR_PARTIDA = "\U0001f7e2";
+const std::string EMOJI_COMENZAR_PARTIDA = "\u25B6";
 
 // SEGUNDO MENU
 const std::string EMOJI_CONSTRUIR_EDIFICIO_POR_NOMBRE = "\U0001f3d7";
@@ -185,8 +185,8 @@ const std::string LINEA_DIVISORIA = "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\
 const std::string LINEA_DIVISORIA_DISENIO = "══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n";
 
 // JUGADORES
-const char JUGADOR_1 = 'J';
-const char JUGADOR_2 = 'U';
+const std::string JUGADOR_1 = "\U0001f473"; //\U0001f471
+const std::string JUGADOR_2 = "\U0001f9dc"; //\U0001f9dd
 const std::string NUMERO_JUGADOR_1 = "1";
 const std::string NUMERO_JUGADOR_2 = "2";
 const int MAX_COORDENADAS = 2;

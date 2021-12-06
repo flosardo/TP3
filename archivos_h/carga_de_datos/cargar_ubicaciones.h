@@ -32,7 +32,7 @@ class Cargar_ubicaciones {
         *Pre: Que los parametros punteros no sean null.
         *Post: Cargará un edificio en un jugador 1 ó 2, según sea el caso.
         */
-        void cargar_edificio_en_jugador(Edificio* edificio, Jugador* jugador_1, Jugador* jugador_2, char convencion);
+        void cargar_edificio_en_jugador(Edificio* edificio, Jugador* jugador_1, Jugador* jugador_2, std::string convencion);
 
         /*
         *Pre: Que los punteros no sean null.
@@ -63,7 +63,7 @@ class Cargar_ubicaciones {
         *Pre: Que el archivo exista, que los punteros no sean null.
         *Post: Procesará el archivo de ubicaciones.
         */
-        void procesar_archivo(std::ifstream & archivo_ubicaciones, Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2, std::string nombre, char & convencion_jugador);
+        void procesar_archivo(std::ifstream & archivo_ubicaciones, Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2, std::string nombre, std::string & convencion_jugador);
         
 };
 

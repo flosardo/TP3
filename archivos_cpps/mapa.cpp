@@ -138,13 +138,12 @@ void Mapa::mostrar_mapa() {
     this -> mostrar_simbologia();
     cout << endl;
     for (int fila = 0; fila < this -> cantidad_filas; fila++) { 
-        //cout << "\t\t\t\t\t\t";
         cout << " " << fila << " ";
         for (int columna = 0; columna < this -> cantidad_columnas; columna++) {
             if (!this -> esta_ocupado(fila, columna))
                 cout << mapa[fila][columna] -> obtener_color() << setw(6);
             else if (this -> mapa[fila][columna] -> obtener_puntero_jugador())
-                cout << mapa[fila][columna] -> obtener_color() + mapa[fila][columna] -> obtener_puntero_jugador() -> obtener_nombre() << setw(5);
+                cout << mapa[fila][columna] -> obtener_color() + mapa[fila][columna] -> obtener_puntero_jugador() -> obtener_codigo_emoji() << setw(4);
             else if (this -> obtener_tipo_casillero(fila, columna) == TERRENO) 
                 cout << this -> mapa[fila][columna] -> obtener_color() + this -> mapa[fila][columna] -> obtener_puntero_edificio() -> obtener_codigo_emoji() << setw(4);
             else 

@@ -21,7 +21,7 @@ Abb* Andypolis::devolver_arbol() {
 
 void Andypolis::verificar_energia(int & opcion_ingresada) {
     if (this -> jugador_actual -> obtener_energia_actual() == 0)
-        opcion_ingresada = 12;
+        opcion_ingresada = OPCION_FINALIZAR_TURNO;
 }
 
 void Andypolis::listar_edificios() {
@@ -52,7 +52,7 @@ void Andypolis::comenzar_partida() {
     Jugador* jugador = nullptr;
     string nombre_jugador_1;
     string nombre_jugador_2;
-    char convencion_jugador;
+    string convencion_jugador;
     int* coordenadas = 0;
     bool jugador_1_ubicado = false;
     bool jugador_2_ubicado = false;
@@ -66,16 +66,18 @@ void Andypolis::comenzar_partida() {
             jugador = jugador_1;
             jugador -> establecer_nombre(nombre_jugador_1);
             jugador_1_ubicado = true;
-            cout << "Siguiente jugador" << endl;
-        } else {
+        }else if(!jugador_2_ubicado) {
             convencion_jugador = convencion_jugador == JUGADOR_1 ? JUGADOR_2 : JUGADOR_1;
             jugador = jugador_2;
             jugador -> establecer_nombre(nombre_jugador_2);
             jugador_2_ubicado = true;
         }
         jugador -> establecer_coordenadas(fila, columna);
-        jugador -> establecer_convencion_jugador(convencion_jugador);
-        this -> mapa -> ubicar_jugador(jugador, fila, columna);
+        jugador -> establecer_codigo_emoji(convencion_jugador);
+        jugador_1_ubicado = this -> mapa -> ubicar_jugador(jugador, fila, columna);
+        if(jugador_1_ubicado)
+            cout << "Siguiente jugador" << endl;
+        
     }
 }
 

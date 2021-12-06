@@ -23,7 +23,7 @@ void Menu_configuracion::mostrar_menu() {
     cout << borde                                                                                   << setw(55) << borde << endl;
     cout << borde << " 3. Mostrar mapa "                    << EMOJI_MOSTRAR_MAPA                   << setw(36) << borde << endl;
     cout << borde                                                                                   << setw(55) << borde << endl;
-    cout << borde << " 4. Comenzar partida "                << EMOJI_COMENZAR_PARTIDA               << setw(32) << borde << endl;
+    cout << borde << " 4. Comenzar partida "                << EMOJI_COMENZAR_PARTIDA               << setw(33) << borde << endl;
     cout << borde                                                                                   << setw(55) << borde << endl;
     cout << borde << " 5. Guardar y salir "                 << EMOJI_GUARDAR_Y_SALIR                << setw(33) << borde << endl << COLOR_DORADO;
     cout << "╚═══════════════════════════════════════════╝" << COLOR_POR_DEFECTO;

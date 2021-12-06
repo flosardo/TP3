@@ -10,7 +10,7 @@ Jugador::Jugador() {
     this -> coordenadas[INDICE_FILA] = -1;
     this -> coordenadas[INDICE_COLUMNA] = -1;
     this -> inventario = new Inventario();
-    this -> convencion_jugador = VACIO;
+    this -> codigo_emoji = VACIO;
     this -> nombre = VACIO;
 }
 
@@ -23,8 +23,8 @@ void Jugador::establecer_coordenadas(int fila, int columna) {
     this -> coordenadas[INDICE_COLUMNA] = columna;
 }
 
-void Jugador::establecer_convencion_jugador(char convencion_jugador) {
-    this -> convencion_jugador = convencion_jugador;
+void Jugador::establecer_codigo_emoji(string codigo_emoji) {
+    this -> codigo_emoji = codigo_emoji;
 }
 
 void Jugador::cargar_edificio(Edificio* edificio) {
@@ -62,8 +62,8 @@ void Jugador::eliminar_edificio(int fila, int columna) {
     
 }
 
-char Jugador::obtener_nombre() {
-    return this -> convencion_jugador;
+string Jugador::obtener_codigo_emoji() {
+    return this -> codigo_emoji;
 }
 
 int* Jugador::devolver_coordenadas() {
@@ -98,7 +98,6 @@ void Jugador::cargar_material(Material* material) {
 void Jugador::modificar_inventario(string material, int cantidad) {
     this -> inventario -> modificar_cantidad_material(material, cantidad);
 }
-
 
 void Jugador::listar_construidos() {
     string esta_afectado;

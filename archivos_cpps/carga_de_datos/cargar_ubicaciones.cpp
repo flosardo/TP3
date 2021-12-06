@@ -10,7 +10,7 @@ bool Cargar_ubicaciones::carga_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jugad
     ifstream archivo_ubicaciones(this -> archivo_ruta);
     bool existe_el_archivo = false;
     string nombre;
-    char convencion_jugador = VACIO;
+    string convencion_jugador = " ";
     while (getline(archivo_ubicaciones, nombre, '(')) {
         existe_el_archivo = true;
         procesar_archivo(archivo_ubicaciones, mapa, jugador_1, jugador_2, nombre, convencion_jugador);
@@ -19,7 +19,7 @@ bool Cargar_ubicaciones::carga_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jugad
     return existe_el_archivo;
 }
 
-void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2, string nombre, char & convencion_jugador) {
+void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2, string nombre, string & convencion_jugador) {
     int fila;
     int columna;
     string basura;
@@ -34,14 +34,14 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
         convencion_jugador = nombre == NUMERO_JUGADOR_1 ? JUGADOR_1 : JUGADOR_2;
         if (nombre == NUMERO_JUGADOR_1) {
             jugador_1 -> establecer_coordenadas(fila, columna);
-            jugador_1 -> establecer_convencion_jugador(convencion_jugador);
+            jugador_1 -> establecer_codigo_emoji(convencion_jugador);
             mapa -> ubicar_jugador(jugador_1, fila, columna);
         } else {
             jugador_2 -> establecer_coordenadas(fila, columna);
-            jugador_2 -> establecer_convencion_jugador(convencion_jugador);
+            jugador_2 -> establecer_codigo_emoji(convencion_jugador);
             mapa -> ubicar_jugador(jugador_2, fila, columna);
         }
-    } else if (convencion_jugador != VACIO) {
+    } else if (convencion_jugador != " ") {
         Edificio* edificio_creado = crear_edificio(nombre, fila, columna);
         mapa -> ubicar_edificio(edificio_creado, fila, columna);
         this -> cargar_edificio_en_jugador(edificio_creado, jugador_1, jugador_2, convencion_jugador);
@@ -51,7 +51,7 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
     }
 }
 
-void Cargar_ubicaciones::cargar_edificio_en_jugador(Edificio* edificio, Jugador* jugador_1, Jugador* jugador_2, char convencion) {
+void Cargar_ubicaciones::cargar_edificio_en_jugador(Edificio* edificio, Jugador* jugador_1, Jugador* jugador_2, string convencion) {
     Jugador* jugador = convencion == JUGADOR_1 ? jugador_1 : jugador_2;
     jugador -> cargar_edificio(edificio);
     jugador = nullptr;

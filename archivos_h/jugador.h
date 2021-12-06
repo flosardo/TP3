@@ -12,7 +12,7 @@ class Jugador {
         Energia energia;
         int* coordenadas;
         Inventario* inventario;
-        char convencion_jugador;
+        std::string codigo_emoji;
         Edificio** edificios_construidos;
         int cantidad_construidos;
         std::string nombre;
@@ -53,9 +53,9 @@ class Jugador {
         void establecer_nombre(std::string nombre);
 
         /*
-        *Post: Establecera la convencion del jugador.
+        *Post: Establecera el código emoji del jugador.
         */
-        void establecer_convencion_jugador(char nombre);
+        void establecer_codigo_emoji(std::string codigo_emoji);
 
         /*
         *Post: Devolverá la cantidad de construidos, del edificio pedido.
@@ -69,9 +69,9 @@ class Jugador {
 
 
         /*
-        *Post: Devolvera el nombre del jugador.
+        *Post: Devolvera el código emoji del jugador.
         */
-        char obtener_nombre();
+        std::string obtener_codigo_emoji();
 
         /*
         *Pre: Que el material no sea null.
