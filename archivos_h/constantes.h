@@ -125,6 +125,9 @@ const std::string NOMBRE_MINA = "mina";
 const std::string NOMBRE_MINA_ORO = "mina oro";
 const std::string NOMBRE_ORO = "oro";
 const std::string NOMBRE_PLANTA = "planta";
+const std::string OPCION_SI = "SI";
+const std::string OPCION_NO = "NO";
+
 
 //OBJETIVOS 
 const std::string NOMBRE_OBJETIVO_ANDYCOINS = "andycoins por los cielos";

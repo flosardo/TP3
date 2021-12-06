@@ -13,7 +13,6 @@ Nodo::Nodo(Edificio* nuevo_edificio) {
     this -> izquierda = nullptr;
 }
 
-
 Edificio* Nodo::obtener_dato() {
     return this -> edificio;
 }
@@ -25,7 +24,6 @@ Nodo* Nodo::obtener_izquierda() {
 Nodo* Nodo::obtener_derecha() {
     return this -> derecha;
 }
-
 
 void Nodo::establecer_derecha(Nodo* nuevo_nodo) {
     this -> derecha = nuevo_nodo;

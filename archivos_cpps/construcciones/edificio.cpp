@@ -1,13 +1,10 @@
 #include "../../archivos_h/construcciones/edificio.h"
 
-/*
- * EL DESTRUCTOR ESTA AL PEDO PORQUE NUNCA PEDIMOS MEMORIA PARA NINGUNO DE SUS ATRIBUTOS
-*/
 using namespace std;
 
 Edificio::Edificio() {
-    this -> columna = 1000;//revisar
-    this -> fila = 1000;
+    this -> columna = -1;//revisar
+    this -> fila = -1;
     this -> nombre_del_edificio = VACIO;
     this -> nombre_material = VACIO;
     this -> codigo_emoji = VACIO;
@@ -89,8 +86,8 @@ void Edificio::cambiar_estado_afectado() {
 }
 
 Edificio::~Edificio() {
-    if (this -> materiales_necesarios) {
+    if (this -> materiales_necesarios) 
         delete[] this -> materiales_necesarios;
-    }
+    
     this -> materiales_necesarios = nullptr;
 }

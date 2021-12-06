@@ -24,8 +24,7 @@ void Cargar_edificios::carga_edificios(Abb* arbol) {
         if ((nombre_edificio == NOMBRE_MINA && segunda_palabra == NOMBRE_ORO) || nombre_edificio == NOMBRE_PLANTA) {
             nombre_edificio += " " + segunda_palabra;
             archivo_edificios >> piedra_necesaria;
-        }
-        else
+        }else
             piedra_necesaria =  stoi(segunda_palabra);
 
         archivo_edificios >> madera_necesaria >> metal_necesario >> permitidos;
@@ -35,7 +34,7 @@ void Cargar_edificios::carga_edificios(Abb* arbol) {
 }
 
 void Cargar_edificios::crear_edificio(Abb* arbol , string nombre_edificio, int piedra, int madera, int metal, int permitidos) {
-    Edificio* nuevo_edificio = 0;
+    Edificio* nuevo_edificio = nullptr;
     if (nombre_edificio == NOMBRE_ASERRADERO)
         nuevo_edificio = new Aserradero(piedra, madera, metal, permitidos);
     else if (nombre_edificio == NOMBRE_ESCUELA)
@@ -52,5 +51,5 @@ void Cargar_edificios::crear_edificio(Abb* arbol , string nombre_edificio, int p
         nuevo_edificio = new Planta_electrica(piedra, madera, metal, permitidos);
     
     arbol -> agregar_nodo(nuevo_edificio);
-    nuevo_edificio = 0;
+    nuevo_edificio = nullptr;
 }

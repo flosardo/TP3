@@ -25,23 +25,18 @@ void Cargar_materiales::carga_materiales(Jugador* jugador_1, Jugador* jugador_2)
 }
 
 void Cargar_materiales::procesar_archivo(string tipo_material, int cantidad_material, Jugador* jugador) {
-    Material* nuevo_material = 0;
+    Material* nuevo_material = nullptr;
 
-    if (tipo_material == ANDYCOINS) {
+    if (tipo_material == ANDYCOINS)
        nuevo_material = new Andycoins(cantidad_material);
-    } 
-    else if (tipo_material == MADERA) {
+    else if (tipo_material == MADERA)
        nuevo_material = new Madera(cantidad_material);
-    } 
-    else if (tipo_material == METAL) {
+    else if (tipo_material == METAL)
        nuevo_material = new Metal(cantidad_material);
-    } 
-    else if (tipo_material == PIEDRA) {
+    else if (tipo_material == PIEDRA)
        nuevo_material = new Piedra(cantidad_material);
-    } 
-    else {
+    else
        nuevo_material = new Bomba(cantidad_material);
-    }
 
     jugador -> cargar_material(nuevo_material);
     nuevo_material = nullptr;

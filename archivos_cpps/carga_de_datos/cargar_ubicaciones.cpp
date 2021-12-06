@@ -36,19 +36,16 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
             jugador_1 -> establecer_coordenadas(fila, columna);
             jugador_1 -> establecer_convencion_jugador(convencion_jugador);
             mapa -> ubicar_jugador(jugador_1, fila, columna);
-        }
-        else {
+        } else {
             jugador_2 -> establecer_coordenadas(fila, columna);
             jugador_2 -> establecer_convencion_jugador(convencion_jugador);
             mapa -> ubicar_jugador(jugador_2, fila, columna);
         }
-    }
-    else if (convencion_jugador != VACIO) {
+    } else if (convencion_jugador != VACIO) {
         Edificio* edificio_creado = crear_edificio(nombre, fila, columna);
         mapa -> ubicar_edificio(edificio_creado, fila, columna);
         this -> cargar_edificio_en_jugador(edificio_creado, jugador_1, jugador_2, convencion_jugador);
-    } 
-    else {
+    } else {
         Material* material_creado = crear_material(nombre);
         mapa -> ubicar_material(material_creado, fila, columna);
     }
@@ -61,7 +58,7 @@ void Cargar_ubicaciones::cargar_edificio_en_jugador(Edificio* edificio, Jugador*
 }
 
 Edificio* Cargar_ubicaciones::crear_edificio(string nombre, int fila, int columna) {
-    Edificio* edificio_creado = 0;
+    Edificio* edificio_creado = nullptr;
     if (nombre == NOMBRE_ASERRADERO)
         edificio_creado = new Aserradero(fila, columna);
     else if (nombre == NOMBRE_ESCUELA) 
@@ -81,7 +78,7 @@ Edificio* Cargar_ubicaciones::crear_edificio(string nombre, int fila, int column
 }
 
 Material* Cargar_ubicaciones::crear_material(string nombre) {
-    Material* material_creado = 0;
+    Material* material_creado = nullptr;
     if (nombre == PIEDRA) 
         material_creado = new Piedra();
     else if (nombre == MADERA)

@@ -67,8 +67,7 @@ void Andypolis::comenzar_partida() {
             jugador -> establecer_nombre(nombre_jugador_1);
             jugador_1_ubicado = true;
             cout << "Siguiente jugador" << endl;
-        }
-        else {
+        } else {
             convencion_jugador = convencion_jugador == JUGADOR_1 ? JUGADOR_2 : JUGADOR_1;
             jugador = jugador_2;
             jugador -> establecer_nombre(nombre_jugador_2);
@@ -94,12 +93,6 @@ void Andypolis::construir_edificio() {
 void Andypolis::listar_mis_edificios() {
     this -> jugador_actual -> listar_construidos();
 }
-
-void Andypolis::demoler_edificio() {}
-
-void Andypolis::atacar_edificio() {}
-
-void Andypolis::reparar_edificio() {}
 
 void Andypolis::comprar_bombas() {
     if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_COMPRAR_BOMBA, this -> jugador_actual -> obtener_energia_actual())) {
@@ -127,21 +120,29 @@ void Andypolis::mostrar_inventario() {
     this -> jugador_actual -> obtener_inventario() -> mostrar_inventario();
 }
 
+void Andypolis::finalizar_turno() {
+    this -> jugador_actual -> modificar_energia(ENERGIA_FINALIZAR_TURNO);
+    this -> cambiar_turno();
+}
+
+Jugador* Andypolis::devolver_jugador(string numero_jugador) {
+    return numero_jugador == NUMERO_JUGADOR_1 ? this -> jugador_1 : this -> jugador_2;
+}
+
+//Pendientes por implementar.
+
 void Andypolis::mostrar_objetivos() {}
 
 void Andypolis::recolectar_recursos() {}
 
 void Andypolis::moverse() {}
 
-void Andypolis::finalizar_turno() {
-    this -> jugador_actual -> modificar_energia(ENERGIA_FINALIZAR_TURNO);
-    this -> cambiar_turno();
-}
-
 void Andypolis::guardar_y_salir() {}
 
-Jugador* Andypolis::devolver_jugador(string numero_jugador) {
-    return numero_jugador == NUMERO_JUGADOR_1 ? this -> jugador_1 : this -> jugador_2;
-}
+void Andypolis::demoler_edificio() {}
+
+void Andypolis::atacar_edificio() {}
+
+void Andypolis::reparar_edificio() {}
 
 Andypolis::~Andypolis() {}

@@ -10,7 +10,6 @@ Abb::Abb(Nodo* nodo) {
     this -> raiz = nodo;
 }
 
-
 void Abb::agregar_nodo(Edificio* nuevo_edificio) {
     this -> raiz = this -> agregar_nodo_recursiva(this -> raiz, nuevo_edificio);
 }
@@ -25,7 +24,6 @@ Nodo* Abb::agregar_nodo_recursiva(Nodo* nodo, Edificio* nuevo_edificio) {
     
     return nodo;
 }
-
 
 Edificio* Abb::buscar_edificio(string nombre_edificio_buscado) {
     return  this -> buscar_edificio_recursiva(this -> raiz, nombre_edificio_buscado);
@@ -46,7 +44,6 @@ Edificio* Abb::buscar_edificio_recursiva(Nodo* arbol, string nombre_edificio_bus
     return this -> buscar_edificio_recursiva(arbol -> obtener_derecha(), nombre_edificio_buscado);
 }
 
-
 // NO SE USA NUNCA, PORQUE USAMOS BUSCAR_EDIFICIO
 // bool Abb::existe_el_edificio(Nodo* nodo_actual, string nombre_edificio_buscado) {
 //     string nombre_edificio_guardado =  nodo_actual -> obtener_dato() -> obtener_nombre();
@@ -59,7 +56,6 @@ Edificio* Abb::buscar_edificio_recursiva(Nodo* arbol, string nombre_edificio_bus
 
 //     return this -> existe_el_edificio(nodo_actual -> obtener_derecha(), nombre_edificio_buscado);
 // }
-
 
 int Abb::contar_construidos(Jugador* jugador, string nombre_edificio) {
     int construidos = 0;
@@ -80,7 +76,6 @@ void Abb::mostrar_arbol_recursiva(Nodo* nodo, Jugador* jugador) {
     this -> mostrar_arbol_recursiva(nodo -> obtener_derecha(), jugador);
     this -> mostrar_arbol_recursiva(nodo -> obtener_izquierda(), jugador);
 }
-
 
 void Abb::borrar_arbol(Nodo* nodo) {
     if (!nodo)
