@@ -147,11 +147,12 @@ bool Auxiliares_andypolis::confirmar_construccion(string edificio_a_construir) {
     cout << "Está seguro que quiere construir un/a " << edificio_a_construir << " ?(s/n): ";
     cin >> decision;
     transform(decision.begin(), decision.end(), decision.begin(), ::tolower);
-    return (decision == "s");
+    return (decision == DESICION_SI);
 }
 
 Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int columna) { //metodo repetido
-    Edificio* edificio_creado = 0;
+    Edificio* edificio_creado = nullptr;
+
     if (nombre == NOMBRE_ASERRADERO)
         edificio_creado = new Aserradero(fila, columna);
     else if (nombre == NOMBRE_ESCUELA) 

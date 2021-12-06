@@ -3,7 +3,10 @@
 
 #include <iostream>
 
-//MATERIALES
+// DESICIONES
+const std::string DESICION_SI = "s";
+
+// MATERIALES
 const std::string PIEDRA = "piedra";
 const std::string METAL = "metal";
 const std::string MADERA = "madera";
@@ -23,7 +26,7 @@ const int ENERGIA_INICIAL = 50;
 const int MAX_VALOR_MATERIALES = 50000;
 const int MIN_VALOR_MATERIAL = 0;
 
-//COLORES
+// COLORES
 const std::string COLOR_POR_DEFECTO = "\033[0m";
 const std::string COLOR_ROJO = "\033[38;5;196m";
 const std::string COLOR_VERDE = "\033[38;5;46m";
@@ -35,19 +38,41 @@ const std::string FONDO_AZUL = "\033[48;5;27m";
 const std::string FONDO_VERDE = "\033[48;5;2m";
 const std::string FONDO_GRIS = "\033[48;5;240m";
 
-//JUEGO
+// JUEGO
 const int OPCION_EMPEZAR_JUEGO = 66;
 const int OPCION_SALIR_JUEGO = 69;
 
-//EMOJIS MENUS
-//PRIMER MENU
+// OPCIONES MENU DE CONFIGURACION
+const int OPCION_MODIFICAR_EDIFICIO_NOMBRE = 1;
+const int OPCION_LISTAR_TOTAL_EDIFICIOS = 2;
+const int OPCION_MOSTRAR_MAPA = 3;
+const int OPCION_COMENZAR_PARTIDA = 4;
+const int OPCION_GUARDAR_SALIR_CONFIGURACION = 5;
+
+// OPCIONES MENU DE PARTIDA
+const int OPCION_CONSTRUIR_EDIFICIO = 1;
+const int OPCION_LISTAR_MIS_EDIFICIOS = 2;
+const int OPCION_DEMOLER_EDIFICIO = 3;
+const int OPCION_ATACAR_EDIFICIO_COORDENADA = 4;
+const int OPCION_REPARAR_EDIFICO_COODENADA = 5;
+const int OPCION_COMPRAR_BOMBAS = 6;
+const int OPCION_CONSULTAR_COORDENADAS = 7;
+const int OPCION_MOSTRAR_INVENTARIO = 8;
+const int OPCION_MOSTRAR_OBJETIVO = 9;
+const int OPCION_RECOLECTAR_RECURSOS_PRODUCIOS = 10;
+const int OPCION_MOVERSE_UNA_COORDENADA = 11;
+const int OPCION_FINALIZAR_TURNO = 12;
+const int OPCION_GUARDAR_SALIR_PARTIDA = 13;
+
+
+// EMOJIS MENUS
+// PRIMER MENU
 const std::string EMOJI_MODIFICAR_EDIFICIO_POR_NOMBRE = "\u270D";
 const std::string EMOJI_LISTAR_TODOS_LOS_EDIFICIOS = "\U0001f3d9";
 const std::string EMOJI_MOSTRAR_MAPA = "\U0001f30e";
 const std::string EMOJI_COMENZAR_PARTIDA = "\U0001f7e2";
 
-
-//SEGUNDO MENU
+// SEGUNDO MENU
 const std::string EMOJI_CONSTRUIR_EDIFICIO_POR_NOMBRE = "\U0001f3d7";
 const std::string EMOJI_LISTAR_CONSTRUIDOS = "\u2705";
 const std::string EMOJI_DEMOLER_POR_COORDENADA = "\U0001f6a7";
@@ -62,8 +87,7 @@ const std::string EMOJI_MOVERSE_A_UNA_COORDENADA = "\U0001f3c3";//alternativa: U
 const std::string EMOJI_FINALIZAR_TURNO = "\U0001f51a";//si hay otro mejor
 const std::string EMOJI_GUARDAR_Y_SALIR = "\U0001f4be";
 
-
-//EMOJIS MATERIALES
+// EMOJIS MATERIALES
 const std::string EMOJI_PIEDRA = "\U0001f311";
 const std::string EMOJI_METAL = "\u2699";
 const std::string EMOJI_MADERA = "\U0001f954";
@@ -89,7 +113,7 @@ const int POS_MADERA = 1;
 const int POS_METAL = 2;
 const int MAX_MATERIALES = 3;
 
-//EMOJIS EDIFICIOS
+// EMOJIS EDIFICIOS
 const std::string EMOJI_PLANTA_ELECTRICA = "\U0001f3e4";
 const std::string EMOJI_MINA_ORO = "\U0001f682";
 const std::string EMOJI_MINA = "\U0001f68a";
@@ -99,7 +123,7 @@ const std::string EMOJI_FABRICA = "\U0001f3ed";
 const std::string EMOJI_OBELISCO = "\U0001f5fc";
 const std::string EMOJI_TERRENO = "\U0001f3d7";
 
-//RUTAS ARCHIVOS
+// RUTAS ARCHIVOS
 const std::string RUTA_MATERIALES = "archivos_de_texto/materiales.txt";
 const std::string RUTA_EDIFICIOS = "archivos_de_texto/edificios.txt";
 const std::string RUTA_MAPA = "archivos_de_texto/mapa.txt";
@@ -115,7 +139,7 @@ const int ENERGIA_REPARAR_EDIFICIO = 25;
 const int ENERGIA_COMPRAR_BOMBA = 5;
 const int ENERGIA_RECOLECTAR_RECURSOS = 20;
 
-//EDIFICIOS
+// EDIFICIOS
 const std::string NOMBRE_PLANTA_ELECTRICA = "planta electrica";
 const std::string NOMBRE_ASERRADERO = "aserradero";
 const std::string NOMBRE_ESCUELA = "escuela";
@@ -128,8 +152,7 @@ const std::string NOMBRE_PLANTA = "planta";
 const std::string OPCION_SI = "SI";
 const std::string OPCION_NO = "NO";
 
-
-//OBJETIVOS 
+// OBJETIVOS 
 const std::string NOMBRE_OBJETIVO_ANDYCOINS = "andycoins por los cielos";
 const std::string NOMBRE_OBJETIVO_OBELISCO = "mas alto que las nubes";
 const std::string NOMBRE_OBJETIVO_PIEDRA = "edad de piedra";
@@ -157,11 +180,11 @@ const int POS_ESCUELA = 3;
 const int POS_MINA_ORO = 4;
 const int POS_MINA = 5;
 
-//DISEÑOS
+// DISEÑOS
 const std::string LINEA_DIVISORIA = "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550";
 const std::string LINEA_DIVISORIA_DISENIO = "══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n";
 
-//JUGADORES
+// JUGADORES
 const char JUGADOR_1 = 'J';
 const char JUGADOR_2 = 'U';
 const std::string NUMERO_JUGADOR_1 = "1";
@@ -170,14 +193,14 @@ const int MAX_COORDENADAS = 2;
 const int INDICE_FILA = 0;
 const int INDICE_COLUMNA = 1;
 
-//CASILLEROS
+// CASILLEROS
 const char LAGO = 'L';
 const char TERRENO = 'T';
 const char CAMINO = 'C';
 const char BETUN = 'B';
 const char MUELLE = 'M';
 
-//COSTOS DE CAMINOS(energia)
+// COSTOS DE CAMINOS(energia)
 const int COSTO_CAMINO = 4;
 const int COSTO_BETUN = 0;
 const int COSTO_LAGO_JUGADOR_1 = 2;
@@ -186,11 +209,10 @@ const int COSTO_MUELLE_JUGADOR_1 = 5;
 const int COSTO_MUELLE_JUGADOR_2 = 2;
 const int COSTO_TERRENO = 4;
 
-//PRECIOS
-
+// PRECIOS
 const int COSTO_ANDYCOINS_BOMBA = 100;
 
-//MENSAJES ASCII
+// MENSAJES ASCII
 /*const char MENU_CONFIGURACION[559] = R"(
                                               __ _                            _             
   /\/\   ___ _ __  _   _      ___ ___  _ __  / _(_) __ _ _   _ _ __ __ _  ___(_) ___  _ __ 
