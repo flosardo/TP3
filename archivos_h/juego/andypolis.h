@@ -37,130 +37,110 @@ class Andypolis {
         // MENU 1
 
         /*
-        *Pre:
-        *Post:
+        *Post: Comenzará la partida de andypolis.
         */
         void comenzar_partida();
 
         /*
-        *Pre:
-        *Post:
+        *Pre: Que la opcion sea >= 0.
+        *Post: Verificará la energía.
         */
         void verificar_energia(int & opcion_ingresada);
 
         /*
-        *Pre:
-        *Post:
+        *Post: Cambiara el turno del jugador actual.
         */
         void cambiar_turno();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Modificara edificio.
         */
         void modificar_edificio_nombre();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Listará los edificios disponibles del menu de configuración.
         */
         void listar_edificios();
         
         // FIN, GURADAR_Y_SALIR COMPARTEN
 
         /*
-        *Pre:
-        *Post:
+        *Post: Mostrará el mapa de andypolis.
         */
         void mostrar_mapa();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Construirá un edificio.
         */
         void construir_edificio();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Listará los edificios del jugador actual.
         */
         void listar_mis_edificios();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Demolera un edificio de andypolis.
         */
         void demoler_edificio();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Se atacará un edificio del jugador contrario.
         */
         void atacar_edificio();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Se repará un edificio del jugador actual
         */
         void reparar_edificio();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Se realizará la compara de las bombas, del jugador actual.
         */
         void comprar_bombas();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Mostrará la información de la coordenada consultada.
         */
         void consultar_coordenada();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Mostrará el invetario del jugador actual.
         */
         void mostrar_inventario();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Mostrará los objetivos.
         */
         void mostrar_objetivos();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Recolectará los recursos de andypolis.
         */
         void recolectar_recursos();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Cambiará las coordenadas del jugador actual, moviendolo de posición.
         */
         void moverse();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Finalizará el turno del jugador actual.
         */
         void finalizar_turno();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Guardará la partida de andypolis.
         */
         void guardar_y_salir();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Devolverá el puntero de tipo Jugador, con el jugador actual.
         */
         Jugador* devolver_jugador_actual();
 
         /*
-        *Pre:
-        *Post:
+        *Post: Devolveráel puntero de tipo Jugador, con el jugador pedido.
         */
         Jugador* devolver_jugador(std::string numero_jugador);
 
