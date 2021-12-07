@@ -41,11 +41,13 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
             jugador_2 -> establecer_codigo_emoji(convencion_jugador);
             mapa -> ubicar_jugador(jugador_2, fila, columna);
         }
-    } else if (convencion_jugador != " ") {
+    } 
+    else if (convencion_jugador != " ") {
         Edificio* edificio_creado = crear_edificio(nombre, fila, columna);
         mapa -> ubicar_edificio(edificio_creado, fila, columna);
         this -> cargar_edificio_en_jugador(edificio_creado, jugador_1, jugador_2, convencion_jugador);
-    } else {
+    } 
+    else {
         Material* material_creado = crear_material(nombre);
         mapa -> ubicar_material(material_creado, fila, columna);
     }
@@ -73,7 +75,6 @@ Edificio* Cargar_ubicaciones::crear_edificio(string nombre, int fila, int column
         edificio_creado = new Planta_electrica(fila, columna);
     else if (nombre == NOMBRE_MINA_ORO) 
         edificio_creado = new Mina_oro(fila, columna);
-
     return edificio_creado;
 }
 

@@ -45,7 +45,7 @@ class Jugador {
         *Pre: Que los parametros sean >= 0.
         *Post: Eliminará el edificio.
         */
-        void eliminar_edificio(int fila, int columna);
+        bool eliminar_edificio(int fila, int columna);
 
         /*
         *Post: Establecerá el nombre del jugador.
@@ -117,11 +117,12 @@ class Jugador {
         */
         Inventario* obtener_inventario();
 
+        bool existe_el_edificio(int fila, int columna);
+
         /*
         *Post: Liberará la memoria usada durante la creacion del objeto Jugador.
         */
-        ~Jugador();
-
-};
+            ~Jugador();
+        };
 
 #endif //_JUGADOR_H_

@@ -46,20 +46,32 @@ void Jugador::redimensionar_edificio(int nueva_longitud) {
     this -> edificios_construidos = nuevo_vector_edificios;
 }
 
-void Jugador::eliminar_edificio(int fila, int columna) {
-    bool se_elimino = false;
+bool Jugador::existe_el_edificio(int fila, int columna) {
+    bool existe = false;
     int i = 0;
-    while (i < this -> cantidad_construidos && !se_elimino) {
+    while(!existe && i < this -> cantidad_construidos) {
         if (this -> edificios_construidos[i] -> obtener_fila() == fila && this -> edificios_construidos[i] -> obtener_columna() == columna) {
-            this -> redimensionar_edificio(this -> cantidad_construidos - 1);
-            this -> cantidad_construidos--;
-            delete this -> edificios_construidos[i];
-            this -> edificios_construidos[i] = nullptr;
-            se_elimino = true;
+            existe = true;
         }
         i++;
     }
-    
+    return existe;
+}
+
+bool Jugador::eliminar_edificio(int fila, int columna) {
+    bool se_elimino = false;
+    int i = 0;
+    while (i < this -> cantidad_construidos && !se_elimino) {
+        if(this -> existe_el_edificio(fila, columna)) {
+            delete this -> edificios_construidos[i];
+            this -> edificios_construidos[i] = nullptr;
+            se_elimino = true;
+            this -> redimensionar_edificio(this -> cantidad_construidos - 1);
+            this -> cantidad_construidos--;
+        }
+        i++;
+    }
+    return se_elimino;
 }
 
 string Jugador::obtener_codigo_emoji() {

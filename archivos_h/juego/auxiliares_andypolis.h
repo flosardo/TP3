@@ -129,7 +129,7 @@ class Auxiliares_andypolis {
         *Pre: Que los parametros no sea null.
         *Pos: Actualizará el inventario del jugador.
         */
-        void actualizar_inventario(Inventario* inventario, Edificio* edificio);
+        void actualizar_inventario(Inventario* inventario, int piedra, int madera, int metal);
 
         /*
         *Post: Devolverá true si se confirmo la construcción, false en caso contrario.
