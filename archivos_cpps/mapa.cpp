@@ -30,7 +30,7 @@ void Mapa::mostrar_simbologia(){
     cout << " ■ " << COLOR_POR_DEFECTO << "1. Convenciones Casillero Construible: " << COLOR_DORADO << setw(82) << "■" << endl; 
     cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Aserradero: " << EMOJI_ASERRADERO << " Fábrica: "  << EMOJI_FABRICA 
                                        << " Escuela: " << EMOJI_ESCUELA << "Obelisco: " << EMOJI_OBELISCO << "Mina: " << EMOJI_MINA 
-                                       << "Planta Electrica: " << EMOJI_PLANTA_ELECTRICA << " Terreno: \033[48;5;2m  \033[0m" << setw(25) << COLOR_DORADO << "■" << endl;
+                                       << "Planta Electrica: " << EMOJI_PLANTA_ELECTRICA << " Terreno: \033[48;5;28m  \033[0m" << setw(25) << COLOR_DORADO << "■" << endl;
     cout << " ■ " << COLOR_POR_DEFECTO << "2. Convenciones Casillero Inaccesible: " << COLOR_DORADO << setw(82) << "■" << endl;                              
     cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Lago: \033[48;5;27m  \033[0m" << COLOR_DORADO << setw(105) << "■" << endl;                     
     cout << " ■ " << COLOR_POR_DEFECTO << "3. Convenciones Casillero Transitable: " << COLOR_DORADO << setw(82) << "■" << endl;

@@ -35,8 +35,8 @@ const std::string COLOR_MARRON = "\033[38;5;136m";
 const std::string COLOR_DORADO = "\x1b[33m";
 
 const std::string FONDO_AZUL = "\033[48;5;27m";
-const std::string FONDO_VERDE = "\033[48;5;2m";
-const std::string FONDO_GRIS = "\033[48;5;240m";
+const std::string FONDO_VERDE = "\033[48;5;28m";
+const std::string FONDO_GRIS = "\033[48;5;239m";
 
 // JUEGO
 const int OPCION_EMPEZAR = 66;
@@ -90,10 +90,10 @@ const std::string EMOJI_GUARDAR_Y_SALIR = "\U0001f4be";
 
 // EMOJIS MATERIALES
 const std::string EMOJI_PIEDRA = "\U0001f311";
-const std::string EMOJI_METAL = "\u2699";
+const std::string EMOJI_METAL = "\U0001f529";
 const std::string EMOJI_MADERA = "\U0001f954";
 const std::string EMOJI_ENERGIA = "\u26A1";
-const std::string EMOJI_ANDYCOIN = "\U0001fa99";
+const std::string EMOJI_ANDYCOIN = "\U0001f4b0";
 const std::string EMOJI_BOMBA = "\U0001f4a3";
 const std::string EMOJI_CAMINO = "\U0001f6e4";
 const int LIMITE_INFERIOR_PIEDRA = 1;
