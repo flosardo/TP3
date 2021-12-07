@@ -10,7 +10,7 @@
 #include "../construcciones/escuela.h"
 #include "../construcciones/planta_electrica.h"
 #include "../construcciones/obelisco.h"
-
+#include <unistd.h>
 #include <algorithm>
 
 class Auxiliares_andypolis {
@@ -56,6 +56,12 @@ class Auxiliares_andypolis {
         *Post: Devolverá true si las coordenadas son validas, false en caso contrario.
         */
         bool validar_coordenadas(int fila, int columna);
+
+        /*
+        *Pre: Que la opcion sea >= 0.
+        *Post: Verificará la energía.
+        */
+        void verificar_energia(int & opcion_ingresada);
 
         /*
         *Pre: Que los parámetros sean >= 0.
@@ -136,6 +142,7 @@ class Auxiliares_andypolis {
         */
         Edificio* crear_edificio(std::string nombre, int fila, int columna);
 
+        void demoler_edificio_auxiliar(int fila, int columna);
 };
 
 #endif //_AUXILIARES_ANDYPOLIS_H_

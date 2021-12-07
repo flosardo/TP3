@@ -18,13 +18,8 @@ Mapa* Andypolis::devolver_mapa() {
 Abb* Andypolis::devolver_arbol() {
     return this -> edificios_disponibles;
 }
-
-void Andypolis::verificar_energia(int & opcion_ingresada) {
-    if (this -> jugador_actual -> obtener_energia_actual() == 0) {
-        opcion_ingresada = 12;
-        cout << this -> jugador_actual -> obtener_codigo_emoji() << COLOR_ROJO << "Te quedaste sin energia :( Ahora es turno del siguiente jugador" << COLOR_POR_DEFECTO << endl;
-        sleep(3);
-    }
+Auxiliares_andypolis Andypolis::obtener_funciones_auxiliares() {
+    return this -> funciones_auxiliares;
 }
 
 void Andypolis::listar_edificios() {
@@ -144,7 +139,12 @@ void Andypolis::moverse() {}
 
 void Andypolis::guardar_y_salir() {}
 
-void Andypolis::demoler_edificio() {}
+void Andypolis::demoler_edificio() {
+    if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_DEMOLER_EDIFICIO_COORDENADA, this -> jugador_actual -> obtener_energia_actual())) {
+        int* coordenadas = this -> funciones_auxiliares.pedir_coordenadas();
+        this->funciones_auxiliares.demoler_edificio_auxiliar(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+    }
+}
 
 void Andypolis::atacar_edificio() {}
 

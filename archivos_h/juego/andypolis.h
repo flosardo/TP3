@@ -4,7 +4,6 @@
 #include "../mapa.h"
 #include "../arbol/abb.h"
 #include "auxiliares_andypolis.h"
-#include <unistd.h>
 
 class Andypolis {
 
@@ -34,6 +33,11 @@ class Andypolis {
         */
         Mapa* devolver_mapa();
 
+        /*
+        *Post: Devolverá un puntero de tipo Auxiliares_andypolis.
+        */
+        Auxiliares_andypolis obtener_funciones_auxiliares();
+
         // MENU 1
 
         /*
@@ -41,11 +45,6 @@ class Andypolis {
         */
         void comenzar_partida();
 
-        /*
-        *Pre: Que la opcion sea >= 0.
-        *Post: Verificará la energía.
-        */
-        void verificar_energia(int & opcion_ingresada);
 
         /*
         *Post: Cambiara el turno del jugador actual.

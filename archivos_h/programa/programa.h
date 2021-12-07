@@ -8,7 +8,6 @@
 #include "../carga_de_datos/cargar_materiales.h"
 #include "../carga_de_datos/cargar_ubicaciones.h"
 #include <cstdlib>
-#include <ctime>
 
 class Programa {
 

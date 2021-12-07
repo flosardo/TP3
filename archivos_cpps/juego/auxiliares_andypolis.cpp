@@ -53,6 +53,14 @@ bool Auxiliares_andypolis::es_casillero_valido(int fila, int columna) {
     return es_valido;
 }
 
+void Auxiliares_andypolis::verificar_energia(int & opcion_ingresada) {
+    if (this -> jugador_actual -> obtener_energia_actual() == 0) {
+        opcion_ingresada = 12;
+        cout << this -> jugador_actual -> obtener_codigo_emoji() << COLOR_ROJO << "Te quedaste sin energia :( Ahora es turno del siguiente jugador" << COLOR_POR_DEFECTO << endl;
+        sleep(3);
+    }
+}
+
 string Auxiliares_andypolis::pedir_nombre_edificio() {
     string nombre_edificio;
     cout << "Ingrese el nombre del edificio" << COLOR_DORADO << " >> " << COLOR_POR_DEFECTO;
@@ -149,6 +157,27 @@ bool Auxiliares_andypolis::confirmar_construccion(string edificio_a_construir) {
     transform(decision.begin(), decision.end(), decision.begin(), ::tolower);
     return (decision == DESICION_SI);
 }
+
+void Auxiliares_andypolis::demoler_edificio_auxiliar(int fila, int columna) {
+    if (this -> mapa -> obtener_tipo_casillero(fila, columna) != TERRENO)
+        cout << COLOR_ROJO << "En las coordenadas ingresadas no se puede demoler dado que no es un casillero de tipo Terreno" << COLOR_POR_DEFECTO << endl;
+    else if (!this -> mapa -> obtener_edificio(fila, columna))
+        cout << COLOR_ROJO << "En las coordenadas ingresadas no hay un edificio por demoler" << COLOR_POR_DEFECTO << endl;
+    else {
+        Edificio* edificio_a_demoler = this -> mapa -> obtener_edificio(fila, columna);
+        int piedra_necesaria = edificio_a_demoler -> obtener_cantidad_necesaria(PIEDRA);
+        int madera_necesaria = edificio_a_demoler -> obtener_cantidad_necesaria(MADERA);
+        int metal_necesario = edificio_a_demoler -> obtener_cantidad_necesaria(METAL);
+        cout << piedra_necesaria << madera_necesaria << metal_necesario << endl;
+        //Inventario* inventario = this -> jugador_actual -> obtener_inventario();
+        //inventario -> modificar_cantidad_material(PIEDRA, piedra_necesaria / 2);
+        //inventario -> modificar_cantidad_material(MADERA, madera_necesaria / 2);
+        //inventario -> modificar_cantidad_material(METAL, metal_necesario / 2);
+        this -> mapa -> liberar_posicion(fila, columna);
+        cout << COLOR_VERDE << edificio_a_demoler -> obtener_nombre() << " fue demolido statisfactoriamente!" << COLOR_POR_DEFECTO << endl;
+    }
+}
+
 
 Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int columna) { //metodo repetido
     Edificio* edificio_creado = nullptr;

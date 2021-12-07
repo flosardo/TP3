@@ -133,6 +133,13 @@ void Mapa::liberar_posicion(int fila, int columna) {
     this -> mapa[fila][columna] -> limpiar_casillero();
 }
 
+Edificio* Mapa::obtener_edificio(int fila, int columna) {
+    Edificio* edificio = nullptr;
+    if(!this -> mapa[fila][columna] -> obtener_puntero_jugador())
+        edificio = this -> mapa[fila][columna] -> obtener_puntero_edificio();
+    return edificio;
+}
+
 void Mapa::mostrar_mapa() {
     cout << endl;
     this -> mostrar_simbologia();

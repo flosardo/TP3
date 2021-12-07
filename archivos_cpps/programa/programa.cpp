@@ -25,7 +25,7 @@ void Programa::empezar() {
     opcion = OPCION_EMPEZAR;
 
     while (opcion != OPCION_SALIR_JUEGO) {
-        juego.verificar_energia(opcion);
+        this -> juego.obtener_funciones_auxiliares().verificar_energia(opcion);
         cout << "TURNO DEL JUGADOR: " << this -> juego.devolver_jugador_actual() -> obtener_codigo_emoji() << endl;
         menu_partida.mostrar_mensaje_bienvenida();
         menu_partida.mostrar_menu();

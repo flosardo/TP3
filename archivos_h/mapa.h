@@ -83,6 +83,8 @@ class Mapa {
         */
         bool es_posible_insertar_materiales(int cantidad_a_insertar);
 
+        Edificio* obtener_edificio(int fila, int columna);
+
         /*
         *Post: Devuelve un puntero a las coordenadas generadas para insertar material.
         */
