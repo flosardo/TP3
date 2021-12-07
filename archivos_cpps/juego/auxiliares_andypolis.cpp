@@ -115,7 +115,11 @@ void Auxiliares_andypolis::construir_edificio_auxiliar(string edificio_a_constru
 
     else {
         Inventario* inventario = this -> jugador_actual -> obtener_inventario();
-        if (!this -> hay_material_suficiente(PIEDRA, inventario, edificio) || !this -> hay_material_suficiente(MADERA, inventario, edificio) || !this -> hay_material_suficiente(METAL, inventario, edificio))
+        bool hay_piedra_suficiente = this -> hay_material_suficiente(PIEDRA, inventario, edificio -> obtener_cantidad_necesaria(PIEDRA));
+        bool hay_madera_suficiente = this -> hay_material_suficiente(MADERA, inventario, edificio -> obtener_cantidad_necesaria(MADERA));
+        bool hay_metal_suficiente = this -> hay_material_suficiente(METAL, inventario, edificio -> obtener_cantidad_necesaria(METAL));
+        
+        if (!hay_piedra_suficiente || !hay_madera_suficiente || !hay_metal_suficiente)
             cout << COLOR_ROJO << "No hay materiales suficientes para construir" << edificio_a_construir << COLOR_POR_DEFECTO << endl;
 
         else if (!this -> confirmar_construccion(edificio_a_construir))
@@ -143,8 +147,8 @@ bool Auxiliares_andypolis::se_alcanzo_maximo_permitido(Edificio* edificio_a_cons
     return this -> edificios_disponibles -> contar_construidos(this -> jugador_actual, edificio_a_construir -> obtener_nombre()) == edificio_a_construir -> obtener_permitidos();
 }
 
-bool Auxiliares_andypolis::hay_material_suficiente(string material, Inventario* inventario, Edificio* edificio) {
-    return inventario -> obtener_material(material) -> obtener_cantidad() >= edificio -> obtener_cantidad_necesaria(material);
+bool Auxiliares_andypolis::hay_material_suficiente(string material, Inventario* inventario, int cantidad_material) {
+    return inventario -> obtener_material(material) -> obtener_cantidad() >= cantidad_material;
 }
 
 void Auxiliares_andypolis::actualizar_inventario(Inventario* inventario, int piedra, int madera, int metal) {
@@ -176,11 +180,40 @@ void Auxiliares_andypolis::demoler_edificio_auxiliar(int fila, int columna) {
         int metal_necesario = edificio_a_demoler -> obtener_cantidad_necesaria(METAL);
         this -> actualizar_inventario(this -> jugador_actual -> obtener_inventario(), piedra_necesaria / 2, madera_necesaria / 2, metal_necesario / 2);
         this -> mapa -> liberar_posicion(fila, columna);
+        this -> jugador_actual -> modificar_energia(-ENERGIA_DEMOLER_EDIFICIO_COORDENADA);
         cout << COLOR_VERDE << nombre_edificio << " fue demolido statisfactoriamente!" << COLOR_POR_DEFECTO << endl;
     }
 }
 
+void Auxiliares_andypolis::reparar_edificio_auxiliar(int fila, int columna) {
+    Edificio* edificio = this -> mapa -> obtener_edificio(fila, columna);
+    if (this -> mapa -> obtener_tipo_casillero(fila, columna) != TERRENO)
+        cout << COLOR_ROJO << "En las coordenadas ingresadas no se puede reparar dado que no es un casillero de tipo Terreno" << COLOR_POR_DEFECTO << endl;
+    else if (!edificio)
+        cout << COLOR_ROJO << "En las coordenadas ingresadas no hay un edificio por reparar" << COLOR_POR_DEFECTO << endl;
+    else if (!this -> jugador_actual -> existe_el_edificio(fila, columna))
+        cout << COLOR_ROJO << "No puede reparar un edificio que no le pertenece" << COLOR_POR_DEFECTO << endl;
+    else if (!edificio -> esta_afectado())
+        cout << COLOR_ROJO << "No puede reparar un edificio que no esta afectado" << COLOR_POR_DEFECTO << endl;
+    else {
+        int piedra_necesaria = (int) (edificio -> obtener_cantidad_necesaria(PIEDRA) * 0.25);
+        int madera_necesaria = (int) (edificio -> obtener_cantidad_necesaria(MADERA) * 0.25);
+        int metal_necesario = (int) (edificio -> obtener_cantidad_necesaria(METAL) * 0.25);
+        Inventario* inventario = this -> jugador_actual -> obtener_inventario();
+        bool hay_piedra_suficiente = this -> hay_material_suficiente(PIEDRA, inventario, edificio -> obtener_cantidad_necesaria(PIEDRA));
+        bool hay_madera_suficiente = this -> hay_material_suficiente(MADERA, inventario, edificio -> obtener_cantidad_necesaria(MADERA));
+        bool hay_metal_suficiente = this -> hay_material_suficiente(METAL, inventario, edificio -> obtener_cantidad_necesaria(METAL));
+        if (!hay_piedra_suficiente || !hay_madera_suficiente || !hay_metal_suficiente)
+            cout << COLOR_ROJO << "No tiene materiales suficientes para reparar" << edificio -> obtener_nombre() << COLOR_POR_DEFECTO << endl;
+        else {
+            edificio -> cambiar_estado_afectado();
+            this -> actualizar_inventario(inventario, piedra_necesaria, madera_necesaria, metal_necesario);
+            this -> jugador_actual -> modificar_energia(-ENERGIA_REPARAR_EDIFICIO);
+        } 
+    }
+    
 
+}
 
 Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int columna) { //metodo repetido
     Edificio* edificio_creado = nullptr;

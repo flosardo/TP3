@@ -129,6 +129,13 @@ Jugador* Andypolis::devolver_jugador(string numero_jugador) {
     return numero_jugador == NUMERO_JUGADOR_1 ? this -> jugador_1 : this -> jugador_2;
 }
 
+void Andypolis::demoler_edificio() {
+    if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_DEMOLER_EDIFICIO_COORDENADA, this -> jugador_actual -> obtener_energia_actual())) {
+        int* coordenadas = this -> funciones_auxiliares.pedir_coordenadas();
+        this -> funciones_auxiliares.demoler_edificio_auxiliar(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+    }
+}
+
 //Pendientes por implementar.
 
 void Andypolis::mostrar_objetivos() {}
@@ -139,15 +146,24 @@ void Andypolis::moverse() {}
 
 void Andypolis::guardar_y_salir() {}
 
-void Andypolis::demoler_edificio() {
-    if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_DEMOLER_EDIFICIO_COORDENADA, this -> jugador_actual -> obtener_energia_actual())) {
-        int* coordenadas = this -> funciones_auxiliares.pedir_coordenadas();
-        this->funciones_auxiliares.demoler_edificio_auxiliar(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
-    }
-}
 
 void Andypolis::atacar_edificio() {}
 
-void Andypolis::reparar_edificio() {}
+void Andypolis::reparar_edificio() {
+    if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_REPARAR_EDIFICIO, this -> jugador_actual -> obtener_energia_actual())) {
+        int* coordenadas = this -> funciones_auxiliares.pedir_coordenadas();
+        this -> funciones_auxiliares.reparar_edificio_auxiliar(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+    }
+}
 
-Andypolis::~Andypolis() {}
+Andypolis::~Andypolis() {
+    // delete this -> edificios_disponibles;
+    // delete this -> mapa;
+    // delete this -> jugador_1;
+    // delete this -> jugador_2;
+    // this -> edificios_disponibles = nullptr;
+    // this -> mapa = nullptr;
+    // this -> jugador_1 = nullptr;
+    // this -> jugador_2 = nullptr;
+    // this -> jugador_actual = nullptr;
+}

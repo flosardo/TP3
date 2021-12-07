@@ -123,7 +123,7 @@ class Auxiliares_andypolis {
         *Pre: Que el parametro inventario y edificio no sean null.
         *Post: Devolvera true si hay materiales suficientes, false en caso contrario.
         */
-        bool hay_material_suficiente(std::string material, Inventario* inventario, Edificio* edificio);
+        bool hay_material_suficiente(std::string material, Inventario* inventario, int cantidad_material);
 
         /*
         *Pre: Que los parametros no sea null.
@@ -143,6 +143,8 @@ class Auxiliares_andypolis {
         Edificio* crear_edificio(std::string nombre, int fila, int columna);
 
         void demoler_edificio_auxiliar(int fila, int columna);
+
+        void reparar_edificio_auxiliar(int fila, int columna);
 };
 
 #endif //_AUXILIARES_ANDYPOLIS_H_
