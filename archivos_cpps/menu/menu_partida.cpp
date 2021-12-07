@@ -39,52 +39,57 @@ void Menu_partida::mostrar_menu() {
     cout << borde << setw(55) << borde << endl;
     cout << borde << " 11.Moverse a una coordenada "                << EMOJI_MOVERSE_A_UNA_COORDENADA       << setw(24) << borde << endl;
     cout << borde << setw(55) << borde << endl;
-    cout << borde << " 12.Finalizar turno "                         << EMOJI_FINALIZAR_TURNO                << setw(33) << borde << endl;
+    cout << borde << " 12.Mostrar mapa "                            << EMOJI_MOSTRAR_MAPA                   << setw(36) << borde << endl;
     cout << borde << setw(55) << borde << endl;
-    cout << borde << " 13.Guardar y salir "                         << EMOJI_GUARDAR_Y_SALIR                << setw(33) << borde << endl << COLOR_DORADO;
+    cout << borde << " 13.Finalizar turno "                         << EMOJI_FINALIZAR_TURNO                << setw(33) << borde << endl;
+    cout << borde << setw(55) << borde << endl;
+    cout << borde << " 14.Guardar y salir "                         << EMOJI_GUARDAR_Y_SALIR                << setw(33) << borde << endl << COLOR_DORADO;
     cout << "╚═══════════════════════════════════════════╝" << COLOR_POR_DEFECTO << endl;
 }
 
 void Menu_partida::procesar_opcion(int & opcion_ingresada, Andypolis & juego) {
     switch (opcion_ingresada) {
-        case 1:
+        case OPCION_CONSTRUIR_EDIFICIO:
             juego.construir_edificio();
             break;
-        case 2:
+        case OPCION_LISTAR_MIS_EDIFICIOS:
             juego.listar_mis_edificios();
             break;
-        case 3:
+        case OPCION_DEMOLER_EDIFICIO:
             juego.demoler_edificio();
             break;
-        case 4:
+        case OPCION_ATACAR_EDIFICIO_COORDENADA:
             juego.atacar_edificio();
             break;
-        case 5:
+        case OPCION_REPARAR_EDIFICO_COODENADA:
             juego.reparar_edificio();
             break;
-        case 6:
+        case OPCION_COMPRAR_BOMBAS:
             juego.comprar_bombas();
             break;
-        case 7:
+        case OPCION_CONSULTAR_COORDENADAS:
             juego.consultar_coordenada();
             break;
-        case 8:
+        case OPCION_MOSTRAR_INVENTARIO:
             juego.mostrar_inventario();
             break;
-        case 9:
+        case OPCION_MOSTRAR_OBJETIVOS:
             juego.mostrar_objetivos();
             break;
-        case 10:
+        case OPCION_RECOLECTAR_RECURSOS_PRODUCIOS:
             juego.recolectar_recursos();
             break;
-        case 11:
+        case OPCION_MOVERSE_UNA_COORDENADA:
             juego.moverse();
             break;
-        case 12:
+        case OPCION_MOSTRAR_MAPA_JUEGO:
+            juego.mostrar_mapa();
+            break;
+        case OPCION_FINALIZAR_TURNO:
             opcion_ingresada = OPCION_SALIR;
             juego.finalizar_turno();
             break;
-        case 13:
+        case OPCION_SALIR_JUEGO:
             opcion_ingresada = OPCION_SALIR_JUEGO;
             juego.guardar_y_salir();
             break;

@@ -29,8 +29,7 @@ void Programa::empezar() {
         cout << "TURNO DEL JUGADOR: " << this -> juego.devolver_jugador_actual() -> obtener_codigo_emoji() << endl;
         menu_partida.mostrar_mensaje_bienvenida();
         menu_partida.mostrar_menu();
-        juego.mostrar_mapa();
-        if(opcion != 12) {
+        if(opcion != OPCION_FINALIZAR_TURNO) {
             opcion = menu_partida.pedir_opcion();
         }
         menu_partida.procesar_opcion(opcion, juego);
