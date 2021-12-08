@@ -39,6 +39,8 @@ class Auxiliares_andypolis {
 
         void aumentar_materiales_producidos(Jugador* jugador_actual);
 
+        void atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador_actual, Jugador* jugador_1, Jugador* jugador_2, int fila, int columna);
+
         /*
         *Post: obtendra un puntero con las coordenadas pedidas.
         */

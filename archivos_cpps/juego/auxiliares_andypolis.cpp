@@ -222,6 +222,36 @@ void Auxiliares_andypolis::recolectar_recursos_auxiliares(Jugador* jugador_actua
     cout << COLOR_VERDE_AGUA << " Los recursos producidos por los edificios fueron recolectados satisfactoriamente" << COLOR_POR_DEFECTO << endl;
 }
 
+void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador_actual, Jugador* jugador_1, Jugador* jugador_2, int fila, int columna) {
+    Jugador* jugador_atacado = jugador_actual == jugador_1 ? jugador_2 : jugador_1;
+    if (mapa -> obtener_tipo_casillero(fila, columna) != TERRENO)
+        cout << COLOR_ROJO << "En las coordenadas ingresadas no se puede atacar dado que no es un casillero de tipo Terreno" << endl;
+    else if (mapa -> esta_ocupado(fila, columna) && !mapa -> obtener_edificio(fila, columna))
+        cout << COLOR_ROJO << "En las coordenadas ingresadas no hay un edificio por atacar" << endl;
+    else if (jugador_actual -> existe_el_edificio(fila, columna))
+        cout << COLOR_ROJO << "Sos suicida???, estas atacandote a vos mismo" << endl;
+    else {
+        Edificio* edificio = mapa -> obtener_edificio(fila, columna);
+        Inventario* inventario = jugador_actual -> obtener_inventario();
+        int cantidad_bombas = inventario -> obtener_material(BOMBA) -> obtener_cantidad();
+        if (!cantidad_bombas)
+            cout << COLOR_ROJO << "No tiene bombas suficientes para atacar" << endl;
+        else if ((edificio -> obtener_nombre() == NOMBRE_MINA || edificio -> obtener_nombre() == NOMBRE_FABRICA) && !edificio -> esta_afectado()) {
+            edificio -> cambiar_estado_afectado();
+            jugador_actual -> modificar_energia(-ENERGIA_ATACAR_EDIFICIO_COORDENADA);
+            cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue dañado" << endl;
+        }
+        else {
+            mapa -> liberar_posicion(fila, columna);
+            jugador_atacado -> eliminar_edificio(fila, columna);
+            inventario -> modificar_cantidad_material(BOMBA, -1);
+            jugador_actual -> modificar_energia(-ENERGIA_ATACAR_EDIFICIO_COORDENADA);
+            cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue destruido" << endl;
+        }
+    }
+    cout << COLOR_POR_DEFECTO;
+}
+
 Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int columna) { //metodo repetido
     Edificio* edificio_creado = nullptr;
 
