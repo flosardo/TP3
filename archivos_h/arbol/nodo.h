@@ -25,17 +25,17 @@ class Nodo {
         Nodo(Edificio* edificio);
 
         /*
-        *Post: obtenera el nodo izquierdo.
+        *Post: obtendra el nodo izquierdo.
         */
         Nodo* obtener_izquierda();
 
         /*
-        *Post: obtenera el nodo derecho.
+        *Post: obtendra el nodo derecho.
         */
         Nodo* obtener_derecha();
 
         /*
-        *Post: obtenera el dato del edificio.
+        *Post: obtendra el dato del edificio.
         */
         Edificio* obtener_dato();
 

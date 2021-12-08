@@ -29,17 +29,17 @@ class Casillero_transitable: public Casillero {
         void mostrar();
 
         /*
-        *Post: obtenera el puntero de tipo material que está en el atributo.
+        *Post: obtendra el puntero de tipo material que está en el atributo.
         */
         Material* obtener_puntero_material();
 
         /*
-        *Post: obtenera el puntero de tipo jugador del jugador pedido, en caso contrario obtenerá null.
+        *Post: obtendra el puntero de tipo jugador del jugador pedido, en caso contrario obtendra null.
         */
         Jugador* obtener_puntero_jugador();
 
         /*
-        *Post: obtenera true si el casillero se encuentra ocupado con un material o jugador, o false en caso contrario.
+        *Post: obtendra true si el casillero se encuentra ocupado con un material o jugador, o false en caso contrario.
         */
         bool esta_ocupado();
 

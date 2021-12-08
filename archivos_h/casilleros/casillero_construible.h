@@ -35,17 +35,17 @@ class Casillero_construible: public Casillero {
         void agregar_edificio(Edificio* edificio_a_agregar);
 
         /*
-        *Post: obtenerá el puntero de tipo edificio que esta en el atributo.
+        *Post: obtendra el puntero de tipo edificio que esta en el atributo.
         */
         Edificio* obtener_puntero_edificio();
 
         /*
-        *Post: obtenera null si no hay puntero jugador, en caso contrario obtenera el puntero de tipo Jugador, con el jugador pedido.
+        *Post: obtendra null si no hay puntero jugador, en caso contrario obtendra el puntero de tipo Jugador, con el jugador pedido.
         */
         virtual Jugador* obtener_puntero_jugador();
 
         /*
-        *Post: obtenerá true si el casillero se encuentra ocupado con un edificio, o false en caso contrario.
+        *Post: obtendra true si el casillero se encuentra ocupado con un edificio, o false en caso contrario.
         */
         bool esta_ocupado();
 
@@ -61,7 +61,7 @@ class Casillero_construible: public Casillero {
         void agregar_jugador(Jugador* jugador);
 
         /*
-        *Post: obtenerá la cantidad material producido.
+        *Post: obtendra la cantidad material producido.
         */
         int cantidad_material_producido();
 

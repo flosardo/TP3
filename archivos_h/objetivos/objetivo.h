@@ -17,7 +17,7 @@ class Objetivo {
         Objetivo();
 
         /*
-        *Post: obtenera un string con el nombre del objetivo.
+        *Post: obtendra un string con el nombre del objetivo.
         */
         std::string obtener_nombre();
 
@@ -27,12 +27,12 @@ class Objetivo {
         virtual void mostrar_progreso() = 0;
 
         /*
-        *Post: obtenerá true si se cumplio el objetivo en las hijas, o false en caso contrario.
+        *Post: obtendra true si se cumplio el objetivo en las hijas, o false en caso contrario.
         */
         virtual bool se_cumplio_el_objetivo(int cantidad);
 
         /*
-        *Post: obtenerá true si se cumplio el objetivo o false en caso contrario.
+        *Post: obtendra true si se cumplio el objetivo o false en caso contrario.
         */
         virtual bool se_cumplio_el_objetivo(std::string nombre);
 

@@ -8,7 +8,10 @@ Andypolis::Andypolis() {
     this -> jugador_1 = new Jugador();
     this -> jugador_2 = new Jugador();
     this -> jugador_actual = this -> jugador_1;
-    this -> funciones_auxiliares = Auxiliares_andypolis(this -> edificios_disponibles, this -> mapa, this -> jugador_actual, this -> jugador_1, this -> jugador_2);
+}
+
+void Andypolis::verificar_energia(int & opcion_ingresada) {
+    funciones_auxiliares.verificar_energia(this -> jugador_actual, opcion_ingresada);
 }
 
 Mapa* Andypolis::obtener_mapa() {
@@ -18,29 +21,25 @@ Mapa* Andypolis::obtener_mapa() {
 Abb* Andypolis::obtener_arbol() {
     return this -> edificios_disponibles;
 }
-Auxiliares_andypolis Andypolis::obtener_funciones_auxiliares() {
-    return this -> funciones_auxiliares;
+
+Jugador* Andypolis::obtener_jugador_actual() {
+    return this -> jugador_actual;
 }
 
 void Andypolis::listar_edificios() {
     this -> edificios_disponibles -> mostrar_arbol(this -> jugador_actual);
 }
 
-
 void Andypolis::modificar_edificio_nombre() {
-    string nombre = this -> funciones_auxiliares.pedir_nombre_edificio();
+    string nombre = funciones_auxiliares.pedir_nombre_edificio();
     Edificio* edificio_a_modificar = this -> edificios_disponibles -> buscar_edificio(nombre);
    
     if (!edificio_a_modificar)
         cout << COLOR_ROJO << "El edificio que desea modificar, no existe :( " << COLOR_POR_DEFECTO << endl;
     else {
-        this -> funciones_auxiliares.modificar_materiales_necesarios(edificio_a_modificar);
+        funciones_auxiliares.modificar_materiales_necesarios(edificio_a_modificar);
         cout << COLOR_VERDE << "Se modificaron los materiales necesarios satisfactoriamente" << COLOR_POR_DEFECTO << endl;
     }
-}
-
-Jugador* Andypolis::obtener_jugador_actual() {
-    return this -> jugador_actual;
 }
 
 void Andypolis::comenzar_partida() {
@@ -51,17 +50,18 @@ void Andypolis::comenzar_partida() {
     int* coordenadas = 0;
     bool jugador_1_ubicado = false;
     bool jugador_2_ubicado = false;
-    this -> funciones_auxiliares.seleccionar_jugador(nombre_jugador_1, nombre_jugador_2);
+    funciones_auxiliares.seleccionar_jugador(nombre_jugador_1, nombre_jugador_2);
     while (!jugador_1_ubicado || !jugador_2_ubicado) {
         convencion_jugador = nombre_jugador_1 == NUMERO_JUGADOR_1 ? JUGADOR_1 : JUGADOR_2;
-        coordenadas = this -> funciones_auxiliares.pedir_coordenadas();
+        coordenadas = funciones_auxiliares.pedir_coordenadas(this -> mapa);
         int fila = coordenadas[INDICE_FILA];
         int columna = coordenadas[INDICE_COLUMNA];
         if (!jugador_1_ubicado) {
             jugador = jugador_1;
             jugador -> establecer_nombre(nombre_jugador_1);
             jugador_1_ubicado = true;
-        }else if(!jugador_2_ubicado) {
+        }
+        else if(!jugador_2_ubicado) {
             convencion_jugador = convencion_jugador == JUGADOR_1 ? JUGADOR_2 : JUGADOR_1;
             jugador = jugador_2;
             jugador -> establecer_nombre(nombre_jugador_2);
@@ -81,9 +81,9 @@ void Andypolis::mostrar_mapa() {
 }
 
 void Andypolis::construir_edificio() {
-    if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_CONSTRUIR_EDIFICIO, this -> jugador_actual -> obtener_energia_actual())) {
-        string edificio_a_construir = this -> funciones_auxiliares.pedir_nombre_edificio();
-        this -> funciones_auxiliares.construir_edificio_auxiliar(edificio_a_construir);
+    if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_CONSTRUIR_EDIFICIO, this -> jugador_actual -> obtener_energia_actual())) {
+        string edificio_a_construir = funciones_auxiliares.pedir_nombre_edificio();
+        funciones_auxiliares.construir_edificio_auxiliar(this -> edificios_disponibles, this -> mapa, this -> jugador_actual, edificio_a_construir);
     }
 }
 
@@ -92,14 +92,14 @@ void Andypolis::listar_mis_edificios() {
 }
 
 void Andypolis::comprar_bombas() {
-    if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_COMPRAR_BOMBA, this -> jugador_actual -> obtener_energia_actual())) {
+    if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_COMPRAR_BOMBA, this -> jugador_actual -> obtener_energia_actual())) {
         int bombas_a_comprar;
         cout << "Ingrese la cantidad de bombas que quiere comprar: " << endl;
         cin >> bombas_a_comprar;
 
         Inventario* inventario = this -> jugador_actual -> obtener_inventario();
         Material* andycoins = inventario -> obtener_material(ANDYCOINS);
-        if (this -> funciones_auxiliares.es_posible_comprar_bombas(bombas_a_comprar, andycoins -> obtener_cantidad())) {
+        if (funciones_auxiliares.es_posible_comprar_bombas(bombas_a_comprar, andycoins -> obtener_cantidad())) {
             inventario -> modificar_cantidad_material(ANDYCOINS, - COSTO_ANDYCOINS_BOMBA);
             inventario -> modificar_cantidad_material(BOMBA, bombas_a_comprar);
             this -> jugador_actual -> modificar_energia(-ENERGIA_COMPRAR_BOMBA);
@@ -109,7 +109,7 @@ void Andypolis::comprar_bombas() {
 }
  
 void Andypolis::consultar_coordenada() {
-    int* coordenadas = this -> funciones_auxiliares.pedir_coordenadas();
+    int* coordenadas = funciones_auxiliares.pedir_coordenadas(this -> mapa);
     this -> mapa -> consultar_coordenada(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
 }
 
@@ -118,11 +118,9 @@ void Andypolis::mostrar_inventario() {
 }
 
 void Andypolis::finalizar_turno() {
-    cout << "en adny" << endl;
-    cout << (this -> jugador_actual == this -> funciones_auxiliares.obtener_jugador_actual()) << endl;
-    this -> funciones_auxiliares.aumentar_materiales_producidos();
+    funciones_auxiliares.aumentar_materiales_producidos(this -> jugador_actual);
     this -> jugador_actual -> modificar_energia(ENERGIA_FINALIZAR_TURNO);
-    this -> funciones_auxiliares.cambiar_turno();
+    this -> jugador_actual = funciones_auxiliares.cambiar_turno(this -> jugador_actual, this -> jugador_1, this -> jugador_2);
 }
 
 Jugador* Andypolis::obtener_jugador(string numero_jugador) {
@@ -130,15 +128,15 @@ Jugador* Andypolis::obtener_jugador(string numero_jugador) {
 }
 
 void Andypolis::demoler_edificio() {
-    if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_DEMOLER_EDIFICIO_COORDENADA, this -> jugador_actual -> obtener_energia_actual())) {
-        int* coordenadas = this -> funciones_auxiliares.pedir_coordenadas();
-        this -> funciones_auxiliares.demoler_edificio_auxiliar(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+    if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_DEMOLER_EDIFICIO_COORDENADA, this -> jugador_actual -> obtener_energia_actual())) {
+        int* coordenadas = funciones_auxiliares.pedir_coordenadas(this -> mapa);
+        funciones_auxiliares.demoler_edificio_auxiliar(this -> edificios_disponibles, this -> mapa, this -> jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
     }
 }
 
 void Andypolis::recolectar_recursos() {
-    if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_RECOLECTAR_RECURSOS, this -> jugador_actual -> obtener_energia_actual())) {
-        this -> funciones_auxiliares.recolectar_recursos_auxiliares();
+    if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_RECOLECTAR_RECURSOS, this -> jugador_actual -> obtener_energia_actual())) {
+        funciones_auxiliares.recolectar_recursos_auxiliares(this -> jugador_actual);
     }
 }
 
@@ -155,9 +153,9 @@ void Andypolis::guardar_y_salir() {}
 void Andypolis::atacar_edificio() {}
 
 void Andypolis::reparar_edificio() {
-    if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_REPARAR_EDIFICIO, this -> jugador_actual -> obtener_energia_actual())) {
-        int* coordenadas = this -> funciones_auxiliares.pedir_coordenadas();
-        this -> funciones_auxiliares.reparar_edificio_auxiliar(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+    if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_REPARAR_EDIFICIO, this -> jugador_actual -> obtener_energia_actual())) {
+        int* coordenadas = funciones_auxiliares.pedir_coordenadas(this -> mapa);
+        funciones_auxiliares.reparar_edificio_auxiliar(this -> mapa, this -> jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
     }
 }
 

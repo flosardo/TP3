@@ -22,7 +22,7 @@ class Objetivo_armado: public Objetivo {
         void mostrar_progreso();
 
         /*
-        *Post: obtenera true si hay 10 bombas en el inventario, false en caso contrario.
+        *Post: obtendra true si hay 10 bombas en el inventario, false en caso contrario.
         */
         bool se_cumplio_el_objetivo(int cantidad);
 
