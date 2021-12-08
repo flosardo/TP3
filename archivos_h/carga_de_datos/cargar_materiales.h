@@ -28,6 +28,12 @@ class Cargar_materiales {
         */
         void carga_materiales(Jugador* jugador_1, Jugador* jugador_2);
 
+        /*
+        *Pre: Que jugador_1 y jugador_2 no sean nulos.
+        *Post: Guardará los materiales de los jugadores 1 y 2.
+        */
+        void guardar_materiales(Jugador* jugador_1, Jugador* jugador_2);
+
     private:
 
         /*

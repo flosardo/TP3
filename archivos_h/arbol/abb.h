@@ -9,6 +9,7 @@ class Abb {
     private:
 
         Nodo* raiz;
+        int cantidad_nodos;
 
     public:
 
@@ -22,6 +23,12 @@ class Abb {
         *Post: Construirá un objeto de tipo Abb con los valores de los parametros recibidos.
         */
         Abb(Nodo* raiz);
+
+        int obtener_cantidad_nodos();
+
+        void cargar_en_arreglo(Edificio** & edificios);
+
+        void cargar_en_arreglo_recursivo(Edificio** & edificios, Nodo* nodo, int & indice);
 
         /*
         *Pre: Que el parametro no sean null.
@@ -64,13 +71,6 @@ class Abb {
         *Post: Devuelve un puntero a los materiales necesarios
         */
         Edificio* buscar_edificio_recursiva(Nodo* nodo, std::string nombre);
-
-        // NO SE USA NUNCA, PORQUE USAMOS BUSCAR_EDIFICIO
-        // /*
-        // *Pre: Recibe un puntero a nodo y un string
-        // *Pos: Devuelve verdadero en caso que el nombre exista, falso de lo contrario
-        // */
-        // bool existe_el_edificio(Nodo* nodo, std::string nombre);
 
         /*
         *Pre: Que los parámetros no sean null.

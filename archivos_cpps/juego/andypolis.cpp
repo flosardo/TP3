@@ -72,7 +72,6 @@ void Andypolis::comenzar_partida() {
         jugador_1_ubicado = this -> mapa -> ubicar_jugador(jugador, fila, columna);
         if(jugador_1_ubicado)
             cout << "Siguiente jugador" << endl;
-        
     }
 }
 

@@ -30,6 +30,12 @@ class Cargar_edificios {
         */
         void carga_edificios(Abb* arbol);
 
+        /*
+        *Pre: Que arbol no sea null.
+        *Post: Guardará el arbol de edificios.
+        */
+        void guardar_edificios(Abb* arbol);
+
     private: 
 
         /*

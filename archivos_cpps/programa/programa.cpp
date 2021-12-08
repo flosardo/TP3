@@ -22,7 +22,7 @@ void Programa::empezar() {
         menu_configuracion.procesar_opcion(opcion, juego);
     }
 
-    opcion = OPCION_EMPEZAR;
+    opcion = opcion == OPCION_SALIR_JUEGO ? OPCION_SALIR_JUEGO : OPCION_EMPEZAR;
 
     while (opcion != OPCION_SALIR_JUEGO) {
         juego.verificar_energia(opcion);
@@ -38,10 +38,8 @@ void Programa::empezar() {
 }
 
 void Programa::finalizar() {
-    /*
-    edificios.editar_archivo_edificios(juego.obtener_arbol());
-    materiales.editar_archivo_materiales(juego.obtener_jugador(JUGADOR_1), juego.obtener_jugador(JUGADOR_2));
-    mapa.editar_archivo_mapa(juego.obtener_mapa());
-    this -> existe_ubicaciones = ubicacion.carga_ubicaciones(juego.obtener_mapa(), juego.obtener_jugador(JUGADOR_1), juego.obtener_jugador(JUGADOR_2));
-    */
+    materiales.guardar_materiales(juego.obtener_jugador(JUGADOR_1), juego.obtener_jugador(JUGADOR_2));
+    edificios.guardar_edificios(juego.obtener_arbol());
+    // mapa.editar_archivo_mapa(juego.obtener_mapa());
+    // this -> existe_ubicaciones = ubicacion.carga_ubicaciones(juego.obtener_mapa(), juego.obtener_jugador(JUGADOR_1), juego.obtener_jugador(JUGADOR_2));
 }

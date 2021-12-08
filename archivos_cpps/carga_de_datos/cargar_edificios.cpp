@@ -15,22 +15,47 @@ void Cargar_edificios::carga_edificios(Abb* arbol) {
 
     string nombre_edificio;
     string segunda_palabra;
-    int piedra_necesaria;
-    int madera_necesaria;
-    int metal_necesario;
-    int permitidos;
+    int piedra_necesaria = 0;
+    int madera_necesaria = 0;
+    int metal_necesario = 0;
+    int permitidos = 0;
 
     while (archivo_edificios >> nombre_edificio >> segunda_palabra) {
         if ((nombre_edificio == NOMBRE_MINA && segunda_palabra == NOMBRE_ORO) || nombre_edificio == NOMBRE_PLANTA) {
             nombre_edificio += " " + segunda_palabra;
             archivo_edificios >> piedra_necesaria;
-        }else
+        }
+        else
             piedra_necesaria =  stoi(segunda_palabra);
 
         archivo_edificios >> madera_necesaria >> metal_necesario >> permitidos;
         this -> crear_edificio(arbol, nombre_edificio, piedra_necesaria, madera_necesaria, metal_necesario, permitidos);
     }
     archivo_edificios.close();
+}
+
+void Cargar_edificios::guardar_edificios(Abb* arbol) {
+    ofstream archivo_edificios(this -> archivo_ruta);
+    int cantidad_edificios = arbol -> obtener_cantidad_nodos();
+    Edificio** edificios = new Edificio*[cantidad_edificios];
+    arbol -> cargar_en_arreglo(edificios);
+    string nombre_edificio;
+    int cantidad_piedra = 0;
+    int cantidad_madera = 0;
+    int cantidad_metal = 0;
+    int permitidos = 0;
+
+    for (int i = 0; i < cantidad_edificios; i++) {
+        nombre_edificio = edificios[i] -> obtener_nombre();
+        cantidad_piedra = edificios[i] -> obtener_cantidad_necesaria(PIEDRA);
+        cantidad_madera = edificios[i] -> obtener_cantidad_necesaria(MADERA);
+        cantidad_metal = edificios[i] -> obtener_cantidad_necesaria(METAL);
+        permitidos = edificios[i] -> obtener_permitidos();
+
+        archivo_edificios << nombre_edificio << VACIO << cantidad_piedra << VACIO
+        << cantidad_madera << VACIO << cantidad_metal << VACIO << permitidos << endl;
+    }
+    archivo_edificios.close();   
 }
 
 void Cargar_edificios::crear_edificio(Abb* arbol , string nombre_edificio, int piedra, int madera, int metal, int permitidos) {

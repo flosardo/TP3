@@ -89,7 +89,7 @@ void Menu_partida::procesar_opcion(int & opcion_ingresada, Andypolis & juego) {
             opcion_ingresada = OPCION_SALIR;
             juego.finalizar_turno();
             break;
-        case OPCION_SALIR_JUEGO:
+        case OPCION_GUARDAR_SALIR_PARTIDA:
             opcion_ingresada = OPCION_SALIR_JUEGO;
             juego.guardar_y_salir();
             break;
