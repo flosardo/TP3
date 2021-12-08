@@ -20,12 +20,12 @@ class Casillero {
         Casillero();
 
         /*
-        *Post: Devolverá el tipo de terreno del casillero.
+        *Post: obtenerá el tipo de terreno del casillero.
         */
         char obtener_tipo_de_terreno();
 
         /*
-        *Post: Devolverá el codigo del color del casillero.
+        *Post: obtenerá el codigo del color del casillero.
         */
         std::string obtener_color();
 
@@ -50,7 +50,7 @@ class Casillero {
         virtual Material* obtener_puntero_material();
 
         /*
-        *Post: Devolvera true si esta ocupado el casillero, o false en caso contrario.
+        *Post: obtenera true si esta ocupado el casillero, o false en caso contrario.
         */
         virtual bool esta_ocupado();
 

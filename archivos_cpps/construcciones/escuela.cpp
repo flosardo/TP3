@@ -36,3 +36,7 @@ void Escuela::mostrar_caracteristicas(int construidos) {
 void Escuela::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy una escuela y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }
+
+void Escuela::aumentar_material_producido() {
+    this -> cantidad_material_producido += BRINDAR_MATERIALES_ESCUELA;
+}

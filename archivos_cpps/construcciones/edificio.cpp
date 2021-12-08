@@ -85,6 +85,8 @@ void Edificio::cambiar_estado_afectado() {
     this -> afectado = !this -> afectado;
 }
 
+void Edificio::aumentar_material_producido() {}
+
 Edificio::~Edificio() {
     if (this -> materiales_necesarios) 
         delete[] this -> materiales_necesarios;

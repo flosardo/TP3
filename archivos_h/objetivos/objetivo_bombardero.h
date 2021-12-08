@@ -22,7 +22,7 @@ class Objetivo_bombardero: public Objetivo {
         void mostrar_progreso();
 
         /*
-        *Post: Devolvera true si se usaron 5 bombas, false en caso contrario.
+        *Post: obtenera true si se usaron 5 bombas, false en caso contrario.
         */
         bool se_cumplio_el_objetivo(int cantidad);
 

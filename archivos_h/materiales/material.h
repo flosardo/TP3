@@ -18,17 +18,17 @@ class Material {
         Material();
 
         /*
-        *Post: Devolverá la cantidad de material.
+        *Post: obtenerá la cantidad de material.
         */
         int obtener_cantidad();
 
         /*
-        *Post: Devolverá el tipo de material.
+        *Post: obtenerá el tipo de material.
         */
         std::string obtener_nombre_material();
 
         /*
-        *Post: Devolverá el codigo del emoji.
+        *Post: obtenerá el codigo del emoji.
         */
         std::string obtener_codigo_emoji();
 

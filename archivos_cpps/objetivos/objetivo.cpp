@@ -6,7 +6,7 @@ Objetivo::Objetivo() {
     nombre = VACIO;
 }
 
-string Objetivo::devolver_nombre() {
+string Objetivo::obtener_nombre() {
     return (this -> nombre);
 }
 

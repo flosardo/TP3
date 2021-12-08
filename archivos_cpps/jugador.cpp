@@ -78,7 +78,7 @@ string Jugador::obtener_codigo_emoji() {
     return this -> codigo_emoji;
 }
 
-int* Jugador::devolver_coordenadas() {
+int* Jugador::obtener_coordenadas() {
     return this -> coordenadas;
 }
 
@@ -86,13 +86,21 @@ int Jugador::obtener_energia_actual() {
     return this -> energia.obtener_energia_actual();
 }
 
-int Jugador::obtener_cantidad_construidos(string nombre_edificio) {
+int Jugador::obtener_cantidad_edificio(string nombre_edificio) {
     int construidos = 0;
     for (int i = 0; i < this -> cantidad_construidos; i++) {
         if (this -> edificios_construidos[i] -> obtener_nombre() == nombre_edificio)
             construidos++;
     }
     return construidos;
+}
+
+Edificio** Jugador::obtener_edificios_construidos() {
+    return this -> edificios_construidos;
+}
+
+int Jugador::obtener_construidos() {
+    return this -> cantidad_construidos;
 }
 
 void Jugador::mover(int fila, int columna) {

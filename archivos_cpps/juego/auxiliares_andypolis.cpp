@@ -10,12 +10,29 @@ Auxiliares_andypolis::Auxiliares_andypolis() {
     this -> jugador_actual = nullptr;
 }
 
-Auxiliares_andypolis::Auxiliares_andypolis(Abb* edificios_disponibles, Mapa* & mapa, Jugador* & jugador_actual, Jugador* & jugador_1, Jugador* & jugador_2) {
+Auxiliares_andypolis::Auxiliares_andypolis(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, Jugador* jugador_1, Jugador* jugador_2) {
     this -> edificios_disponibles = edificios_disponibles;
     this -> mapa = mapa;
     this -> jugador_1 = jugador_1;
     this -> jugador_2 = jugador_2;
-    this -> jugador_actual = this -> jugador_1;
+    this -> jugador_actual = jugador_actual;
+}
+
+Jugador* Auxiliares_andypolis::obtener_jugador_actual() {
+    return this -> jugador_actual;
+}
+
+void Auxiliares_andypolis::cambiar_turno() {
+    this -> jugador_actual = this -> jugador_actual == this -> jugador_1 ? this -> jugador_2 : this -> jugador_1;
+}
+
+
+
+void Auxiliares_andypolis::aumentar_materiales_producidos() {
+    Edificio** edificio = this -> jugador_actual -> obtener_edificios_construidos();
+    for(int i = 0; i < this -> jugador_actual -> obtener_construidos(); i++) {
+        edificio[i] -> aumentar_material_producido();
+    }
 }
 
 void Auxiliares_andypolis::seleccionar_jugador(string & nombre_jugador_1, string & nombre_jugador_2) {
@@ -162,7 +179,7 @@ bool Auxiliares_andypolis::confirmar_construccion(string edificio_a_construir) {
     cout << "Está seguro que quiere construir un/a " << edificio_a_construir << " ?(s/n): ";
     cin >> decision;
     transform(decision.begin(), decision.end(), decision.begin(), ::tolower);
-    return (decision == DESICION_SI);
+    return (decision == DECISION_SI);
 }
 
 void Auxiliares_andypolis::demoler_edificio_auxiliar(int fila, int columna) {
@@ -214,6 +231,19 @@ void Auxiliares_andypolis::reparar_edificio_auxiliar(int fila, int columna) {
     
 
 }
+
+void Auxiliares_andypolis::recolectar_recursos_auxiliares() {
+    string material;
+    int cantidad_material = 0;
+    Edificio** edificios_construidos = this -> jugador_actual -> obtener_edificios_construidos();
+    for (int i = 0; i < this -> jugador_actual -> obtener_construidos(); i++) {
+        material = edificios_construidos[i] -> obtener_nombre_del_material();
+        cantidad_material = edificios_construidos[i] -> obtener_cantidad_de_material_producido();
+        this -> jugador_actual -> modificar_inventario(material, cantidad_material);
+    }
+    cout << COLOR_VERDE_AGUA << " Los recursos producidos por los edificios fueron recolectados satisfactoriamente" << COLOR_POR_DEFECTO << endl;
+}
+
 
 Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int columna) { //metodo repetido
     Edificio* edificio_creado = nullptr;

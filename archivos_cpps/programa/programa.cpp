@@ -4,10 +4,10 @@ using namespace std;
 
 Programa::Programa() {
     this -> juego = Andypolis();
-    edificios.carga_edificios(juego.devolver_arbol());
-    mapa.carga_mapa(juego.devolver_mapa());
-    materiales.carga_materiales(juego.devolver_jugador(NUMERO_JUGADOR_1), juego.devolver_jugador(NUMERO_JUGADOR_2));
-    this -> existe_ubicaciones = ubicacion.carga_ubicaciones(juego.devolver_mapa(), juego.devolver_jugador(NUMERO_JUGADOR_1), juego.devolver_jugador(NUMERO_JUGADOR_2));
+    edificios.carga_edificios(juego.obtener_arbol());
+    mapa.carga_mapa(juego.obtener_mapa());
+    materiales.carga_materiales(juego.obtener_jugador(NUMERO_JUGADOR_1), juego.obtener_jugador(NUMERO_JUGADOR_2));
+    this -> existe_ubicaciones = ubicacion.carga_ubicaciones(juego.obtener_mapa(), juego.obtener_jugador(NUMERO_JUGADOR_1), juego.obtener_jugador(NUMERO_JUGADOR_2));
 }
 
 void Programa::empezar() {
@@ -26,7 +26,7 @@ void Programa::empezar() {
 
     while (opcion != OPCION_SALIR_JUEGO) {
         this -> juego.obtener_funciones_auxiliares().verificar_energia(opcion);
-        cout << "TURNO DEL JUGADOR: " << this -> juego.devolver_jugador_actual() -> obtener_codigo_emoji() << endl;
+        cout << "TURNO DEL JUGADOR: " << this -> juego.obtener_jugador_actual() -> obtener_codigo_emoji() << endl;
         menu_partida.mostrar_mensaje_bienvenida();
         menu_partida.mostrar_menu();
         if(opcion != OPCION_FINALIZAR_TURNO) {
@@ -38,9 +38,9 @@ void Programa::empezar() {
 
 void Programa::finalizar() {
     /*
-    edificios.editar_archivo_edificios(juego.devolver_arbol());
-    materiales.editar_archivo_materiales(juego.devolver_jugador(JUGADOR_1), juego.devolver_jugador(JUGADOR_2));
-    mapa.editar_archivo_mapa(juego.devolver_mapa());
-    this -> existe_ubicaciones = ubicacion.carga_ubicaciones(juego.devolver_mapa(), juego.devolver_jugador(JUGADOR_1), juego.devolver_jugador(JUGADOR_2));
+    edificios.editar_archivo_edificios(juego.obtener_arbol());
+    materiales.editar_archivo_materiales(juego.obtener_jugador(JUGADOR_1), juego.obtener_jugador(JUGADOR_2));
+    mapa.editar_archivo_mapa(juego.obtener_mapa());
+    this -> existe_ubicaciones = ubicacion.carga_ubicaciones(juego.obtener_mapa(), juego.obtener_jugador(JUGADOR_1), juego.obtener_jugador(JUGADOR_2));
     */
 }

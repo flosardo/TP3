@@ -24,17 +24,17 @@ class Andypolis {
         Andypolis();
 
         /*
-        *Post: Devolverá un puntero de tipo Abb, con la información del arbol.
+        *Post: obtenerá un puntero de tipo Abb, con la información del arbol.
         */
-        Abb* devolver_arbol();
+        Abb* obtener_arbol();
 
         /*
-        *Post: Devolverá un puntero de tipo Mapa, con la información del mapa de andypolis.
+        *Post: obtenerá un puntero de tipo Mapa, con la información del mapa de andypolis.
         */
-        Mapa* devolver_mapa();
+        Mapa* obtener_mapa();
 
         /*
-        *Post: Devolverá un puntero de tipo Auxiliares_andypolis.
+        *Post: obtenerá un puntero de tipo Auxiliares_andypolis.
         */
         Auxiliares_andypolis obtener_funciones_auxiliares();
 
@@ -44,12 +44,6 @@ class Andypolis {
         *Post: Comenzará la partida de andypolis.
         */
         void comenzar_partida();
-
-
-        /*
-        *Post: Cambiara el turno del jugador actual.
-        */
-        void cambiar_turno();
 
         /*
         *Post: Modificara edificio.
@@ -134,14 +128,14 @@ class Andypolis {
         void guardar_y_salir();
 
         /*
-        *Post: Devolverá el puntero de tipo Jugador, con el jugador actual.
+        *Post: obtenerá el puntero de tipo Jugador, con el jugador actual.
         */
-        Jugador* devolver_jugador_actual();
+        Jugador* obtener_jugador_actual();
 
         /*
-        *Post: Devolveráel puntero de tipo Jugador, con el jugador pedido.
+        *Post: obteneráel puntero de tipo Jugador, con el jugador pedido.
         */
-        Jugador* devolver_jugador(std::string numero_jugador);
+        Jugador* obtener_jugador(std::string numero_jugador);
 
         /*
         *Post: Liberará la memoria utilizada a lo largo del programa.

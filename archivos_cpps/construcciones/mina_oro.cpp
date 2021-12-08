@@ -36,3 +36,7 @@ void Mina_oro::mostrar_caracteristicas(int construidos) {
 void Mina_oro::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy una mina de oro y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }
+
+void Mina_oro::aumentar_material_producido() {
+    this -> cantidad_material_producido += BRINDAR_MATERIALES_MINA_ORO;
+}

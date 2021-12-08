@@ -22,7 +22,7 @@ class Objetivo_andycoins: public Objetivo {
         void mostrar_progreso();
 
         /*
-        *Post: Devolvera true si hay más de 100000 andycoins, false en caso contrario.
+        *Post: obtenera true si hay más de 100000 andycoins, false en caso contrario.
         */
         bool se_cumplio_el_objetivo(int cantidad);
         

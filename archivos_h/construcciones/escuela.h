@@ -40,6 +40,8 @@ class Escuela : public Edificio {
         */
         void mostrar_saludo();
 
+        void aumentar_material_producido();
+
     private:
     
         /*

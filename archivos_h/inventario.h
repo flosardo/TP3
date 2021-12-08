@@ -28,12 +28,12 @@ class Inventario {
         Material** obtener_inventario();
 
         /*
-        *Post: Devolvera la cantidad de materiales.
+        *Post: obtenera la cantidad de materiales.
         */
         int obtener_cantidad_materiales();
 
         /*
-        *Post: Devolvera un puntero del material pedido.
+        *Post: obtenera un puntero del material pedido.
         */
         Material* obtener_material(std::string material_pedido);
 

@@ -36,3 +36,7 @@ void Aserradero::mostrar_caracteristicas(int construidos) {
 void Aserradero::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy un aserradero y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
 }
+
+void Aserradero::aumentar_material_producido() {
+    this -> cantidad_material_producido += BRINDAR_MATERIALES_ASERRADERO;
+}

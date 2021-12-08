@@ -11,11 +11,11 @@ Andypolis::Andypolis() {
     this -> funciones_auxiliares = Auxiliares_andypolis(this -> edificios_disponibles, this -> mapa, this -> jugador_actual, this -> jugador_1, this -> jugador_2);
 }
 
-Mapa* Andypolis::devolver_mapa() {
+Mapa* Andypolis::obtener_mapa() {
     return this -> mapa;
 }
 
-Abb* Andypolis::devolver_arbol() {
+Abb* Andypolis::obtener_arbol() {
     return this -> edificios_disponibles;
 }
 Auxiliares_andypolis Andypolis::obtener_funciones_auxiliares() {
@@ -26,9 +26,6 @@ void Andypolis::listar_edificios() {
     this -> edificios_disponibles -> mostrar_arbol(this -> jugador_actual);
 }
 
-void Andypolis::cambiar_turno() {
-    this -> jugador_actual = this -> jugador_actual == this -> jugador_1 ? this -> jugador_2 : this -> jugador_1;
-}
 
 void Andypolis::modificar_edificio_nombre() {
     string nombre = this -> funciones_auxiliares.pedir_nombre_edificio();
@@ -42,7 +39,7 @@ void Andypolis::modificar_edificio_nombre() {
     }
 }
 
-Jugador* Andypolis::devolver_jugador_actual() {
+Jugador* Andypolis::obtener_jugador_actual() {
     return this -> jugador_actual;
 }
 
@@ -121,11 +118,14 @@ void Andypolis::mostrar_inventario() {
 }
 
 void Andypolis::finalizar_turno() {
+    cout << "en adny" << endl;
+    cout << (this -> jugador_actual == this -> funciones_auxiliares.obtener_jugador_actual()) << endl;
+    this -> funciones_auxiliares.aumentar_materiales_producidos();
     this -> jugador_actual -> modificar_energia(ENERGIA_FINALIZAR_TURNO);
-    this -> cambiar_turno();
+    this -> funciones_auxiliares.cambiar_turno();
 }
 
-Jugador* Andypolis::devolver_jugador(string numero_jugador) {
+Jugador* Andypolis::obtener_jugador(string numero_jugador) {
     return numero_jugador == NUMERO_JUGADOR_1 ? this -> jugador_1 : this -> jugador_2;
 }
 
@@ -136,11 +136,16 @@ void Andypolis::demoler_edificio() {
     }
 }
 
+void Andypolis::recolectar_recursos() {
+    if (this -> funciones_auxiliares.hay_energia_suficiente(ENERGIA_RECOLECTAR_RECURSOS, this -> jugador_actual -> obtener_energia_actual())) {
+        this -> funciones_auxiliares.recolectar_recursos_auxiliares();
+    }
+}
+
 //Pendientes por implementar.
 
 void Andypolis::mostrar_objetivos() {}
 
-void Andypolis::recolectar_recursos() {}
 
 void Andypolis::moverse() {}
 

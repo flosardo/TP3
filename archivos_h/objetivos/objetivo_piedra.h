@@ -22,7 +22,7 @@ class Objetivo_piedra: public Objetivo {
         void mostrar_progreso();
 
         /*
-        *Post: Devolverá true si hay 50000, o false en caso contrario.
+        *Post: obtenerá true si hay 50000, o false en caso contrario.
         */
         bool se_cumplio_el_objetivo(int cantidad);
 

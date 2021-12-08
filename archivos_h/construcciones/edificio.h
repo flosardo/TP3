@@ -37,33 +37,33 @@ class Edificio {
         Edificio(int fila, int columna);
 
         /*
-        *Post: Devolvera la fila del edificio.
+        *Post: obtenera la fila del edificio.
         */
         int obtener_fila();
 
         /*
-        *Post: Devolvera la columna del edificio.
+        *Post: obtenera la columna del edificio.
         */
         int obtener_columna();
 
         /*
         *Pre: Que los parametros sean >= 0.
-        *Post: Devolvera la columna del edificio.
+        *Post: obtenera la columna del edificio.
         */
         void establecer_nuevos_materiales(int nueva_piedra, int nueva_madera, int nuevo_metal);
 
         /*
-        *Post: Devolverá la representacion del edificio.
+        *Post: obtenerá la representacion del edificio.
         */
         std::string obtener_codigo_emoji();
 
         /*
-        *Post: Devolverá el nombre del material que produce.
+        *Post: obtenerá el nombre del material que produce.
         */
         std::string obtener_nombre_del_material();
 
         /*
-        *Post: Devolverá la cantidad de material producido.
+        *Post: obtenerá la cantidad de material producido.
         */
         int obtener_cantidad_de_material_producido();
 
@@ -73,7 +73,7 @@ class Edificio {
         int obtener_cantidad_necesaria(std::string material);
 
         /*
-        *Post: Devolverá el estado del edificio.
+        *Post: obtenerá el estado del edificio.
         */
         bool esta_afectado();
 
@@ -102,6 +102,8 @@ class Edificio {
         *Post: Mostrará las caracteristicas.
         */
         void virtual mostrar_caracteristicas(int construidos) = 0;
+
+        virtual void aumentar_material_producido();
 
         /*
         *Post: Inicializara los atributos, según el comportamiento de cada hija.

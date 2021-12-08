@@ -23,7 +23,7 @@ class Objetivo_letrado: public Objetivo {
         void mostrar_progreso();
 
         /*
-        *Post: Devolverá true si se construyo el maximo de escuelas permitidas, o false en caso contrario.
+        *Post: obtenerá true si se construyo el maximo de escuelas permitidas, o false en caso contrario.
         */
         bool se_cumplio_el_objetivo(int cantidad);
 

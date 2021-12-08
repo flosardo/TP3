@@ -34,7 +34,7 @@ class Auxiliares_andypolis {
         *Pre: Que los punteros no sean null.
         *Post: Construirá un objeto de tipo Auxiliares_andypolis con los valores pasados por parámetros.
         */
-        Auxiliares_andypolis(Abb* edificios_disponibles, Mapa* & mapa, Jugador* & jugador_actual, Jugador* & jugador_1, Jugador* & jugador_2);
+        Auxiliares_andypolis(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, Jugador* jugador_1, Jugador* jugador_2);
 
         /*
         *Post: Seleccionará el jugador que va a ser el actual.
@@ -46,14 +46,16 @@ class Auxiliares_andypolis {
         */
         void asignar_turno();
 
+        Jugador* obtener_jugador_actual();
+
         /*
-        *Post: Devolverá un puntero con las coordenadas pedidas.
+        *Post: obtenerá un puntero con las coordenadas pedidas.
         */
         int* pedir_coordenadas();
 
         /*
         *Pre: Que los parámetros sean >= 0.
-        *Post: Devolverá true si las coordenadas son validas, false en caso contrario.
+        *Post: obtenerá true si las coordenadas son validas, false en caso contrario.
         */
         bool validar_coordenadas(int fila, int columna);
 
@@ -65,17 +67,17 @@ class Auxiliares_andypolis {
 
         /*
         *Pre: Que los parámetros sean >= 0.
-        *Post: Devolvera true si el casillero es válido, false en caso contrario.
+        *Post: obtenera true si el casillero es válido, false en caso contrario.
         */
         bool es_casillero_valido(int fila, int columna);
 
         /*
-        *Post: Devolverá un string con el string del nombre del edificio pedido.
+        *Post: obtenerá un string con el string del nombre del edificio pedido.
         */
         std::string pedir_nombre_edificio();
 
         /*
-        *Post: Devolvera la nueva cantidad de material pedida.
+        *Post: obtenera la nueva cantidad de material pedida.
         */
         int pedir_nueva_cantidad_material(std::string material);
 
@@ -87,7 +89,7 @@ class Auxiliares_andypolis {
 
         /*
         *Pre: Que los parámetros sean >= 0.
-        *Post: Devolvera true si hay energia suficiente para realizar la operación, false en caso contrario.
+        *Post: obtenera true si hay energia suficiente para realizar la operación, false en caso contrario.
         */
         bool hay_energia_suficiente(int energia_necesaria, int energia_del_jugador);
 
@@ -99,7 +101,7 @@ class Auxiliares_andypolis {
 
         /*
         *Pre: Que los parámetros sean >= 0.
-        *Post: Devolverá true si es posible comprar bombas, false en caso contrario.
+        *Post: obtenerá true si es posible comprar bombas, false en caso contrario.
         */
         bool es_posible_comprar_bombas(int cantidad_bombas, int cantidad_andycoins);
 
@@ -110,7 +112,7 @@ class Auxiliares_andypolis {
 
         /*
         *Pre: Que el parámetro no sea null.
-        *Post: Devolvera true si se alcanzo el maximo permitido, false en caso contrario.
+        *Post: obtenera true si se alcanzo el maximo permitido, false en caso contrario.
         */
         bool se_alcanzo_maximo_permitido(Edificio* edificio_a_construir);
 
@@ -121,7 +123,7 @@ class Auxiliares_andypolis {
 
         /*
         *Pre: Que el parametro inventario y edificio no sean null.
-        *Post: Devolvera true si hay materiales suficientes, false en caso contrario.
+        *Post: obtenera true si hay materiales suficientes, false en caso contrario.
         */
         bool hay_material_suficiente(std::string material, Inventario* inventario, int cantidad_material);
 
@@ -132,19 +134,28 @@ class Auxiliares_andypolis {
         void actualizar_inventario(Inventario* inventario, int piedra, int madera, int metal);
 
         /*
-        *Post: Devolverá true si se confirmo la construcción, false en caso contrario.
+        *Post: obtenerá true si se confirmo la construcción, false en caso contrario.
         */
         bool confirmar_construccion(std::string edificio_a_construir);
 
         /*
         *Pre: Que los parámetros fila y columna sean >= 0.
-        *Post: Devolverá un puntero de tipo Edificio, que contendra la información del edificio creado.
+        *Post: obtenerá un puntero de tipo Edificio, que contendra la información del edificio creado.
         */
         Edificio* crear_edificio(std::string nombre, int fila, int columna);
 
         void demoler_edificio_auxiliar(int fila, int columna);
 
         void reparar_edificio_auxiliar(int fila, int columna);
+
+        void recolectar_recursos_auxiliares();
+
+        /*
+        *Post: Cambiara el turno del jugador actual.
+        */
+        void cambiar_turno();
+
+        void aumentar_materiales_producidos();
 };
 
 #endif //_AUXILIARES_ANDYPOLIS_H_

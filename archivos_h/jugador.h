@@ -58,9 +58,9 @@ class Jugador {
         void establecer_codigo_emoji(std::string codigo_emoji);
 
         /*
-        *Post: Devolverá la cantidad de construidos, del edificio pedido.
+        *Post: obtenerá la cantidad de construidos, del edificio pedido.
         */
-        int obtener_cantidad_construidos(std::string nombre_edificio);
+        int obtener_cantidad_edificio(std::string nombre_edificio);
 
         /*
         *Post: Redimensionara el edificio.
@@ -68,8 +68,12 @@ class Jugador {
         void redimensionar_edificio(int nueva_longitud);
 
 
+        int obtener_construidos();
+
+        Edificio** obtener_edificios_construidos();
+
         /*
-        *Post: Devolvera el código emoji del jugador.
+        *Post: obtenera el código emoji del jugador.
         */
         std::string obtener_codigo_emoji();
 
@@ -80,9 +84,9 @@ class Jugador {
         void cargar_material(Material* material);
 
         /*
-        *Post: Devolvera las coordenadas del jugador.
+        *Post: obtenera las coordenadas del jugador.
         */
-        int* devolver_coordenadas();
+        int* obtener_coordenadas();
 
         /*
         *Pre: Que las coordenadas recibidas por parametro sean >= 0.
@@ -108,12 +112,12 @@ class Jugador {
         void listar_construidos();
 
         /*
-        *Post: Devolverá la energía actual del jugador actual.
+        *Post: obtenerá la energía actual del jugador actual.
         */
         int obtener_energia_actual();
 
         /*
-        *Post: Devolverá el puntero con el inventario del jugador.
+        *Post: obtenerá el puntero con el inventario del jugador.
         */
         Inventario* obtener_inventario();
 

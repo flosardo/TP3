@@ -4,7 +4,7 @@
 #include <iostream>
 
 // DESICIONES
-const std::string DESICION_SI = "s";
+const std::string DECISION_SI = "s";
 
 // MATERIALES
 const std::string PIEDRA = "piedra";

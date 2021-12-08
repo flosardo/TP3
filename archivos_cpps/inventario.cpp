@@ -21,17 +21,17 @@ int Inventario::obtener_cantidad_materiales() {
 }
 
 Material* Inventario::obtener_material(string material_pedido) {
-    Material* material_a_devolver = 0;
+    Material* material_a_obtener = 0;
     int indice = 0;
-    while (!material_a_devolver && indice < this -> cantidad_materiales) {
+    while (!material_a_obtener && indice < this -> cantidad_materiales) {
         Material* material = this -> inventario[indice];
         if (material -> obtener_nombre_material() == material_pedido) {
-            material_a_devolver = material;
+            material_a_obtener = material;
             material = nullptr;
         }
         indice++;
     }
-    return material_a_devolver;
+    return material_a_obtener;
 }
 
 void Inventario::modificar_cantidad_material(string material_a_modificar, int cantidad) {

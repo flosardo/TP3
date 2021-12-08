@@ -22,7 +22,7 @@ class Objetivo_constructor: public Objetivo {
         void mostrar_progreso();
 
         /*
-        *Post: devolverá true si se cumplio el objetivo constructor, ó false en caso contrario.
+        *Post: obtenerá true si se cumplio el objetivo constructor, ó false en caso contrario.
         */
         bool se_cumplio_el_objetivo(std::string nombre);
 
