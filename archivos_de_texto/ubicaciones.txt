@@ -1,4 +1,7 @@
 madera (1, 5)
+metal (7, 0)
+piedra (7, 1)
+andycoins (0, 6)
 1 (7, 6)
 escuela (1, 8)
 escuela (4, 2)
