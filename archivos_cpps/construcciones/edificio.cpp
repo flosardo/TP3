@@ -3,8 +3,7 @@
 using namespace std;
 
 Edificio::Edificio() {
-    this -> columna = -1;//revisar
-    this -> fila = -1;
+    this -> coordenadas = 0;
     this -> nombre_del_edificio = VACIO;
     this -> nombre_material = VACIO;
     this -> codigo_emoji = VACIO;
@@ -20,13 +19,15 @@ Edificio::Edificio(int piedra_necesaria, int madera_necesaria, int metal_necesar
     this -> materiales_necesarios[POS_PIEDRA] = piedra_necesaria;
     this -> materiales_necesarios[POS_MADERA] = madera_necesaria;
     this -> materiales_necesarios[POS_METAL] = metal_necesario;
+    this -> coordenadas = 0;
     this -> codigo_emoji = VACIO;
     this -> afectado = false;
 }
 
 Edificio::Edificio(int fila, int columna) {
-    this -> fila = fila;
-    this -> columna = columna;
+    this -> coordenadas = new int[MAX_COORDENADAS];
+    this -> coordenadas[INDICE_FILA] = fila;
+    this -> coordenadas[INDICE_COLUMNA] = columna;
     this -> permitidos = 0;
     this -> materiales_necesarios = nullptr;
     this -> codigo_emoji = VACIO;
@@ -49,12 +50,8 @@ int Edificio::obtener_cantidad_necesaria(string material) {
     return this -> materiales_necesarios[indice];
 }
 
-int Edificio::obtener_fila() {
-    return this -> fila;
-}
-
-int Edificio::obtener_columna() {
-    return this -> columna;
+int* Edificio::obtener_coordenadas() {
+    return this -> coordenadas;
 }
 
 string Edificio::obtener_codigo_emoji() {

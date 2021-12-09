@@ -125,11 +125,6 @@ class Andypolis {
         void finalizar_turno();
 
         /*
-        *Post: Guardará la partida de andypolis.
-        */
-        void guardar_y_salir();
-
-        /*
         *Post: obtendra el puntero de tipo Jugador, con el jugador actual.
         */
         Jugador* obtener_jugador_actual();

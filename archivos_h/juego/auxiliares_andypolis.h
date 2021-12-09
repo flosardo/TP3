@@ -139,7 +139,7 @@ class Auxiliares_andypolis {
 
         void demoler_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, int fila, int columna);
 
-        void reparar_edificio_auxiliar(Mapa* mapa, Jugador* jugador_actual, int fila, int columna);
+        void reparar_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, int fila, int columna);
 
         void recolectar_recursos_auxiliares(Jugador* jugador_actual);
 };

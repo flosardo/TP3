@@ -41,6 +41,8 @@ class Jugador {
         */
         void establecer_convencion(char convencion);
 
+        std::string obtener_nombre();
+
         /*
         *Pre: Que los parametros sean >= 0.
         *Post: Eliminará el edificio.

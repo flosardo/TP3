@@ -7,15 +7,14 @@ class Edificio {
 
     protected:
 
-        int fila;
-        int columna;
-        std::string nombre_material;
-        int cantidad_material_producido;
+        std::string nombre_del_edificio;
         int* materiales_necesarios;
         int permitidos;
-        bool afectado;
-        std::string nombre_del_edificio;
+        int* coordenadas;
         std::string codigo_emoji;
+        std::string nombre_material;
+        int cantidad_material_producido;
+        bool afectado;
 
     public:
 
@@ -36,15 +35,7 @@ class Edificio {
         */
         Edificio(int fila, int columna);
 
-        /*
-        *Post: obtendra la fila del edificio.
-        */
-        int obtener_fila();
-
-        /*
-        *Post: obtendra la columna del edificio.
-        */
-        int obtener_columna();
+        int* obtener_coordenadas();
 
         /*
         *Pre: Que los parametros sean >= 0.

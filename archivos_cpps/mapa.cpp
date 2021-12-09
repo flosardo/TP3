@@ -1,6 +1,5 @@
 #include "../archivos_h/mapa.h"
 
-
 using namespace std;
 
 Mapa::Mapa() {
@@ -22,6 +21,13 @@ void Mapa::inicializar_mapa() {
         for (int columna = 0; columna < this -> cantidad_columnas; columna++)
             mapa[fila][columna] = nullptr;
     }
+}
+
+int* Mapa::obtener_dimensiones() {
+    int* dimensiones = new int[MAX_COORDENADAS];
+    dimensiones[INDICE_FILA] = this -> cantidad_filas;
+    dimensiones[INDICE_COLUMNA] = this -> cantidad_columnas;
+    return dimensiones;
 }
 
 void Mapa::mostrar_simbologia(){
@@ -138,6 +144,13 @@ Edificio* Mapa::obtener_edificio(int fila, int columna) {
     if(!this -> mapa[fila][columna] -> obtener_puntero_jugador())
         edificio = this -> mapa[fila][columna] -> obtener_puntero_edificio();
     return edificio;
+}
+
+Material* Mapa::obtener_material(int fila, int columna) {
+    Material* material = nullptr;
+    if(!this -> mapa[fila][columna] -> obtener_puntero_jugador())
+        material = this -> mapa[fila][columna] -> obtener_puntero_material();
+    return material;
 }
 
 void Mapa::mostrar_mapa() {

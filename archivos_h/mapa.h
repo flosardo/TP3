@@ -35,6 +35,8 @@ class Mapa {
         */
         void inicializar_casillero(char terreno, int fil, int col);
 
+        int* obtener_dimensiones();
+
         /*
         *Pre: Que material no sea null, fila >= 0, columna >= 0.
         *Post: Agregará un material al casillero.
@@ -84,6 +86,8 @@ class Mapa {
         bool es_posible_insertar_materiales(int cantidad_a_insertar);
 
         Edificio* obtener_edificio(int fila, int columna);
+
+        Material* obtener_material(int fila, int columna);
 
         /*
         *Post: Devuelve un puntero a las coordenadas generadas para insertar material.

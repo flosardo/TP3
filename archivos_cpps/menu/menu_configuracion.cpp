@@ -47,7 +47,6 @@ void Menu_configuracion::procesar_opcion(int & opcion, Andypolis & juego) {
             break;
         case OPCION_GUARDAR_SALIR_CONFIGURACION:
             opcion = OPCION_SALIR_JUEGO;
-            juego.guardar_y_salir();
             break;
         default:
             cout << COLOR_ROJO << "Oops :(, opcion incorrecta. Intenta nuevamente" << COLOR_POR_DEFECTO << endl;

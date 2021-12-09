@@ -33,15 +33,17 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
     if (nombre == NUMERO_JUGADOR_1 || nombre == NUMERO_JUGADOR_2) {
         convencion_jugador = nombre == NUMERO_JUGADOR_1 ? JUGADOR_1 : JUGADOR_2;
         if (nombre == NUMERO_JUGADOR_1) {
+            jugador_1 -> establecer_nombre(NUMERO_JUGADOR_1);
             jugador_1 -> establecer_coordenadas(fila, columna);
             jugador_1 -> establecer_codigo_emoji(convencion_jugador);
             mapa -> ubicar_jugador(jugador_1, fila, columna);
         } else {
+            jugador_2 -> establecer_nombre(NUMERO_JUGADOR_2);
             jugador_2 -> establecer_coordenadas(fila, columna);
             jugador_2 -> establecer_codigo_emoji(convencion_jugador);
             mapa -> ubicar_jugador(jugador_2, fila, columna);
         }
-    } 
+    }
     else if (convencion_jugador != " ") {
         Edificio* edificio_creado = crear_edificio(nombre, fila, columna);
         mapa -> ubicar_edificio(edificio_creado, fila, columna);
@@ -57,6 +59,43 @@ void Cargar_ubicaciones::cargar_edificio_en_jugador(Edificio* edificio, Jugador*
     Jugador* jugador = convencion == JUGADOR_1 ? jugador_1 : jugador_2;
     jugador -> cargar_edificio(edificio);
     jugador = nullptr;
+}
+
+void Cargar_ubicaciones::guardar_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2) {
+    ofstream archivo_ubicaciones(this -> archivo_ruta);
+    this -> guardar_materiales_lluvia(archivo_ubicaciones, mapa);
+    this -> guardar_jugador(archivo_ubicaciones, jugador_1);
+    this -> guardar_jugador(archivo_ubicaciones, jugador_2);
+    archivo_ubicaciones.close();
+}
+
+void Cargar_ubicaciones::guardar_materiales_lluvia(ofstream & archivo_ubicaciones, Mapa* mapa) {
+    int* dimensiones_mapa = mapa -> obtener_dimensiones();
+    Material* material = 0;
+    for (int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
+        for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++) {
+            material = mapa -> obtener_material(fila, columna);
+            if (material)
+                archivo_ubicaciones << material -> obtener_nombre_material() << VACIO << '(' << fila << ", " << columna << ')' << endl;
+        }
+    }
+    delete[] dimensiones_mapa;
+    dimensiones_mapa = nullptr;
+}
+
+void Cargar_ubicaciones::guardar_jugador(ofstream & archivo_ubicaciones, Jugador* jugador) {
+    int* coordenadas_jugador = jugador -> obtener_coordenadas();
+    archivo_ubicaciones << jugador -> obtener_nombre() << VACIO << '(' << coordenadas_jugador[INDICE_FILA] << ", " << coordenadas_jugador[INDICE_COLUMNA] << ')' << endl;
+
+    int cantidad_edificios = jugador -> obtener_construidos();
+    Edificio** edificios = jugador -> obtener_edificios_construidos();
+    string nombre_edificio;
+    int* coordenadas_edificio = 0;
+    for (int i = 0; i < cantidad_edificios; i++) {
+        nombre_edificio = edificios[i] -> obtener_nombre();
+        coordenadas_edificio = edificios[i] -> obtener_coordenadas();
+        archivo_ubicaciones << nombre_edificio << VACIO << '(' << coordenadas_edificio[INDICE_FILA] << ", " << coordenadas_edificio[INDICE_COLUMNA] << ')' << endl;
+    }
 }
 
 Edificio* Cargar_ubicaciones::crear_edificio(string nombre, int fila, int columna) {

@@ -43,7 +43,11 @@ class Cargar_ubicaciones {
         /*
         *Post: Guardará las ubicaciones.
         */
-        void guardar_ubicaciones();
+        void guardar_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2);
+
+        void guardar_jugador(std::ofstream & archivo_ubicaciones, Jugador* jugador);
+
+        void guardar_materiales_lluvia(std::ofstream & archivo_ubicaciones, Mapa* mapa);
 
         /*
         *Pre: Que los parametros fila y columna sean >= 0.

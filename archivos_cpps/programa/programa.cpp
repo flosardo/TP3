@@ -38,8 +38,7 @@ void Programa::empezar() {
 }
 
 void Programa::finalizar() {
-    materiales.guardar_materiales(juego.obtener_jugador(JUGADOR_1), juego.obtener_jugador(JUGADOR_2));
+    materiales.guardar_materiales(juego.obtener_jugador(NUMERO_JUGADOR_1), juego.obtener_jugador(NUMERO_JUGADOR_2));
     edificios.guardar_edificios(juego.obtener_arbol());
-    // mapa.editar_archivo_mapa(juego.obtener_mapa());
-    // this -> existe_ubicaciones = ubicacion.carga_ubicaciones(juego.obtener_mapa(), juego.obtener_jugador(JUGADOR_1), juego.obtener_jugador(JUGADOR_2));
+    ubicacion.guardar_ubicaciones(juego.obtener_mapa(), juego.obtener_jugador(NUMERO_JUGADOR_1), juego.obtener_jugador(NUMERO_JUGADOR_2));
 }

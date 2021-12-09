@@ -163,6 +163,7 @@ bool Auxiliares_andypolis::confirmar_construccion(string edificio_a_construir) {
 }
 
 void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, int fila, int columna) {
+    string nombre_edificio = mapa -> obtener_edificio(fila, columna) -> obtener_nombre();    
     if (mapa -> obtener_tipo_casillero(fila, columna) != TERRENO)
         cout << COLOR_ROJO << "En las coordenadas ingresadas no se puede demoler dado que no es un casillero de tipo Terreno" << COLOR_POR_DEFECTO << endl;
     else if (!mapa -> obtener_edificio(fila, columna))
@@ -170,7 +171,6 @@ void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles,
     else if (!jugador_actual -> eliminar_edificio(fila, columna))
         cout << COLOR_ROJO << "No puede demoler un edificio que no le pertenece" << COLOR_POR_DEFECTO << endl;
     else {
-        string nombre_edificio = mapa -> obtener_edificio(fila, columna) -> obtener_nombre();
         Edificio* edificio_a_demoler = edificios_disponibles -> buscar_edificio(nombre_edificio);
         int piedra_necesaria = edificio_a_demoler -> obtener_cantidad_necesaria(PIEDRA);
         int madera_necesaria = edificio_a_demoler -> obtener_cantidad_necesaria(MADERA);
@@ -182,30 +182,32 @@ void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles,
     }
 }
 
-void Auxiliares_andypolis::reparar_edificio_auxiliar(Mapa* mapa, Jugador* jugador_actual, int fila, int columna) {
+void Auxiliares_andypolis::reparar_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador, int fila, int columna) {
     Edificio* edificio = mapa -> obtener_edificio(fila, columna);
     if (mapa -> obtener_tipo_casillero(fila, columna) != TERRENO)
         cout << COLOR_ROJO << "En las coordenadas ingresadas no se puede reparar dado que no es un casillero de tipo Terreno" << COLOR_POR_DEFECTO << endl;
     else if (!edificio)
         cout << COLOR_ROJO << "En las coordenadas ingresadas no hay un edificio por reparar" << COLOR_POR_DEFECTO << endl;
-    else if (!jugador_actual -> existe_el_edificio(fila, columna))
+    else if (!jugador -> existe_el_edificio(fila, columna))
         cout << COLOR_ROJO << "No puede reparar un edificio que no le pertenece" << COLOR_POR_DEFECTO << endl;
     else if (!edificio -> esta_afectado())
         cout << COLOR_ROJO << "No puede reparar un edificio que no esta afectado" << COLOR_POR_DEFECTO << endl;
     else {
-        int piedra_necesaria = (int) (edificio -> obtener_cantidad_necesaria(PIEDRA) * 0.25);
-        int madera_necesaria = (int) (edificio -> obtener_cantidad_necesaria(MADERA) * 0.25);
-        int metal_necesario = (int) (edificio -> obtener_cantidad_necesaria(METAL) * 0.25);
-        Inventario* inventario = jugador_actual -> obtener_inventario();
-        bool hay_piedra_suficiente = this -> hay_material_suficiente(PIEDRA, inventario, edificio -> obtener_cantidad_necesaria(PIEDRA));
-        bool hay_madera_suficiente = this -> hay_material_suficiente(MADERA, inventario, edificio -> obtener_cantidad_necesaria(MADERA));
-        bool hay_metal_suficiente = this -> hay_material_suficiente(METAL, inventario, edificio -> obtener_cantidad_necesaria(METAL));
+        Edificio* receta_edificio = edificios_disponibles -> buscar_edificio(edificio -> obtener_nombre());
+        int piedra_necesaria = (int) (receta_edificio -> obtener_cantidad_necesaria(PIEDRA) * 0.25);
+        int madera_necesaria = (int) (receta_edificio -> obtener_cantidad_necesaria(MADERA) * 0.25);
+        int metal_necesario = (int) (receta_edificio -> obtener_cantidad_necesaria(METAL) * 0.25);
+        Inventario* inventario = jugador -> obtener_inventario();
+        bool hay_piedra_suficiente = this -> hay_material_suficiente(PIEDRA, inventario, piedra_necesaria);
+        bool hay_madera_suficiente = this -> hay_material_suficiente(MADERA, inventario, madera_necesaria);
+        bool hay_metal_suficiente = this -> hay_material_suficiente(METAL, inventario, metal_necesario);
         if (!hay_piedra_suficiente || !hay_madera_suficiente || !hay_metal_suficiente)
             cout << COLOR_ROJO << "No tiene materiales suficientes para reparar" << edificio -> obtener_nombre() << COLOR_POR_DEFECTO << endl;
         else {
             edificio -> cambiar_estado_afectado();
             this -> actualizar_inventario(inventario, piedra_necesaria, madera_necesaria, metal_necesario);
-            jugador_actual -> modificar_energia(-ENERGIA_REPARAR_EDIFICIO);
+            jugador -> modificar_energia(-ENERGIA_REPARAR_EDIFICIO);
+            cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue reparado satisfactoriamente" << COLOR_POR_DEFECTO << endl;
         } 
     }
 }

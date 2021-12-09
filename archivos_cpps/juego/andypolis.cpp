@@ -145,8 +145,6 @@ void Andypolis::mostrar_objetivos() {}
 
 void Andypolis::moverse() {}
 
-void Andypolis::guardar_y_salir() {}
-
 void Andypolis::atacar_edificio() {
     if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_ATACAR_EDIFICIO_COORDENADA, this -> jugador_actual -> obtener_energia_actual())) {
         int* coordenadas = funciones_auxiliares.pedir_coordenadas(this -> mapa);
@@ -157,7 +155,7 @@ void Andypolis::atacar_edificio() {
 void Andypolis::reparar_edificio() {
     if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_REPARAR_EDIFICIO, this -> jugador_actual -> obtener_energia_actual())) {
         int* coordenadas = funciones_auxiliares.pedir_coordenadas(this -> mapa);
-        funciones_auxiliares.reparar_edificio_auxiliar(this -> mapa, this -> jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+        funciones_auxiliares.reparar_edificio_auxiliar(this -> edificios_disponibles, this -> mapa, this -> jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
     }
 }
 
