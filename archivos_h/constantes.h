@@ -42,6 +42,14 @@ const std::string FONDO_AZUL = "\033[48;5;27m";
 const std::string FONDO_VERDE = "\033[48;5;28m";
 const std::string FONDO_GRIS = "\033[48;5;239m";
 const std::string FONDO_GRIS_CLARO = "\033[48;5;263m";
+const std::string FONDO_MARRON = "\033[48;5;94m";
+
+// SIMBOLOGÍA TERRENOS
+const std::string SIMBOLO_MUELLE = FONDO_MARRON + VACIO + VACIO + COLOR_POR_DEFECTO;
+const std::string SIMBOLO_TERRENO = FONDO_VERDE + VACIO + VACIO + COLOR_POR_DEFECTO;
+const std::string SIMBOLO_LAGO = FONDO_AZUL + VACIO + VACIO + COLOR_POR_DEFECTO;
+const std::string SIMBOLO_CAMINO = FONDO_GRIS + VACIO + VACIO + COLOR_POR_DEFECTO;
+const std::string SIMBOLO_BETUN = FONDO_GRIS_CLARO + VACIO + VACIO + COLOR_POR_DEFECTO;
 
 // JUEGO
 const int OPCION_EMPEZAR = 66;
@@ -119,13 +127,6 @@ const int POS_PIEDRA = 0;
 const int POS_MADERA = 1;
 const int POS_METAL = 2;
 const int MAX_MATERIALES = 3;
-
-//EMOJIS TERRENOS
-const std::string COLOR_MUELLE = COLOR_MARRON + "■" + COLOR_POR_DEFECTO;
-const std::string COLOR_TERRENO = COLOR_VERDE + "■" + COLOR_POR_DEFECTO;
-const std::string COLOR_LAGO = FONDO_AZUL + " " + COLOR_POR_DEFECTO;
-const std::string COLOR_CAMINO = FONDO_GRIS + " " + COLOR_POR_DEFECTO;
-const std::string COLOR_BETUN = FONDO_GRIS_CLARO + " " + COLOR_POR_DEFECTO;
 
 // EMOJIS EDIFICIOS
 const std::string EMOJI_PLANTA_ELECTRICA = "\U0001f3e4";

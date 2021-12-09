@@ -31,17 +31,28 @@ int* Mapa::obtener_dimensiones() {
 }
 
 void Mapa::mostrar_simbologia(){
-    cout << COLOR_DORADO << " ╔■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╗" << endl;
-    cout << " ■ " << COLOR_POR_DEFECTO << "SIMBOLOGIA " << COLOR_DORADO << setw(110) << "■" << endl; 
-    cout << " ■ " << COLOR_POR_DEFECTO << "1. Convenciones Casillero Construible: " << COLOR_DORADO << setw(82) << "■" << endl; 
-    cout << " ■ " << COLOR_POR_DEFECTO << "\t->" << NOMBRE_ASERRADERO << ": " << EMOJI_ASERRADERO << VACIO << NOMBRE_FABRICA << ": "  << EMOJI_FABRICA << VACIO
-                                       << NOMBRE_ESCUELA << ": " << EMOJI_ESCUELA << VACIO << NOMBRE_OBELISCO << ": " << EMOJI_OBELISCO << VACIO << NOMBRE_MINA << ": " << EMOJI_MINA << VACIO
-                                       << NOMBRE_PLANTA_ELECTRICA << ": " << EMOJI_PLANTA_ELECTRICA << VACIO << "Terreno: " << COLOR_TERRENO << COLOR_POR_DEFECTO << setw(25) << COLOR_DORADO << "■" << endl;
-    cout << " ■ " << COLOR_POR_DEFECTO << "2. Convenciones Casillero Inaccesible: " << COLOR_DORADO << setw(82) << "■" << endl;                              
-    cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Lago: " << COLOR_LAGO << COLOR_DORADO << setw(105) << "■" << endl;                     
-    cout << " ■ " << COLOR_POR_DEFECTO << "3. Convenciones Casillero Transitable: " << COLOR_DORADO << setw(82) << "■" << endl;
-    cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Camino: " << COLOR_CAMINO << VACIO << PIEDRA << ": "  << EMOJI_PIEDRA << VACIO << MADERA << ": " << EMOJI_MADERA << VACIO
-                                       << METAL << ": " << EMOJI_METAL << VACIO << ANDYCOINS << ": " << EMOJI_ANDYCOINS << COLOR_DORADO << setw(71) << "■" << endl;
+    string borde = COLOR_DORADO + " ■" + COLOR_POR_DEFECTO;
+    cout << COLOR_DORADO; 
+    cout << " ╔■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╗" << endl;
+    cout << borde << " SIMBOLOGIA "                                                                                                    << setw(119) << borde << endl; 
+    cout << borde << " 1. Convenciones Casillero Construible:"                                                                         << setw(92)  << borde << endl; 
+    cout << borde << " \t-> Terreno:"                                << SIMBOLO_TERRENO          << VACIO << VACIO << VACIO
+                            << NOMBRE_ASERRADERO          << ":"     << EMOJI_ASERRADERO         << VACIO << VACIO << VACIO
+                            << NOMBRE_FABRICA             << ":"     << EMOJI_FABRICA            << VACIO << VACIO << VACIO
+                            << NOMBRE_ESCUELA             << ":"     << EMOJI_ESCUELA            << VACIO << VACIO << VACIO
+                            << NOMBRE_OBELISCO            << ":"     << EMOJI_OBELISCO           << VACIO << VACIO << VACIO
+                            << NOMBRE_MINA                << ":"     << EMOJI_MINA               << VACIO << VACIO << VACIO
+                            << NOMBRE_PLANTA_ELECTRICA    << ":"     << EMOJI_PLANTA_ELECTRICA   << VACIO << VACIO << VACIO            << setw(21)  << borde << endl;
+    cout << borde << " 2. Convenciones Casillero Inaccesible:"                                                                         << setw(92)  << borde << endl;                              
+    cout << borde << " \t-> Lago:"                                   << SIMBOLO_LAGO                                                   << setw(115) << borde << endl;                     
+    cout << borde << " 3. Convenciones Casillero Transitable:"                                                                         << setw(92)  << borde << endl;
+    cout << borde << " \t-> Camino:"                                 << SIMBOLO_CAMINO           << VACIO << VACIO << VACIO
+                            << "Betún:"                              << SIMBOLO_BETUN            << VACIO << VACIO << VACIO
+                            << "Muelle:"                             << SIMBOLO_MUELLE           << VACIO << VACIO << VACIO
+                            << PIEDRA     << ":"                     << EMOJI_PIEDRA             << VACIO << VACIO << VACIO
+                            << MADERA     << ":"                     << EMOJI_MADERA             << VACIO << VACIO << VACIO
+                            << METAL      << ":"                     << EMOJI_METAL              << VACIO << VACIO << VACIO
+                            << ANDYCOINS  << ":"                     << EMOJI_ANDYCOINS                                                << setw(40)  << borde << endl << COLOR_DORADO;
     cout << " ╚■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╝" << COLOR_POR_DEFECTO << endl;
 }
 
