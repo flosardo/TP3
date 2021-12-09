@@ -25,6 +25,10 @@ const int MAXIMO_ENERGIA = 100;
 const int ENERGIA_INICIAL = 50;
 const int MAX_VALOR_MATERIALES = 50000;
 const int MIN_VALOR_MATERIAL = 0;
+const int BOLSA_PIEDRA = 100;
+const int BOLSA_MADERA = 50;
+const int BOLSA_METAL = 50;
+const int BOLSA_ANDYCOINS = 250;
 
 // COLORES
 const std::string COLOR_POR_DEFECTO = "\033[0m";
@@ -37,6 +41,7 @@ const std::string COLOR_DORADO = "\x1b[33m";
 const std::string FONDO_AZUL = "\033[48;5;27m";
 const std::string FONDO_VERDE = "\033[48;5;28m";
 const std::string FONDO_GRIS = "\033[48;5;239m";
+const std::string FONDO_GRIS_CLARO = "\033[48;5;263m";
 
 // JUEGO
 const int OPCION_EMPEZAR = 66;
@@ -94,7 +99,7 @@ const std::string EMOJI_PIEDRA = "\U0001f311";
 const std::string EMOJI_METAL = "\U0001f529";
 const std::string EMOJI_MADERA = "\U0001f954";
 const std::string EMOJI_ENERGIA = "\u26A1";
-const std::string EMOJI_ANDYCOIN = "\U0001f4b0";
+const std::string EMOJI_ANDYCOINS = "\U0001f4b0";
 const std::string EMOJI_BOMBA = "\U0001f4a3";
 const std::string EMOJI_CAMINO = "\U0001f6e4";
 const int LIMITE_INFERIOR_PIEDRA = 1;
@@ -115,6 +120,13 @@ const int POS_MADERA = 1;
 const int POS_METAL = 2;
 const int MAX_MATERIALES = 3;
 
+//EMOJIS TERRENOS
+const std::string COLOR_MUELLE = COLOR_MARRON + "■" + COLOR_POR_DEFECTO;
+const std::string COLOR_TERRENO = COLOR_VERDE + "■" + COLOR_POR_DEFECTO;
+const std::string COLOR_LAGO = FONDO_AZUL + " " + COLOR_POR_DEFECTO;
+const std::string COLOR_CAMINO = FONDO_GRIS + " " + COLOR_POR_DEFECTO;
+const std::string COLOR_BETUN = FONDO_GRIS_CLARO + " " + COLOR_POR_DEFECTO;
+
 // EMOJIS EDIFICIOS
 const std::string EMOJI_PLANTA_ELECTRICA = "\U0001f3e4";
 const std::string EMOJI_MINA_ORO = "\U0001f682";
@@ -123,7 +135,6 @@ const std::string EMOJI_ASERRADERO = "\U0001f3ec";
 const std::string EMOJI_ESCUELA = "\U0001f3eb";
 const std::string EMOJI_FABRICA = "\U0001f3ed";
 const std::string EMOJI_OBELISCO = "\U0001f5fc";
-const std::string EMOJI_TERRENO = "\U0001f3d7";
 
 // RUTAS ARCHIVOS
 const std::string RUTA_MATERIALES = "archivos_de_texto/materiales.txt";

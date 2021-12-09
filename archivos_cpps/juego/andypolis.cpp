@@ -69,7 +69,7 @@ void Andypolis::comenzar_partida() {
         }
         jugador -> establecer_coordenadas(fila, columna);
         jugador -> establecer_codigo_emoji(convencion_jugador);
-        jugador_1_ubicado = this -> mapa -> ubicar_jugador(jugador, fila, columna);
+        jugador_1_ubicado = this -> mapa -> se_ubico_jugador(jugador, fila, columna);
         if(jugador_1_ubicado)
             cout << "Siguiente jugador" << endl;
     }
@@ -117,6 +117,7 @@ void Andypolis::mostrar_inventario() {
 }
 
 void Andypolis::finalizar_turno() {
+    funciones_auxiliares.lluvia_materiales(this -> mapa);
     funciones_auxiliares.aumentar_materiales_producidos(this -> jugador_actual);
     this -> jugador_actual -> modificar_energia(ENERGIA_FINALIZAR_TURNO);
     this -> jugador_actual = funciones_auxiliares.cambiar_turno(this -> jugador_actual, this -> jugador_1, this -> jugador_2);

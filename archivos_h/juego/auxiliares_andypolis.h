@@ -10,6 +10,10 @@
 #include "../construcciones/escuela.h"
 #include "../construcciones/planta_electrica.h"
 #include "../construcciones/obelisco.h"
+#include "../materiales/piedra.h"
+#include "../materiales/madera.h"
+#include "../materiales/metal.h"
+#include "../materiales/andycoins.h"
 #include <unistd.h>
 #include <algorithm>
 
@@ -40,6 +44,13 @@ class Auxiliares_andypolis {
         void aumentar_materiales_producidos(Jugador* jugador_actual);
 
         void atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador_actual, Jugador* jugador_1, Jugador* jugador_2, int fila, int columna);
+
+        void lluvia_materiales(Mapa* mapa);
+
+        void lluvia_material(std::string nombre_material, int cantidad_a_generar, Mapa* mapa);
+
+        Material* generar_material(std::string nombre_material);
+
 
         /*
         *Post: obtendra un puntero con las coordenadas pedidas.

@@ -34,14 +34,14 @@ void Mapa::mostrar_simbologia(){
     cout << COLOR_DORADO << " ╔■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╗" << endl;
     cout << " ■ " << COLOR_POR_DEFECTO << "SIMBOLOGIA " << COLOR_DORADO << setw(110) << "■" << endl; 
     cout << " ■ " << COLOR_POR_DEFECTO << "1. Convenciones Casillero Construible: " << COLOR_DORADO << setw(82) << "■" << endl; 
-    cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Aserradero: " << EMOJI_ASERRADERO << " Fábrica: "  << EMOJI_FABRICA 
-                                       << " Escuela: " << EMOJI_ESCUELA << "Obelisco: " << EMOJI_OBELISCO << "Mina: " << EMOJI_MINA 
-                                       << "Planta Electrica: " << EMOJI_PLANTA_ELECTRICA << " Terreno: \033[48;5;28m  \033[0m" << setw(25) << COLOR_DORADO << "■" << endl;
+    cout << " ■ " << COLOR_POR_DEFECTO << "\t->" << NOMBRE_ASERRADERO << ": " << EMOJI_ASERRADERO << VACIO << NOMBRE_FABRICA << ": "  << EMOJI_FABRICA << VACIO
+                                       << NOMBRE_ESCUELA << ": " << EMOJI_ESCUELA << VACIO << NOMBRE_OBELISCO << ": " << EMOJI_OBELISCO << VACIO << NOMBRE_MINA << ": " << EMOJI_MINA << VACIO
+                                       << NOMBRE_PLANTA_ELECTRICA << ": " << EMOJI_PLANTA_ELECTRICA << VACIO << "Terreno: " << COLOR_TERRENO << COLOR_POR_DEFECTO << setw(25) << COLOR_DORADO << "■" << endl;
     cout << " ■ " << COLOR_POR_DEFECTO << "2. Convenciones Casillero Inaccesible: " << COLOR_DORADO << setw(82) << "■" << endl;                              
-    cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Lago: \033[48;5;27m  \033[0m" << COLOR_DORADO << setw(105) << "■" << endl;                     
+    cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Lago: " << COLOR_LAGO << COLOR_DORADO << setw(105) << "■" << endl;                     
     cout << " ■ " << COLOR_POR_DEFECTO << "3. Convenciones Casillero Transitable: " << COLOR_DORADO << setw(82) << "■" << endl;
-    cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Camino: \033[48;5;240m  \033[0m" << "  Piedra: "  << EMOJI_PIEDRA << " Madera: " << EMOJI_MADERA
-                                       << " Metal: " << EMOJI_METAL << COLOR_DORADO << setw(71) << "■" << endl;
+    cout << " ■ " << COLOR_POR_DEFECTO << "\t-> Camino: " << COLOR_CAMINO << VACIO << PIEDRA << ": "  << EMOJI_PIEDRA << VACIO << MADERA << ": " << EMOJI_MADERA << VACIO
+                                       << METAL << ": " << EMOJI_METAL << VACIO << ANDYCOINS << ": " << EMOJI_ANDYCOINS << COLOR_DORADO << setw(71) << "■" << endl;
     cout << " ╚■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╝" << COLOR_POR_DEFECTO << endl;
 }
 
@@ -54,7 +54,7 @@ void Mapa::inicializar_casillero(char terreno, int fila, int columna) {
         this -> mapa[fila][columna] = new Casillero_transitable();
 }
 
-bool Mapa::ubicar_material(Material* material, int fila, int columna) {
+bool Mapa::se_ubico_material(Material* material, int fila, int columna) {
     bool coordenada_valida = !this -> esta_ocupado(fila, columna) 
                             && this -> obtener_tipo_casillero(fila, columna) != LAGO && this -> obtener_tipo_casillero(fila, columna) != TERRENO;
     if (coordenada_valida)
@@ -64,7 +64,7 @@ bool Mapa::ubicar_material(Material* material, int fila, int columna) {
     return coordenada_valida;
 }
 
-bool Mapa::ubicar_edificio(Edificio* edificio, int fila, int columna) {
+bool Mapa::se_ubico_edificio(Edificio* edificio, int fila, int columna) {
     bool coordenada_valida = !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) == TERRENO;
     if (coordenada_valida)
         this -> mapa[fila][columna] -> agregar_edificio(edificio);
@@ -73,7 +73,7 @@ bool Mapa::ubicar_edificio(Edificio* edificio, int fila, int columna) {
     return coordenada_valida;
 }
 
-bool Mapa::ubicar_jugador(Jugador* jugador, int fila, int columna) {
+bool Mapa::se_ubico_jugador(Jugador* jugador, int fila, int columna) {
     bool coordenada_valida = !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) != LAGO;
     if (coordenada_valida)
         this -> mapa[fila][columna] -> agregar_jugador(jugador);

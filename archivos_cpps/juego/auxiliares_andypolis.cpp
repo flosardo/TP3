@@ -124,7 +124,7 @@ void Auxiliares_andypolis::construir_edificio_auxiliar(Abb* edificios_disponible
         else {
             int* coordenadas = this -> pedir_coordenadas(mapa);
             Edificio* nuevo_edificio = this -> crear_edificio(edificio_a_construir, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
-            if (mapa -> ubicar_edificio(nuevo_edificio, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA])) { 
+            if (mapa -> se_ubico_edificio(nuevo_edificio, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA])) { 
                 int piedra_necesaria = edificio -> obtener_cantidad_necesaria(PIEDRA);
                 int madera_necesaria = edificio -> obtener_cantidad_necesaria(MADERA);
                 int metal_necesario = edificio -> obtener_cantidad_necesaria(METAL);
@@ -252,6 +252,46 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
         }
     }
     cout << COLOR_POR_DEFECTO;
+}
+
+
+void Auxiliares_andypolis::lluvia_materiales(Mapa* mapa) {
+    int piedra_a_generar = 1 + (rand() % 2);
+    int madera_a_generar = (rand() % 4);
+    int metal_a_generar = 2 + (rand() % 4);
+    int andycoins_a_generar = (rand() % 2);
+    lluvia_material(PIEDRA, piedra_a_generar, mapa);
+    lluvia_material(MADERA, madera_a_generar, mapa);
+    lluvia_material(METAL, metal_a_generar, mapa);
+    lluvia_material(ANDYCOINS, andycoins_a_generar, mapa);
+}
+
+Material* Auxiliares_andypolis::generar_material(string nombre_material) {
+    Material* material = 0;
+    if (nombre_material == PIEDRA)
+        material = new Piedra();
+    else if (nombre_material == MADERA)
+        material = new Madera();
+    else if (nombre_material == METAL)
+        material = new Metal();
+    else
+        material = new Andycoins();
+    return material;
+}
+
+void Auxiliares_andypolis::lluvia_material(string nombre_material, int cantidad_a_generar, Mapa* mapa) {
+    if (!mapa -> es_posible_insertar_materiales(cantidad_a_generar)) {
+        cout << COLOR_ROJO << "No hay suficientes casilleros disponibles para generar " << nombre_material << COLOR_POR_DEFECTO << endl;
+    }
+    else {
+        Material* material = generar_material(nombre_material);
+        int* coordenadas = mapa -> generar_coordenadas_validas();
+        for (int i = 0; i < cantidad_a_generar; i++) {
+            mapa -> se_ubico_material(material, coordenadas[0], coordenadas[1]);
+            delete[] coordenadas;
+            coordenadas = nullptr;
+        }
+    }
 }
 
 Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int columna) { //metodo repetido
