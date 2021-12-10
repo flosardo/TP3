@@ -62,8 +62,16 @@ void Mapa::inicializar_casillero(char terreno, int fila, int columna) {
         this -> mapa[fila][columna] = new Casillero_inaccesible();
     else if (terreno == TERRENO)
         this -> mapa[fila][columna] = new Casillero_construible();
-    else
-        this -> mapa[fila][columna] = new Casillero_transitable();
+    else {
+        string color;
+        if (terreno == BETUN)
+            color = FONDO_GRIS_CLARO;
+        else if (terreno == CAMINO)
+            color = FONDO_GRIS;
+        else
+            color = FONDO_MARRON;
+        this -> mapa[fila][columna] = new Casillero_transitable(color);
+    }
 }
 
 bool Mapa::se_ubico_material(Material* material, int fila, int columna) {
@@ -106,7 +114,6 @@ void Mapa::consultar_coordenada(int fila, int columna) {
 }
 
 bool Mapa::esta_ocupado(int fila, int columna) {
-    cout << fila << " " << columna << endl;
     return this -> mapa[fila][columna] -> esta_ocupado();
 }
 

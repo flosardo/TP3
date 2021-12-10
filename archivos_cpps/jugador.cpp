@@ -14,7 +14,7 @@ Jugador::Jugador() {
     this -> nombre = VACIO;
 }
 
-void Jugador::establecer_nombre(string nombre) { // PARA COMENZAR PARTIDA
+void Jugador::establecer_nombre(string nombre) {
     this -> nombre = nombre;
 }
 

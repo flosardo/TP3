@@ -30,19 +30,19 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
 
     if (nombre == NUMERO_JUGADOR_1 || nombre == NUMERO_JUGADOR_2) {
         convencion_jugador = nombre == NUMERO_JUGADOR_1 ? JUGADOR_1 : JUGADOR_2;
-        jugador = convencion_jugador == JUGADOR_1 ? jugador_1 : jugador_2;
+        jugador = nombre == NUMERO_JUGADOR_1 ? jugador_1 : jugador_2;
         jugador -> establecer_nombre(nombre);
         jugador -> establecer_coordenadas(fila, columna);
         jugador -> establecer_codigo_emoji(convencion_jugador);
         mapa -> se_ubico_jugador(jugador, fila, columna);
-    } else if (convencion_jugador != " ") {
+    }
+    else if (convencion_jugador != " ") {
         Edificio* edificio_creado = crear_edificio(nombre, fila, columna);
         mapa -> se_ubico_edificio(edificio_creado, fila, columna);
         this -> cargar_edificio_en_jugador(edificio_creado, jugador_1, jugador_2, convencion_jugador);
-    } else {
-        Material* material_creado = crear_material(nombre);
-        mapa -> se_ubico_material(material_creado, fila, columna);
-    }
+    } 
+    else
+        mapa -> se_ubico_material(crear_material(nombre), fila, columna);
 }
 
 void Cargar_ubicaciones::cargar_edificio_en_jugador(Edificio* edificio, Jugador* jugador_1, Jugador* jugador_2, string convencion) {

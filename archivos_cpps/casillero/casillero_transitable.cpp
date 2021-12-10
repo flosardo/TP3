@@ -2,11 +2,11 @@
 
 using namespace std;
 
-Casillero_transitable::Casillero_transitable() {
+Casillero_transitable::Casillero_transitable(string color) {
     this -> material = nullptr;
     this -> jugador = nullptr;
     this -> tipo_terreno = CAMINO;
-    this -> codigo_color = FONDO_GRIS;
+    this -> codigo_color = color;
 }
 
 Jugador* Casillero_transitable::obtener_puntero_jugador() {
