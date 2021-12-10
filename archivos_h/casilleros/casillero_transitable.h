@@ -17,12 +17,6 @@ class Casillero_transitable: public Casillero {
         */
         Casillero_transitable();
 
-        // /*
-        // *Pre: Que el parámetro material no sea null.
-        // *Post: Creará un objeto de tipo Casillero_transitable con el parámetro material.
-        // */
-        // Casillero_transitable(Material* material);
-
         /*
         *Post: Mostrará lo que hay en el casillero.
         */
@@ -60,6 +54,9 @@ class Casillero_transitable: public Casillero {
         */
         void limpiar_casillero();
 
+        /*
+        *Post: Liberará la memoria utilizada por el Casillero_transitable.
+        */
         ~Casillero_transitable();
         
 };

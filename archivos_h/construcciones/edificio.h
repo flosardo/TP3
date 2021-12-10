@@ -94,6 +94,9 @@ class Edificio {
         */
         void virtual mostrar_caracteristicas(int construidos) = 0;
 
+        /*
+        *Post: Aumentará la cantidad de material que produce el edificio.
+        */
         virtual void aumentar_material_producido();
 
         /*

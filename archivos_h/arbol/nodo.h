@@ -14,7 +14,7 @@ class Nodo {
     public:
 
         /*
-        *Post: crea un objeto de tipo nodo.
+        *Post: Crea un objeto de tipo nodo.
         */
         Nodo();
 
@@ -25,17 +25,17 @@ class Nodo {
         Nodo(Edificio* edificio);
 
         /*
-        *Post: obtendra el nodo izquierdo.
+        *Post: Obtendra el nodo izquierdo.
         */
         Nodo* obtener_izquierda();
 
         /*
-        *Post: obtendra el nodo derecho.
+        *Post: Obtendra el nodo derecho.
         */
         Nodo* obtener_derecha();
 
         /*
-        *Post: obtendra el dato del edificio.
+        *Post: Obtendra el dato del edificio.
         */
         Edificio* obtener_dato();
 

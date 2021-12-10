@@ -24,11 +24,7 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
     int columna;
     string basura;
     Jugador* jugador;
-    //archivo_ubicaciones >> fila >> basura >> columna >> basura; // Preguntar si esto es válido
-    archivo_ubicaciones >> fila;
-    archivo_ubicaciones >> basura;
-    archivo_ubicaciones >> columna;
-    archivo_ubicaciones >> basura;
+    archivo_ubicaciones >> fila >> basura >> columna >> basura;
     archivo_ubicaciones.ignore();
     nombre.pop_back();
 

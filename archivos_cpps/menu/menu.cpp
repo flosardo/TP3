@@ -10,7 +10,9 @@ int Menu::pedir_opcion() {
 }
 
 void Menu::mostrar_mensaje_volver_menu(int segundos) {
-    cout << COLOR_VERDE_AGUA << "Dentro de " << segundos << " segundos se volvera al menú (:" << COLOR_POR_DEFECTO << endl;
+    cout << endl;
+    cout << COLOR_VERDE << "Dentro de " << segundos << " segundos " << EMOJI_CRONOMETRO << "  se volvera al menú (:"
+    << COLOR_POR_DEFECTO << endl;
     sleep(segundos);
 }
 

@@ -24,17 +24,17 @@ class Andypolis {
         Andypolis();
 
         /*
-        *Post: obtendra un puntero de tipo Abb, con la información del arbol.
+        *Post: Obtendra un puntero de tipo Abb, con la información del arbol.
         */
         Abb* obtener_arbol();
 
         /*
-        *Post: obtendra un puntero de tipo Mapa, con la información del mapa de andypolis.
+        *Post: Obtendra un puntero de tipo Mapa, con la información del mapa de andypolis.
         */
         Mapa* obtener_mapa();
 
         /*
-        *Post: obtendra un puntero de tipo Auxiliares_andypolis.
+        *Post: Obtendra un puntero de tipo Auxiliares_andypolis.
         */
         Auxiliares_andypolis obtener_funciones_auxiliares();
 
@@ -125,12 +125,12 @@ class Andypolis {
         void finalizar_turno();
 
         /*
-        *Post: obtendra el puntero de tipo Jugador, con el jugador actual.
+        *Post: Obtendra el puntero de tipo Jugador, con el jugador actual.
         */
         Jugador* obtener_jugador_actual();
 
         /*
-        *Post: obtendrael puntero de tipo Jugador, con el jugador pedido.
+        *Post: Obtendra el puntero de tipo Jugador, con el jugador pedido.
         */
         Jugador* obtener_jugador(std::string numero_jugador);
 

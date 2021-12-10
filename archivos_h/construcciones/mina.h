@@ -35,6 +35,9 @@ class Mina : public Edificio {
         */
         void mostrar_saludo();
 
+        /*
+        *Post: Aumentará la cantidad de material que produce el edificio.
+        */
         void aumentar_material_producido();
 
     private:

@@ -171,9 +171,9 @@ void Mapa::mostrar_mapa() {
     this -> mostrar_simbologia();
     cout << endl;
     cout << "   ";
-    for (int i = 0; i < this -> cantidad_columnas; i++) {
+    for (int i = 0; i < this -> cantidad_columnas; i++)
         cout << i << "   ";
-    }
+    
     cout << endl;
     for (int fila = 0; fila < this -> cantidad_filas; fila++) { 
         cout << ' ' << fila << ' ';

@@ -37,13 +37,13 @@ class Abb {
         void agregar_nodo(Edificio* nuevo_edficio);
 
         /*
-        *Post: obtendra null si no se encontro el edificio, en caso contrario obtendra un puntero de tipo edificio, del edificio buscado. 
+        *Post: Obtendra null si no se encontro el edificio, en caso contrario Obtendra un puntero de tipo edificio, del edificio buscado. 
         */
         Edificio* buscar_edificio(std::string nombre);
 
         /*
         *Pre: Que el parámetro jugador no sea null.
-        *Pos: obtendra la cantidad de edificios construidos.
+        *Pos: Obtendra la cantidad de edificios construidos.
         */
         int contar_construidos(Jugador* jugador, std::string nombre_edificio);
 

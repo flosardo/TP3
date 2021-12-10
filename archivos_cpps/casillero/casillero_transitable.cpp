@@ -9,13 +9,6 @@ Casillero_transitable::Casillero_transitable() {
     this -> codigo_color = FONDO_GRIS;
 }
 
-// Casillero_transitable::Casillero_transitable(Material* material) {
-//     this -> material = material;
-//     this -> jugador = nullptr;
-//     this -> tipo_terreno = CAMINO;
-//     this -> codigo_color = FONDO_GRIS;
-// }
-
 Jugador* Casillero_transitable::obtener_puntero_jugador() {
     return this -> jugador;
 }

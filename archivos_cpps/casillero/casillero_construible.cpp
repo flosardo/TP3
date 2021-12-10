@@ -9,32 +9,21 @@ Casillero_construible::Casillero_construible() {
     this -> codigo_color = FONDO_VERDE;
 }
 
-// // REVISAR
-// Casillero_construible::Casillero_construible(Edificio* edificio) {
-//     this -> edificio = edificio;
-//     this -> jugador = nullptr;
-//     this -> tipo_terreno = TERRENO;
-//     this -> codigo_color = FONDO_VERDE;
-// }
-
 Jugador* Casillero_construible::obtener_puntero_jugador() {
     return this -> jugador;
 }
 
 void Casillero_construible::mostrar() {
-    if (!this -> edificio && !this -> jugador) {
-        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
+    cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
+    if (!this -> edificio && !this -> jugador)
         cout << COLOR_VERDE << "Soy un terreno un casillero construible y me encuentro vacío." << COLOR_POR_DEFECTO << endl;
-        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
-
-    } else if (this -> jugador) {
+    else if (this -> jugador) 
         cout << COLOR_VERDE_AGUA << "Soy un casillero construible y no me encuentro vacio" << COLOR_POR_DEFECTO << endl << endl;
-    } else {
-        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
+    else {
         cout << COLOR_VERDE_AGUA << "Soy un terreno, un casillero construible y no me encuentro vacío." << COLOR_POR_DEFECTO << endl;
         this -> edificio -> mostrar_saludo();
-        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
     }
+    cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
 }
 
 void Casillero_construible::agregar_edificio(Edificio* edificio_a_construir) {
