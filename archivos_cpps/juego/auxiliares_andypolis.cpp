@@ -162,8 +162,7 @@ bool Auxiliares_andypolis::confirmar_construccion(string edificio_a_construir) {
     return (decision == DECISION_SI);
 }
 
-void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, int fila, int columna) {
-    string nombre_edificio = mapa -> obtener_edificio(fila, columna) -> obtener_nombre();    
+void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, int fila, int columna) {   
     if (mapa -> obtener_tipo_casillero(fila, columna) != TERRENO)
         cout << COLOR_ROJO << "En las coordenadas ingresadas no se puede demoler dado que no es un casillero de tipo Terreno" << COLOR_POR_DEFECTO << endl;
     else if (!mapa -> obtener_edificio(fila, columna))
@@ -171,6 +170,7 @@ void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles,
     else if (!jugador_actual -> eliminar_edificio(fila, columna))
         cout << COLOR_ROJO << "No puede demoler un edificio que no le pertenece" << COLOR_POR_DEFECTO << endl;
     else {
+        string nombre_edificio = mapa -> obtener_edificio(fila, columna) -> obtener_nombre(); 
         Edificio* edificio_a_demoler = edificios_disponibles -> buscar_edificio(nombre_edificio);
         int piedra_necesaria = edificio_a_demoler -> obtener_cantidad_necesaria(PIEDRA);
         int madera_necesaria = edificio_a_demoler -> obtener_cantidad_necesaria(MADERA);
