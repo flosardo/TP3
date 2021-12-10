@@ -5,10 +5,6 @@
 
 class Objetivo_extremista: public Objetivo {
 
-    private:
-
-        int cantidad_bombas_compradas;
-
     public:
 
         /*
@@ -19,7 +15,7 @@ class Objetivo_extremista: public Objetivo {
         /*
         * Post: Mostrará el progreso por consola.
         */
-        void mostrar_progreso();
+        void mostrar_progreso(int cantidad);
 
         /*
         * Post: Obtendrá true si hay 500 bombas compradas ó false en caso contrario.

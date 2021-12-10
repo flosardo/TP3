@@ -22,4 +22,8 @@ bool Objetivo::se_cumplio_el_objetivo(string nombre) {
     return false;
 }
 
+bool Objetivo::se_cumplio_el_objetivo(Edificio** edicificios_construidos){
+
+}
+
 void Objetivo::cambiar_estado_construido(string nombre) {}

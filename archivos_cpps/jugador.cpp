@@ -15,7 +15,7 @@ Jugador::Jugador() {
     this -> andycoins_juntados = 0;
     this -> bombas_usadas = 0;
     this -> bombas_compradas = 0;
-    //this -> cargar_objetivos();
+
 }
 
 void Jugador::establecer_nombre(string nombre) {
@@ -71,8 +71,8 @@ void Jugador::asignar_objetivos(int cantidad_escuelas_permitidos) {
 
 }
 
-void Jugador::aumentar_andycoins_comprados(int cantidad_andycoins) {
-    this -> andycoins_comprados += cantidad_andycoins;
+void Jugador::aumentar_andycoins_juntados(int cantidad_andycoins) {
+    this -> andycoins_juntados += cantidad_andycoins;
 }
 void Jugador::aumentar_bombas_compradas(int cantidad_bombas) {
     this -> bombas_compradas += cantidad_bombas;
@@ -90,7 +90,7 @@ void Jugador::cargar_objetivos(int cantidad_escuelas_permitidos) {
 bool Jugador::hay_obelisco_construido() {
     bool hay_obelisco = false;
     int i = 0;
-    while (!obelisco && i < this -> cantidad_construidos) {
+    while (!hay_obelisco && i < this -> cantidad_construidos) {
         if (this -> edificios_construidos[i] -> obtener_nombre() == NOMBRE_OBELISCO) {
             hay_obelisco = true;
         }
@@ -99,43 +99,96 @@ bool Jugador::hay_obelisco_construido() {
     return hay_obelisco;
 }
 
+bool Jugador::hay_minas_construidas(){
+    bool hay_mina_oro = false;
+    bool hay_mina = false;
+    int i = 0;
+
+    while(!hay_mina_oro && !hay_mina && i < this -> cantidad_construidos){
+        string edificio = edificios_construidos[i] -> obtener_nombre();
+        if(edificio == NOMBRE_MINA_ORO){
+            hay_mina_oro = true;
+        }else if(edificio == NOMBRE_MINA){
+            hay_mina = true;
+        }
+
+        i++;
+    }
+
+    bool objetivo_cumplido = (hay_mina_oro && hay_mina);
+    return objetivo_cumplido;
+}
+
+bool Jugador::objetivo_constructor_hecho(){
+    bool hay_escuela = false;
+    bool hay_planta = false;
+    bool hay_aserradero = false;
+    bool hay_fabrica = false;
+    int i = 0;
+
+    while(!hay_escuela && !hay_planta && !hay_aserradero && !hay_fabrica && i < this -> cantidad_construidos){
+        string edificio = this -> edificios_construidos[i] -> obtener_nombre();
+        if(edificio == NOMBRE_PLANTA){
+            hay_planta = true;
+        }else if(edificio == NOMBRE_ESCUELA){
+            hay_escuela = true;
+        }else if(edificio == NOMBRE_ASERRADERO){
+            hay_aserradero = true;
+        }else if(edificio == NOMBRE_FABRICA){
+            hay_fabrica = true;
+        }
+
+        i++;
+    }
+
+    return(hay_planta && hay_escuela && hay_fabrica && hay_aserradero && hay_minas_construidas());
+
+}
+
 bool Jugador::objetivos_cumplidos() {
     bool gano_el_juego = false;
     if(this -> hay_obelisco_construido()){
         gano_el_juego = true;
     }
     else {
+        int objetivos_cumplidos = 0;
         for (int i = 1; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++) {
+            bool objetivo_cumplido = false;
             if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_ANDYCOINS) {
-                this -> objetivos[i] -> se_cumplio_el_objetivo(this -> andycoins_comprados);
+                objetivo_cumplido = this -> objetivos[i] -> se_cumplio_el_objetivo(this -> andycoins_juntados);
             }
             else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_ARMADO) {
-                int cantidad_bombas = this -> inventario -> obtener_material(BOMBAS) -> obtener_cantidad();
-                this -> objetivos[i] -> se_cumplio_el_objetivo(cantidad_bombas);
+                int cantidad_bombas = this -> inventario -> obtener_material(BOMBA) -> obtener_cantidad();
+                objetivo_cumplido = this -> objetivos[i] -> se_cumplio_el_objetivo(cantidad_bombas);
             }
             else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_BOMBARDERO) {
-                this -> objetivos[i] -> se_cumplio_el_objetivo(this -> bombas_usadas);
+                objetivo_cumplido = this -> objetivos[i] -> se_cumplio_el_objetivo(this -> bombas_usadas);
             }
             else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_CANSADO) {
-                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+                objetivo_cumplido = this -> objetivos[i] -> se_cumplio_el_objetivo(this -> energia.obtener_cantidad());
             }
             else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_CONSTRUCTOR) {
-                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+                objetivo_constructor_hecho;
             }
             else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_ENERGETICO) {
-                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+                objetivo_cumplido = this -> objetivos[i] -> se_cumplio_el_objetivo(this -> energia.obtener_cantidad());
             }
             else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_EXTREMISTA) {
-                this -> objetivos[i] -> se_cumplio_el_objetivo(this -> bombas_compradas);
+                objetivo_cumplido = this -> objetivos[i] -> se_cumplio_el_objetivo(this -> bombas_compradas);
             }
             else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_LETRADO) {
-                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+                objetivo_cumplido = this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
             }
             else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_MINERO) {
-                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+               objetivo_cumplido = hay_minas_construidas();
             }
             else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_PIEDRA) {
-                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+                int cantidad_piedra = this -> inventario ->obtener_material(PIEDRA) -> obtener_cantidad();
+                objetivo_cumplido = this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+            }
+
+            if(objetivo_cumplido){
+                objetivos_cumplidos++;
             }
         }
     }
@@ -158,6 +211,7 @@ void Jugador::cargar_edificio(Edificio* edificio) {
     redimensionar_edificio(this -> cantidad_construidos + 1);
     this -> edificios_construidos[this -> cantidad_construidos] = edificio;
     this -> cantidad_construidos++;
+
 }
 
 void Jugador::redimensionar_edificio(int nueva_longitud) {

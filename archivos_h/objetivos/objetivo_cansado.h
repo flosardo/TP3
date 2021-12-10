@@ -5,10 +5,6 @@
 
 class Objetivo_cansado: public Objetivo {
 
-    private:
-    
-        int cantidad_energia;
-
     public:
 
         /*
@@ -19,7 +15,7 @@ class Objetivo_cansado: public Objetivo {
         /*
         *Post: Mostrará el progreso por consola.
         */
-        void mostrar_progreso();
+        void mostrar_progreso(int cantidad);
 
         /*
         *Post: Obtendrá true si se termina el turno con 0 de energia, false en caso contrario.

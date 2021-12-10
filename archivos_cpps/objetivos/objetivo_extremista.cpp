@@ -4,14 +4,12 @@ using namespace std;
 
 Objetivo_extremista::Objetivo_extremista() {
     this -> nombre = NOMBRE_OBJETIVO_EXTREMISTA;
-    this -> cantidad_bombas_compradas = 0;
 }
 
 bool Objetivo_extremista::se_cumplio_el_objetivo(int cantidad) {
-    this -> cantidad_bombas_compradas += cantidad;
-    return this -> cantidad_bombas_compradas >= OBJETIVO_EXTREMISTA;
+    return cantidad >= OBJETIVO_EXTREMISTA;
 }
 
-void Objetivo_extremista::mostrar_progreso() {
-    cout << "Faltan: " << OBJETIVO_EXTREMISTA - this -> cantidad_bombas_compradas << " bombas para lograr el objetivo" << endl;
+void Objetivo_extremista::mostrar_progreso(int cantidad) {
+    cout << "Faltan: " << OBJETIVO_EXTREMISTA - cantidad << " bombas para lograr el objetivo" << endl;
 }

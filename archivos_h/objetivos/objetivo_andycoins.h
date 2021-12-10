@@ -5,9 +5,6 @@
 
 class Objetivo_andycoins: public Objetivo {
 
-    private:
-
-        int cantidad_andycoins;
 
     public:
 
@@ -19,7 +16,7 @@ class Objetivo_andycoins: public Objetivo {
         /*
         *Post: Mostrará el progreso por consola.
         */
-        void mostrar_progreso();
+        void mostrar_progreso(int cantidad);
 
         /*
         *Post: obtendra true si hay más de 100000 andycoins, false en caso contrario.

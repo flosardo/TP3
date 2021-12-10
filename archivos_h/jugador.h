@@ -26,7 +26,7 @@ class Jugador {
         std::string codigo_emoji;
         Edificio** edificios_construidos;
         int cantidad_construidos;
-        int andycoins_comprados;
+        int andycoins_juntados;
         int bombas_usadas;
         int bombas_compradas;
         Objetivo** objetivos;
@@ -170,6 +170,12 @@ class Jugador {
         void aumentar_andycoins_juntados(int cantidad_comprada);
 
         void aumentar_bombas_compradas(int cantidad_bombas);
+
+        bool hay_obelisco_construido();
+
+        bool objetivo_constructor_hecho();
+
+        bool hay_minas_construidas();
 
         void aumentar_bombas_usadas(int cantidad_bombas);
             /*

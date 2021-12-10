@@ -2,6 +2,7 @@
 #define _OBJETIVO_H_
 
 #include "../constantes.h"
+#include "../construcciones/edificio.h"
 
 class Objetivo {
 
@@ -37,6 +38,8 @@ class Objetivo {
         *Post: Obtendrá true si se cumplio el objetivo o false en caso contrario.
         */
         virtual bool se_cumplio_el_objetivo(std::string nombre);
+
+        virtual bool se_cumplio_el_objetivo(Edificio** edicificios_construidos);
 
         /*
         *Post: Cambiará el estado de construido del objetivo.

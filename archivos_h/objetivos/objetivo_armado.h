@@ -5,9 +5,6 @@
 
 class Objetivo_armado: public Objetivo {
     
-    private:
-    
-        int cantidad_bombas;
 
     public:
 
@@ -19,7 +16,7 @@ class Objetivo_armado: public Objetivo {
         /*
         *Post: Mostrará el progreso por consola.
         */
-        void mostrar_progreso();
+        void mostrar_progreso(int cantidad);
 
         /*
         *Post: obtendra true si hay 10 bombas en el inventario, false en caso contrario.
