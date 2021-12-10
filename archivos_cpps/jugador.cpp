@@ -145,6 +145,18 @@ bool Jugador::objetivo_constructor_hecho(){
 
 }
 
+int Jugador::contar_escuelas(){
+    int cantidad_escuelas = 0;
+
+    for(int i = 0;i<this->cantidad_construidos;i++){
+        string edificio = this -> edificios_construidos[i] -> obtener_nombre();
+        if(edificio == NOMBRE_ESCUELA){
+            cantidad_escuelas++;
+        }
+    }
+    return cantidad_escuelas;
+}
+
 bool Jugador::objetivos_cumplidos() {
     bool gano_el_juego = false;
     if(this -> hay_obelisco_construido()){
@@ -177,7 +189,8 @@ bool Jugador::objetivos_cumplidos() {
                 objetivo_cumplido = this -> objetivos[i] -> se_cumplio_el_objetivo(this -> bombas_compradas);
             }
             else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_LETRADO) {
-                objetivo_cumplido = this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+                int cantidad_escuelas_construidas = contar_escuelas();
+                objetivo_cumplido = this -> objetivos[i] -> se_cumplio_el_objetivo(cantidad_escuelas_construidas);
             }
             else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_MINERO) {
                objetivo_cumplido = hay_minas_construidas();
@@ -191,7 +204,14 @@ bool Jugador::objetivos_cumplidos() {
                 objetivos_cumplidos++;
             }
         }
+
+        if(objetivos_cumplidos >= 2){
+            gano_el_juego = true;
+        }
     }
+
+    return gano_el_juego;
+    
 }
 
 string Jugador::obtener_nombre() {
