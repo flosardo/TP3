@@ -24,6 +24,7 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
     int columna;
     string basura;
     Jugador* jugador;
+    //archivo_ubicaciones >> fila >> basura >> columna >> basura; // Preguntar si esto es válido
     archivo_ubicaciones >> fila;
     archivo_ubicaciones >> basura;
     archivo_ubicaciones >> columna;
@@ -38,13 +39,11 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
         jugador -> establecer_coordenadas(fila, columna);
         jugador -> establecer_codigo_emoji(convencion_jugador);
         mapa -> se_ubico_jugador(jugador, fila, columna);
-    }
-    else if (convencion_jugador != " ") {
+    } else if (convencion_jugador != " ") {
         Edificio* edificio_creado = crear_edificio(nombre, fila, columna);
         mapa -> se_ubico_edificio(edificio_creado, fila, columna);
         this -> cargar_edificio_en_jugador(edificio_creado, jugador_1, jugador_2, convencion_jugador);
-    } 
-    else {
+    } else {
         Material* material_creado = crear_material(nombre);
         mapa -> se_ubico_material(material_creado, fila, columna);
     }
@@ -74,7 +73,7 @@ void Cargar_ubicaciones::guardar_materiales_lluvia(ofstream & archivo_ubicacione
                 archivo_ubicaciones << material -> obtener_nombre_material() << VACIO << '(' << fila << ", " << columna << ')' << endl;
         }
     }
-    delete[] dimensiones_mapa;
+    delete [] dimensiones_mapa;
     dimensiones_mapa = nullptr;
 }
 

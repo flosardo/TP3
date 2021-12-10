@@ -33,7 +33,6 @@ void Nodo::establecer_izquierda(Nodo* nuevo_nodo) {
     this -> izquierda = nuevo_nodo;
 }
 
-
 Nodo::~Nodo() {
     delete this -> edificio;
 }

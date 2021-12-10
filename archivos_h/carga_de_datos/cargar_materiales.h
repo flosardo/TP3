@@ -38,9 +38,15 @@ class Cargar_materiales {
 
         /*
         *Pre: Que el parámetro jugador no sea nulo, sumado a eso que la cantidad del material sea >= 0, y que reciba el tipo de material.
-        *Post: Procesa el archivo.
+        *Post: Procesará el archivo de materiales.
         */
         void procesar_archivo(std::string tipo_material, int cantidad_material, Jugador* jugador);
+
+        /*
+        *Pre: Que el archivo exista, que los inventarios esten bien cargados y que cantidad_materiales sea >= 0.
+        *Post: Editará el archivo de materiales.
+        */
+        void editar_archivo_materiales(std::ofstream & archivo_materiales, Material** inventario_jugador_1, Material** inventario_jugador_2, int cantidad_materiales);
         
 };
 
