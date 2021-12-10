@@ -5,6 +5,10 @@
 
 class Objetivo_energetico: public Objetivo {
 
+    private:
+
+        int cantidad_energia;
+
     public:
 
         /*
@@ -15,12 +19,12 @@ class Objetivo_energetico: public Objetivo {
         /*
         *Post: Mostrará por consola el progreso.
         */
-        void mostrar_progreso(int cantidad);
+        void mostrar_progreso();
 
         /*
         *Post: Obtendrá true si se termina el turno con 100 de energía, o false en caso contrario.
         */
-        bool se_cumplio_el_objetivo(int cantidad);
+        bool se_cumplio_el_objetivo(Jugador* jugador);
 
 };
 

@@ -13,7 +13,7 @@ void Menu::mostrar_mensaje_volver_menu(int segundos) {
     cout << endl;
     cout << COLOR_VERDE << "Dentro de " << segundos << " segundos " << EMOJI_CRONOMETRO << "  se volvera al menú (:"
     << COLOR_POR_DEFECTO << endl;
-    sleep(segundos);
+    sleep((unsigned int)segundos);
 }
 
 Menu::~Menu() {}

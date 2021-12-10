@@ -241,14 +241,12 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
         else if ((edificio -> obtener_nombre() == NOMBRE_MINA || edificio -> obtener_nombre() == NOMBRE_FABRICA) && !edificio -> esta_afectado()) {
             edificio -> cambiar_estado_afectado();
             jugador_actual -> modificar_energia(-ENERGIA_ATACAR_EDIFICIO_COORDENADA);
-            jugador_actual -> aumentar_bombas_usadas(1);
             cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue dañado" << endl;
         } else {
             mapa -> liberar_posicion(fila, columna);
             jugador_atacado -> eliminar_edificio(fila, columna);
             inventario -> modificar_cantidad_material(BOMBA, -1);
             jugador_actual -> modificar_energia(-ENERGIA_ATACAR_EDIFICIO_COORDENADA);
-            jugador_actual -> aumentar_bombas_usadas(1);
             cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue destruido" << endl;
         }
     }

@@ -1,20 +1,10 @@
 #ifndef JUGADOR_H_
 #define JUGADOR_H_
-
+class Objetivo;
 #include "inventario.h"
 #include "materiales/energia.h"
 #include "construcciones/edificio.h"
-#include "objetivos/objetivo_andycoins.h"
-#include "objetivos/objetivo_armado.h"
-#include "objetivos/objetivo_bombardero.h"
-#include "objetivos/objetivo_cansado.h"
-#include "objetivos/objetivo_constructor.h"
-#include "objetivos/objetivo_energetico.h"
-#include "objetivos/objetivo_extremista.h"
-#include "objetivos/objetivo_letrado.h"
-#include "objetivos/objetivo_minero.h"
-#include "objetivos/objetivo_obelisco.h"
-#include "objetivos/objetivo_piedra.h"
+//#include "objetivos/objetivo.h"
 
 class Jugador {
 
@@ -26,11 +16,11 @@ class Jugador {
         std::string codigo_emoji;
         Edificio** edificios_construidos;
         int cantidad_construidos;
+        Objetivo** objetivos;
+        std::string nombre;
         int andycoins_juntados;
         int bombas_usadas;
         int bombas_compradas;
-        Objetivo** objetivos;
-        std::string nombre;
 
     public:
 
@@ -44,21 +34,14 @@ class Jugador {
         *Post: Cargara el edificio.
         */
         void cargar_edificio(Edificio* edificio);
-        
-        /*
-        *Post: Cargara los objetivos.
-        */
-        void cargar_objetivos(int cantidad_escuelas_permitidas);
-
-        void asignar_objetivos(int cantidad_escuelas_permitidas);
-
-        bool objetivos_cumplidos();
-
-        bool el_objetivo_fue_asignado(Objetivo* objetivo_a_asignar, int indice);
 
         void inicializar_arreglo_objetivos();
 
+        int obtener_bombas_usadas();
+        
+        int obtener_andycoins_juntados();
 
+        int obtener_cantidad_bombas_compradas();
 
         /*
         *Pre: Que los parámetros sea >= 0.
@@ -167,21 +150,11 @@ class Jugador {
         */
         bool existe_el_edificio(int fila, int columna);
 
-        void aumentar_andycoins_juntados(int cantidad_comprada);
-
-        void aumentar_bombas_compradas(int cantidad_bombas);
-
-        bool hay_obelisco_construido();
-
-        bool objetivo_constructor_hecho();
-
-        bool hay_minas_construidas();
-
-        void aumentar_bombas_usadas(int cantidad_bombas);
-            /*
+        /*
         *Post: Liberará la memoria usada durante la creacion del objeto Jugador.
         */
-            ~Jugador();
-        };
+        ~Jugador();
+
+};
 
 #endif //_JUGADOR_H_

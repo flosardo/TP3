@@ -5,6 +5,9 @@
 
 class Objetivo_piedra: public Objetivo {
     
+    private:
+    
+        int cantidad_piedras;
 
     public:
 
@@ -16,12 +19,12 @@ class Objetivo_piedra: public Objetivo {
         /*
         *Post: Mostrará por consola el progreso.
         */
-        void mostrar_progreso(int cantidad);
+        void mostrar_progreso();
 
         /*
         *Post: Obtendrá true si hay 50000, o false en caso contrario.
         */
-        bool se_cumplio_el_objetivo(int cantidad);
+        bool se_cumplio_el_objetivo(Jugador* jugador);
 
 };
 

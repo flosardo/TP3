@@ -205,9 +205,7 @@ const std::string NOMBRE_OBJETIVO_CANSADO = "cansado";
 const std::string NOMBRE_OBJETIVO_CONSTRUCTOR = "many a la obra (bob constructor)";
 const std::string NOMBRE_OBJETIVO_ARMADO = "terrorista (full armado)";
 
-const int CANTIDAD_OBJETIVOS_POR_JUGADOR = 4;
-const int CANTIDAD_OBJETIVOS_SECUNDARIOS = 10; 
-const int NUMERO_OBJETIVO_EXTREMISTA = 0;
+const int NUMERO_OBJETIVO_OBELISCO = 0;
 const int NUMERO_OBJETIVO_COMPRAR_ANDYCOINS = 1;
 const int NUMERO_OBJETIVO_PIEDRA = 2;
 const int NUMERO_OBJETIVO_BOMBARDERO = 3;
@@ -217,7 +215,7 @@ const int NUMERO_OBJETIVO_MINERO = 6;
 const int NUMERO_OBJETIVO_CANSADO = 7;
 const int NUMERO_OBJETIVO_CONSTRUCTOR = 8;
 const int NUMERO_OBJETIVO_ARMADO = 9;
-const int NUMERO_OBJETIVO_OBELISCO = 10;
+const int NUMERO_OBJETIVO_EXTREMISTA = 10;
 
 const int OBJETIVO_ANDYCOINS = 100000;
 const int OBJETIVO_PIEDRA = 50000;
@@ -246,6 +244,7 @@ const std::string NUMERO_JUGADOR_2 = "2";
 const int MAX_COORDENADAS = 2;
 const int INDICE_FILA = 0;
 const int INDICE_COLUMNA = 1;
+const int CANTIDAD_OBJETIVOS_POR_JUGADOR = 3;
 
 // CASILLEROS
 const char LAGO = 'L';
