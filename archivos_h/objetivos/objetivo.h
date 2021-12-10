@@ -24,7 +24,9 @@ class Objetivo {
         /*
         *Post: Mostrará por consola el progreso.
         */
-        virtual void mostrar_progreso() = 0;
+        virtual void mostrar_progreso();
+
+        virtual void mostrar_progreso(int cantidad);
 
         /*
         *Post: Obtendrá true si se cumplio el objetivo en las hijas, o false en caso contrario.

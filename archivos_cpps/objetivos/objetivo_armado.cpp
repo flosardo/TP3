@@ -12,6 +12,6 @@ bool Objetivo_armado::se_cumplio_el_objetivo(int cantidad) {
     return this -> cantidad_bombas >= OBJETIVO_ARMADO;
 }
 
-void Objetivo_armado::mostrar_progreso() {
-    cout << "Faltan: " << OBJETIVO_ARMADO - this -> cantidad_bombas << " bombas para lograr el objetivo." << endl;
+void Objetivo_armado::mostrar_progreso(int cantidad_bombas) {
+    cout << "Faltan: " << OBJETIVO_ARMADO - cantidad_bombas << " bombas para lograr el objetivo." << endl;
 }

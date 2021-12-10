@@ -12,10 +12,133 @@ Jugador::Jugador() {
     this -> inventario = new Inventario();
     this -> codigo_emoji = VACIO;
     this -> nombre = VACIO;
+    this -> andycoins_juntados = 0;
+    this -> bombas_usadas = 0;
+    this -> bombas_compradas = 0;
+    //this -> cargar_objetivos();
 }
 
 void Jugador::establecer_nombre(string nombre) {
     this -> nombre = nombre;
+}
+
+void Jugador::inicializar_arreglo_objetivos() {
+    for (int i = 0; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++) {
+        this -> objetivos[i] = nullptr;
+    }
+}
+
+bool Jugador::el_objetivo_fue_asignado(Objetivo* objetivo_a_asignar, int indice) {
+    bool existe = false;
+    int i = 1;
+    while(!existe && i <= indice) {
+        existe = this -> objetivos[i] -> obtener_nombre() == objetivo_a_asignar -> obtener_nombre();
+        i++;
+    }
+    return existe;
+}
+
+void Jugador::asignar_objetivos(int cantidad_escuelas_permitidos) {
+    Objetivo* objetivo_asignado = nullptr;
+    int objetivo = (rand() % CANTIDAD_OBJETIVOS_SECUNDARIOS);
+    int i = 1;
+    while (!objetivos[3]) {
+        if(objetivo == NUMERO_OBJETIVO_EXTREMISTA)
+            objetivo_asignado = new Objetivo_extremista();
+        else if(objetivo == NUMERO_OBJETIVO_COMPRAR_ANDYCOINS)
+            objetivo_asignado = new Objetivo_andycoins();
+        else if(objetivo == NUMERO_OBJETIVO_PIEDRA)
+            objetivo_asignado = new Objetivo_piedra();
+        else if(objetivo == NUMERO_OBJETIVO_BOMBARDERO)
+            objetivo_asignado = new Objetivo_bombardero();
+        else if(objetivo == NUMERO_OBJETIVO_ENERGETICO)
+            objetivo_asignado = new Objetivo_energetico();
+        else if(objetivo == NUMERO_OBJETIVO_LETRADO)
+            objetivo_asignado = new Objetivo_letrado(cantidad_escuelas_permitidos);
+        else if(objetivo == NUMERO_OBJETIVO_MINERO)
+            objetivo_asignado = new Objetivo_minero();
+        else if(objetivo == NUMERO_OBJETIVO_CANSADO)
+            objetivo_asignado = new Objetivo_cansado();
+        else if(objetivo == NUMERO_OBJETIVO_CONSTRUCTOR)
+            objetivo_asignado = new Objetivo_constructor();
+        else if(objetivo == NUMERO_OBJETIVO_ARMADO)
+            objetivo_asignado = new Objetivo_armado();
+        if(!this -> el_objetivo_fue_asignado(objetivo_asignado, i)) {
+            this -> objetivos[i] = objetivo_asignado;
+            i++;
+        }
+    }
+
+}
+
+void Jugador::aumentar_andycoins_comprados(int cantidad_andycoins) {
+    this -> andycoins_comprados += cantidad_andycoins;
+}
+void Jugador::aumentar_bombas_compradas(int cantidad_bombas) {
+    this -> bombas_compradas += cantidad_bombas;
+}
+
+void Jugador::aumentar_bombas_usadas(int cantidad_bombas_usadas) {
+    this -> bombas_usadas += cantidad_bombas_usadas;
+}
+
+void Jugador::cargar_objetivos(int cantidad_escuelas_permitidos) {
+    this -> objetivos[0] = new Objetivo_obelisco();
+    this -> asignar_objetivos(cantidad_escuelas_permitidos);
+}
+
+bool Jugador::hay_obelisco_construido() {
+    bool hay_obelisco = false;
+    int i = 0;
+    while (!obelisco && i < this -> cantidad_construidos) {
+        if (this -> edificios_construidos[i] -> obtener_nombre() == NOMBRE_OBELISCO) {
+            hay_obelisco = true;
+        }
+        i++;
+    }   
+    return hay_obelisco;
+}
+
+bool Jugador::objetivos_cumplidos() {
+    bool gano_el_juego = false;
+    if(this -> hay_obelisco_construido()){
+        gano_el_juego = true;
+    }
+    else {
+        for (int i = 1; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++) {
+            if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_ANDYCOINS) {
+                this -> objetivos[i] -> se_cumplio_el_objetivo(this -> andycoins_comprados);
+            }
+            else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_ARMADO) {
+                int cantidad_bombas = this -> inventario -> obtener_material(BOMBAS) -> obtener_cantidad();
+                this -> objetivos[i] -> se_cumplio_el_objetivo(cantidad_bombas);
+            }
+            else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_BOMBARDERO) {
+                this -> objetivos[i] -> se_cumplio_el_objetivo(this -> bombas_usadas);
+            }
+            else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_CANSADO) {
+                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+            }
+            else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_CONSTRUCTOR) {
+                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+            }
+            else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_ENERGETICO) {
+                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+            }
+            else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_EXTREMISTA) {
+                this -> objetivos[i] -> se_cumplio_el_objetivo(this -> bombas_compradas);
+            }
+            else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_LETRADO) {
+                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+            }
+            else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_MINERO) {
+                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+            }
+            else if (this -> objetivos[i] -> obtener_nombre() == NOMBRE_OBJETIVO_PIEDRA) {
+                this -> objetivos[i] -> se_cumplio_el_objetivo(NOMBRE_OBJETIVO_CANSADO);
+            }
+        }
+    }
 }
 
 string Jugador::obtener_nombre() {
@@ -121,6 +244,11 @@ void Jugador::cargar_material(Material* material) {
 
 void Jugador::modificar_inventario(string material, int cantidad) {
     this -> inventario -> modificar_cantidad_material(material, cantidad);
+    if (material == ANDYCOINS) {
+        this -> aumentar_andycoins_juntados(cantidad);
+    }
+    else if (material == BOMBA)
+        this -> aumentar_bombas_compradas(cantidad);
 }
 
 void Jugador::listar_construidos() {
