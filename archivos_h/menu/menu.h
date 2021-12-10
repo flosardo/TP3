@@ -34,6 +34,11 @@ class Menu {
         int pedir_opcion();
 
         /*
+        *Post: Mostrará un mensaje con el tiempo de espera para volver al menú.
+        */
+        void mostrar_mensaje_volver_menu(int segundos);
+
+        /*
         *Post: Liberará la memoria.
         */
         virtual ~Menu();

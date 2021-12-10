@@ -41,6 +41,9 @@ class Jugador {
         */
         void establecer_convencion(char convencion);
 
+        /*
+        *Post: Obtendrá el nombre del jugador.
+        */
         std::string obtener_nombre();
 
         /*
@@ -60,7 +63,7 @@ class Jugador {
         void establecer_codigo_emoji(std::string codigo_emoji);
 
         /*
-        *Post: obtendra la cantidad de construidos, del edificio pedido.
+        *Post: Obtendrá la cantidad de construidos, del edificio pedido.
         */
         int obtener_cantidad_edificio(std::string nombre_edificio);
 
@@ -69,13 +72,18 @@ class Jugador {
         */
         void redimensionar_edificio(int nueva_longitud);
 
-
+        /*
+        *Post: Obtendrá la cantidad de construidos, del edificio pedido.
+        */
         int obtener_construidos();
 
+        /*
+        *Post: Obtendrá los edificios construidos.
+        */
         Edificio** obtener_edificios_construidos();
 
         /*
-        *Post: obtendra el código emoji del jugador.
+        *Post: Obtendrá el código emoji del jugador.
         */
         std::string obtener_codigo_emoji();
 
@@ -86,7 +94,7 @@ class Jugador {
         void cargar_material(Material* material);
 
         /*
-        *Post: obtendra las coordenadas del jugador.
+        *Post: Obtendrá las coordenadas del jugador.
         */
         int* obtener_coordenadas();
 
@@ -114,21 +122,26 @@ class Jugador {
         void listar_construidos();
 
         /*
-        *Post: obtendra la energía actual del jugador actual.
+        *Post: Obtendrá la energía actual del jugador actual.
         */
         int obtener_energia_actual();
 
         /*
-        *Post: obtendra el puntero con el inventario del jugador.
+        *Post: Obtendrá el puntero con el inventario del jugador.
         */
         Inventario* obtener_inventario();
 
+        /*
+        *Pre: Que los parametros sean >= 0.
+        *Post: Devolvera true si existe el edificio, false en caso contrario.
+        */
         bool existe_el_edificio(int fila, int columna);
 
         /*
         *Post: Liberará la memoria usada durante la creacion del objeto Jugador.
         */
-            ~Jugador();
-        };
+        ~Jugador();
+
+};
 
 #endif //_JUGADOR_H_

@@ -9,4 +9,9 @@ int Menu::pedir_opcion() {
     return this -> opcion_ingresada;
 }
 
+void Menu::mostrar_mensaje_volver_menu(int segundos) {
+    cout << COLOR_VERDE_AGUA << "Dentro de " << segundos << " segundos se volvera al menú (:" << COLOR_POR_DEFECTO << endl;
+    sleep(segundos);
+}
+
 Menu::~Menu() {}

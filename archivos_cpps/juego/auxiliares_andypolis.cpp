@@ -194,9 +194,9 @@ void Auxiliares_andypolis::reparar_edificio_auxiliar(Abb* edificios_disponibles,
         cout << COLOR_ROJO << "No puede reparar un edificio que no esta afectado" << COLOR_POR_DEFECTO << endl;
     else {
         Edificio* receta_edificio = edificios_disponibles -> buscar_edificio(edificio -> obtener_nombre());
-        int piedra_necesaria = (int) (receta_edificio -> obtener_cantidad_necesaria(PIEDRA) * 0.25);
-        int madera_necesaria = (int) (receta_edificio -> obtener_cantidad_necesaria(MADERA) * 0.25);
-        int metal_necesario = (int) (receta_edificio -> obtener_cantidad_necesaria(METAL) * 0.25);
+        int piedra_necesaria = (int) (receta_edificio -> obtener_cantidad_necesaria(PIEDRA) * PORCENTAJE_PIEDRA);
+        int madera_necesaria = (int) (receta_edificio -> obtener_cantidad_necesaria(MADERA) * PORCENTAJE_MADERA);
+        int metal_necesario = (int) (receta_edificio -> obtener_cantidad_necesaria(METAL) * PORCENTAJE_METAL);
         Inventario* inventario = jugador -> obtener_inventario();
         bool hay_piedra_suficiente = this -> hay_material_suficiente(PIEDRA, inventario, piedra_necesaria);
         bool hay_madera_suficiente = this -> hay_material_suficiente(MADERA, inventario, madera_necesaria);
@@ -242,8 +242,7 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
             edificio -> cambiar_estado_afectado();
             jugador_actual -> modificar_energia(-ENERGIA_ATACAR_EDIFICIO_COORDENADA);
             cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue dañado" << endl;
-        }
-        else {
+        } else {
             mapa -> liberar_posicion(fila, columna);
             jugador_atacado -> eliminar_edificio(fila, columna);
             inventario -> modificar_cantidad_material(BOMBA, -1);
@@ -282,8 +281,7 @@ Material* Auxiliares_andypolis::generar_material(string nombre_material) {
 void Auxiliares_andypolis::lluvia_material(string nombre_material, int cantidad_a_generar, Mapa* mapa) {
     if (!mapa -> es_posible_insertar_materiales(cantidad_a_generar)) {
         cout << COLOR_ROJO << "No hay suficientes casilleros disponibles para generar " << nombre_material << COLOR_POR_DEFECTO << endl;
-    }
-    else {
+    } else {
         Material* material = generar_material(nombre_material);
         int* coordenadas = 0;
         for (int i = 0; i < cantidad_a_generar; i++) {

@@ -34,22 +34,29 @@ void Menu_configuracion::procesar_opcion(int & opcion, Andypolis & juego) {
     switch (opcion_ingresada) {
         case OPCION_MODIFICAR_EDIFICIO_NOMBRE:
             juego.modificar_edificio_nombre();
+            mostrar_mensaje_volver_menu(TIEMPO_MODIFICAR_EDIFICIO);
             break;
         case OPCION_LISTAR_TOTAL_EDIFICIOS:
             juego.listar_edificios();
+            mostrar_mensaje_volver_menu(TIEMPO_LISTAR_TOTAL_EDIFICIOS);
             break;
         case OPCION_MOSTRAR_MAPA:
             juego.mostrar_mapa();
+            mostrar_mensaje_volver_menu(TIEMPO_MOSTRAR_MAPA);
             break;
         case OPCION_COMENZAR_PARTIDA:
             opcion = OPCION_SALIR;
             juego.comenzar_partida();
+            mostrar_mensaje_volver_menu(TIEMPO_COMENZAR_PARTIDA);
             break;
         case OPCION_GUARDAR_SALIR_CONFIGURACION:
             opcion = OPCION_SALIR_JUEGO;
+            mostrar_mensaje_volver_menu(TIEMPO_GUARDAR_SALIR);
             break;
         default:
             cout << COLOR_ROJO << "Oops :(, opcion incorrecta. Intenta nuevamente" << COLOR_POR_DEFECTO << endl;
+            mostrar_mensaje_volver_menu(TIEMPO_ERROR);
             break;
     }
+    system(CLR_SCREEN);
 }
