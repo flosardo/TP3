@@ -23,6 +23,7 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
     int fila;
     int columna;
     string basura;
+    Jugador* jugador;
     archivo_ubicaciones >> fila;
     archivo_ubicaciones >> basura;
     archivo_ubicaciones >> columna;
@@ -32,17 +33,11 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
 
     if (nombre == NUMERO_JUGADOR_1 || nombre == NUMERO_JUGADOR_2) {
         convencion_jugador = nombre == NUMERO_JUGADOR_1 ? JUGADOR_1 : JUGADOR_2;
-        if (nombre == NUMERO_JUGADOR_1) {
-            jugador_1 -> establecer_nombre(NUMERO_JUGADOR_1);
-            jugador_1 -> establecer_coordenadas(fila, columna);
-            jugador_1 -> establecer_codigo_emoji(convencion_jugador);
-            mapa -> se_ubico_jugador(jugador_1, fila, columna);
-        } else {
-            jugador_2 -> establecer_nombre(NUMERO_JUGADOR_2);
-            jugador_2 -> establecer_coordenadas(fila, columna);
-            jugador_2 -> establecer_codigo_emoji(convencion_jugador);
-            mapa -> se_ubico_jugador(jugador_2, fila, columna);
-        }
+        jugador = convencion_jugador == JUGADOR_1 ? jugador_1 : jugador_2;
+        jugador -> establecer_nombre(nombre);
+        jugador -> establecer_coordenadas(fila, columna);
+        jugador -> establecer_codigo_emoji(convencion_jugador);
+        mapa -> se_ubico_jugador(jugador, fila, columna);
     }
     else if (convencion_jugador != " ") {
         Edificio* edificio_creado = crear_edificio(nombre, fila, columna);
@@ -71,7 +66,7 @@ void Cargar_ubicaciones::guardar_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jug
 
 void Cargar_ubicaciones::guardar_materiales_lluvia(ofstream & archivo_ubicaciones, Mapa* mapa) {
     int* dimensiones_mapa = mapa -> obtener_dimensiones();
-    Material* material = 0;
+    Material* material = nullptr;
     for (int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
         for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++) {
             material = mapa -> obtener_material(fila, columna);
@@ -110,7 +105,7 @@ Edificio* Cargar_ubicaciones::crear_edificio(string nombre, int fila, int column
         edificio_creado = new Mina(fila, columna);
     else if (nombre == NOMBRE_OBELISCO) 
         edificio_creado = new Obelisco(fila, columna);
-    else if (nombre == NOMBRE_PLANTA_ELECTRICA) 
+    else if (nombre == PLANTA_ELECTRICA) 
         edificio_creado = new Planta_electrica(fila, columna);
     else if (nombre == NOMBRE_MINA_ORO) 
         edificio_creado = new Mina_oro(fila, columna);

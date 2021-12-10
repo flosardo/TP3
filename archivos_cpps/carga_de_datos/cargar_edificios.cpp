@@ -55,7 +55,9 @@ void Cargar_edificios::guardar_edificios(Abb* arbol) {
         archivo_edificios << nombre_edificio << VACIO << cantidad_piedra << VACIO
         << cantidad_madera << VACIO << cantidad_metal << VACIO << permitidos << endl;
     }
-    archivo_edificios.close();   
+    archivo_edificios.close();
+    delete [] edificios;
+    edificios = nullptr;
 }
 
 void Cargar_edificios::crear_edificio(Abb* arbol , string nombre_edificio, int piedra, int madera, int metal, int permitidos) {
@@ -72,7 +74,7 @@ void Cargar_edificios::crear_edificio(Abb* arbol , string nombre_edificio, int p
         nuevo_edificio = new Fabrica(piedra, madera, metal, permitidos);
     else if (nombre_edificio == NOMBRE_OBELISCO)
         nuevo_edificio = new Obelisco(piedra, madera, metal, permitidos);
-    else if (nombre_edificio == NOMBRE_PLANTA_ELECTRICA)
+    else if (nombre_edificio == PLANTA_ELECTRICA)
         nuevo_edificio = new Planta_electrica(piedra, madera, metal, permitidos);
     
     arbol -> agregar_nodo(nuevo_edificio);

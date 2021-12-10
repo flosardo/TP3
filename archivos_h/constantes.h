@@ -41,7 +41,7 @@ const std::string COLOR_DORADO = "\x1b[33m";
 const std::string FONDO_AZUL = "\033[48;5;27m";
 const std::string FONDO_VERDE = "\033[48;5;28m";
 const std::string FONDO_GRIS = "\033[48;5;239m";
-const std::string FONDO_GRIS_CLARO = "\033[48;5;263m";
+const std::string FONDO_GRIS_CLARO = "\033[48;5;252m";
 const std::string FONDO_MARRON = "\033[48;5;94m";
 
 // SIMBOLOGÍA TERRENOS
@@ -93,13 +93,13 @@ const std::string EMOJI_LISTAR_CONSTRUIDOS = "\u2705";
 const std::string EMOJI_DEMOLER_POR_COORDENADA = "\U0001f6a7";
 const std::string EMOJI_ATACAR_POR_COORDENADA = "\U0001f480";
 const std::string EMOJI_REPARAR_POR_COORDENADA = "\U0001f527";
-const std::string EMOJI_COMPRAR_BOMBAS = "\U0001f9e8"; // alternativa: U0001f6d2(carrito de compras)
+const std::string EMOJI_COMPRAR_BOMBAS = "\U0001f9e8";
 const std::string EMOJI_CONSULTAR_COORDENADAS = "\U0001f5fa";
 const std::string EMOJI_INVENTARIO = "\U0001f9f0";
 const std::string EMOJI_OBJETIVOS = "\U0001f3c1";
 const std::string EMOJI_RECURSOS_PRODUCIDOS = "\u26CF";
 const std::string EMOJI_MOVERSE_A_UNA_COORDENADA = "\U0001f3c3";//alternativa: U0001f9ed(brujula)
-const std::string EMOJI_FINALIZAR_TURNO = "\U0001f51a";//si hay otro mejor
+const std::string EMOJI_FINALIZAR_TURNO = "\U0001f51a";
 const std::string EMOJI_GUARDAR_Y_SALIR = "\U0001f4be";
 
 // EMOJIS MATERIALES
@@ -154,7 +154,7 @@ const int ENERGIA_COMPRAR_BOMBA = 5;
 const int ENERGIA_RECOLECTAR_RECURSOS = 20;
 
 // EDIFICIOS
-const std::string NOMBRE_PLANTA_ELECTRICA = "planta electrica";
+const std::string PLANTA_ELECTRICA = "planta electrica";
 const std::string NOMBRE_ASERRADERO = "aserradero";
 const std::string NOMBRE_ESCUELA = "escuela";
 const std::string NOMBRE_FABRICA = "fabrica";
@@ -197,8 +197,8 @@ const std::string LINEA_DIVISORIA = "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\
 const std::string LINEA_DIVISORIA_DISENIO = "══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n";
 
 // JUGADORES
-const std::string JUGADOR_1 = "\U0001f473"; //\U0001f471
-const std::string JUGADOR_2 = "\U0001f9dc"; //\U0001f9dd
+const std::string JUGADOR_1 = "\U0001f473";
+const std::string JUGADOR_2 = "\U0001f9dc";
 const std::string NUMERO_JUGADOR_1 = "1";
 const std::string NUMERO_JUGADOR_2 = "2";
 const int MAX_COORDENADAS = 2;

@@ -9,13 +9,13 @@ Casillero_construible::Casillero_construible() {
     this -> codigo_color = FONDO_VERDE;
 }
 
-// REVISAR
-Casillero_construible::Casillero_construible(Edificio* edificio) {
-    this -> edificio = edificio;
-    this -> jugador = nullptr;
-    this -> tipo_terreno = TERRENO;
-    this -> codigo_color = FONDO_VERDE;
-}
+// // REVISAR
+// Casillero_construible::Casillero_construible(Edificio* edificio) {
+//     this -> edificio = edificio;
+//     this -> jugador = nullptr;
+//     this -> tipo_terreno = TERRENO;
+//     this -> codigo_color = FONDO_VERDE;
+// }
 
 Jugador* Casillero_construible::obtener_puntero_jugador() {
     return this -> jugador;
@@ -55,4 +55,13 @@ void Casillero_construible::limpiar_casillero() {
 
 bool Casillero_construible::esta_ocupado() {
     return (bool) this -> edificio || (bool) this -> jugador;
+}
+
+Casillero_construible::~Casillero_construible() {
+    if (this -> edificio)
+        delete this -> edificio;
+    else if (this -> jugador)
+        delete this -> jugador;
+    this -> edificio = nullptr;
+    this -> jugador = nullptr;
 }

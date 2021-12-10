@@ -11,6 +11,7 @@ Programa::Programa() {
 }
 
 void Programa::empezar() {
+    system(CLR_SCREEN);
     int opcion = OPCION_EMPEZAR;  //Inicializo con un valor por defecto.
 
     if (!this -> existe_ubicaciones)
@@ -26,10 +27,10 @@ void Programa::empezar() {
 
     while (opcion != OPCION_SALIR_JUEGO) {
         juego.verificar_energia(opcion);
-        cout << "TURNO DEL JUGADOR: " << this -> juego.obtener_jugador_actual() -> obtener_codigo_emoji() << " ";
-        cout << EMOJI_ENERGIA << this -> juego.obtener_jugador_actual() -> obtener_energia_actual() << endl;
         menu_partida.mostrar_mensaje_bienvenida();
         menu_partida.mostrar_menu();
+        cout << "TURNO DEL JUGADOR: " << this -> juego.obtener_jugador_actual() -> obtener_codigo_emoji() << " ";
+        cout << EMOJI_ENERGIA << this -> juego.obtener_jugador_actual() -> obtener_energia_actual() << endl << endl;
         if(opcion != OPCION_FINALIZAR_TURNO) {
             opcion = menu_partida.pedir_opcion();
         }

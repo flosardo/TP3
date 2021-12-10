@@ -48,22 +48,11 @@ void Inventario::mostrar_inventario() {
 }
 
 Inventario::~Inventario() {
-    for (int i = 0; i < this -> cantidad_materiales; i++)
+    for (int i = 0; i < this -> cantidad_materiales; i++) {
+        delete this -> inventario[i];
         this -> inventario[i] = nullptr;
+    }
 
     delete [] this -> inventario;
     this -> inventario = nullptr;
 }
-
-// SE PUEDEN SACAR??
-// int Inventario::obtener_indice_del_material(string material) {
-//     int indice = 0;
-//     while (this -> inventario[indice] -> obtener_nombre_material() != material) {
-//         indice++;
-//     }
-//     return indice;
-// }
-
-// void Inventario::modificar_cantidad_material(int indice, int cantidad) {
-//     this -> inventario[indice] -> modificar_cantidad(cantidad);
-// }

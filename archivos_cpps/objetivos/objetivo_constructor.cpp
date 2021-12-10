@@ -21,7 +21,7 @@ bool Objetivo_constructor::se_cumplio_el_objetivo(string nombre) {
 
 void Objetivo_constructor::mostrar_progreso() {
     if (!this -> construidos[POS_PLANTA_ELECTRICA])
-        cout << "Falta una " << NOMBRE_PLANTA_ELECTRICA << " por construir" << endl;
+        cout << "Falta una " << PLANTA_ELECTRICA << " por construir" << endl;
     if (!this -> construidos[POS_ASERRADERO])
         cout << "Falta un " << NOMBRE_ASERRADERO << " por construir" << endl;
     if (!this -> construidos[POS_MINA_ORO])
@@ -36,7 +36,7 @@ void Objetivo_constructor::mostrar_progreso() {
 }
 
 void Objetivo_constructor::cambiar_estado_construido(string nombre) {
-    if (nombre == NOMBRE_PLANTA_ELECTRICA)
+    if (nombre == PLANTA_ELECTRICA)
         this -> construidos[POS_PLANTA_ELECTRICA] = true;
     else if (nombre == NOMBRE_ASERRADERO)
         this -> construidos[POS_ASERRADERO] = true;

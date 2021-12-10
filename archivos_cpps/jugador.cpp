@@ -141,7 +141,8 @@ Inventario* Jugador::obtener_inventario() {
 }
 
 Jugador::~Jugador() {
+    // delete [] this -> edificios_construidos;
     delete [] this -> inventario;
-    delete [] this -> coordenadas;
-    this -> coordenadas = nullptr;
+    // delete [] this -> coordenadas;
+    // this -> coordenadas = nullptr;
 }

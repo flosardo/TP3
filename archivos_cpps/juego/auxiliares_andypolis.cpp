@@ -285,8 +285,9 @@ void Auxiliares_andypolis::lluvia_material(string nombre_material, int cantidad_
     }
     else {
         Material* material = generar_material(nombre_material);
-        int* coordenadas = mapa -> generar_coordenadas_validas();
+        int* coordenadas = 0;
         for (int i = 0; i < cantidad_a_generar; i++) {
+            coordenadas = mapa -> generar_coordenadas_validas();
             mapa -> se_ubico_material(material, coordenadas[0], coordenadas[1]);
             delete[] coordenadas;
             coordenadas = nullptr;
@@ -307,7 +308,7 @@ Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int colu
         edificio_creado = new Mina(fila, columna);
     else if (nombre == NOMBRE_OBELISCO) 
         edificio_creado = new Obelisco(fila, columna);
-    else if (nombre == NOMBRE_PLANTA_ELECTRICA) 
+    else if (nombre == PLANTA_ELECTRICA) 
         edificio_creado = new Planta_electrica(fila, columna);
     else if (nombre == NOMBRE_MINA_ORO) 
         edificio_creado = new Mina_oro(fila, columna);

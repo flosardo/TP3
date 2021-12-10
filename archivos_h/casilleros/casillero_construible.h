@@ -17,11 +17,11 @@ class Casillero_construible: public Casillero {
         */
         Casillero_construible();
 
-        /*
-        *Post: Que el parámetro edificio no sea null.
-        *Pre: Creará un objeto de tipo Casillero_construible usando el parametro edificio.
-        */
-        Casillero_construible(Edificio* edificio);
+        // /*
+        // *Post: Que el parámetro edificio no sea null.
+        // *Pre: Creará un objeto de tipo Casillero_construible usando el parametro edificio.
+        // */
+        // Casillero_construible(Edificio* edificio);
 
         /*
         *Post: Mostrará lo que hay en el casillero.
@@ -64,6 +64,8 @@ class Casillero_construible: public Casillero {
         *Post: obtendra la cantidad material producido.
         */
         int cantidad_material_producido();
+
+        ~Casillero_construible();
 
 };
 

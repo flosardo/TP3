@@ -9,13 +9,12 @@ Casillero_transitable::Casillero_transitable() {
     this -> codigo_color = FONDO_GRIS;
 }
 
-// REVISAR
-Casillero_transitable::Casillero_transitable(Material* material) {
-    this -> material = material;
-    this -> jugador = nullptr;
-    this -> tipo_terreno = CAMINO;
-    this -> codigo_color = FONDO_GRIS;
-}
+// Casillero_transitable::Casillero_transitable(Material* material) {
+//     this -> material = material;
+//     this -> jugador = nullptr;
+//     this -> tipo_terreno = CAMINO;
+//     this -> codigo_color = FONDO_GRIS;
+// }
 
 Jugador* Casillero_transitable::obtener_puntero_jugador() {
     return this -> jugador;
@@ -52,4 +51,13 @@ bool Casillero_transitable::esta_ocupado() {
 
 void Casillero_transitable::limpiar_casillero() {
     this -> material = nullptr;
+}
+
+Casillero_transitable::~Casillero_transitable() {
+    if (this -> material)
+        delete this -> material;
+    else if (this -> jugador)
+        delete this -> jugador;
+    this -> material = nullptr;
+    this -> jugador = nullptr;
 }

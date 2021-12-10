@@ -72,6 +72,7 @@ void Andypolis::comenzar_partida() {
         jugador_1_ubicado = this -> mapa -> se_ubico_jugador(jugador, fila, columna);
         if(jugador_1_ubicado)
             cout << "Siguiente jugador" << endl;
+        delete [] coordenadas;
     }
 }
 
@@ -110,6 +111,8 @@ void Andypolis::comprar_bombas() {
 void Andypolis::consultar_coordenada() {
     int* coordenadas = funciones_auxiliares.pedir_coordenadas(this -> mapa);
     this -> mapa -> consultar_coordenada(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+    delete [] coordenadas;
+    coordenadas = nullptr;
 }
 
 void Andypolis::mostrar_inventario() {
@@ -131,6 +134,8 @@ void Andypolis::demoler_edificio() {
     if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_DEMOLER_EDIFICIO_COORDENADA, this -> jugador_actual -> obtener_energia_actual())) {
         int* coordenadas = funciones_auxiliares.pedir_coordenadas(this -> mapa);
         funciones_auxiliares.demoler_edificio_auxiliar(this -> edificios_disponibles, this -> mapa, this -> jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+        delete [] coordenadas;
+        coordenadas = nullptr;
     }
 }
 
@@ -150,6 +155,8 @@ void Andypolis::atacar_edificio() {
     if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_ATACAR_EDIFICIO_COORDENADA, this -> jugador_actual -> obtener_energia_actual())) {
         int* coordenadas = funciones_auxiliares.pedir_coordenadas(this -> mapa);
         funciones_auxiliares.atacar_edificio_auxiliar(this -> mapa, this -> jugador_actual, this -> jugador_1, this -> jugador_2, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+        delete [] coordenadas;
+        coordenadas = nullptr;
     }
 }
 
@@ -157,14 +164,14 @@ void Andypolis::reparar_edificio() {
     if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_REPARAR_EDIFICIO, this -> jugador_actual -> obtener_energia_actual())) {
         int* coordenadas = funciones_auxiliares.pedir_coordenadas(this -> mapa);
         funciones_auxiliares.reparar_edificio_auxiliar(this -> edificios_disponibles, this -> mapa, this -> jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+        delete [] coordenadas;
+        coordenadas = nullptr;
     }
 }
 
 Andypolis::~Andypolis() {
     // delete this -> edificios_disponibles;
     // delete this -> mapa;
-    // delete this -> jugador_1;
-    // delete this -> jugador_2;
     // this -> edificios_disponibles = nullptr;
     // this -> mapa = nullptr;
     // this -> jugador_1 = nullptr;

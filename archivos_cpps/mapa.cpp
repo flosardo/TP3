@@ -36,23 +36,24 @@ void Mapa::mostrar_simbologia(){
     cout << " ╔■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╗" << endl;
     cout << borde << " SIMBOLOGIA "                                                                                                    << setw(119) << borde << endl; 
     cout << borde << " 1. Convenciones Casillero Construible:"                                                                         << setw(92)  << borde << endl; 
-    cout << borde << " \t-> Terreno:"                                << SIMBOLO_TERRENO          << VACIO << VACIO << VACIO
+    cout << borde << "    Terreno:"                                  << SIMBOLO_TERRENO          << VACIO << VACIO << VACIO
                             << NOMBRE_ASERRADERO          << ":"     << EMOJI_ASERRADERO         << VACIO << VACIO << VACIO
                             << NOMBRE_FABRICA             << ":"     << EMOJI_FABRICA            << VACIO << VACIO << VACIO
                             << NOMBRE_ESCUELA             << ":"     << EMOJI_ESCUELA            << VACIO << VACIO << VACIO
                             << NOMBRE_OBELISCO            << ":"     << EMOJI_OBELISCO           << VACIO << VACIO << VACIO
                             << NOMBRE_MINA                << ":"     << EMOJI_MINA               << VACIO << VACIO << VACIO
-                            << NOMBRE_PLANTA_ELECTRICA    << ":"     << EMOJI_PLANTA_ELECTRICA   << VACIO << VACIO << VACIO            << setw(21)  << borde << endl;
+                            << NOMBRE_MINA_ORO            << ":"     << EMOJI_MINA_ORO           << VACIO << VACIO << VACIO
+                            << PLANTA_ELECTRICA           << ":"     << EMOJI_PLANTA_ELECTRICA   << VACIO << VACIO                                  << borde << endl;
     cout << borde << " 2. Convenciones Casillero Inaccesible:"                                                                         << setw(92)  << borde << endl;                              
-    cout << borde << " \t-> Lago:"                                   << SIMBOLO_LAGO                                                   << setw(115) << borde << endl;                     
+    cout << borde << "    Lago:"                                     << SIMBOLO_LAGO                                                   << setw(120) << borde << endl;                     
     cout << borde << " 3. Convenciones Casillero Transitable:"                                                                         << setw(92)  << borde << endl;
-    cout << borde << " \t-> Camino:"                                 << SIMBOLO_CAMINO           << VACIO << VACIO << VACIO
+    cout << borde << "    Camino:"                                   << SIMBOLO_CAMINO           << VACIO << VACIO << VACIO
                             << "Betún:"                              << SIMBOLO_BETUN            << VACIO << VACIO << VACIO
                             << "Muelle:"                             << SIMBOLO_MUELLE           << VACIO << VACIO << VACIO
                             << PIEDRA     << ":"                     << EMOJI_PIEDRA             << VACIO << VACIO << VACIO
                             << MADERA     << ":"                     << EMOJI_MADERA             << VACIO << VACIO << VACIO
                             << METAL      << ":"                     << EMOJI_METAL              << VACIO << VACIO << VACIO
-                            << ANDYCOINS  << ":"                     << EMOJI_ANDYCOINS                                                << setw(40)  << borde << endl << COLOR_DORADO;
+                            << ANDYCOINS  << ":"                     << EMOJI_ANDYCOINS                                                << setw(45)  << borde << endl << COLOR_DORADO;
     cout << " ╚■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╝" << COLOR_POR_DEFECTO << endl;
 }
 
@@ -105,6 +106,7 @@ void Mapa::consultar_coordenada(int fila, int columna) {
 }
 
 bool Mapa::esta_ocupado(int fila, int columna) {
+    cout << fila << " " << columna << endl;
     return this -> mapa[fila][columna] -> esta_ocupado();
 }
 
@@ -193,10 +195,13 @@ void Mapa::mostrar_mapa() {
 
 Mapa::~Mapa() {
     for (int fila = 0; fila < this -> cantidad_filas; fila++) {
-        for (int columna = 0; columna < this -> cantidad_columnas; columna++)
+        for (int columna = 0; columna < this -> cantidad_columnas; columna++) {
             delete this -> mapa[fila][columna];
+            this -> mapa[fila][columna] = nullptr;
+        }
 
         delete [] this -> mapa[fila];
+        this -> mapa[fila] = nullptr;
     }
     delete [] this -> mapa;
     this -> mapa = nullptr;

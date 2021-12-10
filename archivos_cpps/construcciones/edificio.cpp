@@ -85,8 +85,10 @@ void Edificio::cambiar_estado_afectado() {
 void Edificio::aumentar_material_producido() {}
 
 Edificio::~Edificio() {
+    if (this -> coordenadas)
+        delete [] this -> coordenadas;
     if (this -> materiales_necesarios) 
         delete[] this -> materiales_necesarios;
-    
+    this -> coordenadas = nullptr;
     this -> materiales_necesarios = nullptr;
 }

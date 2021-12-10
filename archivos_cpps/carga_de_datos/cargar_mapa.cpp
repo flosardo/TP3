@@ -15,8 +15,7 @@ void Cargar_mapa::carga_mapa(Mapa* mapa) {
 
     int cantidad_filas;
     int cantidad_columnas;
-    archivo_mapa >> cantidad_filas;
-    archivo_mapa >> cantidad_columnas;
+    archivo_mapa >> cantidad_filas >> cantidad_columnas;
 
     mapa -> crear_mapa(cantidad_filas, cantidad_columnas);
     procesar_archivo(archivo_mapa, mapa, cantidad_filas, cantidad_columnas);
