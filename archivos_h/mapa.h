@@ -35,6 +35,9 @@ class Mapa {
         */
         void inicializar_casillero(char terreno, int fil, int col);
 
+        /*
+        *Post: Devolverá un puntero con las dimensiones del mapa.
+        */
         int* obtener_dimensiones();
 
         /*
@@ -50,13 +53,13 @@ class Mapa {
         bool se_ubico_edificio(Edificio* edificio, int fila, int columna);
 
         /*
-        *Pre: Que jugador no sea null y que las coordenadas sean .
+        *Pre: Que jugador no sea null y que las coordenadas sean.
         *Post: Posicionará al jugador en el mapa.
         */
         bool se_ubico_jugador(Jugador* jugador, int fila, int columna);
 
         /*
-        *Pre: Que columna y fila sean >= 0
+        *Pre: Que columna y fila sean >= 0.
         *Post: Devuelve el tipo del casillero en las coordenadas recibidas.
         */
         char obtener_tipo_casillero(int fila, int columna);
@@ -68,7 +71,7 @@ class Mapa {
         void consultar_coordenada(int fila, int columna);
         
         /*
-        *Pre: Recibe dos coordenadas
+        *Pre: Recibe dos coordenadas.
         *Post: Devuleve true si el casillero en las coordenadas recibidas esta ocupado, falso en caso contrario.
         */
         bool esta_ocupado(int fila, int columna);
@@ -85,8 +88,16 @@ class Mapa {
         */
         bool es_posible_insertar_materiales(int cantidad_a_insertar);
 
+        /*
+        *Pre: Que los parametros sean >= 0.
+        *Post: Devolverá un edificio.
+        */
         Edificio* obtener_edificio(int fila, int columna);
 
+        /*
+        *Pre: Que los parametros sean >= 0.
+        *Post: Devolverá un material.
+        */
         Material* obtener_material(int fila, int columna);
 
         /*

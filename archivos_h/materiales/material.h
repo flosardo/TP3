@@ -47,6 +47,9 @@ class Material {
         */
         virtual void saludar();
 
+        /*
+        *Post: Liberará la memoria del material.
+        */
         virtual ~Material();
         
 };

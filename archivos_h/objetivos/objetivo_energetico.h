@@ -22,7 +22,7 @@ class Objetivo_energetico: public Objetivo {
         void mostrar_progreso();
 
         /*
-        *Post: obtendra true si se termina el turno con 100 de energía, o false en caso contrario.
+        *Post: Obtendrá true si se termina el turno con 100 de energía, o false en caso contrario.
         */
         bool se_cumplio_el_objetivo(int cantidad);
 

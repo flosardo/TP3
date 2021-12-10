@@ -55,16 +55,4 @@ class Inventario {
         
 };
 
-        // /*
-        // *Pre: Que el indice sea > 0.
-        // *Post: Modificiará la cantidad del material.
-        // */
-        // void modificar_cantidad_material(int indice, int cantidad);
-
-        // /*
-        // *Pre: Recibe el nombre del materia válido.
-        // *Post: Devuelve la posicion del material recibido
-        // */
-        // int obtener_indice_del_material(std::string material);
-
 #endif //_INVENTARIO_H_

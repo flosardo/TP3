@@ -41,25 +41,43 @@ class Auxiliares_andypolis {
         */
         Jugador* asignar_turno(Jugador* jugador_1, Jugador* jugador_2);
 
+        /*
+        *Pre: Que el parametro no sea null
+        *Post: Aumentará los materiales producidos.
+        */
         void aumentar_materiales_producidos(Jugador* jugador_actual);
 
+        /*
+        *Pre: Que los parametros mapa, jugador_actual, jugador_1, jugador_2 no sean null, que la fila y columna sean >= 0.
+        *Post: Aumentará los materiales producidos.
+        */
         void atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador_actual, Jugador* jugador_1, Jugador* jugador_2, int fila, int columna);
 
+        /*
+        *Pre: Que el parametro no sea null.
+        *Post: Hará la lluvia de materiales.
+        */
         void lluvia_materiales(Mapa* mapa);
 
+        /*
+        *Pre: Que el mapa no sea null, y cantidad_a_generar sea >= 0.
+        *Post: Hará la lluvia de un material.
+        */
         void lluvia_material(std::string nombre_material, int cantidad_a_generar, Mapa* mapa);
 
+        /*
+        *Post: Devolvera un puntero de tipo Material con el material deseado.
+        */
         Material* generar_material(std::string nombre_material);
 
-
         /*
-        *Post: obtendra un puntero con las coordenadas pedidas.
+        *Post: Obtendrá un puntero con las coordenadas pedidas.
         */
         int* pedir_coordenadas(Mapa* mapa);
 
         /*
         *Pre: Que los parámetros sean >= 0.
-        *Post: obtendra true si las coordenadas son validas, false en caso contrario.
+        *Post: Obtendrá true si las coordenadas son validas, false en caso contrario.
         */
         bool validar_coordenadas(Mapa* mapa, int fila, int columna);
 
@@ -71,17 +89,17 @@ class Auxiliares_andypolis {
 
         /*
         *Pre: Que los parámetros sean >= 0.
-        *Post: obtendra true si el casillero es válido, false en caso contrario.
+        *Post: Obtendrá true si el casillero es válido, false en caso contrario.
         */
         bool es_casillero_valido(Mapa* mapa, int fila, int columna);
 
         /*
-        *Post: obtendra un string con el string del nombre del edificio pedido.
+        *Post: Obtendrá un string con el string del nombre del edificio pedido.
         */
         std::string pedir_nombre_edificio();
 
         /*
-        *Post: obtendra la nueva cantidad de material pedida.
+        *Post: Obtendrá la nueva cantidad de material pedida.
         */
         int pedir_nueva_cantidad_material(std::string material);
 
@@ -93,7 +111,7 @@ class Auxiliares_andypolis {
 
         /*
         *Pre: Que los parámetros sean >= 0.
-        *Post: obtendra true si hay energia suficiente para realizar la operación, false en caso contrario.
+        *Post: Obtendrá true si hay energia suficiente para realizar la operación, false en caso contrario.
         */
         bool hay_energia_suficiente(int energia_necesaria, int energia_del_jugador);
 
@@ -105,7 +123,7 @@ class Auxiliares_andypolis {
 
         /*
         *Pre: Que los parámetros sean >= 0.
-        *Post: obtendra true si es posible comprar bombas, false en caso contrario.
+        *Post: Obtendrá true si es posible comprar bombas, false en caso contrario.
         */
         bool es_posible_comprar_bombas(int cantidad_bombas, int cantidad_andycoins);
 
@@ -116,7 +134,7 @@ class Auxiliares_andypolis {
 
         /*
         *Pre: Que el parámetro no sea null.
-        *Post: obtendra true si se alcanzo el maximo permitido, false en caso contrario.
+        *Post: Obtendrá true si se alcanzo el maximo permitido, false en caso contrario.
         */
         bool se_alcanzo_maximo_permitido(Abb* edificios_disponibles, Edificio* edificio_a_construir, Jugador* jugador_actual);
 
@@ -127,7 +145,7 @@ class Auxiliares_andypolis {
 
         /*
         *Pre: Que el parametro inventario y edificio no sean null.
-        *Post: obtendra true si hay materiales suficientes, false en caso contrario.
+        *Post: Obtendrá true si hay materiales suficientes, false en caso contrario.
         */
         bool hay_material_suficiente(std::string material, Inventario* inventario, int cantidad_material);
 
@@ -138,21 +156,34 @@ class Auxiliares_andypolis {
         void actualizar_inventario(Inventario* inventario, int piedra, int madera, int metal);
 
         /*
-        *Post: obtendra true si se confirmo la construcción, false en caso contrario.
+        *Post: Obtendrá true si se confirmo la construcción, false en caso contrario.
         */
         bool confirmar_construccion(std::string edificio_a_construir);
 
         /*
         *Pre: Que los parámetros fila y columna sean >= 0.
-        *Post: obtendra un puntero de tipo Edificio, que contendra la información del edificio creado.
+        *Post: Obtendrá un puntero de tipo Edificio, que contendra la información del edificio creado.
         */
         Edificio* crear_edificio(std::string nombre, int fila, int columna);
 
+        /*
+        *Pre: Que los parametros edificios_disponibles, mapa, jugador_actual sean != null, y que fila y columna sean >= 0.
+        *Post: Demolerá un edificio de andypolis.
+        */
         void demoler_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, int fila, int columna);
 
+        /*
+        *Pre: Que los parametros edificios_disponibles, mapa, jugador_actual sean != null, y que fila y columna sean >= 0.
+        *Post: Reparará un edificio de andypolis
+        */
         void reparar_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, int fila, int columna);
 
+        /*
+        *Pre: Que el parametro no sea null.
+        *Post: Recolectará los recursos.
+        */
         void recolectar_recursos_auxiliares(Jugador* jugador_actual);
+        
 };
 
 #endif //_AUXILIARES_ANDYPOLIS_H_

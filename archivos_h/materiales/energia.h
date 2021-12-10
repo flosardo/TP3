@@ -8,17 +8,17 @@ class Energia : public Material {
     public:
 
         /*
-        * Post: Creará un objeto de tipo Energia, dejando sus atributos cargados con los valores por defecto.
+        *Post: Creará un objeto de tipo Energia, dejando sus atributos cargados con los valores por defecto.
         */
         Energia();
 
         /*
-        * Post: Creará un objeto de tipo Energia con el parametro cantidad_energía.
+        *Post: Creará un objeto de tipo Energia con el parametro cantidad_energía.
         */
         Energia(int cantidad_energia);
 
         /*
-        * Post: Modificará la cantidad segun corresponda.
+        *Post: Modificará la cantidad segun corresponda.
         */
         void modificar_cantidad(int cantidad_a_modificar);
 
