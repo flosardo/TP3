@@ -1,5 +1,4 @@
 #include "../../archivos_h/objetivos/objetivo.h"
-#include "../../archivos_h/jugador.h"
 
 using namespace std;
 

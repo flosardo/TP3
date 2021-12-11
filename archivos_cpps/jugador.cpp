@@ -1,5 +1,4 @@
 #include "../archivos_h/jugador.h"
-#include "../archivos_h/objetivos/objetivo.h"
 
 using namespace std;
 
@@ -16,7 +15,6 @@ Jugador::Jugador() {
     this -> andycoins_juntados = 0;
     this -> bombas_usadas = 0;
     this -> bombas_compradas = 0;
-    this -> inicializar_arreglo_objetivos();    
 }
 
 void Jugador::establecer_nombre(string nombre) {
@@ -25,12 +23,6 @@ void Jugador::establecer_nombre(string nombre) {
 
 string Jugador::obtener_nombre() {
     return this -> nombre;
-}
-
-void Jugador::inicializar_arreglo_objetivos() {
-    for (int i = 0; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++) {
-        this -> objetivos[i] = nullptr;
-    }
 }
 
 void Jugador::establecer_coordenadas(int fila, int columna) {

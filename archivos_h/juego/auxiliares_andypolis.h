@@ -1,6 +1,18 @@
 #ifndef _AUXILIARES_ANDYPOLIS_H_
 #define _AUXILIARES_ANDYPOLIS_H_
 
+#include "../objetivos/objetivo.h"
+#include "../objetivos/objetivo_andycoins.h"
+#include "../objetivos/objetivo_armado.h"
+#include "../objetivos/objetivo_bombardero.h"
+#include "../objetivos/objetivo_cansado.h"
+#include "../objetivos/objetivo_constructor.h"
+#include "../objetivos/objetivo_energetico.h"
+#include "../objetivos/objetivo_extremista.h"
+#include "../objetivos/objetivo_letrado.h"
+#include "../objetivos/objetivo_minero.h"
+#include "../objetivos/objetivo_obelisco.h"
+#include "../objetivos/objetivo_piedra.h"
 #include "../../archivos_h/arbol/abb.h"
 #include "../../archivos_h/mapa.h"
 #include "../construcciones/aserradero.h"
@@ -40,6 +52,16 @@ class Auxiliares_andypolis {
         *Post: Asignará el turno aleatoriamente, para el jugador que va a empezar.
         */
         Jugador* asignar_turno(Jugador* jugador_1, Jugador* jugador_2);
+
+        void inicializar_arreglo_objetivos(Objetivo** objetivos);
+
+        void cargar_objetivos(Objetivo** objetivos, int permitidos_escuela);
+
+        bool el_objetivo_fue_asignado(Objetivo** objetivos, Objetivo* objetivo_a_asignar, int indice);
+
+        bool gano_la_partida(Jugador* jugador, Objetivo** objetivos);
+
+        void asignar_objetivos(Objetivo** objetivos, int permitidos_escuela);
 
         /*
         *Pre: Que el parametro no sea null

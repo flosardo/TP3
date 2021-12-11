@@ -15,6 +15,73 @@ Jugador* Auxiliares_andypolis::cambiar_turno(Jugador* jugador_actual, Jugador* j
     return jugador_actual == jugador_1 ? jugador_2 : jugador_1;
 }
 
+void Auxiliares_andypolis::inicializar_arreglo_objetivos(Objetivo** objetivos) {
+    for (int i = 0; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++) {
+        objetivos[i] = nullptr;
+    }
+}
+
+void Auxiliares_andypolis::cargar_objetivos(Objetivo** objetivos, int permitidos_escuela) {
+    objetivos[0] = new Objetivo_obelisco();
+    this -> asignar_objetivos(objetivos, permitidos_escuela);
+}
+
+bool Auxiliares_andypolis::el_objetivo_fue_asignado(Objetivo** objetivos, Objetivo* objetivo_a_asignar, int indice) {
+    bool existe = false;
+    int i = 1;
+    while(!existe && i <= indice) {
+        existe = objetivos[i] != nullptr && objetivos[i] -> obtener_nombre() == objetivo_a_asignar -> obtener_nombre();
+        i++;
+    }
+    return existe;
+}
+
+void Auxiliares_andypolis::asignar_objetivos(Objetivo** objetivos, int permitidos_escuela) {
+    Objetivo* objetivo_asignado = nullptr;
+    int numero_objetivo;
+    int i = 1;
+    while (i <= 3) {
+        numero_objetivo = 1 + (rand() % (CANTIDAD_OBJETIVOS_SECUNDARIOS));
+        if (numero_objetivo == NUMERO_OBJETIVO_EXTREMISTA)
+            objetivo_asignado = new Objetivo_extremista();
+        else if (numero_objetivo == NUMERO_OBJETIVO_COMPRAR_ANDYCOINS)
+            objetivo_asignado = new Objetivo_andycoins();
+        else if (numero_objetivo == NUMERO_OBJETIVO_PIEDRA)
+            objetivo_asignado = new Objetivo_piedra();
+        else if (numero_objetivo == NUMERO_OBJETIVO_BOMBARDERO)
+            objetivo_asignado = new Objetivo_bombardero();
+        else if (numero_objetivo == NUMERO_OBJETIVO_ENERGETICO)
+            objetivo_asignado = new Objetivo_energetico();
+        else if (numero_objetivo == NUMERO_OBJETIVO_LETRADO)
+            objetivo_asignado = new Objetivo_letrado(permitidos_escuela);
+        else if (numero_objetivo == NUMERO_OBJETIVO_MINERO)
+            objetivo_asignado = new Objetivo_minero();
+        else if (numero_objetivo == NUMERO_OBJETIVO_CANSADO)
+            objetivo_asignado = new Objetivo_cansado();
+        else if (numero_objetivo == NUMERO_OBJETIVO_CONSTRUCTOR)
+            objetivo_asignado = new Objetivo_constructor();
+        else if (numero_objetivo == NUMERO_OBJETIVO_ARMADO)
+            objetivo_asignado = new Objetivo_armado();
+
+        if(!this -> el_objetivo_fue_asignado(objetivos, objetivo_asignado, i)) {
+            objetivos[i] = objetivo_asignado;
+            i++;
+        }
+    }
+}
+
+bool Auxiliares_andypolis::gano_la_partida(Jugador* jugador, Objetivo** objetivos) {
+    bool obelisco_construido = objetivos[0] -> se_cumplio_el_objetivo(jugador);
+    int i = 0;
+    int cantidad_cumplidos = 0;
+    while (!obelisco_construido && i <= CANTIDAD_OBJETIVOS_POR_JUGADOR) {
+        if (objetivos[i] -> se_cumplio_el_objetivo(jugador))
+            cantidad_cumplidos++;
+        i++;
+    }
+    return obelisco_construido || cantidad_cumplidos >= 2;
+}
+
 void Auxiliares_andypolis::aumentar_materiales_producidos(Jugador* jugador_actual) {
     Edificio** edificio = jugador_actual -> obtener_edificios_construidos();
     for(int i = 0; i < jugador_actual -> obtener_construidos(); i++)
@@ -131,7 +198,6 @@ void Auxiliares_andypolis::construir_edificio_auxiliar(Abb* edificios_disponible
                 this -> actualizar_inventario(jugador_actual -> obtener_inventario(), - piedra_necesaria, - madera_necesaria, - metal_necesario);
                 jugador_actual -> cargar_edificio(nuevo_edificio);
                 jugador_actual -> modificar_energia(-ENERGIA_CONSTRUIR_EDIFICIO);
-                cout << jugador_actual -> obtener_energia_actual() << endl;
                 cout << COLOR_VERDE << "El edificio fue construido satisfactoriamente" << COLOR_POR_DEFECTO << endl;
             }
             delete [] coordenadas;

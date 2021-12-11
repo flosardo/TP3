@@ -3,6 +3,7 @@
 
 #include "../mapa.h"
 #include "../arbol/abb.h"
+#include "../objetivos/objetivo.h"
 #include "auxiliares_andypolis.h"
 
 class Andypolis {
@@ -13,6 +14,8 @@ class Andypolis {
         Jugador* jugador_1;
         Jugador* jugador_2;
         Jugador* jugador_actual;
+        Objetivo** objetivos_1;
+        Objetivo** objetivos_2;
         Abb* edificios_disponibles;
         Auxiliares_andypolis funciones_auxiliares;
 
@@ -23,6 +26,8 @@ class Andypolis {
         */
         Andypolis();
 
+        void inicializar_objetivos();
+
         /*
         *Post: Obtendra un puntero de tipo Abb, con la información del arbol.
         */
@@ -32,6 +37,10 @@ class Andypolis {
         *Post: Obtendra un puntero de tipo Mapa, con la información del mapa de andypolis.
         */
         Mapa* obtener_mapa();
+
+        Objetivo** obtener_objetivos();
+
+        void asignar_objetivo(Objetivo** objetivos, Objetivo* objetivo, int indice);
 
         /*
         *Post: Obtendra un puntero de tipo Auxiliares_andypolis.

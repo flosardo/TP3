@@ -1,6 +1,7 @@
 #ifndef _OBJETIVO_H_
 #define _OBJETIVO_H_
 #include "../constantes.h"
+#include "../jugador.h"
 
 class Objetivo {
 

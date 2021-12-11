@@ -204,7 +204,7 @@ const std::string NOMBRE_OBJETIVO_LETRADO = "intelectual";
 const std::string NOMBRE_OBJETIVO_CANSADO = "cansado";
 const std::string NOMBRE_OBJETIVO_CONSTRUCTOR = "many a la obra (bob constructor)";
 const std::string NOMBRE_OBJETIVO_ARMADO = "terrorista (full armado)";
-
+const int CANTIDAD_OBJETIVOS_SECUNDARIOS = 10;
 const int NUMERO_OBJETIVO_OBELISCO = 0;
 const int NUMERO_OBJETIVO_COMPRAR_ANDYCOINS = 1;
 const int NUMERO_OBJETIVO_PIEDRA = 2;

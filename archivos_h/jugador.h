@@ -1,10 +1,9 @@
 #ifndef JUGADOR_H_
 #define JUGADOR_H_
-class Objetivo;
+
 #include "inventario.h"
 #include "materiales/energia.h"
 #include "construcciones/edificio.h"
-//#include "objetivos/objetivo.h"
 
 class Jugador {
 
@@ -16,7 +15,6 @@ class Jugador {
         std::string codigo_emoji;
         Edificio** edificios_construidos;
         int cantidad_construidos;
-        Objetivo** objetivos;
         std::string nombre;
         int andycoins_juntados;
         int bombas_usadas;
@@ -34,8 +32,6 @@ class Jugador {
         *Post: Cargara el edificio.
         */
         void cargar_edificio(Edificio* edificio);
-
-        void inicializar_arreglo_objetivos();
 
         int obtener_bombas_usadas();
         

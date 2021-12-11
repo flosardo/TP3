@@ -7,11 +7,32 @@ Andypolis::Andypolis() {
     this -> mapa = new Mapa();
     this -> jugador_1 = new Jugador();
     this -> jugador_2 = new Jugador();
+    this -> objetivos_1 = new Objetivo*[4];
+    this -> objetivos_2 = new Objetivo*[4];
     this -> jugador_actual = this -> jugador_1;
 }
 
+void Andypolis::inicializar_objetivos() {
+    this -> funciones_auxiliares.inicializar_arreglo_objetivos(this -> objetivos_1);
+    this -> funciones_auxiliares.inicializar_arreglo_objetivos(this -> objetivos_2);
+    this -> funciones_auxiliares.cargar_objetivos(this -> objetivos_1, this -> edificios_disponibles -> buscar_edificio(NOMBRE_ESCUELA) -> obtener_permitidos());
+    this -> funciones_auxiliares.cargar_objetivos(this -> objetivos_2, this -> edificios_disponibles -> buscar_edificio(NOMBRE_ESCUELA) -> obtener_permitidos());
+}
+
+void Andypolis::asignar_objetivo(Objetivo** objetivos, Objetivo* objetivo, int indice) {
+    objetivos[indice] = objetivo;
+}
+
+Objetivo** Andypolis::obtener_objetivos() {
+    return this -> jugador_actual -> obtener_nombre() == JUGADOR_1 ? this -> objetivos_1 : this -> objetivos_2;
+}
+
+Auxiliares_andypolis Andypolis::obtener_funciones_auxiliares() {
+    return this -> funciones_auxiliares;
+}
+
 void Andypolis::verificar_energia(int & opcion_ingresada) {
-    funciones_auxiliares.verificar_energia(this -> jugador_actual, opcion_ingresada);
+    this -> funciones_auxiliares.verificar_energia(this -> jugador_actual, opcion_ingresada);
 }
 
 Mapa* Andypolis::obtener_mapa() {
@@ -147,7 +168,11 @@ void Andypolis::recolectar_recursos() {
 
 //Pendientes por implementar.
 
-void Andypolis::mostrar_objetivos() {}
+void Andypolis::mostrar_objetivos() {
+    Objetivo** objetivos = this -> jugador_actual -> obtener_nombre() == JUGADOR_1 ? objetivos_1 : objetivos_2;
+    for (int i = 0; i < 4; i++)
+        objetivos[i] -> mostrar_progreso();   
+}
 
 void Andypolis::moverse() {}
 
