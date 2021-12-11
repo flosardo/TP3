@@ -38,7 +38,6 @@ void Objetivo_constructor::mostrar_progreso() {
         cout << "Falta una " << NOMBRE_ESCUELA << " por construir" << endl;
     if (!this -> construidos[POS_FABRICA])
         cout << "Falta una " << NOMBRE_FABRICA << " por construir" << endl;
-
 }
 
 void Objetivo_constructor::cambiar_estado_construido(string nombre) {

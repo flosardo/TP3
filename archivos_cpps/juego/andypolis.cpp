@@ -7,8 +7,8 @@ Andypolis::Andypolis() {
     this -> mapa = new Mapa();
     this -> jugador_1 = new Jugador();
     this -> jugador_2 = new Jugador();
-    this -> objetivos_1 = new Objetivo*[4];
-    this -> objetivos_2 = new Objetivo*[4];
+    this -> objetivos_1 = new Objetivo*[4]; // CANTIDAD_OBJETIVOS_POR_JUGADOR PONER ESTO.
+    this -> objetivos_2 = new Objetivo*[4]; // CANTIDAD_OBJETIVOS_POR_JUGADOR PONER ESTO
     this -> jugador_actual = this -> jugador_1;
 }
 

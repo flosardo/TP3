@@ -16,13 +16,13 @@ Jugador* Auxiliares_andypolis::cambiar_turno(Jugador* jugador_actual, Jugador* j
 }
 
 void Auxiliares_andypolis::inicializar_arreglo_objetivos(Objetivo** objetivos) {
-    for (int i = 0; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++) {
+    for (int i = 0; i < CANTIDAD_OBJETIVOS_SECUNDARIOS_JUGADOR; i++) {
         objetivos[i] = nullptr;
     }
 }
 
 void Auxiliares_andypolis::cargar_objetivos(Objetivo** objetivos, int permitidos_escuela) {
-    objetivos[0] = new Objetivo_obelisco();
+    objetivos[0] = new Objetivo_obelisco(); // PONER CONSTANTE.
     this -> asignar_objetivos(objetivos, permitidos_escuela);
 }
 
@@ -40,7 +40,7 @@ void Auxiliares_andypolis::asignar_objetivos(Objetivo** objetivos, int permitido
     Objetivo* objetivo_asignado = nullptr;
     int numero_objetivo;
     int i = 1;
-    while (i <= 3) {
+    while (i <= 3 /* hacer constante */) {
         numero_objetivo = 1 + (rand() % (CANTIDAD_OBJETIVOS_SECUNDARIOS));
         if (numero_objetivo == NUMERO_OBJETIVO_EXTREMISTA)
             objetivo_asignado = new Objetivo_extremista();
@@ -71,15 +71,15 @@ void Auxiliares_andypolis::asignar_objetivos(Objetivo** objetivos, int permitido
 }
 
 bool Auxiliares_andypolis::gano_la_partida(Jugador* jugador, Objetivo** objetivos) {
-    bool obelisco_construido = objetivos[0] -> se_cumplio_el_objetivo(jugador);
-    int i = 0;
+    bool obelisco_construido = objetivos[NUMERO_OBJETIVO_OBELISCO] -> se_cumplio_el_objetivo(jugador); // HACER CONSTANTE
+    int i = 1;
     int cantidad_cumplidos = 0;
-    while (!obelisco_construido && i <= CANTIDAD_OBJETIVOS_POR_JUGADOR) {
+    while (!obelisco_construido && i < CANTIDAD_OBJETIVOS_POR_JUGADOR) {
         if (objetivos[i] -> se_cumplio_el_objetivo(jugador))
             cantidad_cumplidos++;
         i++;
     }
-    return obelisco_construido || cantidad_cumplidos >= 2;
+    return obelisco_construido || cantidad_cumplidos >= MIN_CANTIDAD_OBJETIVOS_GANAR; // HACER CONSTANTE
 }
 
 void Auxiliares_andypolis::aumentar_materiales_producidos(Jugador* jugador_actual) {
