@@ -14,7 +14,7 @@ bool Objetivo_constructor::se_cumplio_el_objetivo(Jugador* jugador) {
     string nombre_edificio;
     for (int i = 0; i < cantidad_edificios_construidos; i++) {
         nombre_edificio = edificios_construidos[i] -> obtener_nombre();
-        this -> cambiar_estado_construido(nombre);
+        this -> cambiar_estado_construido(nombre_edificio);
     }
     int i = 0;
     bool cumplido = true;

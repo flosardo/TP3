@@ -82,7 +82,6 @@ void Menu_partida::procesar_opcion(int & opcion_ingresada, Andypolis & juego) {
             mostrar_mensaje_volver_menu(TIEMPO_MOSTRAR_INVENTARIO);
             break;
         case OPCION_MOSTRAR_OBJETIVOS:
-            juego.obtener_funciones_auxiliares().gano_la_partida(juego.obtener_jugador_actual(), juego.obtener_objetivos());
             juego.mostrar_objetivos();
             mostrar_mensaje_volver_menu(TIEMPO_MOSTRAR_OBJETIVOS);
             break;
