@@ -12,7 +12,7 @@ bool Objetivo_minero::se_cumplio_el_objetivo(Jugador* jugador) {
     Edificio** edificios_construidos = jugador -> obtener_edificios_construidos();
     int cantidad_edificios_construidos = jugador -> obtener_construidos();
     int i = 0;
-    while(i < cantidad_edificios_construidos && !this -> mina_oro_construida && !this -> mina_construida) {
+    while(i < cantidad_edificios_construidos && (!this -> mina_oro_construida || !this -> mina_construida)) {
         if (edificios_construidos[i] -> obtener_nombre() == NOMBRE_MINA)
             this -> mina_construida = true;
         else if (edificios_construidos[i] -> obtener_nombre() == NOMBRE_MINA_ORO)

@@ -9,12 +9,11 @@ Objetivo_letrado::Objetivo_letrado(int cantidad_maxima_escuelas) {
 
 bool Objetivo_letrado::se_cumplio_el_objetivo(Jugador* jugador) {
     Edificio** edificios_construidos = jugador -> obtener_edificios_construidos();
-    int cantidad_escuela = 0;
     int cantidad_edificios_construidos = jugador -> obtener_construidos();
     int i = 0;
-    while(cantidad_escuela < this -> cantidad_maxima_escuelas && i < cantidad_edificios_construidos) {
+    while(this -> cantidad_escuelas_construidas < this -> cantidad_maxima_escuelas && i < cantidad_edificios_construidos) {
         if(edificios_construidos[i] -> obtener_nombre() == NOMBRE_ESCUELA){
-            cantidad_escuela++;
+            this -> cantidad_escuelas_construidas++;
         }
         i++;
     }
