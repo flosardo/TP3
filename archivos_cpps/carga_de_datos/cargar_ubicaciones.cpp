@@ -35,8 +35,6 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
         jugador -> establecer_coordenadas(fila, columna);
         jugador -> establecer_codigo_emoji(convencion_jugador);
         mapa -> se_ubico_jugador(jugador, fila, columna);
-
-        //jugador -> cargar_objetivos(cantidad_escuelas_permitidas);
     }
     else if (convencion_jugador != " ") {
         Edificio* edificio_creado = crear_edificio(nombre, fila, columna);

@@ -21,7 +21,10 @@ class Objetivo_obelisco: public Objetivo {
         */
         void mostrar_progreso();
 
-        
+        /*
+        *Post: Obtendrá true si se construyo un obelisco, false en caso contrario.
+        */
+        bool se_cumplio_el_objetivo(Jugador* jugador);        
 };
 
 #endif //_OBJETIVO_OBELISCO_H_

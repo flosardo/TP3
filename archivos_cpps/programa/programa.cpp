@@ -24,8 +24,12 @@ void Programa::empezar() {
     }
 
     opcion = opcion == OPCION_SALIR_JUEGO ? OPCION_SALIR_JUEGO : OPCION_EMPEZAR;
-
+    juego.inicializar_objetivos();
+    Auxiliares_andypolis funciones = juego.obtener_funciones_auxiliares();
     while (opcion != OPCION_SALIR_JUEGO) {
+        Objetivo** objetivos = juego.obtener_objetivos();
+        if (funciones.gano_la_partida(juego.obtener_jugador_actual(), objetivos))
+            opcion = OPCION_SALIR_JUEGO;
         juego.verificar_energia(opcion);
         menu_partida.mostrar_mensaje_bienvenida();
         menu_partida.mostrar_menu();

@@ -21,7 +21,10 @@ class Objetivo_constructor: public Objetivo {
         */
         void mostrar_progreso();
 
-
+        /*
+        *Post: Obtendrá true si se cumplio el objetivo constructor, ó false en caso contrario.
+        */
+        bool se_cumplio_el_objetivo(Jugador* jugador);
     private:
 
         /*

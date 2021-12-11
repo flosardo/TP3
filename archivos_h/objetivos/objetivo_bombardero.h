@@ -5,6 +5,10 @@
 
 class Objetivo_bombardero: public Objetivo {
 
+    private:
+    
+        int cantidad_bombardero;
+
     public:
 
         /*
@@ -15,12 +19,12 @@ class Objetivo_bombardero: public Objetivo {
         /*
         *Post: Mostrará el progreso por consola.
         */
-        void mostrar_progreso(int cantidad);
+        void mostrar_progreso();
 
         /*
         *Post: obtendra true si se usaron 5 bombas, false en caso contrario.
         */
-        bool se_cumplio_el_objetivo(int cantidad);
+        bool se_cumplio_el_objetivo(Jugador* jugador);
 
 };
 

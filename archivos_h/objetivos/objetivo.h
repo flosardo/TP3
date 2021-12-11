@@ -1,8 +1,7 @@
 #ifndef _OBJETIVO_H_
 #define _OBJETIVO_H_
-
 #include "../constantes.h"
-#include "../construcciones/edificio.h"
+#include "../jugador.h"
 
 class Objetivo {
 
@@ -25,21 +24,12 @@ class Objetivo {
         /*
         *Post: Mostrará por consola el progreso.
         */
-        virtual void mostrar_progreso();
-
-        virtual void mostrar_progreso(int cantidad);
+        virtual void mostrar_progreso() = 0;
 
         /*
         *Post: Obtendrá true si se cumplio el objetivo en las hijas, o false en caso contrario.
         */
-        virtual bool se_cumplio_el_objetivo(int cantidad);
-
-        /*
-        *Post: Obtendrá true si se cumplio el objetivo o false en caso contrario.
-        */
-        virtual bool se_cumplio_el_objetivo(std::string nombre);
-
-        virtual bool se_cumplio_el_objetivo(Edificio** edicificios_construidos);
+        virtual bool se_cumplio_el_objetivo(Jugador* jugador) = 0;
 
         /*
         *Post: Cambiará el estado de construido del objetivo.
