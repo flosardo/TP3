@@ -7,137 +7,138 @@
 using namespace std;
 
 Grafo::Grafo() {
-    this -> matriz_de_adyacencia = nullptr;
-    this -> vertices = new Lista();
-    this -> algoritmo_camino_minimo = nullptr;
+    matrizDeAdyacencia = nullptr;
+    vertices = new Lista<Vertice>();
+    algoritmoCaminoMinimo = nullptr;
 }
 
-void Grafo::agregar_vertice(string nuevo_vertice) {
-    this -> agrandar_matriz_de_adyacencia();
-    this -> vertices -> agregar(nuevo_vertice);
+void Grafo::agregarVertice(string nuevoVertice) {
+    agrandarMatrizDeAdyacencia();
+    vertices -> agregar(nuevoVertice);
 }
 
-void Grafo::mostrar_grafo() {
-    this -> mostrar_vertices();
-    this -> mostrar_matriz_adyacencia();
+void Grafo::mostrarGrafo() {
+    //mostrarVertices();
+    //mostrarMatrizAdyacencia();
 }
 
-void Grafo::agregar_camino(string origen, string destino, int peso_1, int peso_2) {
-    int posicion_origen = this -> vertices -> obtener_posicion(origen);
-    int posicion_destino = this -> vertices -> obtener_posicion(destino);
+void Grafo::agregarCamino(string origen, string destino, int peso) {
+    int posicionOrigen = vertices ->obtenerPosicion(origen);
+    int posicionDestino = vertices ->obtenerPosicion(destino);
 
-    if(posicion_origen == POSICION_NO_ENCONTRADA)
+    if(posicionOrigen == POSICION_NO_ENCONTRADA){
         cout << "El vertice " << origen << " no existe en el grafo" << endl;
-    
-    if(posicion_destino == POSICION_NO_ENCONTRADA)
+    }
+    if(posicionDestino == POSICION_NO_ENCONTRADA){
         cout << "El vertice " << destino << " no existe en el grafo" << endl;
-    
+    }
 
-    if(!(posicion_destino == POSICION_NO_ENCONTRADA || posicion_origen == POSICION_NO_ENCONTRADA)) {
-        this -> matriz_de_adyacencia[posicion_origen][posicion_destino] = peso_1;
-        this -> matriz_de_adyacencia[posicion_destino][posicion_origen] = peso_2;
+    if(!(posicionDestino == POSICION_NO_ENCONTRADA || posicionOrigen == POSICION_NO_ENCONTRADA)) {
+        matrizDeAdyacencia[posicionOrigen][posicionDestino] = peso;
+        matrizDeAdyacencia[posicionDestino][posicionOrigen] = peso;
     }
 }
 
-void Grafo::camino_minimo(string origen, string destino) {
-    int posicion_origen = this -> vertices -> obtener_posicion(origen);
-    int posicion_destino = this -> vertices -> obtener_posicion(destino);
+void Grafo::caminoMinimo(string origen, string destino) {
+    int posicionOrigen = vertices ->obtenerPosicion(origen);
+    int posicionDestino = vertices ->obtenerPosicion(destino);
 
-    if(posicion_origen == POSICION_NO_ENCONTRADA)
+    if(posicionOrigen == POSICION_NO_ENCONTRADA){
         cout << "El vertice " << origen << " no existe en el grafo" << endl;
-    
-    if(posicion_destino == POSICION_NO_ENCONTRADA)
+    }
+    if(posicionDestino == POSICION_NO_ENCONTRADA){
         cout << "El vertice " << destino << " no existe en el grafo" << endl;
-    
+    }
 
-    this -> camino_minimo(posicion_origen, posicion_destino);
+    caminoMinimo(posicionOrigen, posicionDestino);
 }
 
-void Grafo::agrandar_matriz_de_adyacencia() {
-    int** matriz_auxiliar;
-    int nueva_cantidad_de_vertices = this -> vertices -> obtener_cantidad_elementos() + 1;
+void Grafo::agrandarMatrizDeAdyacencia() {
+    int** matrizAuxiliar;
+    int nuevaCantidadDeVertices = vertices->obtenerCantidadDeElementos() + 1;
 
-    matriz_auxiliar = new int*[nueva_cantidad_de_vertices];
-    for(int i = 0; i < nueva_cantidad_de_vertices; i++)
-        matriz_auxiliar[i] = new int[nueva_cantidad_de_vertices];
-    
+    matrizAuxiliar = new int*[nuevaCantidadDeVertices];
+    for(int i = 0; i < nuevaCantidadDeVertices; i++){
+        matrizAuxiliar[i] = new int[nuevaCantidadDeVertices];
+    }
 
-    this -> copiar_matriz_adyacente(matriz_auxiliar);
-    this -> inicializar_nuevo_vertice(matriz_auxiliar);
-    this -> liberar_matriz_adyacencia();
-    this -> matriz_de_adyacencia = matriz_auxiliar;
+    copiarMatrizAdyacente(matrizAuxiliar);
+    inicializarNuevoVertice(matrizAuxiliar);
+    liberarMatrizAdyacencia();
+    matrizDeAdyacencia = matrizAuxiliar;
 }
 
-void Grafo::copiar_matriz_adyacente(int** nueva_adyacente) {
-    for(int i = 0; i < this -> vertices -> obtener_cantidad_elementos(); i++) {
-        for(int j = 0; j < this -> vertices -> obtener_cantidad_elementos(); j++)
-            nueva_adyacente[i][j] = matriz_de_adyacencia[i][j];
+void Grafo::copiarMatrizAdyacente(int** nuevaAdyacente) {
+    for(int i = 0; i < vertices -> obtenerCantidadDeElementos(); i++){
+        for(int j = 0; j < vertices -> obtenerCantidadDeElementos(); j++){
+            nuevaAdyacente[i][j] = matrizDeAdyacencia[i][j];
+        }
     }
 }
 
-void Grafo::inicializar_nuevo_vertice(int** nueva_adyacente) {
-    for(int i = 0; i < this -> vertices -> obtener_cantidad_elementos(); i++){
-        nueva_adyacente[this -> vertices -> obtener_cantidad_elementos()][i] = INFINITO;
-        nueva_adyacente[i][this -> vertices -> obtener_cantidad_elementos()] = INFINITO;
+void Grafo::inicializarNuevoVertice(int** nuevaAdyacente) {
+    for(int i = 0; i < vertices -> obtenerCantidadDeElementos(); i++){
+        nuevaAdyacente[vertices -> obtenerCantidadDeElementos()][i] = INFINITO;
+        nuevaAdyacente[i][vertices -> obtenerCantidadDeElementos()] = INFINITO;
     }
-    nueva_adyacente[this -> vertices -> obtener_cantidad_elementos()][this -> vertices -> obtener_cantidad_elementos()] = 0;
+    nuevaAdyacente[vertices -> obtenerCantidadDeElementos()][vertices -> obtenerCantidadDeElementos()] = 0;
 }
 
-void Grafo::liberar_matriz_adyacencia() {
-    for(int i = 0; i < this -> vertices -> obtener_cantidad_elementos(); i++)
-        delete[] this -> matriz_de_adyacencia[i];
-    
-    delete[] this -> matriz_de_adyacencia;
+void Grafo::liberarMatrizAdyacencia() {
+    for(int i = 0; i < vertices -> obtenerCantidadDeElementos(); i++){
+        delete[] matrizDeAdyacencia[i];
+    }
+    delete[] matrizDeAdyacencia;
 }
 
+Grafo::~Grafo() {
+    liberarMatrizAdyacencia();
+    matrizDeAdyacencia = nullptr;
+    delete vertices;
+    delete algoritmoCaminoMinimo;
+}
 
-void Grafo::mostrar_vertices() {
+void Grafo::mostrarVertices() {
     cout << "Lista de vértices: [";
-    for(int i = 0; i < this -> vertices -> obtener_cantidad_elementos(); i++){
-        cout << this -> vertices -> obtener_nombre(i + 1);
-        if(i + 1 != this -> vertices -> obtener_cantidad_elementos())
+    for(int i = 0; i < vertices -> obtenerCantidadDeElementos(); i++){
+        cout << vertices -> obtenerNombre(i + 1);
+        if(i + 1 != vertices -> obtenerCantidadDeElementos()){
             cout << ", ";
-        
+        }
     }
     cout << "]" << endl;
 }
 
-/* OJO REVISAR ESTA, DEBERIA ESTAR COMENTADA, PORQUE NUNCA LO VAMOS A MOSTRAR EN EL TP. */
-void Grafo::mostrar_matriz_adyacencia() {
+void Grafo::mostrarMatrizAdyacencia() {
     cout << "Matriz de adyacencia:" << endl;
-    for(int i = 0; i < this -> vertices -> obtener_cantidad_elementos(); i++){
-        for(int j = 0; j < this -> vertices -> obtener_cantidad_elementos() * 2; j++) {
-            if(j == this -> vertices -> obtener_cantidad_elementos() * 2 - 1)
+    for(int i = 0; i < vertices -> obtenerCantidadDeElementos(); i++){
+        for(int j = 0; j < vertices -> obtenerCantidadDeElementos() * 2; j++) {
+            if(j == vertices -> obtenerCantidadDeElementos() * 2 - 1){
                 cout << endl;
-            else if(j % 2 == 0)
-                if(matriz_de_adyacencia[i][j/2] == INFINITO)
+            } else if(j % 2 == 0){
+                if(matrizDeAdyacencia[i][j/2] == INFINITO){
                     cout << "∞";
-                else
-                    cout << matriz_de_adyacencia[i][j/2];
-            else
+                } else {
+                    cout << matrizDeAdyacencia[i][j/2];
+                }
+            } else{
                 cout << "|";
+            }
         }
     }
     cout << endl;
 }
 
-void Grafo::camino_minimo(int origen, int destino) {
-    this -> algoritmo_camino_minimo -> camino_minimo(origen, destino);
+void Grafo::caminoMinimo(int origen, int destino) {
+    algoritmoCaminoMinimo -> caminoMinimo(origen, destino);
 }
 
-void Grafo::usar_floyd() {
-    delete algoritmo_camino_minimo;
-    algoritmo_camino_minimo = new Floyd(vertices, matriz_de_adyacencia);
+void Grafo::usarFloyd() {
+    delete algoritmoCaminoMinimo;
+    algoritmoCaminoMinimo = new Floyd(vertices, matrizDeAdyacencia);
 }
 
-void Grafo::usar_dijkstra() {
-    delete this -> algoritmo_camino_minimo;
-    this -> algoritmo_camino_minimo = new Dijkstra(this -> vertices, this -> matriz_de_adyacencia);
-}
-
-Grafo::~Grafo() {
-    this -> liberar_matriz_adyacencia();
-    matriz_de_adyacencia = nullptr;
-    delete vertices;
-    delete algoritmo_camino_minimo;
+void Grafo::usarDijkstra() {
+    delete algoritmoCaminoMinimo;
+    algoritmoCaminoMinimo = new Dijkstra(vertices, matrizDeAdyacencia);
 }

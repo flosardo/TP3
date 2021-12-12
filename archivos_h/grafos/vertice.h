@@ -4,20 +4,18 @@
 #include <string>
 
 class Vertice {
+/*ATRIBUTOS*/
+private:
+    std::string nombre;
 
-    private:
+/*MÉTODOS*/
+public:
+    Vertice(std::string nombre);
 
-        std::string nombre;
+    //post: obtiene el nombre del vertice
+    std::string obtenerNombre();
 
-    public:
-    
-        Vertice(std::string nombre);
-
-        //post: obtiene el nombre del vertice
-        std::string obtener_nombre();
-
-        ~Vertice();
-    
+    ~Vertice();
 };
 
 #endif //_VERTICE_H_

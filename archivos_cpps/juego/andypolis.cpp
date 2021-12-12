@@ -209,8 +209,8 @@ void Andypolis::moverse() {
     string coordenadas_origen = to_string(coordenadas_jugador[INDICE_FILA]) + VACIO + to_string(coordenadas_jugador[INDICE_COLUMNA]);
     string coordenadas_destino = to_string(coordenadas[INDICE_FILA]) + VACIO + to_string(coordenadas[INDICE_COLUMNA]);
     //grafo -> usar_dijkstra();
-    grafo -> usar_floyd();
-    grafo -> camino_minimo(coordenadas_origen, coordenadas_destino);
+    grafo -> usarFloyd();
+    grafo -> caminoMinimo(coordenadas_origen, coordenadas_destino);
     //this -> jugador_actual -> establecer_coordenadas(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
     delete grafo;
     grafo = nullptr;

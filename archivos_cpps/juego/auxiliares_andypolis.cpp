@@ -100,7 +100,7 @@ void Auxiliares_andypolis::cargar_grafo_auxiliar(Grafo* grafo, Mapa* mapa) {
     int* dimensiones_mapa = mapa -> obtener_dimensiones();
     for(int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
         for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++)
-            grafo -> agregar_vertice(to_string(fila) + VACIO + to_string(columna));
+            grafo -> agregarVertice(to_string(fila) + VACIO + to_string(columna));
     }
 }
 
@@ -108,14 +108,19 @@ void Auxiliares_andypolis::cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jug
     int* dimensiones_mapa = mapa -> obtener_dimensiones();
     int costo_1 = 0;
     int costo_2 = 0;
+    int costo_3 = 0;
     int columna_siguiente = 0;
     for(int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
         for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++) {
             columna_siguiente = columna + 1;
-            if(columna_siguiente < dimensiones_mapa[INDICE_COLUMNA]){
+            int columna_anterior = columna-1;
+            if(columna_siguiente < dimensiones_mapa[INDICE_COLUMNA] && columna_anterior > 0){
                 costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
                 costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna_siguiente);
-                grafo -> agregar_camino(to_string(fila) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna_siguiente), costo_1, costo_2);
+                costo_3 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna-1);
+                grafo -> agregarCamino(to_string(fila) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna_siguiente), costo_1);
+                grafo -> agregarCamino(to_string(fila) + VACIO + to_string(columna_siguiente), to_string(fila) + VACIO + to_string(columna), costo_2);
+                grafo -> agregarCamino(to_string(fila) + VACIO + to_string(columna_anterior), to_string(fila) + VACIO + to_string(columna), costo_3);
             }
         }
     }
@@ -127,7 +132,11 @@ void Auxiliares_andypolis::cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jug
             if(fila_siguiente < dimensiones_mapa[INDICE_FILA]){
                 costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
                 costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila_siguiente, columna);
-                grafo -> agregar_camino(to_string(fila) + VACIO + to_string(columna), to_string(fila_siguiente) + VACIO + to_string(columna), costo_1, costo_2);
+                //costo_3 = this -> obtener_coste_camino(mapa, jugador_actual, fila-1, columna);
+                grafo -> agregarCamino(to_string(fila) + VACIO + to_string(columna), to_string(fila_siguiente) + VACIO + to_string(columna), costo_1);
+                grafo -> agregarCamino(to_string(fila_siguiente) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna), costo_2);
+                //grafo -> agregarCamino(to_string(fila-1) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna), costo_3);
+            
             }
         }
     }
