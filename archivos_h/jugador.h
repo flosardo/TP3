@@ -122,12 +122,6 @@ class Jugador {
         int* obtener_coordenadas();
 
         /*
-        *Pre: Que las coordenadas recibidas por parametro sean >= 0.
-        *Post: Mueve el jugador a las coordenadas x e y usando los caminos minimos.
-        */
-        void mover(int fila, int columna);
-
-        /*
         *Pre: Que la cantidad de energia sea >= 0.
         *Post: Modificará la cantidad de energía de un jugador.
         */

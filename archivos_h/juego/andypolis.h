@@ -1,8 +1,9 @@
 #ifndef _ANDYPOLIS_H_
 #define _ANDYPOLIS_H_
 
-#include "../mapa.h"
 #include "../arbol/abb.h"
+#include "../mapa.h"
+#include "../grafos/grafo.h"
 #include "../objetivos/objetivo.h"
 #include "auxiliares_andypolis.h"
 
@@ -11,6 +12,7 @@ class Andypolis {
     private:
 
         Mapa* mapa;
+        Grafo* grafo;
         Jugador* jugador_1;
         Jugador* jugador_2;
         Jugador* jugador_actual;
@@ -27,6 +29,8 @@ class Andypolis {
         Andypolis();
 
         void inicializar_objetivos();
+
+        void cargar_grafo();
 
         /*
         *Post: Obtendra un puntero de tipo Abb, con la información del arbol.

@@ -130,10 +130,6 @@ int Jugador::obtener_construidos() {
     return this -> cantidad_construidos;
 }
 
-void Jugador::mover(int fila, int columna) {
-    /* HACER A FUTURO CON GRAFOS (CAMINOS MINIMOS). */
-}
-
 void Jugador::modificar_energia(int cantidad_energia) { 
     this -> energia.modificar_cantidad(cantidad_energia);
 }

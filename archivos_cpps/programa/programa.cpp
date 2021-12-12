@@ -8,6 +8,7 @@ Programa::Programa() {
     mapa.carga_mapa(juego.obtener_mapa());
     materiales.carga_materiales(juego.obtener_jugador(NUMERO_JUGADOR_1), juego.obtener_jugador(NUMERO_JUGADOR_2));
     this -> existe_ubicaciones = ubicacion.carga_ubicaciones(juego.obtener_mapa(), juego.obtener_jugador(NUMERO_JUGADOR_1), juego.obtener_jugador(NUMERO_JUGADOR_2));
+    juego.cargar_grafo();
 }
 
 void Programa::empezar() {

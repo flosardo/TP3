@@ -5,11 +5,17 @@ using namespace std;
 Andypolis::Andypolis() {
     this -> edificios_disponibles = new Abb();
     this -> mapa = new Mapa();
+    this -> grafo = new Grafo();
     this -> jugador_1 = new Jugador();
     this -> jugador_2 = new Jugador();
     this -> objetivos_1 = new Objetivo*[CANTIDAD_OBJETIVOS_POR_JUGADOR]; 
     this -> objetivos_2 = new Objetivo*[CANTIDAD_OBJETIVOS_POR_JUGADOR]; 
     this -> jugador_actual = this -> jugador_1;
+    this -> funciones_auxiliares = Auxiliares_andypolis();
+}
+
+void Andypolis::cargar_grafo() {
+    //this -> funciones_auxiliares.cargar_grafo_auxiliar(this -> mapa);
 }
 
 void Andypolis::inicializar_objetivos() {
@@ -195,9 +201,11 @@ void Andypolis::reparar_edificio() {
     }
 }
 
+void Andypolis::moverse() {
+
+}
 
 //PENDIENTES POR IMPLEMENTAR.
-void Andypolis::moverse() {}
 
 Andypolis::~Andypolis() {
     // delete this -> edificios_disponibles;

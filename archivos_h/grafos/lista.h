@@ -1,8 +1,8 @@
 #ifndef _LISTA_H_
 #define _LISTA_H_
 
-#include "nodo_grafo.h"
 #include "../constantes.h"
+#include "nodo_grafo.h"
 
 class Lista {
 
