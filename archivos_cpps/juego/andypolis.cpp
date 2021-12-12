@@ -212,6 +212,8 @@ void Andypolis::moverse() {
     grafo -> usar_floyd();
     grafo -> camino_minimo(coordenadas_origen, coordenadas_destino);
     //this -> jugador_actual -> establecer_coordenadas(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+    delete grafo;
+    grafo = nullptr;
 }
 
 //PENDIENTES POR IMPLEMENTAR.

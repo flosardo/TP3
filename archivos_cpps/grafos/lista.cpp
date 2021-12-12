@@ -18,6 +18,7 @@ int Lista::obtener_posicion(string nombre){
     Nodo_grafo* auxiliar = this -> primero;
 
     while(!elemento_encontrado && i < this -> cantidad_elementos){
+
         elemento_encontrado = auxiliar -> obtener_nombre() == nombre;
 
         i++;
