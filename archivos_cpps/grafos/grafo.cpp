@@ -38,7 +38,7 @@ void Grafo::agregar_camino(string origen, string destino, int peso_1, int peso_2
     }
 }
 
-void Grafo::camino_minimo(string origen, string destino) { //REVIRSAR, NO HAY CASO BASE (CONDIDICION DE CORTE).
+void Grafo::camino_minimo(string origen, string destino) {
     int posicion_origen = this -> vertices -> obtener_posicion(origen);
     int posicion_destino = this -> vertices -> obtener_posicion(destino);
 
@@ -89,12 +89,6 @@ void Grafo::liberar_matriz_adyacencia() {
     delete[] this -> matriz_de_adyacencia;
 }
 
-Grafo::~Grafo() {
-    this -> liberar_matriz_adyacencia();
-    matriz_de_adyacencia = nullptr;
-    delete vertices;
-    delete algoritmo_camino_minimo;
-}
 
 void Grafo::mostrar_vertices() {
     cout << "Lista de vértices: [";
@@ -138,4 +132,11 @@ void Grafo::usar_floyd() {
 void Grafo::usar_dijkstra() {
     delete this -> algoritmo_camino_minimo;
     this -> algoritmo_camino_minimo = new Dijkstra(this -> vertices, this -> matriz_de_adyacencia);
+}
+
+Grafo::~Grafo() {
+    this -> liberar_matriz_adyacencia();
+    matriz_de_adyacencia = nullptr;
+    delete vertices;
+    delete algoritmo_camino_minimo;
 }

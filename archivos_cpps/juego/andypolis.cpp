@@ -202,7 +202,14 @@ void Andypolis::reparar_edificio() {
 }
 
 void Andypolis::moverse() {
-
+    this -> funciones_auxiliares.cargar_caminos(this -> grafo, this -> mapa, this -> jugador_actual);
+    this -> grafo -> usar_dijkstra();
+    int* coordenadas = this -> funciones_auxiliares.pedir_coordenadas(this -> mapa);
+    int* coordenadas_jugador = this -> jugador_actual -> obtener_coordenadas();
+    string coordenadas_origen = to_string(coordenadas_jugador[INDICE_FILA]) + VACIO + to_string(coordenadas_jugador[INDICE_COLUMNA]);
+    string coordenadas_destino = to_string(coordenadas[INDICE_FILA]) + VACIO + to_string(coordenadas[INDICE_COLUMNA]);
+    this -> grafo -> camino_minimo(coordenadas_origen, coordenadas_destino);
+    //this -> jugador_actual -> establecer_coordenadas(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
 }
 
 //PENDIENTES POR IMPLEMENTAR.
