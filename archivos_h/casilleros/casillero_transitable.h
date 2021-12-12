@@ -15,7 +15,7 @@ class Casillero_transitable: public Casillero {
         /*
         *Post: Creará un objeto de tipo Casillero_transitable, dejando sus atributos cargados con valores por defecto.
         */
-        Casillero_transitable(std::string color);
+        Casillero_transitable(std::string color, char tipo);
 
         /*
         *Post: Mostrará lo que hay en el casillero.

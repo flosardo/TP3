@@ -1,4 +1,5 @@
 #include "../../archivos_h/grafos/dijkstra.h"
+#include "../../archivos_h/grafos/floyd.h"
 #include "../../archivos_h/grafos/grafo.h"
 
 #include <iostream>
@@ -125,8 +126,8 @@ void Grafo::camino_minimo(int origen, int destino) {
 }
 
 void Grafo::usar_floyd() {
-    //delete algoritmo_camino_minimo;
-    //algoritmo_camino_minimo = new Floyd(vertices, matriz_de_adyacencia);
+    delete algoritmo_camino_minimo;
+    algoritmo_camino_minimo = new Floyd(vertices, matriz_de_adyacencia);
 }
 
 void Grafo::usar_dijkstra() {

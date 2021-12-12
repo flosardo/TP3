@@ -70,7 +70,8 @@ void Mapa::inicializar_casillero(char terreno, int fila, int columna) {
             color = FONDO_GRIS;
         else
             color = FONDO_MARRON;
-        this -> mapa[fila][columna] = new Casillero_transitable(color);
+    
+        this -> mapa[fila][columna] = new Casillero_transitable(color, terreno);
     }
 }
 

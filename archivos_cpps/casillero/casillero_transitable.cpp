@@ -2,10 +2,10 @@
 
 using namespace std;
 
-Casillero_transitable::Casillero_transitable(string color) {
+Casillero_transitable::Casillero_transitable(string color, char tipo) {
     this -> material = nullptr;
     this -> jugador = nullptr;
-    this -> tipo_terreno = CAMINO;
+    this -> tipo_terreno = tipo;
     this -> codigo_color = color;
 }
 
