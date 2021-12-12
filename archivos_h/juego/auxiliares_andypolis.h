@@ -14,6 +14,7 @@
 #include "../objetivos/objetivo_piedra.h"
 #include "../../archivos_h/arbol/abb.h"
 #include "../../archivos_h/mapa.h"
+#include "../grafos/grafo.h"
 #include "../construcciones/aserradero.h"
 #include "../construcciones/mina.h"
 #include "../construcciones/mina_oro.h"
@@ -48,7 +49,9 @@ class Auxiliares_andypolis {
         */
         Jugador* cambiar_turno(Jugador* jugador_actual, Jugador* jugador_1, Jugador* jugador_2);
 
-        
+        void cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jugador_actual);
+
+        int obtener_coste_camino(Mapa* mapa, Jugador* jugador, int fila, int columna);
         
         // NO SE ESTA USANDO, SE PUEDE SACAR?????
         // /*
@@ -111,6 +114,8 @@ class Auxiliares_andypolis {
         *Post: Verificará la energía.
         */
         bool tiene_energia(Jugador* jugador_actual);
+
+        void cargar_grafo_auxiliar(Grafo* grafo, Mapa* mapa);
 
         /*
         *Pre: Que los parámetros sean >= 0.

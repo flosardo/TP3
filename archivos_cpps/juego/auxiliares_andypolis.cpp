@@ -96,6 +96,59 @@ void Auxiliares_andypolis::aumentar_materiales_producidos(Jugador* jugador_actua
 //     return (rand() % 2 + 1) == 1 ? jugador_1 : jugador_2;
 // }
 
+void Auxiliares_andypolis::cargar_grafo_auxiliar(Grafo* grafo, Mapa* mapa) {
+    int* dimensiones_mapa = mapa -> obtener_dimensiones();
+    for(int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
+        for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++)
+            grafo -> agregar_vertice(to_string(fila) + VACIO + to_string(columna));
+    }
+}
+
+void Auxiliares_andypolis::cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jugador_actual) {
+    int* dimensiones_mapa = mapa -> obtener_dimensiones();
+    int costo_1 = 0;
+    int costo_2 = 0;
+    int columna_anterior = 0;
+    for(int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
+        for (int columna = 1; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++) {
+            columna_anterior = columna - 1;
+            costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna_anterior);
+            costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
+            grafo -> agregar_camino(to_string(fila) + VACIO + to_string(columna_anterior), to_string(fila) + VACIO + to_string(columna), costo_1, costo_2);
+        }
+    }
+
+    int fila_anterior = 0;
+    for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++) {
+        for(int fila = 1; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
+            fila_anterior = fila - 1;
+            costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila_anterior, columna);
+            costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
+            grafo -> agregar_camino(to_string(fila_anterior) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna), costo_1, costo_2);
+        }
+    }
+}
+
+int Auxiliares_andypolis::obtener_coste_camino(Mapa* mapa, Jugador* jugador, int fila, int columna) {
+    string nombre_jugador = jugador -> obtener_nombre() == NUMERO_JUGADOR_1 ? NUMERO_JUGADOR_1 : NUMERO_JUGADOR_2;
+    char tipo_terreno =  mapa -> obtener_tipo_casillero(fila, columna);
+    int costo = 0;
+    if (tipo_terreno == TERRENO && mapa -> esta_ocupado(fila, columna))
+        costo = INFINITO;
+    else if (tipo_terreno == TERRENO)
+        costo = COSTO_TERRENO;
+    else if (tipo_terreno == LAGO)
+        costo = nombre_jugador == NUMERO_JUGADOR_1 ? COSTO_LAGO_JUGADOR_1: COSTO_LAGO_JUGADOR_2;
+    else if (tipo_terreno == BETUN)
+        costo = COSTO_BETUN;
+    else if (tipo_terreno == CAMINO)
+        costo = COSTO_CAMINO;
+    else if (tipo_terreno == MUELLE)
+        costo = nombre_jugador == NUMERO_JUGADOR_1 ? COSTO_MUELLE_JUGADOR_1: COSTO_MUELLE_JUGADOR_2;
+
+    return costo;
+}
+
 int* Auxiliares_andypolis::pedir_coordenadas(Mapa* mapa) {
     int* coordenadas = new int[MAX_COORDENADAS];
     bool ubicado = false;

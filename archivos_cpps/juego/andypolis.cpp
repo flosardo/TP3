@@ -15,7 +15,7 @@ Andypolis::Andypolis() {
 }
 
 void Andypolis::cargar_grafo() {
-    //this -> funciones_auxiliares.cargar_grafo_auxiliar(this -> mapa);
+    this -> funciones_auxiliares.cargar_grafo_auxiliar(this -> grafo, this -> mapa);
 }
 
 void Andypolis::inicializar_objetivos() {
