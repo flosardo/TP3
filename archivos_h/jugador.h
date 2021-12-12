@@ -33,11 +33,25 @@ class Jugador {
         */
         void cargar_edificio(Edificio* edificio);
 
-        int obtener_bombas_usadas();
-        
+        /*
+        *Post: Obtendra los andycoins juntados.
+        */
         int obtener_andycoins_juntados();
 
+        /*
+        *Post: Obtendra las bombas usadas.
+        */
+        int obtener_bombas_usadas();
+
+        /*
+        *Post: Obtendra la cantidad de bombas compradas.
+        */
         int obtener_cantidad_bombas_compradas();
+
+        /*
+        *Post: Aumentará la cantidad de bombas usadas.
+        */
+        void aumentar_bombas_usadas();  
 
         /*
         *Pre: Que los parámetros sea >= 0.

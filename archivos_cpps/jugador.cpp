@@ -21,6 +21,22 @@ void Jugador::establecer_nombre(string nombre) {
     this -> nombre = nombre;
 }
 
+// LOS ULTIMOS METODOS AGREGADOS
+
+int Jugador::obtener_bombas_usadas() {
+    return this -> bombas_usadas;
+}
+
+int Jugador::obtener_cantidad_bombas_compradas() {
+    return this -> bombas_compradas;
+}
+
+void Jugador::aumentar_bombas_usadas() {
+    this -> bombas_usadas++;
+}
+
+// FIN
+
 string Jugador::obtener_nombre() {
     return this -> nombre;
 }
@@ -91,14 +107,6 @@ int* Jugador::obtener_coordenadas() {
 
 int Jugador::obtener_andycoins_juntados() {
     return this -> andycoins_juntados;
-}
-
-int Jugador::obtener_bombas_usadas() {
-    return this -> bombas_usadas;
-}
-
-int Jugador::obtener_cantidad_bombas_compradas() {
-    return this -> bombas_compradas;
 }
 
 int Jugador::obtener_energia_actual() {

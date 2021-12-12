@@ -14,7 +14,7 @@ class Abb {
     public:
 
         /* 
-        Post: Crea un objeto de tipo Abb
+        *Post: Crea un objeto de tipo Abb
         */
         Abb();
 
@@ -24,11 +24,16 @@ class Abb {
         */
         Abb(Nodo* raiz);
 
+        /* 
+        *Post: Obtendrá la cantidad de nodos.
+        */
         int obtener_cantidad_nodos();
 
+        /* 
+        *Pre: Que el parametro no sea null.
+        *Post: Cargará en el arreglo de edificios, un edificio.
+        */
         void cargar_en_arreglo(Edificio** & edificios);
-
-        void cargar_en_arreglo_recursivo(Edificio** & edificios, Nodo* nodo, int & indice);
 
         /*
         *Pre: Que el parametro no sean null.
@@ -59,6 +64,13 @@ class Abb {
         ~Abb();
 
     private:
+
+
+        /* 
+        *Pre: Que el parametro nodo y edificio no sean null, que indice sea >= 0.
+        *Post: Cargará en el arreglo de edificios, un edificio.
+        */
+        void cargar_en_arreglo_recursivo(Edificio** & edificios, Nodo* nodo, int & indice);
 
         /*
         *Pre: Que los parametros no sean null.

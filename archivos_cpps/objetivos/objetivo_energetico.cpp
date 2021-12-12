@@ -13,5 +13,12 @@ bool Objetivo_energetico::se_cumplio_el_objetivo(Jugador* jugador) {
 }
 
 void Objetivo_energetico::mostrar_progreso() {
-    cout << "Faltan: " << OBJETIVO_ENERGETICO - this -> cantidad_energia << " de energía para lograr el objetivo" << endl;
+    cout << this -> nombre;
+    if(!this -> se_cumplio){
+        cout << endl;
+        cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_ENERGIA << VACIO
+        << OBJETIVO_ENERGETICO - this -> cantidad_energia << " faltante, el redbull te dio alas? " << endl;
+    }else
+        cout << VACIO << EMOJI_CHECK << endl;
+    cout << endl;
 }

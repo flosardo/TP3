@@ -7,8 +7,8 @@ Andypolis::Andypolis() {
     this -> mapa = new Mapa();
     this -> jugador_1 = new Jugador();
     this -> jugador_2 = new Jugador();
-    this -> objetivos_1 = new Objetivo*[4]; // CANTIDAD_OBJETIVOS_POR_JUGADOR PONER ESTO.
-    this -> objetivos_2 = new Objetivo*[4]; // CANTIDAD_OBJETIVOS_POR_JUGADOR PONER ESTO
+    this -> objetivos_1 = new Objetivo*[CANTIDAD_OBJETIVOS_POR_JUGADOR]; 
+    this -> objetivos_2 = new Objetivo*[CANTIDAD_OBJETIVOS_POR_JUGADOR]; 
     this -> jugador_actual = this -> jugador_1;
 }
 
@@ -120,7 +120,8 @@ void Andypolis::comprar_bombas() {
 
         Inventario* inventario = this -> jugador_actual -> obtener_inventario();
         Material* andycoins = inventario -> obtener_material(ANDYCOINS);
-        if (funciones_auxiliares.es_posible_comprar_bombas(bombas_a_comprar, andycoins -> obtener_cantidad())) {
+        if (funciones_auxiliares.es_posible_comprar_bombas(bombas_a_comprar, andycoins -> obtener_cantidad()) && bombas_a_comprar > 0) {
+            
             inventario -> modificar_cantidad_material(ANDYCOINS, - COSTO_ANDYCOINS_BOMBA);
             inventario -> modificar_cantidad_material(BOMBA, bombas_a_comprar);
             this -> jugador_actual -> modificar_energia(-ENERGIA_COMPRAR_BOMBA);
@@ -166,15 +167,14 @@ void Andypolis::recolectar_recursos() {
     }
 }
 
-//Pendientes por implementar.
-
 void Andypolis::mostrar_objetivos() {
     Objetivo** objetivos = this -> jugador_actual -> obtener_nombre() == JUGADOR_1 ? objetivos_1 : objetivos_2;
-    for (int i = 0; i < 4; i++)
+    cout << "OBJETIVOS" << endl;
+    cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
+    for (int i = 0; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++)
         objetivos[i] -> mostrar_progreso();   
+    cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
 }
-
-void Andypolis::moverse() {}
 
 void Andypolis::atacar_edificio() {
     if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_ATACAR_EDIFICIO_COORDENADA, this -> jugador_actual -> obtener_energia_actual())) {
@@ -193,6 +193,10 @@ void Andypolis::reparar_edificio() {
         coordenadas = nullptr;
     }
 }
+
+
+//PENDIENTES POR IMPLEMENTAR.
+void Andypolis::moverse() {}
 
 Andypolis::~Andypolis() {
     // delete this -> edificios_disponibles;

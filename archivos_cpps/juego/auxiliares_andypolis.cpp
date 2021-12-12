@@ -16,9 +16,9 @@ Jugador* Auxiliares_andypolis::cambiar_turno(Jugador* jugador_actual, Jugador* j
 }
 
 void Auxiliares_andypolis::inicializar_arreglo_objetivos(Objetivo** objetivos) {
-    for (int i = 0; i < CANTIDAD_OBJETIVOS_SECUNDARIOS_JUGADOR; i++) {
+    for (int i = 0; i < CANTIDAD_OBJETIVOS_SECUNDARIOS_JUGADOR; i++)
         objetivos[i] = nullptr;
-    }
+    
 }
 
 void Auxiliares_andypolis::cargar_objetivos(Objetivo** objetivos, int permitidos_escuela) {
@@ -40,7 +40,7 @@ void Auxiliares_andypolis::asignar_objetivos(Objetivo** objetivos, int permitido
     Objetivo* objetivo_asignado = nullptr;
     int numero_objetivo;
     int i = 1;
-    while (i <= 3 /* hacer constante */) {
+    while (i <= CANTIDAD_OBJETIVOS_SECUNDARIOS_JUGADOR) {
         numero_objetivo = 1 + (rand() % (CANTIDAD_OBJETIVOS_SECUNDARIOS));
         if (numero_objetivo == NUMERO_OBJETIVO_EXTREMISTA)
             objetivo_asignado = new Objetivo_extremista();
@@ -71,15 +71,15 @@ void Auxiliares_andypolis::asignar_objetivos(Objetivo** objetivos, int permitido
 }
 
 bool Auxiliares_andypolis::gano_la_partida(Jugador* jugador, Objetivo** objetivos) {
-    bool obelisco_construido = objetivos[NUMERO_OBJETIVO_OBELISCO] -> se_cumplio_el_objetivo(jugador); // HACER CONSTANTE
+    bool obelisco_construido = objetivos[NUMERO_OBJETIVO_OBELISCO] -> obtener_estado_objetivo(jugador);
     int i = 1;
     int cantidad_cumplidos = 0;
     while (!obelisco_construido && i < CANTIDAD_OBJETIVOS_POR_JUGADOR) {
-        if (objetivos[i] -> se_cumplio_el_objetivo(jugador))
+        if (objetivos[i] -> obtener_estado_objetivo(jugador))
             cantidad_cumplidos++;
         i++;
     }
-    return obelisco_construido || cantidad_cumplidos >= MIN_CANTIDAD_OBJETIVOS_GANAR; // HACER CONSTANTE
+    return obelisco_construido || cantidad_cumplidos >= MIN_CANTIDAD_OBJETIVOS_GANAR;
 }
 
 void Auxiliares_andypolis::aumentar_materiales_producidos(Jugador* jugador_actual) {
@@ -101,6 +101,8 @@ int* Auxiliares_andypolis::pedir_coordenadas(Mapa* mapa) {
         cout << "Ingrese la columna" << COLOR_DORADO << " >> " << COLOR_POR_DEFECTO;
         cin >> coordenadas[INDICE_COLUMNA];
         ubicado = !mapa -> coordenadas_fuera_de_rango(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+        sleep(TIEMPO_ERROR);
+        system(CLR_SCREEN);
     }
     return coordenadas;
 }
@@ -292,30 +294,31 @@ void Auxiliares_andypolis::recolectar_recursos_auxiliares(Jugador* jugador_actua
 
 void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador_actual, Jugador* jugador_1, Jugador* jugador_2, int fila, int columna) {
     Jugador* jugador_atacado = jugador_actual == jugador_1 ? jugador_2 : jugador_1;
+    Inventario* inventario = jugador_actual -> obtener_inventario();
+    Edificio* edificio = mapa -> obtener_edificio(fila, columna);
+    int cantidad_bombas = inventario -> obtener_material(BOMBA) -> obtener_cantidad();
+
     if (mapa -> obtener_tipo_casillero(fila, columna) != TERRENO)
         cout << COLOR_ROJO << "En las coordenadas ingresadas no se puede atacar dado que no es un casillero de tipo Terreno" << endl;
-    else if (!mapa -> esta_ocupado(fila, columna) || (mapa -> esta_ocupado(fila, columna) && !mapa -> obtener_edificio(fila, columna)))
+    else if (!edificio)
         cout << COLOR_ROJO << "En las coordenadas ingresadas no hay un edificio por atacar" << endl;
     else if (jugador_actual -> existe_el_edificio(fila, columna))
         cout << COLOR_ROJO << "Sos suicida???, estas atacandote a vos mismo" << endl;
+    else if (!cantidad_bombas)
+        cout << COLOR_ROJO << "No tiene bombas suficientes para atacar" << endl;
     else {
-        Edificio* edificio = mapa -> obtener_edificio(fila, columna);
-        Inventario* inventario = jugador_actual -> obtener_inventario();
-        int cantidad_bombas = inventario -> obtener_material(BOMBA) -> obtener_cantidad();
-        if (!cantidad_bombas)
-            cout << COLOR_ROJO << "No tiene bombas suficientes para atacar" << endl;
-        else if ((edificio -> obtener_nombre() == NOMBRE_MINA || edificio -> obtener_nombre() == NOMBRE_FABRICA) && !edificio -> esta_afectado()) {
+        if ((edificio -> obtener_nombre() == NOMBRE_MINA || edificio -> obtener_nombre() == NOMBRE_FABRICA) && !edificio -> esta_afectado()) {
             edificio -> cambiar_estado_afectado();
-            jugador_actual -> modificar_energia(-ENERGIA_ATACAR_EDIFICIO_COORDENADA);
             cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue dañado" << endl;
         }
         else {
             mapa -> liberar_posicion(fila, columna);
             cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue destruido" << endl;
             jugador_atacado -> eliminar_edificio(fila, columna);
-            inventario -> modificar_cantidad_material(BOMBA, -1);
-            jugador_actual -> modificar_energia(-ENERGIA_ATACAR_EDIFICIO_COORDENADA);
         }
+        jugador_actual -> modificar_energia(-ENERGIA_ATACAR_EDIFICIO_COORDENADA);
+        inventario -> modificar_cantidad_material(BOMBA, -1);
+        jugador_actual -> aumentar_bombas_usadas();
     }
     cout << COLOR_POR_DEFECTO;
 }

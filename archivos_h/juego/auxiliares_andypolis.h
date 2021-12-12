@@ -26,6 +26,7 @@
 #include "../materiales/madera.h"
 #include "../materiales/metal.h"
 #include "../materiales/andycoins.h"
+#include "../system.h"
 #include <unistd.h>
 #include <algorithm>
 

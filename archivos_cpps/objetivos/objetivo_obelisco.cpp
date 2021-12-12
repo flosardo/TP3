@@ -19,5 +19,10 @@ bool Objetivo_obelisco::se_cumplio_el_objetivo(Jugador* jugador) {
 }
 
 void Objetivo_obelisco::mostrar_progreso() {
-    cout << "Falta un " << NOMBRE_OBELISCO << " por construir" << endl;
+    if(!this -> se_cumplio){
+        cout << this -> nombre << endl;
+        cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_OBELISCO << VACIO
+        << "Falta construir un obelisco, para poder ganar y romper el MC Donald's " << endl;
+    }
+    cout << endl;
 }

@@ -13,5 +13,13 @@ bool Objetivo_piedra::se_cumplio_el_objetivo(Jugador* jugador) {
 }
 
 void Objetivo_piedra::mostrar_progreso() {
-    cout << "Faltan: " << OBJETIVO_PIEDRA - this -> cantidad_piedras << " piedras para lograr el objetivo." << endl;
+    cout << this -> nombre;
+    if(!this -> se_cumplio){
+        cout << endl;
+        cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_PIEDRA << VACIO <<
+        OBJETIVO_PIEDRA - this -> cantidad_piedras << " Piedras faltantes por recolectar, para ser Pablo Marmol." << endl;
+    }else
+        cout << VACIO << EMOJI_CHECK << endl;
+    cout << endl;
+    
 }

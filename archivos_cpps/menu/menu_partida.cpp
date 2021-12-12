@@ -19,7 +19,7 @@ void Menu_partida::mostrar_menu() {
     cout << "╔═══════════════════════════════════════════╗" << endl;
     cout << borde << " 1. Construir edificio por nombre "           << EMOJI_CONSTRUIR_EDIFICIO_POR_NOMBRE  << setw(20) << borde << endl;
     cout << borde << setw(55) << borde << endl;
-    cout << borde << " 2. Listar mis edificios construidos "        << EMOJI_LISTAR_CONSTRUIDOS             << setw(16) << borde << endl;
+    cout << borde << " 2. Listar mis edificios construidos "        << EMOJI_CHECK             << setw(16) << borde << endl;
     cout << borde << setw(55) << borde << endl;
     cout << borde << " 3. Demoler un edificio por coordenada "      << EMOJI_DEMOLER_POR_COORDENADA         << setw(14) << borde << endl;
     cout << borde << setw(55) << borde << endl;

@@ -63,7 +63,7 @@ const int OPCION_SALIR_JUEGO = 20;
 
 // TIEMPOS DE ESPERA COMUNES PARA AMBOS MENUS
 const int TIEMPO_GUARDAR_SALIR = 1;
-const int TIEMPO_MOSTRAR_MAPA = 10;
+const int TIEMPO_MOSTRAR_MAPA = 15;
 const int TIEMPO_ERROR = 3;
 
 // TIEMPOS DE ESPERA MENU DE CONFIGURACION
@@ -80,7 +80,7 @@ const int TIEMPO_REPARAR_EDIFICIO_COORDENADA = 4;
 const int TIEMPO_COMPRAR_BOMBAS = 4;
 const int TIEMPO_CONSULTAR_COORDENADAS = 4;
 const int TIEMPO_MOSTRAR_INVENTARIO = 5;
-const int TIEMPO_MOSTRAR_OBJETIVOS = 8;
+const int TIEMPO_MOSTRAR_OBJETIVOS = 15;
 const int TIEMPO_RECOLECTAR_RECURSOS_PRODUCIDOS = 3;
 const int TIEMPO_MOVERSE_UNA_COORDENADA = 3;
 const int TIEMPO_FINALIZAR_TURNO = 2;
@@ -119,7 +119,7 @@ const std::string EMOJI_COMENZAR_PARTIDA = "\u25B6";
 
 // SEGUNDO MENU
 const std::string EMOJI_CONSTRUIR_EDIFICIO_POR_NOMBRE = "\U0001f3d7";
-const std::string EMOJI_LISTAR_CONSTRUIDOS = "\u2705";
+const std::string EMOJI_CHECK = "\u2705";
 const std::string EMOJI_DEMOLER_POR_COORDENADA = "\U0001f6a7";
 const std::string EMOJI_ATACAR_POR_COORDENADA = "\U0001f480";
 const std::string EMOJI_REPARAR_POR_COORDENADA = "\U0001f527";
@@ -198,17 +198,17 @@ const std::string NOMBRE_ORO = "oro";
 const std::string NOMBRE_PLANTA = "planta";
 
 // OBJETIVOS 
-const std::string NOMBRE_OBJETIVO_ANDYCOINS = "andycoins por los cielos";
-const std::string NOMBRE_OBJETIVO_OBELISCO = "mas alto que las nubes";
-const std::string NOMBRE_OBJETIVO_PIEDRA = "edad de piedra";
-const std::string NOMBRE_OBJETIVO_MINERO = "minero";
-const std::string NOMBRE_OBJETIVO_BOMBARDERO = "bombardero";
-const std::string NOMBRE_OBJETIVO_EXTREMISTA = "extremista taliban";
-const std::string NOMBRE_OBJETIVO_ENERGETICO = "energetico";
-const std::string NOMBRE_OBJETIVO_LETRADO = "intelectual";
-const std::string NOMBRE_OBJETIVO_CANSADO = "cansado";
-const std::string NOMBRE_OBJETIVO_CONSTRUCTOR = "many a la obra (bob constructor)";
-const std::string NOMBRE_OBJETIVO_ARMADO = "terrorista (full armado)";
+const std::string NOMBRE_OBJETIVO_ANDYCOINS = "Andycoins por los cielos";
+const std::string NOMBRE_OBJETIVO_OBELISCO = "Mas alto que las nubes";
+const std::string NOMBRE_OBJETIVO_PIEDRA = "Edad de piedra";
+const std::string NOMBRE_OBJETIVO_MINERO = "Minero";
+const std::string NOMBRE_OBJETIVO_BOMBARDERO = "Bombardero";
+const std::string NOMBRE_OBJETIVO_EXTREMISTA = "Extremista taliban";
+const std::string NOMBRE_OBJETIVO_ENERGETICO = "Energetico";
+const std::string NOMBRE_OBJETIVO_LETRADO = "Intelectual";
+const std::string NOMBRE_OBJETIVO_CANSADO = "Cansado";
+const std::string NOMBRE_OBJETIVO_CONSTRUCTOR = "Many a la obra (bob constructor)";
+const std::string NOMBRE_OBJETIVO_ARMADO = "Terrorista (full armado)";
 const int CANTIDAD_OBJETIVOS_SECUNDARIOS = 10;
 const int NUMERO_OBJETIVO_OBELISCO = 0;
 const int NUMERO_OBJETIVO_COMPRAR_ANDYCOINS = 1;

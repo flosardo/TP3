@@ -21,5 +21,12 @@ bool Objetivo_letrado::se_cumplio_el_objetivo(Jugador* jugador) {
 }
 
 void Objetivo_letrado::mostrar_progreso() {
-    cout << "Faltan: " << this -> cantidad_maxima_escuelas - this -> cantidad_escuelas_construidas << " escuelas para lograr el objetivo" << endl;
+    cout << this -> nombre;
+    if(!this -> se_cumplio){
+        cout << endl;
+        cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_ESCUELA << VACIO
+        << this -> cantidad_maxima_escuelas - this -> cantidad_escuelas_construidas << " Escuelas faltantes por construir, mucha FIUBA" << endl;
+    }else
+        cout << VACIO << EMOJI_CHECK << endl;
+    cout << endl;
 }

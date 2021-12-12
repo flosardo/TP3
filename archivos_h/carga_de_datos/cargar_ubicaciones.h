@@ -41,12 +41,21 @@ class Cargar_ubicaciones {
         bool carga_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2);
 
         /*
+        *Pre: Que los parametros no sean null.
         *Post: Guardará las ubicaciones.
         */
         void guardar_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2);
 
+        /*
+        *Pre: Que el archivo exista, y que el parametro jugador no sea null.
+        *Post: Guardará a el jugador en el archivo.
+        */
         void guardar_jugador(std::ofstream & archivo_ubicaciones, Jugador* jugador);
 
+        /*
+        *Pre: Que el archivo exista, y que el parametro mapa no sea null.
+        *Post: Guardará la lluvia de materiales en el archivo.
+        */
         void guardar_materiales_lluvia(std::ofstream & archivo_ubicaciones, Mapa* mapa);
 
         /*
