@@ -23,22 +23,21 @@ void Programa::empezar() {
         menu_configuracion.procesar_opcion(opcion, juego);
     }
 
-    opcion = opcion == OPCION_SALIR_JUEGO ? OPCION_SALIR_JUEGO : OPCION_EMPEZAR;
     juego.inicializar_objetivos();
-    Auxiliares_andypolis funciones = juego.obtener_funciones_auxiliares();
-    while (opcion != OPCION_SALIR_JUEGO) {
-        Objetivo** objetivos = juego.obtener_objetivos();
-        if (funciones.gano_la_partida(juego.obtener_jugador_actual(), objetivos))
-            opcion = OPCION_SALIR_JUEGO;
-        juego.verificar_energia(opcion);
+    Jugador* jugador = 0;
+    while (!juego.gano_la_partida() && opcion != OPCION_SALIR_JUEGO) {
         menu_partida.mostrar_mensaje_bienvenida();
         menu_partida.mostrar_menu();
-        cout << "TURNO DEL JUGADOR: " << this -> juego.obtener_jugador_actual() -> obtener_codigo_emoji() << " ";
-        cout << EMOJI_ENERGIA << this -> juego.obtener_jugador_actual() -> obtener_energia_actual() << endl << endl;
-        if(opcion != OPCION_FINALIZAR_TURNO) {
+
+        jugador = juego.obtener_jugador_actual();
+        juego.verificar_energia(opcion);
+        cout << "TURNO DEL JUGADOR: " << jugador -> obtener_codigo_emoji() << VACIO
+             << EMOJI_ENERGIA << jugador -> obtener_energia_actual() << endl << endl;
+
+        if (opcion != OPCION_FINALIZAR_TURNO && opcion != OPCION_SALIR_JUEGO)
             opcion = menu_partida.pedir_opcion();
-        }
-        menu_partida.procesar_opcion(opcion, juego);
+        if (opcion != OPCION_SALIR_JUEGO)
+            menu_partida.procesar_opcion(opcion, juego);
     }
 }
 

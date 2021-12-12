@@ -38,13 +38,11 @@ bool Auxiliares_andypolis::el_objetivo_fue_asignado(Objetivo** objetivos, Objeti
 
 void Auxiliares_andypolis::asignar_objetivos(Objetivo** objetivos, int permitidos_escuela) {
     Objetivo* objetivo_asignado = nullptr;
-    int numero_objetivo;
+    int numero_objetivo = 0;
     int i = 1;
     while (i <= CANTIDAD_OBJETIVOS_SECUNDARIOS_JUGADOR) {
         numero_objetivo = 1 + (rand() % (CANTIDAD_OBJETIVOS_SECUNDARIOS));
-        if (numero_objetivo == NUMERO_OBJETIVO_EXTREMISTA)
-            objetivo_asignado = new Objetivo_extremista();
-        else if (numero_objetivo == NUMERO_OBJETIVO_COMPRAR_ANDYCOINS)
+        if (numero_objetivo == NUMERO_OBJETIVO_COMPRAR_ANDYCOINS)
             objetivo_asignado = new Objetivo_andycoins();
         else if (numero_objetivo == NUMERO_OBJETIVO_PIEDRA)
             objetivo_asignado = new Objetivo_piedra();
@@ -62,11 +60,16 @@ void Auxiliares_andypolis::asignar_objetivos(Objetivo** objetivos, int permitido
             objetivo_asignado = new Objetivo_constructor();
         else if (numero_objetivo == NUMERO_OBJETIVO_ARMADO)
             objetivo_asignado = new Objetivo_armado();
+        else if (numero_objetivo == NUMERO_OBJETIVO_EXTREMISTA)
+            objetivo_asignado = new Objetivo_extremista();
 
         if(!this -> el_objetivo_fue_asignado(objetivos, objetivo_asignado, i)) {
             objetivos[i] = objetivo_asignado;
             i++;
         }
+        else 
+            delete objetivo_asignado;
+        objetivo_asignado = nullptr;
     }
 }
 
@@ -88,9 +91,10 @@ void Auxiliares_andypolis::aumentar_materiales_producidos(Jugador* jugador_actua
         edificio[i] -> aumentar_material_producido();
 }
 
-Jugador* Auxiliares_andypolis::asignar_turno(Jugador* jugador_1, Jugador* jugador_2) {
-    return (rand() % 2 + 1) == 1 ? jugador_1 : jugador_2;
-}
+// NO SE ESTA USANDO, SE PUEDE SACAR?????
+// Jugador* Auxiliares_andypolis::asignar_turno(Jugador* jugador_1, Jugador* jugador_2) {
+//     return (rand() % 2 + 1) == 1 ? jugador_1 : jugador_2;
+// }
 
 int* Auxiliares_andypolis::pedir_coordenadas(Mapa* mapa) {
     int* coordenadas = new int[MAX_COORDENADAS];
@@ -118,12 +122,13 @@ bool Auxiliares_andypolis::es_casillero_valido(Mapa* mapa, int fila, int columna
     return es_valido;
 }
 
-void Auxiliares_andypolis::verificar_energia(Jugador* jugador_actual, int & opcion_ingresada) {
-    if (!jugador_actual -> obtener_energia_actual()) {
-        opcion_ingresada = OPCION_FINALIZAR_TURNO;
+bool Auxiliares_andypolis::tiene_energia(Jugador* jugador_actual) {
+    bool tiene_energia = jugador_actual -> obtener_energia_actual() > 0;
+    if (!tiene_energia) {
         cout << jugador_actual -> obtener_codigo_emoji() << COLOR_ROJO << "Te quedaste sin energia :( Ahora es turno del siguiente jugador" << COLOR_POR_DEFECTO << endl;
         sleep(3);
     }
+    return tiene_energia;
 }
 
 string Auxiliares_andypolis::pedir_nombre_edificio() {

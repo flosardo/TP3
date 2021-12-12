@@ -19,3 +19,5 @@ string Objetivo::obtener_nombre() {
 }
 
 void Objetivo::cambiar_estado_construido(string nombre) {}
+
+Objetivo::~Objetivo() {}

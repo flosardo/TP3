@@ -1,7 +1,6 @@
 #ifndef _AUXILIARES_ANDYPOLIS_H_
 #define _AUXILIARES_ANDYPOLIS_H_
 
-#include "../objetivos/objetivo.h"
 #include "../objetivos/objetivo_andycoins.h"
 #include "../objetivos/objetivo_armado.h"
 #include "../objetivos/objetivo_bombardero.h"
@@ -49,10 +48,13 @@ class Auxiliares_andypolis {
         */
         Jugador* cambiar_turno(Jugador* jugador_actual, Jugador* jugador_1, Jugador* jugador_2);
 
-        /*
-        *Post: Asignará el turno aleatoriamente, para el jugador que va a empezar.
-        */
-        Jugador* asignar_turno(Jugador* jugador_1, Jugador* jugador_2);
+        
+        
+        // NO SE ESTA USANDO, SE PUEDE SACAR?????
+        // /*
+        // *Post: Asignará el turno aleatoriamente, para el jugador que va a empezar.
+        // */
+        // Jugador* asignar_turno(Jugador* jugador_1, Jugador* jugador_2);
 
         void inicializar_arreglo_objetivos(Objetivo** objetivos);
 
@@ -108,7 +110,7 @@ class Auxiliares_andypolis {
         *Pre: Que la opcion sea >= 0.
         *Post: Verificará la energía.
         */
-        void verificar_energia(Jugador* jugador_actual, int & opcion_ingresada);
+        bool tiene_energia(Jugador* jugador_actual);
 
         /*
         *Pre: Que los parámetros sean >= 0.

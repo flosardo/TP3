@@ -42,10 +42,7 @@ class Andypolis {
 
         void asignar_objetivo(Objetivo** objetivos, Objetivo* objetivo, int indice);
 
-        /*
-        *Post: Obtendra un puntero de tipo Auxiliares_andypolis.
-        */
-        Auxiliares_andypolis obtener_funciones_auxiliares();
+        bool gano_la_partida();
 
         void verificar_energia(int & opcion_ingresada);
 

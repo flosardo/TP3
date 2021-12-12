@@ -27,12 +27,13 @@ Objetivo** Andypolis::obtener_objetivos() {
     return this -> jugador_actual -> obtener_nombre() == JUGADOR_1 ? this -> objetivos_1 : this -> objetivos_2;
 }
 
-Auxiliares_andypolis Andypolis::obtener_funciones_auxiliares() {
-    return this -> funciones_auxiliares;
+bool Andypolis::gano_la_partida() {
+    return this -> funciones_auxiliares.gano_la_partida(this -> jugador_actual, this -> obtener_objetivos());
 }
 
 void Andypolis::verificar_energia(int & opcion_ingresada) {
-    this -> funciones_auxiliares.verificar_energia(this -> jugador_actual, opcion_ingresada);
+    if (!this -> funciones_auxiliares.tiene_energia(this -> jugador_actual))
+        opcion_ingresada = OPCION_FINALIZAR_TURNO;
 }
 
 Mapa* Andypolis::obtener_mapa() {

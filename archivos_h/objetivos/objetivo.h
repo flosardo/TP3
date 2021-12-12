@@ -44,6 +44,8 @@ class Objetivo {
         */
         virtual void cambiar_estado_construido(std::string nombre);
 
+        virtual ~Objetivo();
+
 };
 
 #endif //_OBJETIVO_H_
