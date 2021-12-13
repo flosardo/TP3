@@ -121,7 +121,25 @@ class Mapa {
         */
         ~Mapa();
 
+        /*
+        *Pre:
+        *Post:
+        */
+        void mover_jugador(Jugador* jugador, int fila, int columna, int energia_consumible);
+
     private:
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void realizar_movimiento(Jugador* jugador, int fila, int columna);
+
+        /*
+        *Pre:
+        *Post:
+        */
+        void recolectar_materiales(Jugador* jugador, int fila, int columna);
         
         /*
         *Pre: Que el mapa este creado.

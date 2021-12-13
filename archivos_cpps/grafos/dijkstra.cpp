@@ -1,9 +1,4 @@
 #include "../../archivos_h/grafos/dijkstra.h"
-#include "../../archivos_h/grafos/camino_minimo.h"
-
-using namespace std;
-
-#include <iostream>
 
 Dijkstra::Dijkstra(Lista<Vertice> *vertices, int **matrizAdyacencia) : CaminoMinimo(vertices, matrizAdyacencia) {
     verticesVisitados = new bool[cantidadVertices];
@@ -11,7 +6,7 @@ Dijkstra::Dijkstra(Lista<Vertice> *vertices, int **matrizAdyacencia) : CaminoMin
     recorrido = new int[cantidadVertices];
 }
 
-void Dijkstra::caminoMinimo(int origen, int destino) {
+void Dijkstra::caminoMinimo(int & energia_consumida, int origen, int destino) {
     inicializarVisitados(origen);
     inicializarDistancia(matrizAdyacencia[origen]);
     inicializarRecorrido(origen);
@@ -21,7 +16,6 @@ void Dijkstra::caminoMinimo(int origen, int destino) {
     bool destinoArribado = origen == destino;
     int verticesRecorridos = 1;
     while(!destinoArribado){
-        mostrarIteracion(verticesRecorridos - 1);
         minimoVertice = verticeMinimaDistancia();
         destinoArribado = minimoVertice == destino;
 
@@ -31,8 +25,10 @@ void Dijkstra::caminoMinimo(int origen, int destino) {
         }
         verticesRecorridos++;
     }
-
+    energia_consumida = this -> distancia[destino];
+    cout << "Energia: " << energia_consumida << endl;
     mostrarRecorrido(origen, destino);
+
 }
 
 int Dijkstra::verticeMinimaDistancia() {
@@ -61,9 +57,9 @@ void Dijkstra::inicializarRecorrido(int origen) {
 }
 
 Dijkstra::~Dijkstra() {
-    delete[] verticesVisitados;
-    delete[] distancia;
-    delete[] recorrido;
+    delete [] verticesVisitados;
+    delete [] distancia;
+    delete [] recorrido;
 }
 
 void Dijkstra::inicializarDistancia(const int * distanciaOrigen) {
@@ -93,39 +89,4 @@ void Dijkstra::mostrarRecorrido(int origen, int destino) {
         }while(origen != destino);
     }
     cout << endl;
-}
-
-void Dijkstra::mostrarIteracion(int iteracion) {
-    cout << endl << "Iteración " << iteracion << endl;
-
-    cout << "Visitados: [";
-    for(int i = 0; i < cantidadVertices; i++){
-        cout << verticesVisitados[i];
-        if(i + 1 != cantidadVertices){
-            cout << ", ";
-        }
-    }
-    cout << "]" << endl;
-
-    cout << "Distancia: [";
-    for(int i = 0; i < cantidadVertices; i++){
-        if(distancia[i] != INFINITO) {
-            cout << distancia[i];
-        } else {
-            cout << "∞";
-        }
-        if(i + 1 != cantidadVertices){
-            cout << ", ";
-        }
-    }
-    cout << "]" << endl;
-
-    cout << "Recorrido: [";
-    for(int i = 0; i < cantidadVertices; i++){
-        cout << vertices -> obtenerNombre(recorrido[i] + 1);
-        if(i + 1 != cantidadVertices){
-            cout << ", ";
-        }
-    }
-    cout << "]" << endl << endl;
 }

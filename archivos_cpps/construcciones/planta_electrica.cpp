@@ -15,7 +15,7 @@ Planta_electrica::Planta_electrica(int fila, int columna) : Edificio(fila, colum
 }
 
 void Planta_electrica::inicializar_atributos() {
-    this -> nombre_material = VACIO;
+    this -> nombre_material = ENERGIA;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_PLANTA_ELECTRICA;
     this -> nombre_del_edificio = PLANTA_ELECTRICA;
     this -> codigo_emoji = EMOJI_PLANTA_ELECTRICA;

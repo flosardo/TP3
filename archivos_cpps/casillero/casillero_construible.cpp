@@ -39,6 +39,7 @@ Edificio* Casillero_construible::obtener_puntero_edificio() {
 }
 
 void Casillero_construible::limpiar_casillero() {
+    this -> jugador = nullptr;
     this -> edificio = nullptr;
 }
 

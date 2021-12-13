@@ -1,6 +1,6 @@
-#include "../../archivos_h/grafos/dijkstra.h"
 #include "../../archivos_h/grafos/floyd.h"
 #include "../../archivos_h/grafos/grafo.h"
+#include "../../archivos_h/grafos/dijkstra.h"
 
 #include <iostream>
 
@@ -17,12 +17,7 @@ void Grafo::agregarVertice(string nuevoVertice) {
     vertices -> agregar(nuevoVertice);
 }
 
-void Grafo::mostrarGrafo() {
-    //mostrarVertices();
-    //mostrarMatrizAdyacencia();
-}
-
-void Grafo::agregarCamino(string origen, string destino, int peso) {
+void Grafo::agregarCamino(string origen, string destino, int peso_1, int peso_2) {
     int posicionOrigen = vertices ->obtenerPosicion(origen);
     int posicionDestino = vertices ->obtenerPosicion(destino);
 
@@ -34,12 +29,12 @@ void Grafo::agregarCamino(string origen, string destino, int peso) {
     }
 
     if(!(posicionDestino == POSICION_NO_ENCONTRADA || posicionOrigen == POSICION_NO_ENCONTRADA)) {
-        matrizDeAdyacencia[posicionOrigen][posicionDestino] = peso;
-        matrizDeAdyacencia[posicionDestino][posicionOrigen] = peso;
+        matrizDeAdyacencia[posicionOrigen][posicionDestino] = peso_2;
+        matrizDeAdyacencia[posicionDestino][posicionOrigen] = peso_1;
     }
 }
 
-void Grafo::caminoMinimo(string origen, string destino) {
+void Grafo::caminoMinimo(int & energia_consumida, string origen, string destino) {
     int posicionOrigen = vertices ->obtenerPosicion(origen);
     int posicionDestino = vertices ->obtenerPosicion(destino);
 
@@ -50,7 +45,7 @@ void Grafo::caminoMinimo(string origen, string destino) {
         cout << "El vertice " << destino << " no existe en el grafo" << endl;
     }
 
-    caminoMinimo(posicionOrigen, posicionDestino);
+    caminoMinimo(energia_consumida, posicionOrigen, posicionDestino);
 }
 
 void Grafo::agrandarMatrizDeAdyacencia() {
@@ -129,8 +124,8 @@ void Grafo::mostrarMatrizAdyacencia() {
     cout << endl;
 }
 
-void Grafo::caminoMinimo(int origen, int destino) {
-    algoritmoCaminoMinimo -> caminoMinimo(origen, destino);
+void Grafo::caminoMinimo(int & energia_consumida, int origen, int destino) {
+    return algoritmoCaminoMinimo -> caminoMinimo(energia_consumida, origen, destino);
 }
 
 void Grafo::usarFloyd() {

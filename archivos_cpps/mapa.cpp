@@ -96,11 +96,48 @@ bool Mapa::se_ubico_edificio(Edificio* edificio, int fila, int columna) {
 
 bool Mapa::se_ubico_jugador(Jugador* jugador, int fila, int columna) {
     bool coordenada_valida = !this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) != LAGO;
-    if (coordenada_valida)
+    
+    if (coordenada_valida){
         this -> mapa[fila][columna] -> agregar_jugador(jugador);
-    else
+        jugador -> establecer_coordenadas(fila, columna);
+    }else
         cout << COLOR_ROJO << "No se pudo posicionar al jugador en las coordenadas ingresadas, intente nuevamente" << COLOR_POR_DEFECTO << endl;
     return coordenada_valida;
+}
+
+void Mapa::realizar_movimiento(Jugador* jugador, int fila, int columna){
+    int* coordenadas_viejas = jugador -> obtener_coordenadas();
+    int fila_vieja = coordenadas_viejas[INDICE_FILA];
+    int columna_vieja = coordenadas_viejas[INDICE_COLUMNA];
+    this -> mapa[fila][columna] -> agregar_jugador(jugador);
+    this -> liberar_posicion(fila_vieja, columna_vieja);
+    jugador -> establecer_coordenadas(fila, columna);
+}
+
+void Mapa::recolectar_materiales(Jugador* jugador, int fila, int columna){
+    Material* material = this -> mapa[fila][columna] -> obtener_puntero_material();
+    Inventario* inventario = jugador -> obtener_inventario();
+    inventario -> modificar_cantidad_material(material -> obtener_nombre_material(), material -> obtener_cantidad());
+}
+
+void Mapa::mover_jugador(Jugador* jugador, int fila, int columna, int energia_consumida){
+    if(!this -> esta_ocupado(fila, columna) && this -> obtener_tipo_casillero(fila, columna) != LAGO){
+        realizar_movimiento(jugador, fila, columna);
+        jugador -> modificar_energia(-energia_consumida);
+    }else if(this -> obtener_tipo_casillero(fila, columna) == LAGO){
+        cout << COLOR_ROJO << "No se puede mover el jugador :(, es un lago, te quieres ahogar papu?" << COLOR_POR_DEFECTO << endl;
+    }else{
+        if(this -> mapa[fila][columna] -> obtener_puntero_jugador() != nullptr)
+            cout << COLOR_ROJO << "No se puede mover el jugador :(, porque hay un jugador en esa posición" << COLOR_POR_DEFECTO << endl;
+        else if(this -> obtener_tipo_casillero(fila, columna) == TERRENO)
+            cout << COLOR_ROJO << "No se puede mover el jugador :(, porque hay un edificio en esa posición" << COLOR_POR_DEFECTO << endl;
+        else{
+            cout << COLOR_VERDE << "Se movio el jugador (:, se recolecto el material que estaba en lugar de destino" << COLOR_POR_DEFECTO << endl;
+            recolectar_materiales (jugador, fila, columna);
+            realizar_movimiento(jugador, fila, columna);
+            jugador -> modificar_energia(-energia_consumida);
+        }
+    }
 }
 
 char Mapa::obtener_tipo_casillero(int fila, int columna) {
