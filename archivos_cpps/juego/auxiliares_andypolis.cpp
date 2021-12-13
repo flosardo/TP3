@@ -268,6 +268,8 @@ void Auxiliares_andypolis::construir_edificio_auxiliar(Abb* edificios_disponible
                 jugador_actual -> modificar_energia(-ENERGIA_CONSTRUIR_EDIFICIO);
                 cout << COLOR_VERDE << "El edificio fue construido satisfactoriamente" << COLOR_POR_DEFECTO << endl;
             }
+            else
+                delete nuevo_edificio;
             delete [] coordenadas;
             coordenadas = nullptr;
             nuevo_edificio = nullptr;
@@ -440,10 +442,12 @@ void Auxiliares_andypolis::lluvia_material(string nombre_material, int cantidad_
         int* coordenadas = 0;
         for (int i = 0; i < cantidad_a_generar; i++) {
             coordenadas = mapa -> generar_coordenadas_validas();
-            mapa -> se_ubico_material(material, coordenadas[0], coordenadas[1]);
+            if (!mapa -> se_ubico_material(material, coordenadas[0], coordenadas[1]))
+                delete material;
             delete[] coordenadas;
             coordenadas = nullptr;
         }
+        material = nullptr;
     }
 }
 
