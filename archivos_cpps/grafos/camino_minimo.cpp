@@ -1,7 +1,7 @@
 #include "../../archivos_h/grafos/camino_minimo.h"
 
-Camino_minimo::Camino_minimo(Lista* vertices, int** matriz_adyacencia) {
+CaminoMinimo::CaminoMinimo(Lista<Vertice> *vertices, int** matrizAdyacencia) {
     this -> vertices = vertices;
-    this -> matriz_adyacencia = matriz_adyacencia;
-    this -> cantidad_vertices = vertices -> obtener_cantidad_elementos();
+    this -> matrizAdyacencia = matrizAdyacencia;
+    cantidadVertices = vertices -> obtenerCantidadDeElementos();
 }

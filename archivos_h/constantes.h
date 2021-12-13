@@ -80,9 +80,9 @@ const int TIEMPO_REPARAR_EDIFICIO_COORDENADA = 4;
 const int TIEMPO_COMPRAR_BOMBAS = 4;
 const int TIEMPO_CONSULTAR_COORDENADAS = 4;
 const int TIEMPO_MOSTRAR_INVENTARIO = 5;
-const int TIEMPO_MOSTRAR_OBJETIVOS = 15;
+const int TIEMPO_MOSTRAR_OBJETIVOS = 12;
 const int TIEMPO_RECOLECTAR_RECURSOS_PRODUCIDOS = 3;
-const int TIEMPO_MOVERSE_UNA_COORDENADA = 15;
+const int TIEMPO_MOVERSE_UNA_COORDENADA = 8;
 const int TIEMPO_FINALIZAR_TURNO = 2;
 
 // OPCIONES MENU DE CONFIGURACION
@@ -271,24 +271,5 @@ const int COSTO_TERRENO = 25;
 
 // PRECIOS
 const int COSTO_ANDYCOINS_BOMBA = 100;
-
-// MENSAJES ASCII
-/*const char MENU_CONFIGURACION[559] = R"(
-                                              __ _                            _             
-  /\/\   ___ _ __  _   _      ___ ___  _ __  / _(_) __ _ _   _ _ __ __ _  ___(_) ___  _ __ 
- /    \ / _ \ '_ \| | | |    / __/ _ \| '_ \| |_| |/ _` | | | | '__/ _` |/ __| |/ _ \| '_ \ 
-/ /\/\ \  __/ | | | |_| |   | (_| (_) | | | |  _| | (_| | |_| | | | (_| | (__| | (_) | | | |
-\/    \/\___|_| |_|\__,_|    \___\___/|_| |_|_| |_|\__, |\__,_|_|  \__,_|\___|_|\___/|_| |_|
-                                                   |___/                                    
-)";
-
-const char MENU_PARTIDA[392] = R"(
-                                              _   _     _       
-  /\/\   ___ _ __  _   _     _ __   __ _ _ __| |_(_) __| | __ _ 
- /    \ / _ \ '_ \| | | |   | '_ \ / _` | '__| __| |/ _` |/ _` |
-/ /\/\ \  __/ | | | |_| |   | |_) | (_| | |  | |_| | (_| | (_| |
-\/    \/\___|_| |_|\__,_|   | .__/ \__,_|_|   \__|_|\__,_|\__,_|
-                            |_|                                 
-)";*/
 
 #endif //_CONSTANTES_H_

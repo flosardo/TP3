@@ -52,12 +52,6 @@ class Auxiliares_andypolis {
         void cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jugador_actual);
 
         int obtener_coste_camino(Mapa* mapa, Jugador* jugador, int fila, int columna);
-        
-        // NO SE ESTA USANDO, SE PUEDE SACAR?????
-        // /*
-        // *Post: Asignará el turno aleatoriamente, para el jugador que va a empezar.
-        // */
-        // Jugador* asignar_turno(Jugador* jugador_1, Jugador* jugador_2);
 
         void inicializar_arreglo_objetivos(Objetivo** objetivos);
 

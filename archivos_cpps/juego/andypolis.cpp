@@ -201,6 +201,7 @@ void Andypolis::reparar_edificio() {
 }
 
 void Andypolis::moverse() {
+    int energia_consumida = 0;
     Grafo* grafo = new Grafo();
     this -> cargar_grafo(grafo);
     this -> funciones_auxiliares.cargar_caminos(grafo, this -> mapa, this -> jugador_actual);
@@ -208,10 +209,13 @@ void Andypolis::moverse() {
     int* coordenadas_jugador = this -> jugador_actual -> obtener_coordenadas();
     string coordenadas_origen = to_string(coordenadas_jugador[INDICE_FILA]) + VACIO + to_string(coordenadas_jugador[INDICE_COLUMNA]);
     string coordenadas_destino = to_string(coordenadas[INDICE_FILA]) + VACIO + to_string(coordenadas[INDICE_COLUMNA]);
-    //grafo -> usar_dijkstra();
-    grafo -> usar_floyd();
-    grafo -> camino_minimo(coordenadas_origen, coordenadas_destino);
-    //this -> jugador_actual -> establecer_coordenadas(coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+    //grafo -> usarFloyd();
+    grafo -> usarDijkstra();
+    grafo -> caminoMinimo(energia_consumida, coordenadas_origen, coordenadas_destino);
+
+    if(this -> funciones_auxiliares.hay_energia_suficiente(energia_consumida, this -> jugador_actual -> obtener_energia_actual()))
+        this -> mapa -> mover_jugador(this -> jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA], energia_consumida);
+    
     delete grafo;
     grafo = nullptr;
 }
