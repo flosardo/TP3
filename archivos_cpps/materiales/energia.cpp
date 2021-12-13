@@ -19,8 +19,10 @@ int Energia::obtener_energia_actual() {
 }
 
 void Energia::modificar_cantidad(int cantidad_a_modificar) {
-    this -> cantidad += cantidad_a_modificar;
-    this -> cantidad %= (MAXIMO_ENERGIA + 1);
+    if ((this -> cantidad + cantidad_a_modificar) > MAXIMO_ENERGIA )
+        this -> cantidad = MAXIMO_ENERGIA;
+    else
+        this -> cantidad += cantidad_a_modificar;
 }
 
 void Energia::mostrar_material() {

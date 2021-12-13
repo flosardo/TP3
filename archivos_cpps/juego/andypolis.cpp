@@ -67,6 +67,7 @@ void Andypolis::modificar_edificio_nombre() {
         funciones_auxiliares.modificar_materiales_necesarios(edificio_a_modificar);
         cout << COLOR_VERDE << "Se modificaron los materiales necesarios satisfactoriamente" << COLOR_POR_DEFECTO << endl;
     }
+    edificio_a_modificar = nullptr;
 }
 
 void Andypolis::comenzar_partida() {
@@ -100,6 +101,7 @@ void Andypolis::comenzar_partida() {
         if (jugador_1_ubicado)
             cout << "Siguiente jugador" << endl;
         delete [] coordenadas;
+        coordenadas = nullptr;
     }
 }
 
@@ -133,6 +135,8 @@ void Andypolis::comprar_bombas() {
             this -> jugador_actual -> modificar_energia(-ENERGIA_COMPRAR_BOMBA);
             cout << "Compro " << bombas_a_comprar << " bomba(s) y le quedan " << andycoins -> obtener_cantidad() << " Andyconis" << endl;
         }
+        inventario = nullptr;
+        andycoins = nullptr;
     }
 }
  
@@ -209,7 +213,6 @@ void Andypolis::moverse() {
     int* coordenadas_jugador = this -> jugador_actual -> obtener_coordenadas();
     string coordenadas_origen = to_string(coordenadas_jugador[INDICE_FILA]) + VACIO + to_string(coordenadas_jugador[INDICE_COLUMNA]);
     string coordenadas_destino = to_string(coordenadas[INDICE_FILA]) + VACIO + to_string(coordenadas[INDICE_COLUMNA]);
-    //grafo -> usarFloyd();
     grafo -> usarDijkstra();
     grafo -> caminoMinimo(energia_consumida, coordenadas_origen, coordenadas_destino);
 
@@ -217,17 +220,34 @@ void Andypolis::moverse() {
         this -> mapa -> mover_jugador(this -> jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA], energia_consumida);
     
     delete grafo;
+    delete [] coordenadas;
     grafo = nullptr;
+    coordenadas = nullptr;
+    coordenadas_jugador = nullptr;
 }
 
-//PENDIENTES POR IMPLEMENTAR.
+void Andypolis::liberar_objetivos(){
+    for(int i = 0; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++){
+        delete this -> objetivos_1[i];
+        delete this -> objetivos_2[i];
+    }
+    delete [] this -> objetivos_1;
+    delete [] this -> objetivos_2;
+    this -> objetivos_1 = nullptr;
+    this -> objetivos_2 = nullptr;
+}
 
 Andypolis::~Andypolis() {
-    // delete this -> edificios_disponibles;
-    // delete this -> mapa;
-    // this -> edificios_disponibles = nullptr;
-    // this -> mapa = nullptr;
-    // this -> jugador_1 = nullptr;
-    // this -> jugador_2 = nullptr;
-    // this -> jugador_actual = nullptr;
+    this -> liberar_objetivos();
+    delete this -> edificios_disponibles;
+    delete this -> jugador_1;
+    delete this -> jugador_2;
+    delete this -> mapa;
+    this -> edificios_disponibles = nullptr;
+    this -> mapa = nullptr;
+    this -> jugador_1 = nullptr;
+    this -> jugador_2 = nullptr;
+    this -> jugador_actual = nullptr;
+    this -> objetivos_1 = nullptr;
+    this -> objetivos_2 = nullptr;
 }

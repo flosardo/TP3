@@ -19,7 +19,7 @@ class Programa {
         Cargar_edificios edificios;
         Cargar_mapa mapa;
         Cargar_ubicaciones ubicacion;
-        Andypolis juego;
+        Andypolis* juego;
         bool existe_ubicaciones;
     
     public:
@@ -38,6 +38,8 @@ class Programa {
         *Post: Finalizará el programa, dejandolo con todos los cambios realizados actualizados.
         */
         void finalizar();
+
+        ~Programa();
 
 };
 

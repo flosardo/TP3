@@ -118,6 +118,8 @@ void Mapa::recolectar_materiales(Jugador* jugador, int fila, int columna) {
     Material* material = this -> mapa[fila][columna] -> obtener_puntero_material();
     Inventario* inventario = jugador -> obtener_inventario();
     inventario -> modificar_cantidad_material(material -> obtener_nombre_material(), material -> obtener_cantidad());
+    material = nullptr;
+    inventario = nullptr;
 }
 
 void Mapa::mover_jugador(Jugador* jugador, int fila, int columna, int energia_consumida) {
@@ -242,11 +244,11 @@ Mapa::~Mapa() {
     for (int fila = 0; fila < this -> cantidad_filas; fila++) {
         for (int columna = 0; columna < this -> cantidad_columnas; columna++) {
             delete this -> mapa[fila][columna];
-            this -> mapa[fila][columna] = nullptr;
+            //this -> mapa[fila][columna] = nullptr;
         }
 
         delete [] this -> mapa[fila];
-        this -> mapa[fila] = nullptr;
+        //this -> mapa[fila] = nullptr;
     }
     delete [] this -> mapa;
     this -> mapa = nullptr;

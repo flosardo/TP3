@@ -44,16 +44,12 @@ void Cargar_materiales::procesar_archivo(string tipo_material, int cantidad_mate
 
 void Cargar_materiales::guardar_materiales(Jugador* jugador_1, Jugador* jugador_2) {
     ofstream archivo_materiales(this -> archivo_ruta);
-    editar_archivo_materiales(
-                                archivo_materiales,
-                                jugador_1 -> obtener_inventario() -> obtener_inventario(),
-                                jugador_2 -> obtener_inventario() -> obtener_inventario(),
-                                jugador_1 -> obtener_inventario() -> obtener_cantidad_materiales()
-    );
-    // Material** inventario_jugador_1 = jugador_1 -> obtener_inventario() -> obtener_inventario();
-    // Material** inventario_jugador_2 = jugador_2 -> obtener_inventario() -> obtener_inventario();
-    // int cantidad_materiales = jugador_1 -> obtener_inventario() -> obtener_cantidad_materiales();
-    // editar_archivo_materiales(archivo_materiales, inventario_jugador_1, inventario_jugador_2, cantidad_materiales);
+    Material** inventario_jugador_1 = jugador_1 -> obtener_inventario() -> obtener_inventario();
+    Material** inventario_jugador_2 = jugador_2 -> obtener_inventario() -> obtener_inventario();
+    int cantidad_materiales = jugador_1 -> obtener_inventario() -> obtener_cantidad_materiales();
+    editar_archivo_materiales(archivo_materiales, inventario_jugador_1, inventario_jugador_2, cantidad_materiales);
+    inventario_jugador_1 = nullptr;
+    inventario_jugador_2 = nullptr;
     archivo_materiales.close();
 }
 

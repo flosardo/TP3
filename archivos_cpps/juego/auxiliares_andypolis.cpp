@@ -22,7 +22,7 @@ void Auxiliares_andypolis::inicializar_arreglo_objetivos(Objetivo** objetivos) {
 }
 
 void Auxiliares_andypolis::cargar_objetivos(Objetivo** objetivos, int permitidos_escuela) {
-    objetivos[0] = new Objetivo_obelisco(); // PONER CONSTANTE.
+    objetivos[NUMERO_OBJETIVO_OBELISCO] = new Objetivo_obelisco(); // PONER CONSTANTE.
     this -> asignar_objetivos(objetivos, permitidos_escuela);
 }
 
@@ -86,9 +86,10 @@ bool Auxiliares_andypolis::gano_la_partida(Jugador* jugador, Objetivo** objetivo
 }
 
 void Auxiliares_andypolis::aumentar_materiales_producidos(Jugador* jugador_actual) {
-    Edificio** edificio = jugador_actual -> obtener_edificios_construidos();
+    Edificio** edificios = jugador_actual -> obtener_edificios_construidos();
     for(int i = 0; i < jugador_actual -> obtener_construidos(); i++)
-        edificio[i] -> aumentar_material_producido();
+        edificios[i] -> aumentar_material_producido();
+    edificios = nullptr;
 }
 
 void Auxiliares_andypolis::cargar_grafo_auxiliar(Grafo* grafo, Mapa* mapa) {
@@ -97,6 +98,8 @@ void Auxiliares_andypolis::cargar_grafo_auxiliar(Grafo* grafo, Mapa* mapa) {
         for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++)
             grafo -> agregarVertice(to_string(fila) + VACIO + to_string(columna));
     }
+    delete [] dimensiones_mapa;
+    dimensiones_mapa = nullptr;
 }
 
 void Auxiliares_andypolis::cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jugador_actual) {
@@ -130,6 +133,8 @@ void Auxiliares_andypolis::cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jug
             }
         }
     }
+    delete [] dimensiones_mapa;
+    dimensiones_mapa = nullptr;
 }
 
 int Auxiliares_andypolis::obtener_coste_camino(Mapa* mapa, Jugador* jugador, int fila, int columna) {
@@ -265,8 +270,11 @@ void Auxiliares_andypolis::construir_edificio_auxiliar(Abb* edificios_disponible
             }
             delete [] coordenadas;
             coordenadas = nullptr;
+            nuevo_edificio = nullptr;
         }
+        inventario = nullptr;
     }
+    edificio = nullptr;
 }
 
 bool Auxiliares_andypolis::se_alcanzo_maximo_permitido(Abb* edificios_disponibles, Edificio* edificio_a_construir, Jugador* jugador_actual) {
@@ -310,6 +318,7 @@ void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles,
         mapa -> liberar_posicion(fila, columna);
         jugador_actual -> modificar_energia(-ENERGIA_DEMOLER_EDIFICIO_COORDENADA);
         cout << COLOR_VERDE << nombre_edificio << " fue demolido statisfactoriamente!" << COLOR_POR_DEFECTO << endl;
+        edificio_a_demoler = nullptr;
     }
 }
 
@@ -340,6 +349,8 @@ void Auxiliares_andypolis::reparar_edificio_auxiliar(Abb* edificios_disponibles,
             jugador -> modificar_energia(-ENERGIA_REPARAR_EDIFICIO);
             cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue reparado satisfactoriamente" << COLOR_POR_DEFECTO << endl;
         } 
+        receta_edificio = nullptr;
+        inventario = nullptr;
     }
 }
 
@@ -355,6 +366,7 @@ void Auxiliares_andypolis::recolectar_recursos_auxiliares(Jugador* jugador_actua
         else
             jugador_actual -> modificar_inventario(material, cantidad_material);
     }
+    edificios_construidos = nullptr;
     cout << COLOR_VERDE_AGUA << " Los recursos producidos por los edificios fueron recolectados satisfactoriamente" << COLOR_POR_DEFECTO << endl;
 }
 
@@ -388,6 +400,9 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
         jugador_actual -> aumentar_bombas_usadas();
     }
     cout << COLOR_POR_DEFECTO;
+    jugador_atacado = nullptr;
+    inventario = nullptr;
+    edificio = nullptr;
 }
 
 
@@ -415,6 +430,7 @@ Material* Auxiliares_andypolis::generar_material(string nombre_material) {
         material = new Andycoins();
     return material;
 }
+
 
 void Auxiliares_andypolis::lluvia_material(string nombre_material, int cantidad_a_generar, Mapa* mapa) {
     if (!mapa -> es_posible_insertar_materiales(cantidad_a_generar)) {

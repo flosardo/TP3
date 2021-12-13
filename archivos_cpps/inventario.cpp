@@ -30,6 +30,7 @@ Material* Inventario::obtener_material(string material_pedido) {
 }
 
 void Inventario::agregar_material(Material* material) {
+    cout << this -> cantidad_materiales << endl;
     this -> inventario[this -> cantidad_materiales] = material;
     this -> cantidad_materiales++;
 }
@@ -49,9 +50,9 @@ void Inventario::mostrar_inventario() {
 
 Inventario::~Inventario() {
     for (int i = 0; i < this -> cantidad_materiales; i++) {
-        this -> inventario[i] = nullptr;
+        delete this -> inventario[i];
     }
 
-    delete[] this -> inventario;
+    delete [] this -> inventario;
     this -> inventario = nullptr;
 }

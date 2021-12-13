@@ -5,7 +5,7 @@ using namespace std;
 Objetivo_constructor::Objetivo_constructor() {
     this -> nombre = NOMBRE_OBJETIVO_CONSTRUCTOR;
     for (int i = 0; i < MAX_EDIFICIOS_DISPONIBLES-1; i++)
-        construidos[i] = false;
+        this -> construidos[i] = false;
 }
 
 bool Objetivo_constructor::se_cumplio_el_objetivo(Jugador* jugador) {
@@ -16,6 +16,7 @@ bool Objetivo_constructor::se_cumplio_el_objetivo(Jugador* jugador) {
         nombre_edificio = edificios_construidos[i] -> obtener_nombre();
         this -> cambiar_estado_construido(nombre_edificio);
     }
+    edificios_construidos = nullptr;
     int i = 0;
     bool cumplido = true;
     while (cumplido && i < MAX_EDIFICIOS_DISPONIBLES) {

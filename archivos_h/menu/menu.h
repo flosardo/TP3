@@ -26,7 +26,7 @@ class Menu {
         /*
         *Post: Procesara las opciones, según el comportamiento de cada hija.
         */
-        virtual void procesar_opcion(int & opcion, Andypolis & juego) = 0;
+        virtual void procesar_opcion(int & opcion, Andypolis* juego) = 0;
         
         /*
         *Post: Pedira una opcion para procesar.

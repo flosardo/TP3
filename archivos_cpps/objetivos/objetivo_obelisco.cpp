@@ -15,6 +15,7 @@ bool Objetivo_obelisco::se_cumplio_el_objetivo(Jugador* jugador) {
         this -> obelisco_construido = edificios_construidos[i] -> obtener_nombre() == NOMBRE_OBELISCO;
         i++;
     }
+    edificios_construidos = nullptr;
     return this -> obelisco_construido;
 }
 

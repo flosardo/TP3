@@ -40,9 +40,11 @@ void Cargar_ubicaciones::procesar_archivo(ifstream & archivo_ubicaciones, Mapa* 
         Edificio* edificio_creado = crear_edificio(nombre, fila, columna);
         mapa -> se_ubico_edificio(edificio_creado, fila, columna);
         this -> cargar_edificio_en_jugador(edificio_creado, jugador_1, jugador_2, convencion_jugador);
+        edificio_creado = nullptr;
     } 
     else
         mapa -> se_ubico_material(crear_material(nombre), fila, columna);
+    jugador = nullptr;
 }
 
 void Cargar_ubicaciones::cargar_edificio_en_jugador(Edificio* edificio, Jugador* jugador_1, Jugador* jugador_2, string convencion) {
@@ -86,6 +88,8 @@ void Cargar_ubicaciones::guardar_jugador(ofstream & archivo_ubicaciones, Jugador
         coordenadas_edificio = edificios[i] -> obtener_coordenadas();
         archivo_ubicaciones << nombre_edificio << VACIO << '(' << coordenadas_edificio[INDICE_FILA] << ", " << coordenadas_edificio[INDICE_COLUMNA] << ')' << endl;
     }
+    coordenadas_jugador = nullptr;
+    edificios = nullptr;
 }
 
 Edificio* Cargar_ubicaciones::crear_edificio(string nombre, int fila, int columna) {
@@ -117,6 +121,6 @@ Material* Cargar_ubicaciones::crear_material(string nombre) {
         material_creado = new Metal();
     else if (nombre == ANDYCOINS) 
         material_creado = new Andycoins();
-    
+
     return material_creado;
 }

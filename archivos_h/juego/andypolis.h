@@ -143,6 +143,8 @@ class Andypolis {
         */
         Jugador* obtener_jugador(std::string numero_jugador);
 
+        void liberar_objetivos();
+
         /*
         *Post: Liberará la memoria utilizada a lo largo del programa.
         */

@@ -19,6 +19,7 @@ bool Objetivo_minero::se_cumplio_el_objetivo(Jugador* jugador) {
             this -> mina_oro_construida = true;
         i++;
     }
+    edificios_construidos = nullptr;
     return this -> mina_oro_construida && this -> mina_construida;
 }
 

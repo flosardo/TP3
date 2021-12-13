@@ -1,8 +1,3 @@
-piedra (0, 5)
-andycoins (0, 6)
-madera (1, 5)
-metal (1, 7)
-piedra (2, 2)
 1 (2, 7)
 escuela (4, 2)
 mina (0, 3)

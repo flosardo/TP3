@@ -17,6 +17,7 @@ bool Objetivo_letrado::se_cumplio_el_objetivo(Jugador* jugador) {
         }
         i++;
     }
+    edificios_construidos = nullptr;
     return this -> cantidad_escuelas_construidas == cantidad_maxima_escuelas;
 }
 

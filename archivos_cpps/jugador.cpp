@@ -21,8 +21,6 @@ void Jugador::establecer_nombre(string nombre) {
     this -> nombre = nombre;
 }
 
-// LOS ULTIMOS METODOS AGREGADOS
-
 int Jugador::obtener_bombas_usadas() {
     return this -> bombas_usadas;
 }
@@ -34,8 +32,6 @@ int Jugador::obtener_cantidad_bombas_compradas() {
 void Jugador::aumentar_bombas_usadas() {
     this -> bombas_usadas++;
 }
-
-// FIN
 
 string Jugador::obtener_nombre() {
     return this -> nombre;
@@ -168,8 +164,10 @@ Inventario* Jugador::obtener_inventario() {
 }
 
 Jugador::~Jugador() {
-    // delete [] this -> edificios_construidos;
-    delete [] this -> inventario;
-    // delete [] this -> coordenadas;
-    // this -> coordenadas = nullptr;
+    delete [] this -> coordenadas;
+    delete [] this -> edificios_construidos;
+    delete this -> inventario;
+    this -> coordenadas = nullptr;
+    this -> inventario = nullptr;
+    this -> edificios_construidos = nullptr;
 }

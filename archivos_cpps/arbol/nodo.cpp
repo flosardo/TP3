@@ -35,4 +35,5 @@ void Nodo::establecer_izquierda(Nodo* nuevo_nodo) {
 
 Nodo::~Nodo() {
     delete this -> edificio;
+    edificio = nullptr;
 }

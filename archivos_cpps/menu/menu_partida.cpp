@@ -47,59 +47,59 @@ void Menu_partida::mostrar_menu() {
     cout << "╚═══════════════════════════════════════════╝" << COLOR_POR_DEFECTO << endl;
 }
 
-void Menu_partida::procesar_opcion(int & opcion_ingresada, Andypolis & juego) {
+void Menu_partida::procesar_opcion(int & opcion_ingresada, Andypolis* juego) {
     switch (opcion_ingresada) {
         case OPCION_CONSTRUIR_EDIFICIO:
-            juego.construir_edificio();
+            juego -> construir_edificio();
             mostrar_mensaje_volver_menu(TIEMPO_CONSTRUIR_EDIFICIO);
             break;
         case OPCION_LISTAR_MIS_EDIFICIOS:
-            juego.listar_mis_edificios();
+            juego -> listar_mis_edificios();
             mostrar_mensaje_volver_menu(TIEMPO_LISTAR_TOTAL_EDIFICIOS);
             break;
         case OPCION_DEMOLER_EDIFICIO:
-            juego.demoler_edificio();
+            juego -> demoler_edificio();
             mostrar_mensaje_volver_menu(TIEMPO_DEMOLER_EDIFICIO);
             break;
         case OPCION_ATACAR_EDIFICIO_COORDENADA:
-            juego.atacar_edificio();
+            juego -> atacar_edificio();
             mostrar_mensaje_volver_menu(TIEMPO_ATACAR_EDIFICIO_COORDENADA);
             break;
         case OPCION_REPARAR_EDIFICO_COODENADA:
-            juego.reparar_edificio();
+            juego -> reparar_edificio();
             mostrar_mensaje_volver_menu(TIEMPO_REPARAR_EDIFICIO_COORDENADA);
             break;
         case OPCION_COMPRAR_BOMBAS:
-            juego.comprar_bombas();
+            juego -> comprar_bombas();
             mostrar_mensaje_volver_menu(TIEMPO_COMPRAR_BOMBAS);
             break;
         case OPCION_CONSULTAR_COORDENADAS:
-            juego.consultar_coordenada();
+            juego -> consultar_coordenada();
             mostrar_mensaje_volver_menu(TIEMPO_CONSULTAR_COORDENADAS);
             break;
         case OPCION_MOSTRAR_INVENTARIO:
-            juego.mostrar_inventario();
+            juego -> mostrar_inventario();
             mostrar_mensaje_volver_menu(TIEMPO_MOSTRAR_INVENTARIO);
             break;
         case OPCION_MOSTRAR_OBJETIVOS:
-            juego.mostrar_objetivos();
+            juego -> mostrar_objetivos();
             mostrar_mensaje_volver_menu(TIEMPO_MOSTRAR_OBJETIVOS);
             break;
         case OPCION_RECOLECTAR_RECURSOS_PRODUCIOS:
-            juego.recolectar_recursos();
+            juego -> recolectar_recursos();
             mostrar_mensaje_volver_menu(TIEMPO_RECOLECTAR_RECURSOS_PRODUCIDOS);
             break;
         case OPCION_MOVERSE_UNA_COORDENADA:
-            juego.moverse();
+            juego -> moverse();
             mostrar_mensaje_volver_menu(TIEMPO_MOVERSE_UNA_COORDENADA);
             break;
         case OPCION_MOSTRAR_MAPA_JUEGO:
-            juego.mostrar_mapa();
+            juego -> mostrar_mapa();
             mostrar_mensaje_volver_menu(TIEMPO_MOSTRAR_MAPA);
             break;
         case OPCION_FINALIZAR_TURNO:
             opcion_ingresada = OPCION_SALIR;
-            juego.finalizar_turno();
+            juego -> finalizar_turno();
             mostrar_mensaje_volver_menu(TIEMPO_FINALIZAR_TURNO);
             break;
         case OPCION_GUARDAR_SALIR_PARTIDA:
