@@ -16,13 +16,13 @@ Jugador* Auxiliares_andypolis::cambiar_turno(Jugador* jugador_actual, Jugador* j
 }
 
 void Auxiliares_andypolis::inicializar_arreglo_objetivos(Objetivo** objetivos) {
-    for (int i = 0; i < CANTIDAD_OBJETIVOS_SECUNDARIOS_JUGADOR; i++)
+    for (int i = 0; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++)
         objetivos[i] = nullptr;
     
 }
 
 void Auxiliares_andypolis::cargar_objetivos(Objetivo** objetivos, int permitidos_escuela) {
-    objetivos[NUMERO_OBJETIVO_OBELISCO] = new Objetivo_obelisco(); // PONER CONSTANTE.
+    objetivos[NUMERO_OBJETIVO_OBELISCO] = new Objetivo_obelisco();
     this -> asignar_objetivos(objetivos, permitidos_escuela);
 }
 

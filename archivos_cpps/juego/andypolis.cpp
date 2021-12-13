@@ -9,6 +9,7 @@ Andypolis::Andypolis() {
     this -> jugador_2 = new Jugador();
     this -> objetivos_1 = new Objetivo*[CANTIDAD_OBJETIVOS_POR_JUGADOR]; 
     this -> objetivos_2 = new Objetivo*[CANTIDAD_OBJETIVOS_POR_JUGADOR]; 
+    this -> inicializar_objetivos();
     this -> jugador_actual = this -> jugador_1;
     this -> funciones_auxiliares = Auxiliares_andypolis();
 }
@@ -20,6 +21,9 @@ void Andypolis::cargar_grafo(Grafo* grafo) {
 void Andypolis::inicializar_objetivos() {
     this -> funciones_auxiliares.inicializar_arreglo_objetivos(this -> objetivos_1);
     this -> funciones_auxiliares.inicializar_arreglo_objetivos(this -> objetivos_2);
+}
+
+void Andypolis::cargar_objetivos() {
     this -> funciones_auxiliares.cargar_objetivos(this -> objetivos_1, this -> edificios_disponibles -> buscar_edificio(NOMBRE_ESCUELA) -> obtener_permitidos());
     this -> funciones_auxiliares.cargar_objetivos(this -> objetivos_2, this -> edificios_disponibles -> buscar_edificio(NOMBRE_ESCUELA) -> obtener_permitidos());
 }

@@ -12,6 +12,7 @@ Programa::Programa() {
 
 void Programa::empezar() {
     system(CLR_SCREEN);
+    this -> juego -> cargar_objetivos();
     int opcion = OPCION_EMPEZAR;  //Inicializo con un valor por defecto.
 
     if (!this -> existe_ubicaciones)
@@ -23,8 +24,7 @@ void Programa::empezar() {
         menu_configuracion.procesar_opcion(opcion, juego);
     }
 
-    this -> juego -> inicializar_objetivos();
-    Jugador* jugador = 0;
+    Jugador* jugador = nullptr;
     while (!this -> juego -> gano_la_partida() && opcion != OPCION_SALIR_JUEGO) {
         menu_partida.mostrar_mensaje_bienvenida();
         menu_partida.mostrar_menu();

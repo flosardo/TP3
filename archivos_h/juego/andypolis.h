@@ -27,6 +27,8 @@ class Andypolis {
         */
         Andypolis();
 
+        void cargar_objetivos();
+
         void inicializar_objetivos();
 
         void cargar_grafo(Grafo* grafo);

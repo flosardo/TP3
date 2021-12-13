@@ -8,7 +8,7 @@ Edificio::Edificio() {
     this -> permitidos = 0;
     this -> nombre_material = VACIO;
     this -> cantidad_material_producido = 0;
-    this -> coordenadas = 0;
+    this -> coordenadas = nullptr;
     this -> afectado = false;
     this -> codigo_emoji = VACIO;
 }
@@ -22,7 +22,7 @@ Edificio::Edificio(int piedra_necesaria, int madera_necesaria, int metal_necesar
     this -> materiales_necesarios[POS_PIEDRA] = piedra_necesaria;
     this -> materiales_necesarios[POS_MADERA] = madera_necesaria;
     this -> materiales_necesarios[POS_METAL] = metal_necesario;
-    this -> coordenadas = 0;
+    this -> coordenadas = nullptr;
     this -> afectado = false;
     this -> codigo_emoji = VACIO;
 }
