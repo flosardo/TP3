@@ -296,15 +296,17 @@ void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles,
         cout << COLOR_ROJO << "En las coordenadas ingresadas no se puede demoler dado que no es un casillero de tipo Terreno" << COLOR_POR_DEFECTO << endl;
     else if (!mapa -> obtener_edificio(fila, columna))
         cout << COLOR_ROJO << "En las coordenadas ingresadas no hay un edificio por demoler" << COLOR_POR_DEFECTO << endl;
-    else if (!jugador_actual -> eliminar_edificio(fila, columna))
+    else if (!jugador_actual -> existe_el_edificio(fila, columna))
         cout << COLOR_ROJO << "No puede demoler un edificio que no le pertenece" << COLOR_POR_DEFECTO << endl;
     else {
-        string nombre_edificio = mapa -> obtener_edificio(fila, columna) -> obtener_nombre(); 
+        cout << "aca" << endl; 
+        string nombre_edificio = mapa -> obtener_edificio(fila, columna) -> obtener_nombre();
         Edificio* edificio_a_demoler = edificios_disponibles -> buscar_edificio(nombre_edificio);
         int piedra_necesaria = edificio_a_demoler -> obtener_cantidad_necesaria(PIEDRA);
         int madera_necesaria = edificio_a_demoler -> obtener_cantidad_necesaria(MADERA);
         int metal_necesario = edificio_a_demoler -> obtener_cantidad_necesaria(METAL);
         this -> actualizar_inventario(jugador_actual -> obtener_inventario(), piedra_necesaria / 2, madera_necesaria / 2, metal_necesario / 2);
+        jugador_actual -> eliminar_edificio(fila, columna);
         mapa -> liberar_posicion(fila, columna);
         jugador_actual -> modificar_energia(-ENERGIA_DEMOLER_EDIFICIO_COORDENADA);
         cout << COLOR_VERDE << nombre_edificio << " fue demolido statisfactoriamente!" << COLOR_POR_DEFECTO << endl;
