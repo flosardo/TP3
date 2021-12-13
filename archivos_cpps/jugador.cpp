@@ -81,19 +81,27 @@ bool Jugador::existe_el_edificio(int fila, int columna) {
     return existe;
 }
 
-bool Jugador::eliminar_edificio(int fila, int columna) {
-    bool se_elimino = false;
+int Jugador::obtener_indice_edificio(int fila, int columna) {
     int i = 0;
-    while (i < this -> cantidad_construidos && !se_elimino) {
-        if (this -> existe_el_edificio(fila, columna)) {
-            delete this -> edificios_construidos[i];
-            this -> edificios_construidos[i] = nullptr;
-            se_elimino = true;
-            this -> redimensionar_edificio(this -> cantidad_construidos - 1);
-            this -> cantidad_construidos--;
-        }
+    int indice = 0;
+    bool encontrado = false;
+    int* coordenadas = 0;
+    while (!encontrado && i < this -> cantidad_construidos) {
+        coordenadas = this -> edificios_construidos[i] -> obtener_coordenadas();
+        encontrado = coordenadas[INDICE_FILA] == fila && coordenadas[INDICE_COLUMNA] == columna;
+        indice = i;
         i++;
     }
+   return indice; 
+}
+
+bool Jugador::eliminar_edificio(int fila, int columna, int indice) {
+    bool se_elimino = false;
+    delete this -> edificios_construidos[indice];
+    this -> edificios_construidos[indice] = nullptr;
+    se_elimino = true;
+    this -> redimensionar_edificio(this -> cantidad_construidos - 1);
+    this -> cantidad_construidos--;
     return se_elimino;
 }
 
