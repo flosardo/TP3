@@ -161,7 +161,6 @@ Jugador* Andypolis::obtener_jugador(string numero_jugador) {
 void Andypolis::demoler_edificio() {
     if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_DEMOLER_EDIFICIO_COORDENADA, this -> jugador_actual -> obtener_energia_actual())) {
         int* coordenadas = funciones_auxiliares.pedir_coordenadas(this -> mapa);
-        //cout << this -> mapa -> obtener_edificio(4, 2) -> obtener_nombre() << "lol" << endl;
         funciones_auxiliares.demoler_edificio_auxiliar(this -> edificios_disponibles, this -> mapa, this -> jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
         delete [] coordenadas;
         coordenadas = nullptr;

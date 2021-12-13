@@ -299,7 +299,6 @@ void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles,
     else if (!jugador_actual -> existe_el_edificio(fila, columna))
         cout << COLOR_ROJO << "No puede demoler un edificio que no le pertenece" << COLOR_POR_DEFECTO << endl;
     else {
-        cout << "aca" << endl; 
         string nombre_edificio = mapa -> obtener_edificio(fila, columna) -> obtener_nombre();
         Edificio* edificio_a_demoler = edificios_disponibles -> buscar_edificio(nombre_edificio);
         int piedra_necesaria = edificio_a_demoler -> obtener_cantidad_necesaria(PIEDRA);
