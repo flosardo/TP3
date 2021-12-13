@@ -48,5 +48,7 @@ void Casillero_transitable::mostrar() {
 }
 
 Casillero_transitable::~Casillero_transitable() {
+    if (this -> material)
+        delete this -> material;
     this -> limpiar_casillero();
 }

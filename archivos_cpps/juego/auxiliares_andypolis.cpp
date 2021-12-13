@@ -409,15 +409,14 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
 
 
 void Auxiliares_andypolis::lluvia_materiales(Mapa* mapa) {
-    // PONER CONSTANTES
     int piedra_a_generar = 1 + (rand() % 2);
     int madera_a_generar = (rand() % 4);
     int metal_a_generar = 2 + (rand() % 4);
     int andycoins_a_generar = (rand() % 2);
-    lluvia_material(PIEDRA, piedra_a_generar, mapa);
-    lluvia_material(MADERA, madera_a_generar, mapa);
-    lluvia_material(METAL, metal_a_generar, mapa);
-    lluvia_material(ANDYCOINS, andycoins_a_generar, mapa);
+    this -> lluvia_material(MADERA, madera_a_generar, mapa);
+    this -> lluvia_material(PIEDRA, piedra_a_generar, mapa);
+    this -> lluvia_material(METAL, metal_a_generar, mapa);
+    this -> lluvia_material(ANDYCOINS, andycoins_a_generar, mapa);
 }
 
 Material* Auxiliares_andypolis::generar_material(string nombre_material) {
@@ -433,17 +432,16 @@ Material* Auxiliares_andypolis::generar_material(string nombre_material) {
     return material;
 }
 
-
 void Auxiliares_andypolis::lluvia_material(string nombre_material, int cantidad_a_generar, Mapa* mapa) {
     if (!mapa -> es_posible_insertar_materiales(cantidad_a_generar)) {
         cout << COLOR_ROJO << "No hay suficientes casilleros disponibles para generar " << nombre_material << COLOR_POR_DEFECTO << endl;
-    } else {
-        Material* material = generar_material(nombre_material);
+    } 
+    else {
+        Material* material = this -> generar_material(nombre_material);
         int* coordenadas = 0;
         for (int i = 0; i < cantidad_a_generar; i++) {
             coordenadas = mapa -> generar_coordenadas_validas();
-            if (!mapa -> se_ubico_material(material, coordenadas[0], coordenadas[1]))
-                delete material;
+            mapa -> se_ubico_material(material, coordenadas[0], coordenadas[1]);
             delete[] coordenadas;
             coordenadas = nullptr;
         }
@@ -451,7 +449,7 @@ void Auxiliares_andypolis::lluvia_material(string nombre_material, int cantidad_
     }
 }
 
-Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int columna) { //metodo repetido
+Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int columna) {
     Edificio* edificio_creado = nullptr;
 
     if (nombre == NOMBRE_ASERRADERO)
