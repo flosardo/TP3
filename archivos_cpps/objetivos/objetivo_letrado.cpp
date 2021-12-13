@@ -12,7 +12,7 @@ bool Objetivo_letrado::se_cumplio_el_objetivo(Jugador* jugador) {
     int cantidad_edificios_construidos = jugador -> obtener_construidos();
     int i = 0;
     while(this -> cantidad_escuelas_construidas < this -> cantidad_maxima_escuelas && i < cantidad_edificios_construidos) {
-        if(edificios_construidos[i] -> obtener_nombre() == NOMBRE_ESCUELA){
+        if (edificios_construidos[i] -> obtener_nombre() == NOMBRE_ESCUELA) {
             this -> cantidad_escuelas_construidas++;
         }
         i++;
@@ -22,7 +22,7 @@ bool Objetivo_letrado::se_cumplio_el_objetivo(Jugador* jugador) {
 
 void Objetivo_letrado::mostrar_progreso() {
     cout << this -> nombre;
-    if (!this -> se_cumplio){
+    if (!this -> se_cumplio) {
         cout << endl;
         cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_ESCUELA << VACIO
         << this -> cantidad_maxima_escuelas - this -> cantidad_escuelas_construidas << " Escuelas faltantes por construir, mucha FIUBA" << endl;

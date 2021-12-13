@@ -63,7 +63,7 @@ void Auxiliares_andypolis::asignar_objetivos(Objetivo** objetivos, int permitido
         else if (numero_objetivo == NUMERO_OBJETIVO_EXTREMISTA)
             objetivo_asignado = new Objetivo_extremista();
 
-        if(!this -> el_objetivo_fue_asignado(objetivos, objetivo_asignado, i)) {
+        if (!this -> el_objetivo_fue_asignado(objetivos, objetivo_asignado, i)) {
             objetivos[i] = objetivo_asignado;
             i++;
         }
@@ -109,22 +109,22 @@ void Auxiliares_andypolis::cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jug
         for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++) {
             costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
             columna_adyacente = columna + 1;
-            if(columna_adyacente < dimensiones_mapa[INDICE_COLUMNA]){
+            if (columna_adyacente < dimensiones_mapa[INDICE_COLUMNA]) {
                 costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna_adyacente);
                 grafo -> agregarCamino(to_string(fila) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna_adyacente), costo_1, costo_2);
             }
             columna_adyacente = columna - 1;
-            if(columna_adyacente > 0){
+            if (columna_adyacente > 0) {
                 costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna_adyacente);
                 grafo -> agregarCamino(to_string(fila) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna_adyacente), costo_1, costo_2);
             }
             fila_adyacente = fila + 1;
-            if(fila_adyacente < dimensiones_mapa[INDICE_FILA]){
+            if (fila_adyacente < dimensiones_mapa[INDICE_FILA]) {
                 costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila_adyacente, columna);
                 grafo -> agregarCamino(to_string(fila) + VACIO + to_string(columna), to_string(fila_adyacente) + VACIO + to_string(columna), costo_1, costo_2);
             }
             fila_adyacente = fila - 1;
-            if (fila_adyacente > 0){
+            if (fila_adyacente > 0) {
                 costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila_adyacente, columna);
                 grafo -> agregarCamino(to_string(fila_adyacente) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna), costo_1, costo_2);
             }
@@ -350,7 +350,7 @@ void Auxiliares_andypolis::recolectar_recursos_auxiliares(Jugador* jugador_actua
     for (int i = 0; i < jugador_actual -> obtener_construidos(); i++) {
         material = edificios_construidos[i] -> obtener_tipo_material_producido();
         cantidad_material = edificios_construidos[i] -> obtener_cantidad_de_material_producido();
-        if(material == ENERGIA)
+        if (material == ENERGIA)
             jugador_actual -> modificar_energia(cantidad_material);
         else
             jugador_actual -> modificar_inventario(material, cantidad_material);

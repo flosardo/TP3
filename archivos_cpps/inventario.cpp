@@ -7,11 +7,6 @@ Inventario::Inventario() {
     this -> cantidad_materiales = 0;
 }
 
-void Inventario::agregar_material(Material* material) {
-    this -> inventario[this -> cantidad_materiales] = material;
-    this -> cantidad_materiales++;
-}
-
 Material** Inventario::obtener_inventario() {
     return this -> inventario;
 }
@@ -21,7 +16,7 @@ int Inventario::obtener_cantidad_materiales() {
 }
 
 Material* Inventario::obtener_material(string material_pedido) {
-    Material* material_a_obtener = 0;
+    Material* material_a_obtener = nullptr;
     int indice = 0;
     while (!material_a_obtener && indice < this -> cantidad_materiales) {
         Material* material = this -> inventario[indice];
@@ -32,6 +27,11 @@ Material* Inventario::obtener_material(string material_pedido) {
         indice++;
     }
     return material_a_obtener;
+}
+
+void Inventario::agregar_material(Material* material) {
+    this -> inventario[this -> cantidad_materiales] = material;
+    this -> cantidad_materiales++;
 }
 
 void Inventario::modificar_cantidad_material(string material_a_modificar, int cantidad) {
@@ -49,10 +49,9 @@ void Inventario::mostrar_inventario() {
 
 Inventario::~Inventario() {
     for (int i = 0; i < this -> cantidad_materiales; i++) {
-        delete this -> inventario[i];
         this -> inventario[i] = nullptr;
     }
 
-    delete [] this -> inventario;
+    delete[] this -> inventario;
     this -> inventario = nullptr;
 }

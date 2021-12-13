@@ -24,13 +24,13 @@ bool Objetivo_minero::se_cumplio_el_objetivo(Jugador* jugador) {
 
 void Objetivo_minero::mostrar_progreso() {
     cout << this -> nombre;
-    if(!this -> se_cumplio){
+    if (!this -> se_cumplio) {
         cout << endl;
-        if (!this -> mina_oro_construida){
+        if (!this -> mina_oro_construida) {
             cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_MINA_ORO << VACIO
             << "Falta una mina de oro por construir sr Minecraft. " << endl;
         }
-        if (!this -> mina_construida){
+        if (!this -> mina_construida) {
             cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_MINA << VACIO
             << "Falta una mina de piedra por construir sr Minecraft. " << endl;
         }

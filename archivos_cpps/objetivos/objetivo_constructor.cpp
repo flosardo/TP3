@@ -27,36 +27,36 @@ bool Objetivo_constructor::se_cumplio_el_objetivo(Jugador* jugador) {
 
 void Objetivo_constructor::mostrar_progreso() {
     cout << this -> nombre;
-    if(this -> se_cumplio)
+    if (this -> se_cumplio)
        cout << VACIO << EMOJI_CHECK << endl;
     else {
         cout << endl;
-        if (!this -> construidos[POS_PLANTA_ELECTRICA]){
+        if (!this -> construidos[POS_PLANTA_ELECTRICA]) {
             cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_PLANTA_ELECTRICA << VACIO
             << "Falta construir una planta electrica, para dañar la capa de ozono" << endl;
         }
             
-        if (!this -> construidos[POS_ASERRADERO]){
+        if (!this -> construidos[POS_ASERRADERO]) {
             cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_ASERRADERO << VACIO
             << "Falta construir un aserradero, para dañar más arboles" << endl;
         }
             
-        if (!this -> construidos[POS_MINA_ORO]){
+        if (!this -> construidos[POS_MINA_ORO]) {
             cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_MINA_ORO << VACIO
             << "Falta construir una mina de oro, para estar full de guita paa " << endl;
         }
         
-        if (!this -> construidos[POS_MINA]){
+        if (!this -> construidos[POS_MINA]) {
             cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_MINA << VACIO
             << "Falta construir una mina de piedra, para ser full niño rata." << endl;
         }
         
-        if (!this -> construidos[POS_ESCUELA]){
+        if (!this -> construidos[POS_ESCUELA]) {
             cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_ESCUELA << VACIO
             << "Falta construir una escuela, para que te puedas educar." << endl;
         }
         
-        if (!this -> construidos[POS_FABRICA]){
+        if (!this -> construidos[POS_FABRICA]) {
             cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_FABRICA << VACIO
             << "Falta construir una fábrica, para esclavizar trabajadores en negro." << endl;
         }

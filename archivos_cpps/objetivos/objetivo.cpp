@@ -8,7 +8,7 @@ Objetivo::Objetivo() {
 }
 
 bool Objetivo::obtener_estado_objetivo(Jugador* jugador) {
-    if(!this -> se_cumplio) 
+    if (!this -> se_cumplio) 
         this -> se_cumplio = this -> se_cumplio_el_objetivo(jugador);
     return this -> se_cumplio;
 }

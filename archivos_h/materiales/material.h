@@ -45,13 +45,7 @@ class Material {
         /*
         *Post: Hace que las clases hijas muestren su saludo, según sea el comportamiento de cada hija.
         */
-        virtual void saludar();
-
-        /*
-        *Post: Liberará la memoria del material.
-        */
-        virtual ~Material();
-        
+        virtual void saludar();        
 };
 
 #endif //_MATERIAL_H_

@@ -17,12 +17,6 @@ class Inventario {
         Inventario();
 
         /*
-        *Pre: Que el puntero material no sea null.
-        *Post: Agregará un material.
-        */
-        void agregar_material(Material* material);
-
-        /*
         *Post: Devuelve un puntero al inventario.
         */
         Material** obtener_inventario();
@@ -36,6 +30,12 @@ class Inventario {
         *Post: obtendra un puntero del material pedido.
         */
         Material* obtener_material(std::string material_pedido);
+
+        /*
+        *Pre: Que el puntero material no sea null.
+        *Post: Agregará un material.
+        */
+        void agregar_material(Material* material);
 
         /*
         *Pre: Que el parámetro cantidad sea >= 0.

@@ -88,7 +88,7 @@ void Andypolis::comenzar_partida() {
             jugador -> establecer_nombre(nombre_jugador_1);
             jugador_1_ubicado = true;
         }
-        else if(!jugador_2_ubicado) {
+        else if (!jugador_2_ubicado) {
             convencion_jugador = convencion_jugador == JUGADOR_1 ? JUGADOR_2 : JUGADOR_1;
             jugador = jugador_2;
             jugador -> establecer_nombre(nombre_jugador_2);
@@ -97,7 +97,7 @@ void Andypolis::comenzar_partida() {
         jugador -> establecer_coordenadas(fila, columna);
         jugador -> establecer_codigo_emoji(convencion_jugador);
         jugador_1_ubicado = this -> mapa -> se_ubico_jugador(jugador, fila, columna);
-        if(jugador_1_ubicado)
+        if (jugador_1_ubicado)
             cout << "Siguiente jugador" << endl;
         delete [] coordenadas;
     }
@@ -213,7 +213,7 @@ void Andypolis::moverse() {
     grafo -> usarDijkstra();
     grafo -> caminoMinimo(energia_consumida, coordenadas_origen, coordenadas_destino);
 
-    if(this -> funciones_auxiliares.hay_energia_suficiente(energia_consumida, this -> jugador_actual -> obtener_energia_actual()))
+    if (this -> funciones_auxiliares.hay_energia_suficiente(energia_consumida, this -> jugador_actual -> obtener_energia_actual()))
         this -> mapa -> mover_jugador(this -> jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA], energia_consumida);
     
     delete grafo;

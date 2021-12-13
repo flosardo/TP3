@@ -4,8 +4,8 @@ using namespace std;
 
 Material::Material() {
     this -> nombre = VACIO;
-    this -> codigo_emoji = VACIO;
     this -> cantidad = 0;
+    this -> codigo_emoji = VACIO;
 }
 
 string Material::obtener_nombre_material() {
@@ -25,5 +25,3 @@ void Material::modificar_cantidad(int cantidad_a_modificar) {
 }
 
 void Material::saludar() {}
-
-Material::~Material() {}

@@ -46,7 +46,7 @@ void Cargar_edificios::guardar_edificios(Abb* arbol) {
     edificios = nullptr;
 }
 
-void Cargar_edificios::editar_archivo_edificios(ofstream & archivo_edificios, Edificio** edificios, int cantidad_edificios){
+void Cargar_edificios::editar_archivo_edificios(ofstream & archivo_edificios, Edificio** edificios, int cantidad_edificios) {
     string nombre_edificio;
     int cantidad_piedra = 0;
     int cantidad_madera = 0;

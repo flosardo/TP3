@@ -15,11 +15,11 @@ void Dijkstra::caminoMinimo(int & energia_consumida, int origen, int destino) {
 
     bool destinoArribado = origen == destino;
     int verticesRecorridos = 1;
-    while(!destinoArribado){
+    while(!destinoArribado) {
         minimoVertice = verticeMinimaDistancia();
         destinoArribado = minimoVertice == destino;
 
-        if(!destinoArribado){
+        if (!destinoArribado) {
             verticesVisitados[minimoVertice] = true;
             actualizarDistancia(minimoVertice);
         }
@@ -35,8 +35,8 @@ int Dijkstra::verticeMinimaDistancia() {
     int minimaDistancia = INFINITO;
     int minimoVertice;
 
-    for(int i = 0; i < cantidadVertices; i++){
-        if(!verticesVisitados[i] && distancia[i] <= minimaDistancia){
+    for(int i = 0; i < cantidadVertices; i++) {
+        if (!verticesVisitados[i] && distancia[i] <= minimaDistancia) {
             minimaDistancia = distancia[i];
             minimoVertice = i;
         }
@@ -68,8 +68,8 @@ void Dijkstra::inicializarDistancia(const int * distanciaOrigen) {
 }
 
 void Dijkstra::actualizarDistancia(int vertice) {
-    for(int i = 0; i < cantidadVertices; i++){
-        if(!verticesVisitados[i] && distancia[vertice] != INFINITO && distancia[i] > matrizAdyacencia[vertice][i] + distancia[vertice]){
+    for(int i = 0; i < cantidadVertices; i++) {
+        if (!verticesVisitados[i] && distancia[vertice] != INFINITO && distancia[i] > matrizAdyacencia[vertice][i] + distancia[vertice]) {
             distancia[i] = matrizAdyacencia[vertice][i] + distancia[vertice];
             recorrido[i] = vertice;
         }
@@ -77,7 +77,7 @@ void Dijkstra::actualizarDistancia(int vertice) {
 }
 
 void Dijkstra::mostrarRecorrido(int origen, int destino) {
-    if(distancia[destino] == INFINITO){
+    if (distancia[destino] == INFINITO) {
         cout << "No hay un camino que conecte " <<  vertices->obtenerNombre(origen + 1) << " con " << vertices->obtenerNombre(destino + 1);
     }else{
         cout << "El camino minimo que une " <<  vertices->obtenerNombre(origen + 1) << " con " << vertices->obtenerNombre(destino + 1);

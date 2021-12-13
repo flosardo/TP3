@@ -34,14 +34,14 @@ public:
 };
 
 template < typename Tipo >
-Lista<Tipo>::Lista(){
+Lista<Tipo>::Lista() {
     cantidadDeElementos = 0;
     ultimo = nullptr;
     primero =  nullptr;
 }
 
 template < typename Tipo >
-int Lista<Tipo>::obtenerCantidadDeElementos(){
+int Lista<Tipo>::obtenerCantidadDeElementos() {
     return cantidadDeElementos;
 }
 
@@ -51,15 +51,15 @@ int Lista<Tipo>::obtenerPosicion(string nombre) {
     int i = 0;
     Nodo_grafo<Tipo>* auxiliar = primero;
 
-    while(!elementoEncontrado && i < cantidadDeElementos){
-        if(auxiliar -> obtenerNombre() == nombre){
+    while(!elementoEncontrado && i < cantidadDeElementos) {
+        if (auxiliar -> obtenerNombre() == nombre) {
             elementoEncontrado = true;
         }
         i++;
         auxiliar = auxiliar -> obtenerSiguiente();
     }
 
-    if(!elementoEncontrado){
+    if (!elementoEncontrado) {
         return POSICION_NO_ENCONTRADA;
     }
     return i - 1;
@@ -68,7 +68,7 @@ int Lista<Tipo>::obtenerPosicion(string nombre) {
 template < typename Tipo >
 void Lista<Tipo>::agregar(string nuevoElemento) {
     Nodo_grafo<Tipo>* nuevoNodo = new Nodo_grafo<Tipo>(nuevoElemento);
-    if(primero == nullptr){
+    if (primero == nullptr) {
         primero = nuevoNodo;
         ultimo = primero;
     } else {
@@ -81,7 +81,7 @@ void Lista<Tipo>::agregar(string nuevoElemento) {
 template<typename Tipo>
 Lista<Tipo>::~Lista() {
     Nodo_grafo<Tipo>* siguiente;
-    while(primero != nullptr){
+    while(primero != nullptr) {
         siguiente = primero -> obtenerSiguiente();
         delete primero;
         primero = siguiente;
@@ -93,11 +93,11 @@ string Lista<Tipo>::obtenerNombre(int posicion) {
     int i = 0;
     Nodo_grafo<Tipo>* auxiliar = primero;
 
-    if(posicion > cantidadDeElementos){
+    if (posicion > cantidadDeElementos) {
         return NOMBRE_NO_ENCONTRADO;
     }
 
-    while(i != posicion - 1){
+    while(i != posicion - 1) {
         auxiliar = auxiliar -> obtenerSiguiente();
         i++;
     }

@@ -14,7 +14,7 @@ bool Objetivo_bombardero::se_cumplio_el_objetivo(Jugador* jugador) {
 
 void Objetivo_bombardero::mostrar_progreso() {
     cout << this -> nombre;
-    if(!this -> se_cumplio){
+    if (!this -> se_cumplio) {
         cout << endl;
         cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_BOMBA << VACIO
         << OBJETIVO_BOMBARDERO - this -> cantidad_bombardero << VACIO << " Bombas faltantes para tener un ADN explosivo" << endl;

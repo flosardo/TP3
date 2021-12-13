@@ -1,13 +1,13 @@
 #include "../../archivos_h/grafos/floyd.h"
 
-int** Floyd::crearMatrizCaminos(){
+int** Floyd::crearMatrizCaminos() {
 
     int ** caminos = new int*[cantidadVertices];
-    for(int i = 0; i < cantidadVertices; i++){
+    for(int i = 0; i < cantidadVertices; i++) {
         caminos[i] = new int[cantidadVertices];
     }
 
-    for(int i = 0; i < cantidadVertices; i++){
+    for(int i = 0; i < cantidadVertices; i++) {
         for(int j = 0; j < cantidadVertices; j++) {
             caminos[i][j] = j;
         }
@@ -16,15 +16,15 @@ int** Floyd::crearMatrizCaminos(){
     return caminos;
 }
 
-int ** Floyd::crearMatrizCostos(int ** matrizAdyacencia){
+int ** Floyd::crearMatrizCostos(int ** matrizAdyacencia) {
 
     int ** costos = new int*[cantidadVertices];
-    for(int i = 0; i < cantidadVertices; i++){
+    for(int i = 0; i < cantidadVertices; i++) {
         costos[i] = new int[cantidadVertices];
     }
 
-    for(int i = 0; i < cantidadVertices; i++){
-        for(int j = 0; j < cantidadVertices; j++){
+    for(int i = 0; i < cantidadVertices; i++) {
+        for(int j = 0; j < cantidadVertices; j++) {
             costos[i][j] = matrizAdyacencia[i][j];
         }
     }
@@ -39,7 +39,7 @@ void Floyd::calcularMatrices() {
 
     for (int verticeIntermedio = 0; verticeIntermedio < cantidadVertices; verticeIntermedio++) {
 
-        for (int origen = 0; origen < cantidadVertices; origen++){
+        for (int origen = 0; origen < cantidadVertices; origen++) {
 
             for (int destino = 0; destino < cantidadVertices; destino++) {
 
@@ -48,7 +48,7 @@ void Floyd::calcularMatrices() {
                 if (matrizCostos[origen][destino] > costo) {
                     matrizCostos[origen][destino] = costo;
                     matrizCaminos[origen][destino] = matrizCaminos[origen][verticeIntermedio];
-                } else if (matrizCostos[origen][destino] == INFINITO){
+                } else if (matrizCostos[origen][destino] == INFINITO) {
                     matrizCaminos[origen][destino] = POSICION_NO_ENCONTRADA;
                 }
 
@@ -61,7 +61,7 @@ void Floyd::calcularMatrices() {
 
 void Floyd::caminoMinimo(int & energia_consumida, int origen, int destino) {
 
-    if(matrizCaminos[origen][destino] == POSICION_NO_ENCONTRADA){
+    if (matrizCaminos[origen][destino] == POSICION_NO_ENCONTRADA) {
         cout << COLOR_ROJO << "No hay un camino que conecte " <<  vertices->obtenerNombre(origen + 1) << " con " << vertices->obtenerNombre(destino + 1);
     }else{
         cout << "El camino minimo que une " <<  vertices->obtenerNombre(origen + 1) << " con " << vertices->obtenerNombre(destino + 1);
@@ -78,8 +78,8 @@ void Floyd::caminoMinimo(int & energia_consumida, int origen, int destino) {
 }
 
 void Floyd::liberarMatrices() {
-    if(matrizCostos != nullptr && matrizCaminos != nullptr){
-        for(int i = 0; i < cantidadVertices; i++){
+    if (matrizCostos != nullptr && matrizCaminos != nullptr) {
+        for(int i = 0; i < cantidadVertices; i++) {
             delete[] matrizCostos[i];
             delete[] matrizCaminos[i];
         }
@@ -91,10 +91,10 @@ void Floyd::liberarMatrices() {
     }
 }
 
-Floyd::~Floyd(){
+Floyd::~Floyd() {
     liberarMatrices();
 }
 
-Floyd::Floyd(Lista<Vertice> *vertices, int ** matrizAdyacencia) : CaminoMinimo(vertices, matrizAdyacencia){
+Floyd::Floyd(Lista<Vertice> *vertices, int ** matrizAdyacencia) : CaminoMinimo(vertices, matrizAdyacencia) {
     calcularMatrices();
 }

@@ -57,7 +57,7 @@ void Cargar_materiales::guardar_materiales(Jugador* jugador_1, Jugador* jugador_
     archivo_materiales.close();
 }
 
-void Cargar_materiales::editar_archivo_materiales(ofstream & archivo_materiales, Material** inventario_jugador_1, Material** inventario_jugador_2, int cantidad_materiales){
+void Cargar_materiales::editar_archivo_materiales(ofstream & archivo_materiales, Material** inventario_jugador_1, Material** inventario_jugador_2, int cantidad_materiales) {
     for (int i = 0; i < cantidad_materiales; i++) {
         archivo_materiales << inventario_jugador_1[i] -> obtener_nombre_material() << VACIO
                            << inventario_jugador_1[i] -> obtener_cantidad() << VACIO
