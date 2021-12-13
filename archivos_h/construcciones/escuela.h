@@ -25,9 +25,9 @@ class Escuela : public Edificio {
         Escuela(int fila, int columna); 
 
         /*
-        *Post: Creará un objeto de tipo Escuela usando los parámetros que recibe.
+        *Post: Aumentará la cantidad de material que produce el edificio.
         */
-        Escuela(char jugador);
+        void aumentar_material_producido();
 
         /*
         *Pre: Que el parametro sea >= 0.
@@ -39,11 +39,6 @@ class Escuela : public Edificio {
         *Post: Mostrará un saludo por consola del edificio de tipo escuela.
         */
         void mostrar_saludo();
-
-        /*
-        *Post: Aumentará la cantidad de material que produce el edificio.
-        */
-        void aumentar_material_producido();
 
     private:
     

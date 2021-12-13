@@ -18,14 +18,14 @@ class Material {
         Material();
 
         /*
-        *Post: obtendra la cantidad de material.
-        */
-        int obtener_cantidad();
-
-        /*
         *Post: obtendra el tipo de material.
         */
         std::string obtener_nombre_material();
+
+        /*
+        *Post: obtendra la cantidad de material.
+        */
+        int obtener_cantidad();
 
         /*
         *Post: obtendra el codigo del emoji.
@@ -33,14 +33,14 @@ class Material {
         std::string obtener_codigo_emoji();
 
         /*
-        *Post: Mostrará el estado en el que se encuentra el material.
-        */
-        virtual void mostrar_material() = 0;
-
-        /*
         *Post: Modificará la cantidad segun corresponda.
         */
         virtual void modificar_cantidad(int cantidad_a_modificar);
+
+        /*
+        *Post: Mostrará el estado en el que se encuentra el material.
+        */
+        virtual void mostrar_material() = 0;
 
         /*
         *Post: Hace que las clases hijas muestren su saludo, según sea el comportamiento de cada hija.

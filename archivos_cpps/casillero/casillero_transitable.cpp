@@ -3,27 +3,14 @@
 using namespace std;
 
 Casillero_transitable::Casillero_transitable(string color, char tipo) {
-    this -> material = nullptr;
-    this -> jugador = nullptr;
     this -> tipo_terreno = tipo;
     this -> codigo_color = color;
+    this -> material = nullptr;
+    this -> jugador = nullptr;
 }
 
 Jugador* Casillero_transitable::obtener_puntero_jugador() {
     return this -> jugador;
-}
-
-void Casillero_transitable::mostrar() {
-    if (!this -> material && !this -> jugador) {
-        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
-        cout << COLOR_VERDE << "Soy un casillero transitable " << EMOJI_CAMINO << " y me encuentro vacío." << COLOR_POR_DEFECTO << endl;
-        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
-    } else if (this -> jugador) {
-        cout << COLOR_VERDE_AGUA << "Soy un casillero transitable y no me encuentro vacio" << COLOR_POR_DEFECTO << endl << endl;
-    } else {
-        cout << COLOR_VERDE_AGUA << "Soy un casillero transitable y no me encuentro vacio" << COLOR_POR_DEFECTO << endl << endl;
-        this -> material -> saludar();
-    }
 }
 
 Material* Casillero_transitable::obtener_puntero_material() {
@@ -47,11 +34,19 @@ void Casillero_transitable::limpiar_casillero() {
     this -> material = nullptr;
 }
 
+void Casillero_transitable::mostrar() {
+    if (!this -> esta_ocupado()) {
+        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
+        cout << COLOR_VERDE << "Soy un casillero transitable " << EMOJI_CAMINO << " y me encuentro vacío." << COLOR_POR_DEFECTO << endl;
+        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO;
+    }
+    else {
+        cout << COLOR_VERDE_AGUA << "Soy un casillero transitable y no me encuentro vacio" << COLOR_POR_DEFECTO << endl << endl;
+        if (this -> material)
+            this -> material -> saludar();
+    }
+}
+
 Casillero_transitable::~Casillero_transitable() {
-    if (this -> material)
-        delete this -> material;
-    else if (this -> jugador)
-        delete this -> jugador;
-    this -> material = nullptr;
-    this -> jugador = nullptr;
+    this -> limpiar_casillero();
 }

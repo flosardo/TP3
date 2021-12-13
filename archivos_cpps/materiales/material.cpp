@@ -12,12 +12,12 @@ string Material::obtener_nombre_material() {
     return this -> nombre;
 }
 
-string Material::obtener_codigo_emoji() {
-    return this -> codigo_emoji;
-}
-
 int Material::obtener_cantidad() {
     return this -> cantidad;
+}
+
+string Material::obtener_codigo_emoji() {
+    return this -> codigo_emoji;
 }
 
 void Material::modificar_cantidad(int cantidad_a_modificar) {

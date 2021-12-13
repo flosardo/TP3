@@ -15,9 +15,9 @@ Obelisco::Obelisco(int fila, int columna) : Edificio(fila, columna) {
 }
 
 void Obelisco::inicializar_atributos() {
+    this -> nombre_del_edificio = NOMBRE_OBELISCO;
     this -> nombre_material = VACIO;
     this -> cantidad_material_producido = 0;
-    this -> nombre_del_edificio = NOMBRE_OBELISCO;
     this -> codigo_emoji = EMOJI_OBELISCO;
 }
 

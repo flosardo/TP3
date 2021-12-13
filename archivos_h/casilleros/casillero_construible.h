@@ -7,8 +7,8 @@ class Casillero_construible: public Casillero {
 
     private:
 
-        Edificio* edificio;
         Jugador* jugador;
+        Edificio* edificio;
 
     public: 
 
@@ -18,15 +18,9 @@ class Casillero_construible: public Casillero {
         Casillero_construible();
 
         /*
-        *Post: Mostrará lo que hay en el casillero.
+        *Post: Obtendrá null si no hay puntero jugador, en caso contrario Obtendrá el puntero de tipo Jugador, con el jugador pedido.
         */
-        void mostrar();
-
-        /*
-        *Pre: Que el parámetro edificio_a_agregar no sea null.
-        *Post: Agregará un edificio al casillero.
-        */
-        void agregar_edificio(Edificio* edificio_a_agregar);
+        Jugador* obtener_puntero_jugador();
 
         /*
         *Post: Obtendrá el puntero de tipo edificio que esta en el atributo.
@@ -34,9 +28,16 @@ class Casillero_construible: public Casillero {
         Edificio* obtener_puntero_edificio();
 
         /*
-        *Post: Obtendrá null si no hay puntero jugador, en caso contrario Obtendrá el puntero de tipo Jugador, con el jugador pedido.
+        *Pre: Que el parametro jugador no sea null.
+        *Post: Agregará un jugador al casillero construible.
         */
-        virtual Jugador* obtener_puntero_jugador();
+        void agregar_jugador(Jugador* jugador);
+
+        /*
+        *Pre: Que el parámetro edificio_a_agregar no sea null.
+        *Post: Agregará un edificio al casillero.
+        */
+        void agregar_edificio(Edificio* edificio_a_agregar);
 
         /*
         *Post: Obtendrá true si el casillero se encuentra ocupado con un edificio, o false en caso contrario.
@@ -49,15 +50,9 @@ class Casillero_construible: public Casillero {
         void limpiar_casillero();
 
         /*
-        *Pre: Que el parametro jugador no sea null.
-        *Post: Agregará un jugador al casillero construible.
+        *Post: Mostrará lo que hay en el casillero.
         */
-        void agregar_jugador(Jugador* jugador);
-
-        /*
-        *Post: Obtendrá la cantidad material producido.
-        */
-        int cantidad_material_producido();
+        void mostrar();
 
         /*
         *Post: Liberara la memoria usada por el Casillero_construible.

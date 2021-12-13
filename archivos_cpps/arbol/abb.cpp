@@ -7,11 +7,6 @@ Abb::Abb() {
     this -> cantidad_nodos = 0;
 }
 
-Abb::Abb(Nodo* nodo) {
-    this -> raiz = nodo;
-    this -> cantidad_nodos = 1;
-}
-
 int Abb::obtener_cantidad_nodos() {
     return this -> cantidad_nodos;
 }

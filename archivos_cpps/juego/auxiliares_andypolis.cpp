@@ -348,7 +348,7 @@ void Auxiliares_andypolis::recolectar_recursos_auxiliares(Jugador* jugador_actua
     int cantidad_material = 0;
     Edificio** edificios_construidos = jugador_actual -> obtener_edificios_construidos();
     for (int i = 0; i < jugador_actual -> obtener_construidos(); i++) {
-        material = edificios_construidos[i] -> obtener_nombre_del_material();
+        material = edificios_construidos[i] -> obtener_tipo_material_producido();
         cantidad_material = edificios_construidos[i] -> obtener_cantidad_de_material_producido();
         if(material == ENERGIA)
             jugador_actual -> modificar_energia(cantidad_material);

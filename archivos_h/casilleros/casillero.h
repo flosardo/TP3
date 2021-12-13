@@ -1,8 +1,6 @@
 #ifndef _CASILLERO_H_
 #define _CASILLERO_H_
 
-#include "../construcciones/edificio.h"
-#include "../materiales/material.h"
 #include "../jugador.h"
 
 class Casillero {
@@ -30,16 +28,6 @@ class Casillero {
         std::string obtener_color();
 
         /*
-        *Post: Hace que las clases hijas muestren el casillero, según sea el comportamiento de cada hija.
-        */
-        virtual void mostrar() = 0;
-
-        /*
-        *Post: Hace que las clases hijas devuelvan el puntero a un edificio, según sea el comportamiento de cada hija.
-        */
-        virtual Edificio* obtener_puntero_edificio();
-
-        /*
         *Post:
         */
         virtual Jugador* obtener_puntero_jugador();
@@ -50,9 +38,15 @@ class Casillero {
         virtual Material* obtener_puntero_material();
 
         /*
-        *Post: obtendra true si esta ocupado el casillero, o false en caso contrario.
+        *Post: Hace que las clases hijas devuelvan el puntero a un edificio, según sea el comportamiento de cada hija.
         */
-        virtual bool esta_ocupado();
+        virtual Edificio* obtener_puntero_edificio();
+
+        /*
+        *Pre: Que el parámetro no sea null.
+        *Post: Agregará un jugador a un casillero.
+        */
+        virtual void agregar_jugador(Jugador* jugador);
 
         /*
         *Pre: Que el parámetro material_a_agregar no sea null.
@@ -67,15 +61,19 @@ class Casillero {
         virtual void agregar_edificio(Edificio* edificio_a_agregar);
 
         /*
-        *Pre: Que el parámetro no sea null.
-        *Post: Agregará un jugador a un casillero.
+        *Post: obtendra true si esta ocupado el casillero, o false en caso contrario.
         */
-        virtual void agregar_jugador(Jugador* jugador);
+        virtual bool esta_ocupado();
 
         /*
         *Post: Hace que las clases hijas limpien el casillero, según sea el comportamiento de cada hija.
         */
         virtual void limpiar_casillero();
+
+        /*
+        *Post: Hace que las clases hijas muestren el casillero, según sea el comportamiento de cada hija.
+        */
+        virtual void mostrar() = 0;
 
         /*
         *Post: Destruirá el casillero, liberando la memoria utilizada por el mismo.

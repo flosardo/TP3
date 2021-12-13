@@ -15,10 +15,14 @@ Escuela::Escuela(int fila, int columna) : Edificio(fila, columna) {
 }
 
 void Escuela::inicializar_atributos() {
+    this -> nombre_del_edificio = NOMBRE_ESCUELA;
     this -> nombre_material = ANDYCOINS;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_ESCUELA;
-    this -> nombre_del_edificio = NOMBRE_ESCUELA;
     this -> codigo_emoji = EMOJI_ESCUELA;
+}
+
+void Escuela::aumentar_material_producido() {
+    this -> cantidad_material_producido += BRINDAR_MATERIALES_ESCUELA;
 }
 
 void Escuela::mostrar_caracteristicas(int construidos) {
@@ -35,8 +39,4 @@ void Escuela::mostrar_caracteristicas(int construidos) {
 
 void Escuela::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy una escuela y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
-}
-
-void Escuela::aumentar_material_producido() {
-    this -> cantidad_material_producido += BRINDAR_MATERIALES_ESCUELA;
 }

@@ -15,10 +15,14 @@ Mina_oro::Mina_oro(int fila, int columna) : Edificio(fila, columna) {
 }
 
 void Mina_oro::inicializar_atributos() {
+    this -> nombre_del_edificio = NOMBRE_MINA_ORO;
     this -> nombre_material = ANDYCOINS;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_MINA_ORO;
-    this -> nombre_del_edificio = NOMBRE_MINA_ORO;
     this -> codigo_emoji = EMOJI_MINA_ORO;
+}
+
+void Mina_oro::aumentar_material_producido() {
+    this -> cantidad_material_producido += BRINDAR_MATERIALES_MINA_ORO;
 }
 
 void Mina_oro::mostrar_caracteristicas(int construidos) {
@@ -35,8 +39,4 @@ void Mina_oro::mostrar_caracteristicas(int construidos) {
 
 void Mina_oro::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy una mina de oro y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
-}
-
-void Mina_oro::aumentar_material_producido() {
-    this -> cantidad_material_producido += BRINDAR_MATERIALES_MINA_ORO;
 }

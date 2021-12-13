@@ -18,12 +18,6 @@ class Abb {
         */
         Abb();
 
-        /*
-        *Pre: Que el nodo raiz no sea null.
-        *Post: Construirá un objeto de tipo Abb con los valores de los parametros recibidos.
-        */
-        Abb(Nodo* raiz);
-
         /* 
         *Post: Obtendrá la cantidad de nodos.
         */

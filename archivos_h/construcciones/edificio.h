@@ -10,11 +10,11 @@ class Edificio {
         std::string nombre_del_edificio;
         int* materiales_necesarios;
         int permitidos;
-        int* coordenadas;
-        std::string codigo_emoji;
         std::string nombre_material;
         int cantidad_material_producido;
+        int* coordenadas;
         bool afectado;
+        std::string codigo_emoji;
 
     public:
 
@@ -35,23 +35,25 @@ class Edificio {
         */
         Edificio(int fila, int columna);
 
-        int* obtener_coordenadas();
+        /*
+        Pos: devuelve el nombre del edificio
+        */
+        std::string obtener_nombre();
 
         /*
-        *Pre: Que los parametros sean >= 0.
-        *Post: obtendra la columna del edificio.
+        Post: devuelve un puntero al vector que contiene los materiales necesarios
         */
-        void establecer_nuevos_materiales(int nueva_piedra, int nueva_madera, int nuevo_metal);
+        int obtener_cantidad_necesaria(std::string material);
 
         /*
-        *Post: obtendra la representacion del edificio.
+        *Post: Inicializara los atributos, según el comportamiento de cada hija.
         */
-        std::string obtener_codigo_emoji();
+        int obtener_permitidos();
 
         /*
         *Post: obtendra el nombre del material que produce.
         */
-        std::string obtener_nombre_del_material();
+        std::string obtener_tipo_material_producido();
 
         /*
         *Post: obtendra la cantidad de material producido.
@@ -59,9 +61,20 @@ class Edificio {
         int obtener_cantidad_de_material_producido();
 
         /*
-        Post: devuelve un puntero al vector que contiene los materiales necesarios
+        *Post:
         */
-        int obtener_cantidad_necesaria(std::string material);
+        int* obtener_coordenadas();
+
+        /*
+        *Post: obtendra la representacion del edificio.
+        */
+        std::string obtener_codigo_emoji();
+
+        /*
+        *Pre: Que los parametros sean >= 0.
+        *Post: obtendra la columna del edificio.
+        */
+        void establecer_nuevos_materiales(int nueva_piedra, int nueva_madera, int nuevo_metal);
 
         /*
         *Post: obtendra el estado del edificio.
@@ -72,27 +85,6 @@ class Edificio {
         *Post: Cambiará el estado de afectado del edificio.
         */
         void cambiar_estado_afectado();
-        
-        /*
-        *Post: Muestra por pantalla el saludo del edificio
-        */
-        virtual void mostrar_saludo() = 0;
-
-        /*
-        Pos: devuelve el nombre del edificio
-        */
-        std::string obtener_nombre();
-        
-        /*
-        *Post: Inicializara los atributos, según el comportamiento de cada hija.
-        */
-        int obtener_permitidos();
-
-        /*
-        *Pre: Que el parametro sea >= 0.
-        *Post: Mostrará las caracteristicas.
-        */
-        void virtual mostrar_caracteristicas(int construidos) = 0;
 
         /*
         *Post: Aumentará la cantidad de material que produce el edificio.
@@ -103,6 +95,17 @@ class Edificio {
         *Post: Inicializara los atributos, según el comportamiento de cada hija.
         */
         virtual void inicializar_atributos() = 0;
+
+        /*
+        *Pre: Que el parametro sea >= 0.
+        *Post: Mostrará las caracteristicas.
+        */
+        void virtual mostrar_caracteristicas(int construidos) = 0;
+
+        /*
+        *Post: Muestra por pantalla el saludo del edificio
+        */
+        virtual void mostrar_saludo() = 0;
 
         /*
         *Post: libera la memoria pedida.

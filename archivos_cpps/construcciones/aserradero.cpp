@@ -15,10 +15,14 @@ Aserradero::Aserradero(int fila, int columna) : Edificio(fila, columna) {
 }
 
 void Aserradero::inicializar_atributos() {
+    this -> nombre_del_edificio = NOMBRE_ASERRADERO;
     this -> nombre_material = MADERA;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_ASERRADERO;
-    this -> nombre_del_edificio = NOMBRE_ASERRADERO;
     this -> codigo_emoji = EMOJI_ASERRADERO;
+}
+
+void Aserradero::aumentar_material_producido() {
+    this -> cantidad_material_producido += BRINDAR_MATERIALES_ASERRADERO;
 }
 
 void Aserradero::mostrar_caracteristicas(int construidos) {
@@ -35,8 +39,4 @@ void Aserradero::mostrar_caracteristicas(int construidos) {
 
 void Aserradero::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy un aserradero y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
-}
-
-void Aserradero::aumentar_material_producido() {
-    this -> cantidad_material_producido += BRINDAR_MATERIALES_ASERRADERO;
 }

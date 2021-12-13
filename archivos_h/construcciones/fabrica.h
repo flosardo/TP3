@@ -25,6 +25,11 @@ class Fabrica : public Edificio {
         Fabrica(int fila, int columna);
 
         /*
+        *Post: Aumentará la cantidad de material que produce el edificio.
+        */
+        void aumentar_material_producido();
+
+        /*
         *Pre: Que el parametro sea >= 0.
         *Post: Mostrará las caracteristicas.
         */
@@ -34,11 +39,6 @@ class Fabrica : public Edificio {
         *Post: Mostrará un saludo por consola de un edificio Fabrica.
         */
         void mostrar_saludo();
-
-        /*
-        *Post: Aumentará la cantidad de material que produce el edificio.
-        */
-        void aumentar_material_producido();
 
     private:
 

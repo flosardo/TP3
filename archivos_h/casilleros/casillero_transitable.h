@@ -7,8 +7,8 @@ class Casillero_transitable: public Casillero {
 
     private:
 
-        Material* material;
         Jugador* jugador;
+        Material* material;
 
     public:
 
@@ -18,9 +18,9 @@ class Casillero_transitable: public Casillero {
         Casillero_transitable(std::string color, char tipo);
 
         /*
-        *Post: Mostrará lo que hay en el casillero.
+        *Post: obtendra el puntero de tipo jugador del jugador pedido, en caso contrario obtendra null.
         */
-        void mostrar();
+        Jugador* obtener_puntero_jugador();
 
         /*
         *Post: obtendra el puntero de tipo material que está en el atributo.
@@ -28,14 +28,10 @@ class Casillero_transitable: public Casillero {
         Material* obtener_puntero_material();
 
         /*
-        *Post: obtendra el puntero de tipo jugador del jugador pedido, en caso contrario obtendra null.
+        *Pre: Que el parametro no sea null.
+        *Post: Agregará un jugador al casillero transitable.
         */
-        Jugador* obtener_puntero_jugador();
-
-        /*
-        *Post: obtendra true si el casillero se encuentra ocupado con un material o jugador, o false en caso contrario.
-        */
-        bool esta_ocupado();
+        void agregar_jugador(Jugador* jugador);
 
         /*
         *Pre: Agregará un material al casillero.
@@ -44,15 +40,19 @@ class Casillero_transitable: public Casillero {
         void agregar_material(Material* material_a_agregar);
 
         /*
-        *Pre: Que el parametro no sea null.
-        *Post: Agregará un jugador al casillero transitable.
+        *Post: obtendra true si el casillero se encuentra ocupado con un material o jugador, o false en caso contrario.
         */
-        void agregar_jugador(Jugador* jugador);
+        bool esta_ocupado();
         
         /*
         *Post: Limpiará el contenido que hay en el casillero.
         */
         void limpiar_casillero();
+
+        /*
+        *Post: Mostrará lo que hay en el casillero.
+        */
+        void mostrar();
 
         /*
         *Post: Liberará la memoria utilizada por el Casillero_transitable.

@@ -21,6 +21,10 @@ void Planta_electrica::inicializar_atributos() {
     this -> codigo_emoji = EMOJI_PLANTA_ELECTRICA;
 }
 
+void Planta_electrica::aumentar_material_producido() {
+    this -> cantidad_material_producido += BRINDAR_MATERIALES_PLANTA_ELECTRICA;
+}
+
 void Planta_electrica::mostrar_caracteristicas(int construidos) {
     string brinda_material = this -> nombre_del_edificio != NOMBRE_OBELISCO ? "SI" : "NO";
     cout << "--> " << COLOR_VERDE_AGUA << this -> nombre_del_edificio << COLOR_POR_DEFECTO << endl;
@@ -35,8 +39,4 @@ void Planta_electrica::mostrar_caracteristicas(int construidos) {
 
 void Planta_electrica::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy una planta electrica y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
-}
-
-void Planta_electrica::aumentar_material_producido() {
-    this -> cantidad_material_producido += BRINDAR_MATERIALES_PLANTA_ELECTRICA;
 }

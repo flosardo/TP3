@@ -15,10 +15,14 @@ Fabrica::Fabrica(int fila, int columna) : Edificio(fila, columna) {
 }
 
 void Fabrica::inicializar_atributos() {
+    this -> nombre_del_edificio = NOMBRE_FABRICA;
     this -> nombre_material = METAL;
     this -> cantidad_material_producido = BRINDAR_MATERIALES_FABRICA;
-    this -> nombre_del_edificio = NOMBRE_FABRICA;
     this -> codigo_emoji = EMOJI_FABRICA;
+}
+
+void Fabrica::aumentar_material_producido() {
+    this -> cantidad_material_producido += BRINDAR_MATERIALES_FABRICA;
 }
 
 void Fabrica::mostrar_caracteristicas(int construidos) {
@@ -35,8 +39,4 @@ void Fabrica::mostrar_caracteristicas(int construidos) {
 
 void Fabrica::mostrar_saludo() {
     cout << COLOR_MARRON << "Soy una fabrica y me encuentro en el casillero consultado" << COLOR_POR_DEFECTO << endl;
-}
-
-void Fabrica::aumentar_material_producido() {
-    this -> cantidad_material_producido += BRINDAR_MATERIALES_FABRICA;
 }
