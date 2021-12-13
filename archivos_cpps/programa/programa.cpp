@@ -5,6 +5,7 @@ using namespace std;
 Programa::Programa() {
     this -> juego = new Andypolis();
     edificios.carga_edificios(this -> juego -> obtener_arbol());
+    this -> juego -> cargar_objetivos();
     mapa.carga_mapa(this -> juego -> obtener_mapa());
     materiales.carga_materiales(this -> juego -> obtener_jugador(NUMERO_JUGADOR_1), this -> juego -> obtener_jugador(NUMERO_JUGADOR_2));
     this -> existe_ubicaciones = ubicacion.carga_ubicaciones(this -> juego -> obtener_mapa(), this -> juego -> obtener_jugador(NUMERO_JUGADOR_1), this -> juego -> obtener_jugador(NUMERO_JUGADOR_2));
@@ -12,7 +13,6 @@ Programa::Programa() {
 
 void Programa::empezar() {
     system(CLR_SCREEN);
-    this -> juego -> cargar_objetivos();
     int opcion = OPCION_EMPEZAR;  //Inicializo con un valor por defecto.
 
     if (!this -> existe_ubicaciones)

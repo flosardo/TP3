@@ -1,5 +1,5 @@
-piedra 354 50
-madera 543 275
-metal 222 744
+piedra 350 50
+madera 538 275
+metal 1033673670 744
 andycoins 432 0
 bombas 1 0
