@@ -4,15 +4,6 @@ using namespace std;
 
 Menu_configuracion::Menu_configuracion() {}
 
-void Menu_configuracion::mostrar_mensaje_bienvenida() {
-    string mensaje = COLOR_ROJO + "   No se encontro una partida guardada :(  " + COLOR_DORADO;
-    cout << COLOR_DORADO;
-    cout << "┌───────────────────────────────────────────┐" << endl;
-    cout << "│" <<              mensaje              << "│" << endl;
-    cout << "└───────────────────────────────────────────┘" << COLOR_POR_DEFECTO;
-    cout << endl << endl;
-}
-
 void Menu_configuracion::mostrar_menu() {
     string borde = COLOR_DORADO + "║" + COLOR_POR_DEFECTO;
     cout << COLOR_DORADO;
@@ -33,14 +24,17 @@ void Menu_configuracion::mostrar_menu() {
 void Menu_configuracion::procesar_opcion(int & opcion, Andypolis* juego) {
     switch (opcion_ingresada) {
         case OPCION_MODIFICAR_EDIFICIO_NOMBRE:
+            mostrar_mensaje("OPCION MODIFICAR EDIFICIO POR NOMBRE");
             juego -> modificar_edificio_nombre();
             mostrar_mensaje_volver_menu(TIEMPO_MODIFICAR_EDIFICIO);
             break;
         case OPCION_LISTAR_TOTAL_EDIFICIOS:
+            mostrar_mensaje("OPCION LISTAR TOTAL DE EDIFICIOS");
             juego -> listar_edificios();
             mostrar_mensaje_volver_menu(TIEMPO_LISTAR_TOTAL_EDIFICIOS);
             break;
         case OPCION_MOSTRAR_MAPA:
+            mostrar_mensaje("MAPA");
             juego -> mostrar_mapa();
             mostrar_mensaje_volver_menu(TIEMPO_MOSTRAR_MAPA);
             break;
@@ -50,6 +44,7 @@ void Menu_configuracion::procesar_opcion(int & opcion, Andypolis* juego) {
             mostrar_mensaje_volver_menu(TIEMPO_COMENZAR_PARTIDA);
             break;
         case OPCION_GUARDAR_SALIR_CONFIGURACION:
+            mostrar_mensaje("OPCION MODIFICAR EDIFICIO POR NOMBRE");
             opcion = OPCION_SALIR_JUEGO;
             mostrar_mensaje_volver_menu(TIEMPO_GUARDAR_SALIR);
             break;

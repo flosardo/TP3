@@ -5,9 +5,12 @@ using namespace std;
 Auxiliares_andypolis::Auxiliares_andypolis() {}
 
 void Auxiliares_andypolis::seleccionar_jugador(string & nombre_jugador_1, string & nombre_jugador_2) {
-    cout << "¿Que jugador quiere ser? Ingrese 1 para ser el primer jugador, 2 para el segundo" << endl;
-    cout << COLOR_DORADO << ">> " << COLOR_POR_DEFECTO;
-    cin >> nombre_jugador_1;
+    do {
+        cout << "¿Que jugador quieres ser? Ingrese 1 para ser el primer jugador, 2 para el segundo" << endl;
+        cout << COLOR_DORADO << ">> " << COLOR_POR_DEFECTO;
+        cin >> nombre_jugador_1;
+        system(CLR_SCREEN);
+    } while (stoi(nombre_jugador_1) < 1 || stoi(nombre_jugador_1) > 2);
     nombre_jugador_2 = nombre_jugador_1 != NUMERO_JUGADOR_1 ? NUMERO_JUGADOR_1 : NUMERO_JUGADOR_2;
 }
 
@@ -96,7 +99,7 @@ void Auxiliares_andypolis::cargar_grafo_auxiliar(Grafo* grafo, Mapa* mapa) {
     int* dimensiones_mapa = mapa -> obtener_dimensiones();
     for(int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
         for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++)
-            grafo -> agregarVertice(to_string(fila) + VACIO + to_string(columna));
+            grafo -> agregar_vertice(to_string(fila) + VACIO + to_string(columna));
     }
     delete [] dimensiones_mapa;
     dimensiones_mapa = nullptr;
@@ -106,30 +109,21 @@ void Auxiliares_andypolis::cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jug
     int* dimensiones_mapa = mapa -> obtener_dimensiones();
     int costo_1 = 0;
     int costo_2 = 0;
-    int fila_adyacente = 0;
-    int columna_adyacente = 0;
     for(int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
         for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++) {
-            costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
-            columna_adyacente = columna + 1;
-            if (columna_adyacente < dimensiones_mapa[INDICE_COLUMNA]) {
-                costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna_adyacente);
-                grafo -> agregarCamino(to_string(fila) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna_adyacente), costo_1, costo_2);
+            if(columna + 1 < dimensiones_mapa[INDICE_COLUMNA]){
+                costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
+                costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna + 1);
+                grafo -> agregar_camino(to_string(fila) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna + 1), costo_1, costo_2);
             }
-            columna_adyacente = columna - 1;
-            if (columna_adyacente > 0) {
-                costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna_adyacente);
-                grafo -> agregarCamino(to_string(fila) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna_adyacente), costo_1, costo_2);
-            }
-            fila_adyacente = fila + 1;
-            if (fila_adyacente < dimensiones_mapa[INDICE_FILA]) {
-                costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila_adyacente, columna);
-                grafo -> agregarCamino(to_string(fila) + VACIO + to_string(columna), to_string(fila_adyacente) + VACIO + to_string(columna), costo_1, costo_2);
-            }
-            fila_adyacente = fila - 1;
-            if (fila_adyacente > 0) {
-                costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila_adyacente, columna);
-                grafo -> agregarCamino(to_string(fila_adyacente) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna), costo_1, costo_2);
+        }
+    }
+    for(int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++) {
+        for (int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
+            if(fila + 1 < dimensiones_mapa[INDICE_FILA]){
+                costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
+                costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila + 1, columna);
+                grafo -> agregar_camino(to_string(fila) + VACIO + to_string(columna), to_string(fila + 1) + VACIO + to_string(columna), costo_1, costo_2);
             }
         }
     }
@@ -251,7 +245,7 @@ void Auxiliares_andypolis::construir_edificio_auxiliar(Abb* edificios_disponible
         bool hay_metal_suficiente = this -> hay_material_suficiente(METAL, inventario, edificio -> obtener_cantidad_necesaria(METAL));
         
         if (!hay_piedra_suficiente || !hay_madera_suficiente || !hay_metal_suficiente)
-            cout << COLOR_ROJO << "No hay materiales suficientes para construir" << edificio_a_construir << COLOR_POR_DEFECTO << endl;
+            cout << COLOR_ROJO << "No hay materiales suficientes para construir " << edificio_a_construir << COLOR_POR_DEFECTO << endl;
 
         else if (!this -> confirmar_construccion(edificio_a_construir))
             cout << COLOR_VERDE << "Operacion cancelada" << COLOR_POR_DEFECTO << endl;
@@ -409,18 +403,19 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
 
 
 void Auxiliares_andypolis::lluvia_materiales(Mapa* mapa) {
+
     int piedra_a_generar = 1 + (rand() % 2);
     int madera_a_generar = (rand() % 4);
     int metal_a_generar = 2 + (rand() % 4);
     int andycoins_a_generar = (rand() % 2);
-    this -> lluvia_material(MADERA, madera_a_generar, mapa);
     this -> lluvia_material(PIEDRA, piedra_a_generar, mapa);
+    this -> lluvia_material(MADERA, madera_a_generar, mapa);
     this -> lluvia_material(METAL, metal_a_generar, mapa);
     this -> lluvia_material(ANDYCOINS, andycoins_a_generar, mapa);
 }
 
 Material* Auxiliares_andypolis::generar_material(string nombre_material) {
-    Material* material = 0;
+    Material* material = nullptr;
     if (nombre_material == PIEDRA)
         material = new Piedra();
     else if (nombre_material == MADERA)
@@ -432,17 +427,17 @@ Material* Auxiliares_andypolis::generar_material(string nombre_material) {
     return material;
 }
 
+
 void Auxiliares_andypolis::lluvia_material(string nombre_material, int cantidad_a_generar, Mapa* mapa) {
-    if (!mapa -> es_posible_insertar_materiales(cantidad_a_generar)) {
+    if (!mapa -> es_posible_insertar_materiales(cantidad_a_generar))
         cout << COLOR_ROJO << "No hay suficientes casilleros disponibles para generar " << nombre_material << COLOR_POR_DEFECTO << endl;
-    } 
     else {
-        Material* material = this -> generar_material(nombre_material);
+        Material* material = generar_material(nombre_material);
         int* coordenadas = 0;
         for (int i = 0; i < cantidad_a_generar; i++) {
             coordenadas = mapa -> generar_coordenadas_validas();
-            mapa -> se_ubico_material(material, coordenadas[0], coordenadas[1]);
-            delete[] coordenadas;
+            mapa -> se_ubico_material(material, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+            delete [] coordenadas;
             coordenadas = nullptr;
         }
         material = nullptr;

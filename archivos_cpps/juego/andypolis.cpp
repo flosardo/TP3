@@ -130,10 +130,10 @@ void Andypolis::comprar_bombas() {
         cout << "Ingrese la cantidad de bombas que quiere comprar" << endl;
         cout << COLOR_DORADO << ">> " << COLOR_POR_DEFECTO << endl;
         cin >> bombas_a_comprar;
-
         Inventario* inventario = this -> jugador_actual -> obtener_inventario();
         Material* andycoins = inventario -> obtener_material(ANDYCOINS);
         if (funciones_auxiliares.es_posible_comprar_bombas(bombas_a_comprar, andycoins -> obtener_cantidad()) && bombas_a_comprar > 0) {
+            
             inventario -> modificar_cantidad_material(ANDYCOINS, - COSTO_ANDYCOINS_BOMBA);
             inventario -> modificar_cantidad_material(BOMBA, bombas_a_comprar);
             this -> jugador_actual -> modificar_energia(-ENERGIA_COMPRAR_BOMBA);
@@ -217,8 +217,8 @@ void Andypolis::moverse() {
     int* coordenadas_jugador = this -> jugador_actual -> obtener_coordenadas();
     string coordenadas_origen = to_string(coordenadas_jugador[INDICE_FILA]) + VACIO + to_string(coordenadas_jugador[INDICE_COLUMNA]);
     string coordenadas_destino = to_string(coordenadas[INDICE_FILA]) + VACIO + to_string(coordenadas[INDICE_COLUMNA]);
-    grafo -> usarDijkstra();
-    grafo -> caminoMinimo(energia_consumida, coordenadas_origen, coordenadas_destino);
+    grafo -> usar_dijkstra();
+    grafo -> camino_minimo(energia_consumida, coordenadas_origen, coordenadas_destino);
 
     if (this -> funciones_auxiliares.hay_energia_suficiente(energia_consumida, this -> jugador_actual -> obtener_energia_actual()))
         this -> mapa -> mover_jugador(this -> jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA], energia_consumida);

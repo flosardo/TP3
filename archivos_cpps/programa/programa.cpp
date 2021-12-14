@@ -1,5 +1,4 @@
 #include "../../archivos_h/programa/programa.h"
-
 using namespace std;
 
 Programa::Programa() {
@@ -16,7 +15,7 @@ void Programa::empezar() {
     int opcion = OPCION_EMPEZAR;  //Inicializo con un valor por defecto.
 
     if (!this -> existe_ubicaciones)
-        menu_configuracion.mostrar_mensaje_bienvenida();
+        menu_configuracion.mostrar_mensaje(COLOR_ROJO + "   No se encontro una partida guardada :(  " + COLOR_DORADO);
 
     while (!this -> existe_ubicaciones && (opcion != OPCION_SALIR) && (opcion != OPCION_SALIR_JUEGO)) {
         menu_configuracion.mostrar_menu();
@@ -26,7 +25,7 @@ void Programa::empezar() {
 
     Jugador* jugador = nullptr;
     while (!this -> juego -> gano_la_partida() && opcion != OPCION_SALIR_JUEGO) {
-        menu_partida.mostrar_mensaje_bienvenida();
+        menu_partida.mostrar_mensaje(COLOR_POR_DEFECTO + "      Hola! Bienvenido a Andypolis (:      " + COLOR_DORADO);
         menu_partida.mostrar_menu();
 
         jugador = this -> juego -> obtener_jugador_actual();
@@ -42,11 +41,18 @@ void Programa::empezar() {
 }
 
 void Programa::finalizar() {
+    if(this -> juego -> gano_la_partida()){
+        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << endl;
+        cout << COLOR_POR_DEFECTO << " FELICIDADES JUGADOR " << juego -> obtener_jugador_actual() -> obtener_nombre() << COLOR_POR_DEFECTO << " GANASTE !!! " << endl;
+        cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
+    }
     materiales.guardar_materiales(this -> juego -> obtener_jugador(NUMERO_JUGADOR_1), this -> juego -> obtener_jugador(NUMERO_JUGADOR_2));
     edificios.guardar_edificios(this -> juego -> obtener_arbol());
+    
     ubicacion.guardar_ubicaciones(this -> juego -> obtener_mapa(), this -> juego -> obtener_jugador(NUMERO_JUGADOR_1), this -> juego -> obtener_jugador(NUMERO_JUGADOR_2));
 }
 
 Programa::~Programa(){
     delete this -> juego;
+    juego = nullptr;
 }

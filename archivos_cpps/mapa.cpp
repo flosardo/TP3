@@ -244,9 +244,10 @@ Mapa::~Mapa() {
     for (int fila = 0; fila < this -> cantidad_filas; fila++) {
         for (int columna = 0; columna < this -> cantidad_columnas; columna++) {
             delete this -> mapa[fila][columna];
+            this -> mapa[fila][columna] = nullptr;
         }
-
         delete [] this -> mapa[fila];
+        this -> mapa[fila] = nullptr;
     }
     delete [] this -> mapa;
     this -> mapa = nullptr;
