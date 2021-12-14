@@ -20,11 +20,6 @@ class Menu_configuracion: public Menu {
         *Post: Procesará la opcion.
         */
         void procesar_opcion(int & opcion, Andypolis* juego);
-
-        /*
-        *Post: Mostrará el mensaje de bienvenida del menu de configuración.
-        */
-        void mostrar_mensaje_bienvenida();
         
 };
 

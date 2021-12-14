@@ -26,11 +26,21 @@ class Andypolis {
         *Post: Creará un objeto de tipo Andypolis con sus valores por defecto.
         */
         Andypolis();
-
+        
+        /*
+        *Post: Cargará los objetivos de los 2 jugadores.
+        */
         void cargar_objetivos();
-
+        
+        /*
+        *Post: Inicializará los objetivos de los 2 jugadores.
+        */
         void inicializar_objetivos();
-
+        
+        /*
+        *Pre: Que el parametro no sea null.
+        *Post: Cargará el grafo.
+        */
         void cargar_grafo(Grafo* grafo);
 
         /*
@@ -42,16 +52,27 @@ class Andypolis {
         *Post: Obtendra un puntero de tipo Mapa, con la información del mapa de andypolis.
         */
         Mapa* obtener_mapa();
-
+        
+        /*
+        *Post: Obtendra los objetivos.
+        */
         Objetivo** obtener_objetivos();
-
+        
+        /*
+        *Pre: Que los parametros no sean null.
+        *Post: Asignará un objetivo a los objetivos de un jugador.
+        */
         void asignar_objetivo(Objetivo** objetivos, Objetivo* objetivo, int indice);
-
+        
+        /*
+        *Post: Devolvera true si se gano la partida, false en caso contrario.
+        */
         bool gano_la_partida();
-
+        
+        /*
+        *Post: Verificará la energía del jugador.
+        */
         void verificar_energia(int & opcion_ingresada);
-
-        // MENU 1
 
         /*
         *Post: Comenzará la partida de andypolis.
@@ -67,8 +88,6 @@ class Andypolis {
         *Post: Listará los edificios disponibles del menu de configuración.
         */
         void listar_edificios();
-        
-        // FIN, GURADAR_Y_SALIR COMPARTEN
 
         /*
         *Post: Mostrará el mapa de andypolis.
@@ -144,7 +163,10 @@ class Andypolis {
         *Post: Obtendra el puntero de tipo Jugador, con el jugador pedido.
         */
         Jugador* obtener_jugador(std::string numero_jugador);
-
+        
+        /*
+        *Post: Liberará la memoria utilizada por los atributos objetivos.
+        */
         void liberar_objetivos();
 
         /*

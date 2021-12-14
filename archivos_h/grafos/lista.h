@@ -7,100 +7,117 @@
 using namespace std;
 
 template < typename Tipo >
-class Lista{
-/*ATRIBUTOS*/
-private:
-    int cantidadDeElementos;
-    Nodo_grafo<Tipo>* primero;
-    Nodo_grafo<Tipo>* ultimo;
+class Lista {
 
-/*MÉTODOS*/
-public:
-    Lista();
+    private:
 
-    //post: devuelve la cantidad de elementos que tiene la lista
-    int obtenerCantidadDeElementos();
+        int cantidad_de_elementos;
+        Nodo_grafo <Tipo>* primero;
+        Nodo_grafo <Tipo>* ultimo;
 
-    //post: devuelve la posicion en la que se encuentra el nombre que recibe o -1 si no lo encuentra
-    int obtenerPosicion(string nombre);
 
-    //post: devuelve el  nombre que se encuentra en la posicion recibida o NOMBRE_NO_ENCONTRADO si no lo encuentra
-    string obtenerNombre(int posicion);
+    public:
 
-    //post: agrega un nuevo elemento a la lista
-    void agregar(string nuevoElemento);
+        /*
+        *Post: Creará un objeto de tipo lista con sus valores por defecto.
+        */
+        Lista();
 
-    ~Lista();
+        /*
+        *Post: Devuelve la cantidad de elementos que tiene la lista.
+        */
+        int obtener_cantidad_de_elementos();
+
+        /*
+        *Post: Devuelve la posicion en la que se encuentra el nombre que recibe o -1 si no lo encuentra.
+        */
+        int obtener_posicion(string nombre);
+
+        /*
+        *Post: Devuelve el  nombre que se encuentra en la posicion recibida o NOMBRE_NO_ENCONTRADO si no lo encuentra.
+        */
+        string obtener_nombre(int posicion);
+
+        /*
+        *Post: Agrega un nuevo elemento a la lista.
+        */
+        void agregar(string nuevo_elemento);
+    
+        /*
+        *Post: Liberará la memoria utilizada por el programa.
+        */
+        ~Lista();
+
 };
 
 template < typename Tipo >
-Lista<Tipo>::Lista() {
-    cantidadDeElementos = 0;
-    ultimo = nullptr;
-    primero =  nullptr;
+Lista <Tipo>::Lista() {
+    this -> cantidad_de_elementos = 0;
+    this -> ultimo = nullptr;
+    this -> primero =  nullptr;
 }
 
 template < typename Tipo >
-int Lista<Tipo>::obtenerCantidadDeElementos() {
-    return cantidadDeElementos;
+int Lista <Tipo>::obtener_cantidad_de_elementos() {
+    return this -> cantidad_de_elementos;
 }
 
 template < typename Tipo >
-int Lista<Tipo>::obtenerPosicion(string nombre) {
-    bool elementoEncontrado = false;
+int Lista <Tipo>::obtener_posicion(string nombre) {
+    bool elemento_encontrado = false;
     int i = 0;
-    Nodo_grafo<Tipo>* auxiliar = primero;
+    Nodo_grafo <Tipo>* auxiliar = this -> primero;
 
-    while(!elementoEncontrado && i < cantidadDeElementos) {
-        if (auxiliar -> obtenerNombre() == nombre) {
-            elementoEncontrado = true;
-        }
+    while(!elemento_encontrado && i < cantidad_de_elementos) {
+        if (auxiliar -> obtener_nombre() == nombre)
+            elemento_encontrado = true;
+        
         i++;
-        auxiliar = auxiliar -> obtenerSiguiente();
+        auxiliar = auxiliar -> obtener_siguiente();
     }
 
-    if (!elementoEncontrado) {
+    if (!elemento_encontrado)
         return POSICION_NO_ENCONTRADA;
-    }
+
     return i - 1;
 }
 
 template < typename Tipo >
-void Lista<Tipo>::agregar(string nuevoElemento) {
-    Nodo_grafo<Tipo>* nuevoNodo = new Nodo_grafo<Tipo>(nuevoElemento);
-    if (primero == nullptr) {
-        primero = nuevoNodo;
-        ultimo = primero;
+void Lista <Tipo>::agregar(string nuevo_elemento) {
+    Nodo_grafo <Tipo>* nuevo_nodo = new Nodo_grafo <Tipo>(nuevo_elemento);
+    if (this -> primero == nullptr) {
+        this -> primero = nuevo_nodo;
+        this -> ultimo = this -> primero;
     } else {
-        ultimo -> asignarSiguiente(nuevoNodo);
-        ultimo = nuevoNodo;
+        this -> ultimo -> asignar_siguiente(nuevo_nodo);
+        this -> ultimo = nuevo_nodo;
     }
-    cantidadDeElementos++;
+    cantidad_de_elementos++;
 }
 
-template<typename Tipo>
-Lista<Tipo>::~Lista() {
-    Nodo_grafo<Tipo>* siguiente;
-    while(primero != nullptr) {
-        siguiente = primero -> obtenerSiguiente();
-        delete primero;
-        primero = siguiente;
+template < typename Tipo >
+Lista <Tipo>::~Lista() {
+    Nodo_grafo <Tipo>* siguiente;
+    while(this -> primero != nullptr) {
+        siguiente = this -> primero -> obtener_siguiente();
+        delete this -> primero;
+        this -> primero = siguiente;
     }
 }
 
-template<typename Tipo>
-string Lista<Tipo>::obtenerNombre(int posicion) {
+template < typename Tipo >
+string Lista <Tipo>::obtener_nombre(int posicion) {
     int i = 0;
-    Nodo_grafo<Tipo>* auxiliar = primero;
+    Nodo_grafo <Tipo>* auxiliar = this -> primero;
 
-    if (posicion > cantidadDeElementos) {
+    if (posicion > cantidad_de_elementos)
         return NOMBRE_NO_ENCONTRADO;
-    }
 
     while(i != posicion - 1) {
-        auxiliar = auxiliar -> obtenerSiguiente();
+        auxiliar = auxiliar -> obtener_siguiente();
         i++;
     }
-    return auxiliar -> obtenerNombre();
+    return auxiliar -> obtener_nombre();
 }
+
 #endif //_LISTA_H_

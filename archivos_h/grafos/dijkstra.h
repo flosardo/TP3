@@ -3,44 +3,62 @@
 
 #include "camino_minimo.h"
 
-class Dijkstra : public CaminoMinimo{
-//Atributos
-private:
-    bool * verticesVisitados;
-    int * distancia;
-    int * recorrido;
+class Dijkstra : public Camino_minimo{
 
-//Métodos
-    //post: pone todos los valores del vector de verticesVisitados en "false" menos el origen
-    void inicializarVisitados(int origen);
+    private:
 
-    //post: pone las distancias exactamente igual que la distanciaOrigen
-    void inicializarDistancia(const int * distanciaOrigen);
+        bool* vertices_visitados;
+        int* distancia;
+        int* recorrido;
 
-    //post: llena el vector de recorrido con el origen
-    void inicializarRecorrido(int origen);
+        /*
+        *Post: Pone todos los valores del vector de vertices_visitados en "false" menos el origen.
+        */
+        void inicializar_visitados(int origen);
 
-    //post: devuelve el número de vértice con menor distancia al origen
-    int verticeMinimaDistancia();
+        /*
+        *Post: Pone las distancias exactamente igual que la distancia_origen.
+        */
+        void inicializar_distancia(const int * distancia_origen);
 
-    //post: actualiza el vector de distancias y el de recorrido con los valores que impone vertice.
-    void actualizarDistancia(int vertice);
+        /*
+        *Post: Llena el vector de recorrido con el origen.
+        */
+        void inicializar_recorrido(int origen);
 
-    //pre: para que tenga sentido, debe ejecutarse un recorrido previamente
-    //post: muestra por pantalla el resultado del recorrido.
-    void mostrarRecorrido(int origen, int destino);
+        /*
+        *Post: Devuelve el número de vértice con menor distancia al origen.
+        */
+        int vertice_minima_distancia();
 
-    //post: muestra el estado instantaneo del vector de recorrido, distancia y visitados.
-    void mostrarIteracion(int iteracion);
+        /*
+        *Post: Actualiza el vector de distancias y el de recorrido con los valores que impone vertice.
+        */
+        void actualizar_distancia(int vertice);
 
-public:
+        /*
+        *Pre: Para que tenga sentido, debe ejecutarse un recorrido previamente.
+        *Post: Muestra por pantalla el resultado del recorrido.
+        */
+        void mostrar_recorrido(int origen, int destino);
 
-    Dijkstra(Lista<Vertice> * vertices, int ** matrizAdyacencia);
+    public:
 
-    //post: muestra por pantalla el camino mínimo entre el origen y el destino, detallando su recorrido y peso
-    void caminoMinimo(int & energia_consumida, int origen, int destino) override;
+        /*
+        *Pre: Que los parametros no sean null.
+        *Post: Creará un objeto de tipo Dijkstra con los parametros recibidos.
+        */
+        Dijkstra(Lista<Vertice> * vertices, int ** matriz_adyacencia);
 
-    ~Dijkstra() override;
+        /*
+        *Post: Muestra por pantalla el camino mínimo entre el origen y el destino, detallando su recorrido y peso.
+        */
+        void camino_minimo(int & energia_consumida, int origen, int destino) override;
+        
+        /*
+        *Post: Muestra por pantalla el camino mínimo entre el origen y el destino, detallando su recorrido y peso.
+        */
+        ~Dijkstra() override;
 
 };
 

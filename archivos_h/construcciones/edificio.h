@@ -36,12 +36,12 @@ class Edificio {
         Edificio(int fila, int columna);
 
         /*
-        Pos: devuelve el nombre del edificio
+        Pos: Devuelve el nombre del edificio
         */
         std::string obtener_nombre();
 
         /*
-        Post: devuelve un puntero al vector que contiene los materiales necesarios
+        Post: Devuelve un puntero al vector que contiene los materiales necesarios
         */
         int obtener_cantidad_necesaria(std::string material);
 
@@ -51,33 +51,33 @@ class Edificio {
         int obtener_permitidos();
 
         /*
-        *Post: obtendra el nombre del material que produce.
+        *Post: Obtendra el nombre del material que produce.
         */
         std::string obtener_tipo_material_producido();
 
         /*
-        *Post: obtendra la cantidad de material producido.
+        *Post: Obtendra la cantidad de material producido.
         */
         int obtener_cantidad_de_material_producido();
 
         /*
-        *Post:
+        *Post: Obtendra el vector de coordenadas el edificio.
         */
         int* obtener_coordenadas();
 
         /*
-        *Post: obtendra la representacion del edificio.
+        *Post: Obtendra la representacion del edificio.
         */
         std::string obtener_codigo_emoji();
 
         /*
         *Pre: Que los parametros sean >= 0.
-        *Post: obtendra la columna del edificio.
+        *Post: Obtendra la columna del edificio.
         */
         void establecer_nuevos_materiales(int nueva_piedra, int nueva_madera, int nuevo_metal);
 
         /*
-        *Post: obtendra el estado del edificio.
+        *Post: Obtendra el estado del edificio.
         */
         bool esta_afectado();
 
@@ -108,7 +108,7 @@ class Edificio {
         virtual void mostrar_saludo() = 0;
 
         /*
-        *Post: libera la memoria pedida.
+        *Post: Libera la memoria pedida.
         */
         virtual ~Edificio();
 

@@ -43,7 +43,10 @@ class Objetivo {
         *Post: Cambiará el estado de construido del objetivo.
         */
         virtual void cambiar_estado_construido(std::string nombre);
-
+        
+        /*
+        *Post: Liberara la memoria utilizada a lo largo del programa.
+        */
         virtual ~Objetivo();
 
 };

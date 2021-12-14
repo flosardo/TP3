@@ -27,7 +27,6 @@ class Piedra : public Material {
         */
         void saludar();
 
-        
 };
 
 #endif //_PIEDRA_H_

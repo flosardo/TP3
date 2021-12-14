@@ -28,7 +28,7 @@ class Casillero {
         std::string obtener_color();
 
         /*
-        *Post:
+        *Post: Obtendrá el puntero del jugador.
         */
         virtual Jugador* obtener_puntero_jugador();
 

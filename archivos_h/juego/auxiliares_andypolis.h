@@ -48,24 +48,52 @@ class Auxiliares_andypolis {
         *Post: Cambiara el turno del jugador actual.
         */
         Jugador* cambiar_turno(Jugador* jugador_actual, Jugador* jugador_1, Jugador* jugador_2);
-
-        void cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jugador_actual);
-
-        int obtener_coste_camino(Mapa* mapa, Jugador* jugador, int fila, int columna);
-
-        void inicializar_arreglo_objetivos(Objetivo** objetivos);
-
-        void cargar_objetivos(Objetivo** objetivos, int permitidos_escuela);
-
-        bool el_objetivo_fue_asignado(Objetivo** objetivos, Objetivo* objetivo_a_asignar, int indice);
-
-        bool gano_la_partida(Jugador* jugador, Objetivo** objetivos);
-
-        void asignar_objetivos(Objetivo** objetivos, int permitidos_escuela);
-
+        
         /*
-        *Pre: Que el parametro no sea null
-        *Post: Aumentará los materiales producidos.
+        *Pre: Que los parametros no sean null
+        *Post: Cargará los caminos del grafo.
+        */
+        void cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jugador_actual);
+        
+        /*
+        *Pre: Que los parametros de tipo puntero no sea null, que fila y columna sean >= 0.
+        *Post: Obtendrá el costo del camino.
+        */
+        int obtener_coste_camino(Mapa* mapa, Jugador* jugador, int fila, int columna);
+        
+        /*
+        *Pre: Que el parametro no sea null.
+        *Post: Inicializará el arreglo de objetivos.
+        */
+        void inicializar_arreglo_objetivos(Objetivo** objetivos);
+        
+        /*
+        *Pre: Que el parámetro no sea null, y que permitidos_escuela >= 0.
+        *Post: Inicializará el arreglo de objetivos.
+        */
+        void cargar_objetivos(Objetivo** objetivos, int permitidos_escuela);
+        
+        /*
+        *Pre: Que los parametros punteros no sean null, y que indice sea >= 0.
+        *Post: Devolverá true si el objetivo fue asignado, false en caso contrario.
+        */
+        bool el_objetivo_fue_asignado(Objetivo** objetivos, Objetivo* objetivo_a_asignar, int indice);
+        
+        /*
+        *Pre: Que los parámetros no sean null.
+        *Post: Devolverá true si gano la partida, false en caso contrario.
+        */
+        bool gano_la_partida(Jugador* jugador, Objetivo** objetivos);
+        
+        /*
+        *Pre: Que objetivos no sea null, y permitidos_escuela >= 0.
+        *Post: Asignará los objetivos a los vectores de objetivos de cada jugador.
+        */
+        void asignar_objetivos(Objetivo** objetivos, int permitidos_escuela);
+        
+        /*
+        *Pre: Que el parametro no sea null.
+        *Post: Aumentará la cantidad de materiales producidos.
         */
         void aumentar_materiales_producidos(Jugador* jugador_actual);
 

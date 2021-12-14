@@ -3,22 +3,31 @@
 
 #include "lista.h"
 
-class CaminoMinimo {
-//Atributos
-protected:
-    int ** matrizAdyacencia;
-    Lista<Vertice> * vertices;
-    int cantidadVertices;
+class Camino_minimo {
 
-//Métodos
-public:
-    CaminoMinimo(Lista<Vertice> * vertices, int** matrizAdyacencia);
+    protected:
 
-    //post: muestra por pantalla el camino mínimo entre el origen y el destino, detallando su recorrido y peso
-    virtual void caminoMinimo(int & energia_minima, int origen, int destino) = 0;
+        int** matriz_adyacencia;
+        Lista <Vertice>* vertices;
+        int cantidad_vertices;
 
-    virtual ~CaminoMinimo() = default;
+    public:
+
+        /*
+        *Post: Creará un objeto de tipo Camino_minimo con sus valores pasados por parametro.
+        */
+        Camino_minimo(Lista<Vertice>* vertices, int** matriz_adyacencia);
+
+        /*
+        *Post: Muestra por pantalla el camino mínimo entre el origen y el destino, detallando su recorrido y peso.
+        */
+        virtual void camino_minimo(int & energia_minima, int origen, int destino) = 0;
+    
+        /*
+        *Post: Destruirá la memoria utilizada por la clase.
+        */
+        virtual ~Camino_minimo() = default;
+
 };
-
 
 #endif //_CAMINO_MINIMO_H_

@@ -19,9 +19,9 @@ class Menu {
         virtual void mostrar_menu() = 0;
 
         /*
-        *Post: Mostrará el mensaje de bienvenida del menú que corresponda, según el comportamiento de cada hija.
+        *Post: Mostrará el mensaje de bienvenida que reciba por párametro
         */
-        virtual void mostrar_mensaje_bienvenida() = 0;
+        void mostrar_mensaje(std::string);
 
         /*
         *Post: Procesara las opciones, según el comportamiento de cada hija.

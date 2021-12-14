@@ -38,7 +38,10 @@ class Programa {
         *Post: Finalizará el programa, dejandolo con todos los cambios realizados actualizados.
         */
         void finalizar();
-
+        
+        /*
+        *Post: Liberara la memoria utilizada por la clase.
+        */
         ~Programa();
 
 };

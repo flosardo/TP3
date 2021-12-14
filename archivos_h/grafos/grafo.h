@@ -2,64 +2,78 @@
 #define _GRAFO_H_
 
 #include "camino_minimo.h"
-#include "floyd.h"
+#include "dijkstra.h"
 
 class Grafo {
-/*ATRIBUTOS*/
-private:
-    int ** matrizDeAdyacencia;
-    Lista<Vertice> * vertices;
-    CaminoMinimo * algoritmoCaminoMinimo;
 
-/*MÉTODOS*/
+    private:
 
-    //pre: tienen que existir tanto el origen como el destino. Ademas se deben haber calculado las matrices de Floyd
-    //post: muestra el camino minimo entre el origen y el destino
-    void caminoMinimo(int & energia_consumida,int origen, int destino);
+        int** matriz_de_adyacencia;
+        Lista <Vertice>* vertices;
+        Camino_minimo* algoritmo_camino_minimo;
 
-    //post: agranda dinamicamente la matriz de adyacencia
-    void agrandarMatrizDeAdyacencia();
+        /*
+        *Pre: Tienen que existir tanto el origen como el destino. Ademas se deben haber calculado las matrices de Floyd.
+        *Post: Muestra el camino minimo entre el origen y el destino.
+        */
+        void camino_minimo(int & energia_consumida, int origen, int destino);
+        
+        /*
+        *Post: Agranda dinamicamente la matriz de adyacencia.
+        */
+        void agrandar_matriz_de_adyacencia();
 
-    //pre: la matriz que se le envie ya debe tener memoria reservada
-    //post: copia la matriz de adyacencia en la nueva matriz
-    void copiarMatrizAdyacente(int** nuevaAdyacente);
+        /*
+        *Pre: La matriz que se le envie ya debe tener memoria reservada.
+        *Post: copia la matriz de adyacencia en la nueva matriz.
+        */
+        void copiar_matriz_adyacente(int** nuevaAdyacente);
+        
+        /*
+        *Post: Inicializa un nuevo vertice en la matriz de adyacencia con un valor de infinito.
+        */
+        void inicializar_nuevo_vertice(int **nuevaAdyacente);
+        
+        /*
+        *Post Libera la memoria de la matriz de adyacencia.
+        */
+        void liberar_matriz_adyacencia();
 
-    //post inicializa un nuevo vertice en la matriz de adyacencia con un valor de infinito
-    void inicializarNuevoVertice(int** nuevaAdyacente);
+    public:
+        
+        /*
+        *Post: Creará un objeto de tipo grafo con sus valores por defecto.
+        */
+        Grafo();
 
-    //post libera la memoria de la matriz de adyacencia
-    void liberarMatrizAdyacencia();
+        /*
+        *Pre: No hay vertices repetidos en nombre.
+        *Post: Agrega un nuevo vertice al grafo.
+        */
+        void agregar_vertice(std::string nuevoVertice);
+    
+        /*
+        *Pre: Se debe tener un algortimo para calcular el camino mínimo previamente elegido.
+        *Post: Muestra por terminal el camino mínimo desde un origen a un destino.
+        */
+        void camino_minimo(int &energia_consumida, std::string origen, std::string destino);
+    
+        /*
+        *Pre: El peso es un valor positivo.
+        *Post: Ajusta la matriz de adyacencia con el peso ingresado.
+        */
+        void agregar_camino(std::string origen, std::string destino, int peso_1, int peso_2);
+        
+        /*
+        *Post: Selecciona el algortimo de Dijkstra para calcular el camino mínimo.
+        */
+        void usar_dijkstra();
+        
+        /*
+        *Post: Liberará la memoria utilizada por el programa.
+        */
+        ~Grafo();
 
-    //post: imprime por pantalla los vertices del grafo
-    void mostrarVertices();
-
-    //post: imprime por pantalla la matriz de adyacencia
-    void mostrarMatrizAdyacencia();
-public:
-
-    Grafo();
-    //pre: No hay vertices repetidos en nombre
-    //post: agrega un nuevo vertice al grafo
-    void agregarVertice(std::string nuevoVertice);
-
-    //pre: se debe tener un algortimo para calcular el camino mínimo previamente elegido
-    //post: muestra por terminal el camino mínimo desde un origen a un destino
-    void caminoMinimo(int & energia_consumida, std::string origen, std::string destino);
-
-    //pre: el peso es un valor positivo
-    //post: Ajusta la matriz de adyacencia con el peso ingresado
-    void agregarCamino(std::string origen, std::string destino, int peso_1, int peso_2);
-
-    //post: imprime por pantalla el grafo
-    void mostrarGrafo();
-
-    //post: selecciona el algortimo de Floyd para calcular el camino mínimo
-    void usarFloyd();
-
-    //post: selecciona el algortimo de Dijkstra para calcular el camino mínimo
-    void usarDijkstra();
-
-    ~Grafo();
 };
 
 #endif //_GRAFO_H_
