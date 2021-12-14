@@ -1,7 +1,7 @@
 1 (5, 2)
 escuela (4, 2)
-mina (0, 4)
 obelisco (0, 3)
+mina (0, 4)
 escuela (4, 4)
 aserradero (0, 3)
 2 (6, 7)

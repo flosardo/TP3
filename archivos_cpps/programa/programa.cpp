@@ -1,29 +1,6 @@
 #include "../../archivos_h/programa/programa.h"
 using namespace std;
 
-const char* MENSAJE_ANDYPOLIS = "░█████╗░███╗░░██╗██████╗░██╗░░░██╗██████╗░░█████╗░██╗░░░░░██╗░██████╗\n"
-                                "██╔══██╗████╗░██║██╔══██╗╚██╗░██╔╝██╔══██╗██╔══██╗██║░░░░░██║██╔════╝\n"
-                                "███████║██╔██╗██║██║░░██║░╚████╔╝░██████╔╝██║░░██║██║░░░░░██║╚█████╗░\n"
-                                "██╔══██║██║╚████║██║░░██║░░╚██╔╝░░██╔═══╝░██║░░██║██║░░░░░██║░╚═══██╗\n"
-                                "██║░░██║██║░╚███║██████╔╝░░░██║░░░██║░░░░░╚█████╔╝███████╗██║██████╔╝\n"
-                                "╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░░░░╚═╝░░░╚═╝░░░░░░╚════╝░╚══════╝╚═╝╚═════╝░\n";
-
-const char* MENSAJE_JUGADOR_1 = "░░░▒█ ▒█░▒█ ▒█▀▀█ ░█▀▀█ ▒█▀▀▄ ▒█▀▀▀█ ▒█▀▀█ 　 ▄█░ \n"
-                                "░▄░▒█ ▒█░▒█ ▒█░▄▄ ▒█▄▄█ ▒█░▒█ ▒█░░▒█ ▒█▄▄▀ 　 ░█░ \n"
-                                "▒█▄▄█ ░▀▄▄▀ ▒█▄▄█ ▒█░▒█ ▒█▄▄▀ ▒█▄▄▄█ ▒█░▒█ 　 ▄█▄\n";
-
-const char* MENSAJE_JUGADOR_2 = "░░░▒█ ▒█░▒█ ▒█▀▀█ ░█▀▀█ ▒█▀▀▄ ▒█▀▀▀█ ▒█▀▀█ 　 █▀█ \n"
-                                "░▄░▒█ ▒█░▒█ ▒█░▄▄ ▒█▄▄█ ▒█░▒█ ▒█░░▒█ ▒█▄▄▀ 　 ░▄▀ \n"
-                                "▒█▄▄█ ░▀▄▄▀ ▒█▄▄█ ▒█░▒█ ▒█▄▄▀ ▒█▄▄▄█ ▒█░▒█ 　 █▄▄\n";
-
-const char* MENSAJE_FELICIDADES = "▒█▀▀▀ ▒█▀▀▀ ▒█░░░ ▀█▀ ▒█▀▀█ ▀█▀ ▒█▀▀▄ ░█▀▀█ ▒█▀▀▄ ▒█▀▀▀ ▒█▀▀▀█ \n"
-                                  "▒█▀▀▀ ▒█▀▀▀ ▒█░░░ ▒█░ ▒█░░░ ▒█░ ▒█░▒█ ▒█▄▄█ ▒█░▒█ ▒█▀▀▀ ░▀▀▀▄▄  \n"
-                                  "▒█░░░ ▒█▄▄▄ ▒█▄▄█ ▄█▄ ▒█▄▄█ ▄█▄ ▒█▄▄▀ ▒█░▒█ ▒█▄▄▀ ▒█▄▄▄ ▒█▄▄▄█\n";
-
-const char* MENSAJE_GANASTE = "░█▀▀█ ─█▀▀█ ░█▄─░█ ─█▀▀█ ░█▀▀▀█ ▀▀█▀▀ ░█▀▀▀\n"
-                              "░█─▄▄ ░█▄▄█ ░█░█░█ ░█▄▄█ ─▀▀▀▄▄ ─░█── ░█▀▀▀ \n"
-                              "░█▄▄█ ░█─░█ ░█──▀█ ░█─░█ ░█▄▄▄█ ─░█── ░█▄▄▄\n";
-
 Programa::Programa() {
     this -> juego = new Andypolis();
     edificios.carga_edificios(this -> juego -> obtener_arbol());
@@ -68,14 +45,21 @@ void Programa::empezar() {
 
 void Programa::finalizar() {
 
-    if(this -> juego -> gano_la_partida()){
-        cout << FONDO_VERDE << MENSAJE_FELICIDADES << "  " << MENSAJE_GANASTE << " " << MENSAJE_JUGADOR_1  << endl;
+    if(this -> juego -> gano_la_partida() && this -> juego -> obtener_jugador_actual() -> obtener_nombre() == NUMERO_JUGADOR_1)
+        cout << FONDO_VERDE << MENSAJE_FELICIDADES << " " << MENSAJE_JUGADOR_1  << COLOR_POR_DEFECTO << endl;
     else if(this -> juego -> gano_la_partida())
-        cout << FONDO_VERDE << MENSAJE_FELICIDADES << MENSAJE_GANASTE << " " << MENSAJE_JUGADOR_2 << endl;
+        cout << FONDO_VERDE << MENSAJE_FELICIDADES << " " << MENSAJE_JUGADOR_2 << COLOR_POR_DEFECTO << endl;
 
     materiales.guardar_materiales(this -> juego -> obtener_jugador(NUMERO_JUGADOR_1), this -> juego -> obtener_jugador(NUMERO_JUGADOR_2));
     edificios.guardar_edificios(this -> juego -> obtener_arbol());
     ubicacion.guardar_ubicaciones(this -> juego -> obtener_mapa(), this -> juego -> obtener_jugador(NUMERO_JUGADOR_1), this -> juego -> obtener_jugador(NUMERO_JUGADOR_2));
+    sleep(2);
+    system(CLR_SCREEN);
+    cout << MENSAJE_CREDITOS << COLOR_POR_DEFECTO << endl;
+    cout << MENSAJE_BRAYAN << endl;
+    cout << MENSAJE_EZEQUIEL << endl;
+    cout << MENSAJE_FRANCO << endl;
+    cout << MENSAJE_SEBASTIAN << endl;
 }
 
 Programa::~Programa(){
