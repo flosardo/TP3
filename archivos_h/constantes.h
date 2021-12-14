@@ -269,6 +269,21 @@ const int COSTO_MUELLE_JUGADOR_1 = 5;
 const int COSTO_MUELLE_JUGADOR_2 = 2;
 const int COSTO_TERRENO = 25;
 
+//MENSAJES
+
+
+// const char* MENSAJE_GANADOR_JUGADOR_1 = 
+
+// const char* MENSAJE_GANADOR_JUGADOR_2 =
+
+// const char* MENSAJE_INSTRUCCIONES = 
+
+// const char* MENSAJE_CREADOR
+
+// const char* MENSAJE_CREADOR_SEBAS
+
+// const char* MENSAJE_CREA
+
 // PRECIOS
 const int COSTO_ANDYCOINS_BOMBA = 100;
 
