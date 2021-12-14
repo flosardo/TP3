@@ -1,4 +1,4 @@
-mina 8 10 -2067346896 2
+mina 8 10 333 2
 fabrica 10 0 500 1
 aserradero 40 25 100 5
 escuela 45 125 141 2
