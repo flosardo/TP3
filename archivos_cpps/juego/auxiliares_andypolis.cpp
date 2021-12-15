@@ -461,24 +461,17 @@ void Auxiliares_andypolis::recolectar_materiales(Jugador* jugador, Mapa* mapa, i
 }
 
 void Auxiliares_andypolis::mover_jugador(Jugador* jugador, Mapa* mapa, int fila, int columna, int energia_consumida) {
-    if (!mapa -> esta_ocupado(fila, columna) && mapa -> obtener_tipo_casillero(fila, columna) != LAGO) {
+    if (mapa -> obtener_tipo_casillero(fila, columna) == LAGO)
+        cout << COLOR_ROJO << "No se puede mover el jugador :(, es un lago, te quieres ahogar papu?" << COLOR_POR_DEFECTO << endl;
+    else if (mapa -> obtener_jugador(fila, columna) != nullptr)
+        cout << COLOR_ROJO << "No se puede mover el jugador :(, porque hay un jugador en esa posición" << COLOR_POR_DEFECTO << endl;
+    else if (mapa -> obtener_edificio(fila, columna) != nullptr)
+        cout << COLOR_ROJO << "No se puede mover el jugador :(, porque hay un edificio en esa posición" << COLOR_POR_DEFECTO << endl;
+    else {
+        if (mapa -> obtener_material(fila, columna))
+            this -> recolectar_materiales(jugador, mapa, fila, columna);
         this -> realizar_movimiento(jugador, mapa, fila, columna);
         jugador -> modificar_energia(-energia_consumida);
-    }
-    else if (mapa -> obtener_tipo_casillero(fila, columna) == LAGO) {
-        cout << COLOR_ROJO << "No se puede mover el jugador :(, es un lago, te quieres ahogar papu?" << COLOR_POR_DEFECTO << endl;
-    }
-    else {
-        if (mapa -> obtener_puntero_jugador() != nullptr)
-            cout << COLOR_ROJO << "No se puede mover el jugador :(, porque hay un jugador en esa posición" << COLOR_POR_DEFECTO << endl;
-        else if (mapa -> obtener_tipo_casillero(fila, columna) == TERRENO)
-            cout << COLOR_ROJO << "No se puede mover el jugador :(, porque hay un edificio en esa posición" << COLOR_POR_DEFECTO << endl;
-        else {
-            cout << COLOR_VERDE << "Se movio el jugador (:, se recolecto el material que estaba en lugar de destino" << COLOR_POR_DEFECTO << endl;
-            this -> recolectar_materiales(jugador, mapa, fila, columna);
-            this -> realizar_movimiento(jugador, mapa, fila, columna);
-            jugador -> modificar_energia(-energia_consumida);
-        }
     }
 }
 
@@ -493,7 +486,7 @@ void Auxiliares_andypolis::moverse_auxiliar(Grafo* grafo, Mapa* mapa, Jugador* j
     grafo -> camino_minimo(energia_consumida, coordenadas_origen, coordenadas_destino);
 
     if (this -> hay_energia_suficiente(energia_consumida, jugador_actual->obtener_energia_actual()))
-        mapa -> mover_jugador(jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA], energia_consumida);
+        this -> mover_jugador(jugador_actual, mapa, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA], energia_consumida);
     
     delete [] coordenadas;
     coordenadas = nullptr;

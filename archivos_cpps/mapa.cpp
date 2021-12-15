@@ -164,17 +164,15 @@ void Mapa::liberar_posicion(int fila, int columna) {
 }
 
 Edificio* Mapa::obtener_edificio(int fila, int columna) {
-    Edificio* edificio = nullptr;
-    if (!this -> mapa[fila][columna] -> obtener_puntero_jugador())
-        edificio = this -> mapa[fila][columna] -> obtener_puntero_edificio();
-    return edificio;
+    return this -> mapa[fila][columna] -> obtener_puntero_edificio();
 }
 
 Material* Mapa::obtener_material(int fila, int columna) {
-    Material* material = nullptr;
-    if (!this -> mapa[fila][columna] -> obtener_puntero_jugador())
-        material = this -> mapa[fila][columna] -> obtener_puntero_material();
-    return material;
+    return this -> mapa[fila][columna] -> obtener_puntero_material();
+}
+
+Jugador* Mapa::obtener_jugador(int fila, int columna) {
+    return this -> mapa[fila][columna] -> obtener_puntero_jugador();
 }
 
 void Mapa::mostrar_mapa() {

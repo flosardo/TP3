@@ -101,6 +101,12 @@ class Mapa {
         Material* obtener_material(int fila, int columna);
 
         /*
+        *Pre: que fila y columna sean validos
+        *Pos: devuelve un puntero al jugador en las coordenadas recibidas
+        */
+        Jugador* obtener_jugador(int fila, int columna);
+
+        /*
         *Post: Devuelve un puntero a las coordenadas generadas para insertar material.
         */
         int* generar_coordenadas_validas();
@@ -116,30 +122,13 @@ class Mapa {
         */
         void mostrar_mapa();
 
+
         /*
         *Post: Liberará la memoria utilizada por el mapa a lo largo del programa.
         */
         ~Mapa();
 
-        /*
-        *Pre: Que jugador no sea null, que los parametros int sean >= 0.
-        *Post: Movera el jugador en el mapa.
-        */
-        void mover_jugador(Jugador* jugador, int fila, int columna, int energia_consumible);
-
     private:
-
-        /*
-        *Pre: Que el puntero jugador no sea null, fila y columna >= 0.
-        *Post: Realizará el movimiento del jugador.
-        */
-        void realizar_movimiento(Jugador* jugador, int fila, int columna);
-
-        /*
-        *Pre: Que el parametro jugador sea != null, fila >= 0, columna >= 0.
-        *Post: Recolectará los materiales del mapa.
-        */
-        void recolectar_materiales(Jugador* jugador, int fila, int columna);
         
         /*
         *Pre: Que el mapa este creado.
