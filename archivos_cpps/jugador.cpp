@@ -144,13 +144,17 @@ void Jugador::modificar_inventario(string material, int cantidad) {
 void Jugador::listar_construidos() {
     string esta_afectado;
     int* coordenadas = 0;
-    for (int i = 0; i < this -> cantidad_construidos; i++) {
-        esta_afectado = this -> edificios_construidos[i] -> esta_afectado() ? "SI" : "NO";
-        coordenadas = edificios_construidos[i] -> obtener_coordenadas();
-        cout << this -> edificios_construidos[i] -> obtener_nombre() << endl;
-        cout << "Afectado: " << esta_afectado << endl;
-        cout << "Coordenadas: " << '(' << coordenadas[INDICE_FILA] << "," << coordenadas[INDICE_COLUMNA] << ')' << endl;
-        cout << COLOR_MARRON << LINEA_DIVISORIA << COLOR_POR_DEFECTO << endl;
+    if(!this -> cantidad_construidos)
+        cout << COLOR_ROJO << "Oops, parece que te quedaste sin edificios, construi para verlos aqui :)" << COLOR_POR_DEFECTO << endl;
+    else {
+        for (int i = 0; i < this -> cantidad_construidos; i++) {
+            esta_afectado = this -> edificios_construidos[i] -> esta_afectado() ? "SI" : "NO";
+            coordenadas = edificios_construidos[i] -> obtener_coordenadas();
+            cout << this -> edificios_construidos[i] -> obtener_nombre() << endl;
+            cout << "Afectado: " << esta_afectado << endl;
+            cout << "Coordenadas: " << '(' << coordenadas[INDICE_FILA] << "," << coordenadas[INDICE_COLUMNA] << ')' << endl;
+            cout << COLOR_MARRON << LINEA_DIVISORIA << COLOR_POR_DEFECTO << endl;
+        }
     }
 }
 
