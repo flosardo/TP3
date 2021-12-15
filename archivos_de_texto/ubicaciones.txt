@@ -1,5 +1,6 @@
 1 (7, 3)
-escuela (4, 2)
 mina (0, 4)
 aserradero (0, 3)
 2 (2, 5)
+aserradero (0, 2)
+aserradero (0, 8)

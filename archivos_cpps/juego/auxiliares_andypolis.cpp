@@ -209,8 +209,6 @@ bool Auxiliares_andypolis::es_posible_comprar_bombas(Inventario* inventario, int
     bool se_pudo_comprar = this -> hay_material_suficiente(ANDYCOINS, inventario, (cantidad_de_bombas * COSTO_ANDYCOINS_BOMBA));
     if (se_pudo_comprar)
         cout << COLOR_VERDE << "Compra realizada exitosamente" << COLOR_POR_DEFECTO << endl;
-    else
-        cout << COLOR_ROJO << "No tiene Andycoins suficientes" << COLOR_POR_DEFECTO << endl;
     return se_pudo_comprar;
 }
 
@@ -218,29 +216,17 @@ void Auxiliares_andypolis::construir_edificio_auxiliar(Abb* edificios_disponible
     Edificio* edificio = edificios_disponibles -> buscar_edificio(edificio_a_construir);
     if (!edificio)
         cout << COLOR_ROJO << "El edificio ingresado no existe, intente nuevamente" << COLOR_POR_DEFECTO << endl;
-
     else if (this -> se_alcanzo_maximo_permitido(edificio, jugador_actual))
         cout << COLOR_ROJO << "Ya estan construidos la cantidad maxima de " << edificio_a_construir << " posibles" << COLOR_POR_DEFECTO << endl;
-
     else {
         Inventario* inventario = jugador_actual -> obtener_inventario();
-        bool hay_piedra_suficiente = this -> hay_material_suficiente(PIEDRA, inventario, edificio -> obtener_cantidad_necesaria(PIEDRA));
-        bool hay_madera_suficiente = this -> hay_material_suficiente(MADERA, inventario, edificio -> obtener_cantidad_necesaria(MADERA));
-        bool hay_metal_suficiente = this -> hay_material_suficiente(METAL, inventario, edificio -> obtener_cantidad_necesaria(METAL));
-
-        if (!hay_piedra_suficiente || !hay_madera_suficiente || !hay_metal_suficiente)
-            cout << COLOR_ROJO << "No hay materiales suficientes para construir " << edificio_a_construir << COLOR_POR_DEFECTO << endl;
-
-        else if (!this -> confirmar_construccion(edificio_a_construir))
-            cout << COLOR_VERDE << "Operacion cancelada" << COLOR_POR_DEFECTO << endl;
-
-        else {
+        int piedra_necesaria = edificio -> obtener_cantidad_necesaria(PIEDRA);
+        int madera_necesaria = edificio -> obtener_cantidad_necesaria(MADERA);
+        int metal_necesario = edificio -> obtener_cantidad_necesaria(METAL);
+        if (this -> confirmar_construccion(edificio_a_construir) && this -> hay_material_suficiente(PIEDRA, inventario, piedra_necesaria) && this -> hay_material_suficiente(MADERA, inventario, madera_necesaria) && this -> hay_material_suficiente(METAL, inventario, metal_necesario)) {
             int* coordenadas = this -> pedir_coordenadas(mapa);
             Edificio* nuevo_edificio = this -> crear_edificio(edificio_a_construir, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
             if (mapa -> se_ubico_edificio(nuevo_edificio, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA])) { 
-                int piedra_necesaria = edificio -> obtener_cantidad_necesaria(PIEDRA);
-                int madera_necesaria = edificio -> obtener_cantidad_necesaria(MADERA);
-                int metal_necesario = edificio -> obtener_cantidad_necesaria(METAL);
                 this -> actualizar_inventario(jugador_actual -> obtener_inventario(), - piedra_necesaria, - madera_necesaria, - metal_necesario);
                 jugador_actual -> cargar_edificio(nuevo_edificio);
                 jugador_actual -> modificar_energia(-ENERGIA_CONSTRUIR_EDIFICIO);
@@ -262,7 +248,11 @@ bool Auxiliares_andypolis::se_alcanzo_maximo_permitido(Edificio* edificio_a_cons
 }
 
 bool Auxiliares_andypolis::hay_material_suficiente(string material, Inventario* inventario, int cantidad_material) {
-    return inventario -> obtener_material(material) -> obtener_cantidad() >= cantidad_material;
+    int cantidad_guardada = inventario -> obtener_material(material) -> obtener_cantidad();
+    bool cantidad_suficiente = cantidad_guardada >= cantidad_material;
+    if (!cantidad_suficiente)
+        cout << COLOR_ROJO << "Falta " << material << ", Tienes: " << cantidad_guardada << "| Necesitas: " << cantidad_material << COLOR_POR_DEFECTO << endl;
+    return cantidad_suficiente;
 }
 
 void Auxiliares_andypolis::actualizar_inventario(Inventario* inventario, int piedra, int madera, int metal) {
@@ -276,7 +266,10 @@ bool Auxiliares_andypolis::confirmar_construccion(string edificio_a_construir) {
     cout << "Está seguro que quiere construir un/a " << edificio_a_construir << " ?(s/n): ";
     cin >> decision;
     transform(decision.begin(), decision.end(), decision.begin(), ::tolower);
-    return (decision == DECISION_SI);
+    bool confirmado = decision == DECISION_SI;
+    if (!confirmado)
+        cout << COLOR_VERDE << "Operacion cancelada" << COLOR_POR_DEFECTO << endl;
+    return confirmado;
 }
 
 void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, int fila, int columna) {
@@ -315,21 +308,16 @@ void Auxiliares_andypolis::reparar_edificio_auxiliar(Abb* edificios_disponibles,
         cout << COLOR_ROJO << "No puede reparar un edificio que no esta afectado" << COLOR_POR_DEFECTO << endl;
     else {
         Edificio* receta_edificio = edificios_disponibles -> buscar_edificio(edificio -> obtener_nombre());
+        Inventario* inventario = jugador -> obtener_inventario();
         int piedra_necesaria = (int) (receta_edificio -> obtener_cantidad_necesaria(PIEDRA) * PORCENTAJE_PIEDRA);
         int madera_necesaria = (int) (receta_edificio -> obtener_cantidad_necesaria(MADERA) * PORCENTAJE_MADERA);
         int metal_necesario = (int) (receta_edificio -> obtener_cantidad_necesaria(METAL) * PORCENTAJE_METAL);
-        Inventario* inventario = jugador -> obtener_inventario();
-        bool hay_piedra_suficiente = this -> hay_material_suficiente(PIEDRA, inventario, piedra_necesaria);
-        bool hay_madera_suficiente = this -> hay_material_suficiente(MADERA, inventario, madera_necesaria);
-        bool hay_metal_suficiente = this -> hay_material_suficiente(METAL, inventario, metal_necesario);
-        if (!hay_piedra_suficiente || !hay_madera_suficiente || !hay_metal_suficiente)
-            cout << COLOR_ROJO << "No tiene materiales suficientes para reparar" << edificio -> obtener_nombre() << COLOR_POR_DEFECTO << endl;
-        else {
-            edificio -> cambiar_estado_afectado();
+        if (this -> hay_material_suficiente(PIEDRA, inventario, piedra_necesaria) && this -> hay_material_suficiente(MADERA, inventario, madera_necesaria) && this -> hay_material_suficiente(METAL, inventario, metal_necesario)) {
             this -> actualizar_inventario(inventario, piedra_necesaria, madera_necesaria, metal_necesario);
+            edificio -> cambiar_estado_afectado();
             jugador -> modificar_energia(-ENERGIA_REPARAR_EDIFICIO);
             cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue reparado satisfactoriamente" << COLOR_POR_DEFECTO << endl;
-        } 
+        }
         receta_edificio = nullptr;
         inventario = nullptr;
     }
@@ -362,9 +350,7 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
         cout << COLOR_ROJO << "En las coordenadas ingresadas no hay un edificio por atacar" << endl;
     else if (jugador_actual -> existe_el_edificio(fila, columna))
         cout << COLOR_ROJO << "Sos suicida???, estas atacandote a vos mismo" << endl;
-    else if (!this -> hay_material_suficiente(BOMBA, inventario, 1))
-        cout << COLOR_ROJO << "No tiene bombas suficientes para atacar" << endl;
-    else {
+    else if (this -> hay_material_suficiente(BOMBA, inventario, 1)) {
         if ((edificio -> obtener_nombre() == NOMBRE_MINA || edificio -> obtener_nombre() == NOMBRE_FABRICA) && !edificio -> esta_afectado()) {
             edificio -> cambiar_estado_afectado();
             cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue dañado" << endl;
