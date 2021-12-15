@@ -131,15 +131,13 @@ void Andypolis::comprar_bombas() {
         cout << COLOR_DORADO << ">> " << COLOR_POR_DEFECTO;
         cin >> bombas_a_comprar;
         Inventario* inventario = this -> jugador_actual -> obtener_inventario();
-        Material* andycoins = inventario -> obtener_material(ANDYCOINS);
-        if (funciones_auxiliares.es_posible_comprar_bombas(bombas_a_comprar, andycoins -> obtener_cantidad()) && bombas_a_comprar > 0) {
-            inventario -> modificar_cantidad_material(ANDYCOINS, - COSTO_ANDYCOINS_BOMBA);
+        if (funciones_auxiliares.es_posible_comprar_bombas(inventario, bombas_a_comprar) && bombas_a_comprar > 0) {
+            inventario -> modificar_cantidad_material(ANDYCOINS, -COSTO_ANDYCOINS_BOMBA);
             inventario -> modificar_cantidad_material(BOMBA, bombas_a_comprar);
             this -> jugador_actual -> modificar_energia(-ENERGIA_COMPRAR_BOMBA);
-            cout << "Compro " << bombas_a_comprar << " bomba(s) y le quedan " << andycoins -> obtener_cantidad() << " Andyconis" << endl;
+            cout << "Compro " << bombas_a_comprar << " bomba(s) y le quedan " << inventario -> obtener_material(ANDYCOINS) -> obtener_cantidad() << " Andyconis" << endl;
         }
         inventario = nullptr;
-        andycoins = nullptr;
     }
 }
  

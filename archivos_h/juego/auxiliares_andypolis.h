@@ -181,7 +181,7 @@ class Auxiliares_andypolis {
         *Pre: Que los parámetros sean >= 0.
         *Post: Obtendrá true si es posible comprar bombas, false en caso contrario.
         */
-        bool es_posible_comprar_bombas(int cantidad_bombas, int cantidad_andycoins);
+        bool es_posible_comprar_bombas(Inventario* inventario, int cantidad_bombas);
 
         /*
         *Post: Construirá un edificio.
@@ -192,7 +192,7 @@ class Auxiliares_andypolis {
         *Pre: Que el parámetro no sea null.
         *Post: Obtendrá true si se alcanzo el maximo permitido, false en caso contrario.
         */
-        bool se_alcanzo_maximo_permitido(Abb* edificios_disponibles, Edificio* edificio_a_construir, Jugador* jugador_actual);
+        bool se_alcanzo_maximo_permitido(Edificio* edificio_a_construir, Jugador* jugador_actual);
 
         /*
         *Post: Modificará los materiales necesarios.

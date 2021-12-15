@@ -205,8 +205,8 @@ bool Auxiliares_andypolis::hay_energia_suficiente(int energia_necesaria, int ene
     return energia_suficiente;
 }
 
-bool Auxiliares_andypolis::es_posible_comprar_bombas(int cantidad_de_bombas, int cantidad_andycoins) {
-    bool se_pudo_comprar = cantidad_andycoins >= (cantidad_de_bombas * COSTO_ANDYCOINS_BOMBA);
+bool Auxiliares_andypolis::es_posible_comprar_bombas(Inventario* inventario, int cantidad_de_bombas) {
+    bool se_pudo_comprar = this -> hay_material_suficiente(ANDYCOINS, inventario, (cantidad_de_bombas * COSTO_ANDYCOINS_BOMBA));
     if (se_pudo_comprar)
         cout << COLOR_VERDE << "Compra realizada exitosamente" << COLOR_POR_DEFECTO << endl;
     else
@@ -219,7 +219,7 @@ void Auxiliares_andypolis::construir_edificio_auxiliar(Abb* edificios_disponible
     if (!edificio)
         cout << COLOR_ROJO << "El edificio ingresado no existe, intente nuevamente" << COLOR_POR_DEFECTO << endl;
 
-    else if (this -> se_alcanzo_maximo_permitido(edificios_disponibles, edificio, jugador_actual))
+    else if (this -> se_alcanzo_maximo_permitido(edificio, jugador_actual))
         cout << COLOR_ROJO << "Ya estan construidos la cantidad maxima de " << edificio_a_construir << " posibles" << COLOR_POR_DEFECTO << endl;
 
     else {
@@ -227,7 +227,7 @@ void Auxiliares_andypolis::construir_edificio_auxiliar(Abb* edificios_disponible
         bool hay_piedra_suficiente = this -> hay_material_suficiente(PIEDRA, inventario, edificio -> obtener_cantidad_necesaria(PIEDRA));
         bool hay_madera_suficiente = this -> hay_material_suficiente(MADERA, inventario, edificio -> obtener_cantidad_necesaria(MADERA));
         bool hay_metal_suficiente = this -> hay_material_suficiente(METAL, inventario, edificio -> obtener_cantidad_necesaria(METAL));
-        
+
         if (!hay_piedra_suficiente || !hay_madera_suficiente || !hay_metal_suficiente)
             cout << COLOR_ROJO << "No hay materiales suficientes para construir " << edificio_a_construir << COLOR_POR_DEFECTO << endl;
 
@@ -257,8 +257,8 @@ void Auxiliares_andypolis::construir_edificio_auxiliar(Abb* edificios_disponible
     edificio = nullptr;
 }
 
-bool Auxiliares_andypolis::se_alcanzo_maximo_permitido(Abb* edificios_disponibles, Edificio* edificio_a_construir, Jugador* jugador_actual) {
-    return edificios_disponibles -> contar_construidos(jugador_actual, edificio_a_construir -> obtener_nombre()) == edificio_a_construir -> obtener_permitidos();
+bool Auxiliares_andypolis::se_alcanzo_maximo_permitido(Edificio* edificio_a_construir, Jugador* jugador_actual) {
+    return jugador_actual -> obtener_cantidad_edificio(edificio_a_construir -> obtener_nombre()) == edificio_a_construir -> obtener_permitidos();
 }
 
 bool Auxiliares_andypolis::hay_material_suficiente(string material, Inventario* inventario, int cantidad_material) {
@@ -355,7 +355,6 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
     Jugador* jugador_atacado = jugador_actual == jugador_1 ? jugador_2 : jugador_1;
     Inventario* inventario = jugador_actual -> obtener_inventario();
     Edificio* edificio = mapa -> obtener_edificio(fila, columna);
-    int cantidad_bombas = inventario -> obtener_material(BOMBA) -> obtener_cantidad();
 
     if (mapa -> obtener_tipo_casillero(fila, columna) != TERRENO)
         cout << COLOR_ROJO << "En las coordenadas ingresadas no se puede atacar dado que no es un casillero de tipo Terreno" << endl;
@@ -363,7 +362,7 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
         cout << COLOR_ROJO << "En las coordenadas ingresadas no hay un edificio por atacar" << endl;
     else if (jugador_actual -> existe_el_edificio(fila, columna))
         cout << COLOR_ROJO << "Sos suicida???, estas atacandote a vos mismo" << endl;
-    else if (!cantidad_bombas)
+    else if (!this -> hay_material_suficiente(BOMBA, inventario, 1))
         cout << COLOR_ROJO << "No tiene bombas suficientes para atacar" << endl;
     else {
         if ((edificio -> obtener_nombre() == NOMBRE_MINA || edificio -> obtener_nombre() == NOMBRE_FABRICA) && !edificio -> esta_afectado()) {
@@ -384,7 +383,6 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
     inventario = nullptr;
     edificio = nullptr;
 }
-
 
 void Auxiliares_andypolis::lluvia_materiales(Mapa* mapa) {
     int piedra_a_generar = 1 + (rand() % 2);
@@ -477,7 +475,6 @@ void Auxiliares_andypolis::moverse_auxiliar(Grafo* grafo, Mapa* mapa, Jugador* j
     coordenadas = nullptr;
     coordenadas_jugador = nullptr;
 }
-
 
 Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int columna) {
     Edificio* edificio_creado = nullptr;
