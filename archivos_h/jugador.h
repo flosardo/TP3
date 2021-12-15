@@ -73,9 +73,7 @@ class Jugador {
         *Pre: Que los parametros sean >= 0.
         *Post: Eliminará el edificio.
         */
-        bool eliminar_edificio(int fila, int columna, int indice);
-
-        int obtener_indice_edificio(int fila, int columna);
+        bool eliminar_edificio(int fila, int columna);
 
         /*
         *Post: Establecerá el nombre del jugador.

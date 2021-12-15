@@ -295,27 +295,28 @@ bool Auxiliares_andypolis::confirmar_construccion(string edificio_a_construir) {
     return (decision == DECISION_SI);
 }
 
-void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, int fila, int columna) {   
+void Auxiliares_andypolis::demoler_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, int fila, int columna) {
+    Edificio* edificio = mapa -> obtener_edificio(fila, columna);
     if (mapa -> obtener_tipo_casillero(fila, columna) != TERRENO)
         cout << COLOR_ROJO << "En las coordenadas ingresadas no se puede demoler dado que no es un casillero de tipo Terreno" << COLOR_POR_DEFECTO << endl;
-    else if (!mapa -> obtener_edificio(fila, columna))
+    else if (!edificio)
         cout << COLOR_ROJO << "En las coordenadas ingresadas no hay un edificio por demoler" << COLOR_POR_DEFECTO << endl;
     else if (!jugador_actual -> existe_el_edificio(fila, columna))
         cout << COLOR_ROJO << "No puede demoler un edificio que no le pertenece" << COLOR_POR_DEFECTO << endl;
     else {
-        string nombre_edificio = mapa -> obtener_edificio(fila, columna) -> obtener_nombre();
+        string nombre_edificio = edificio -> obtener_nombre();
         Edificio* edificio_a_demoler = edificios_disponibles -> buscar_edificio(nombre_edificio);
-        int indice_edificio_a_demoler = jugador_actual -> obtener_indice_edificio(fila, columna);
         int piedra_necesaria = edificio_a_demoler -> obtener_cantidad_necesaria(PIEDRA);
         int madera_necesaria = edificio_a_demoler -> obtener_cantidad_necesaria(MADERA);
         int metal_necesario = edificio_a_demoler -> obtener_cantidad_necesaria(METAL);
         this -> actualizar_inventario(jugador_actual -> obtener_inventario(), piedra_necesaria / 2, madera_necesaria / 2, metal_necesario / 2);
-        jugador_actual -> eliminar_edificio(fila, columna, indice_edificio_a_demoler);
+        jugador_actual -> eliminar_edificio(fila, columna);
         mapa -> liberar_posicion(fila, columna);
         jugador_actual -> modificar_energia(-ENERGIA_DEMOLER_EDIFICIO_COORDENADA);
         cout << COLOR_VERDE << nombre_edificio << " fue demolido statisfactoriamente!" << COLOR_POR_DEFECTO << endl;
         edificio_a_demoler = nullptr;
     }
+    edificio = nullptr;
 }
 
 void Auxiliares_andypolis::reparar_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador, int fila, int columna) {
@@ -387,9 +388,8 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
         }
         else {
             mapa -> liberar_posicion(fila, columna);
-            int indice_edificio_a_atacar = jugador_actual -> obtener_indice_edificio(fila, columna);
+            jugador_atacado -> eliminar_edificio(fila, columna);
             cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue destruido" << endl;
-            jugador_atacado -> eliminar_edificio(fila, columna, indice_edificio_a_atacar);
         }
         jugador_actual -> modificar_energia(-ENERGIA_ATACAR_EDIFICIO_COORDENADA);
         inventario -> modificar_cantidad_material(BOMBA, -1);
