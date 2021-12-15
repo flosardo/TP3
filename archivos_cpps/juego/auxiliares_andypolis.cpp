@@ -412,15 +412,15 @@ void Auxiliares_andypolis::lluvia_material(string nombre_material, int cantidad_
     if (!mapa -> es_posible_insertar_materiales(cantidad_a_generar))
         cout << COLOR_ROJO << "No hay suficientes casilleros disponibles para generar " << nombre_material << COLOR_POR_DEFECTO << endl;
     else {
-        Material* material = generar_material(nombre_material);
+        //Material* material = generar_material(nombre_material);
         int* coordenadas = 0;
         for (int i = 0; i < cantidad_a_generar; i++) {
             coordenadas = mapa -> generar_coordenadas_validas();
-            mapa -> se_ubico_material(material, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
+            mapa -> se_ubico_material(this -> generar_material(nombre_material), coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA]);
             delete [] coordenadas;
             coordenadas = nullptr;
         }
-        material = nullptr;
+        //material = nullptr;
     }
 }
 

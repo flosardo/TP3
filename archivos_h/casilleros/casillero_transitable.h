@@ -9,7 +9,6 @@ class Casillero_transitable: public Casillero {
 
         Jugador* jugador;
         Material* material;
-
     public:
 
         /*
