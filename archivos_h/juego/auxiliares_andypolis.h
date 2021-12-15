@@ -137,6 +137,28 @@ class Auxiliares_andypolis {
         */
         bool tiene_energia(Jugador* jugador_actual);
 
+        /*
+        *Pre: que jugador no sea nulo
+        *Pos: realiza el movimiento del jugador en las coordenadas recibidas
+        */
+        void realizar_movimiento(Jugador* jugador, Mapa* mapa, int fila, int columna);
+
+        /*
+        *Pre:
+        *Pos:
+        */
+        void mover_jugador(Jugador *jugador, Mapa* mapa, int fila, int columna, int energia_consumida);
+
+        /*
+        *Pre: que jugador no sea nulo
+        *Pos: recolecta los materiales en fila y columna y se los asgina al jugador recibido
+        */
+        void recolectar_materiales(Jugador* jugador, Mapa* mapa, int fila, int columna);
+
+        /*
+        *Pre: que ambos parametros no sean nulos
+        *Pos: carga el grafo
+        */
         void cargar_grafo_auxiliar(Grafo* grafo, Mapa* mapa);
 
         /*
@@ -223,6 +245,12 @@ class Auxiliares_andypolis {
         *Post: Demolerá un edificio de andypolis.
         */
         void demoler_edificio_auxiliar(Abb* edificios_disponibles, Mapa* mapa, Jugador* jugador_actual, int fila, int columna);
+
+        /*
+        *Pre: que los parametros recibidos no sean nulos
+        *Pos: movera al jugdaor recibido a las coordenadas solicitadas en caso de ser posible
+        */
+        void moverse_auxiliar(Grafo* grafo, Mapa* mapa, Jugador* jugador);
 
         /*
         *Pre: Que los parametros edificios_disponibles, mapa, jugador_actual sean != null, y que fila y columna sean >= 0.

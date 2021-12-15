@@ -56,11 +56,6 @@ void Dijkstra::inicializar_recorrido(int origen) {
         recorrido[i] = origen;
 }
 
-Dijkstra::~Dijkstra() {
-    delete [] this -> vertices_visitados;
-    delete [] this -> distancia;
-    delete [] this -> recorrido;
-}
 
 void Dijkstra::inicializar_distancia(const int * distancia_origen) {
     for(int i = 0; i < cantidad_vertices; i++)
@@ -79,15 +74,21 @@ void Dijkstra::actualizar_distancia(int vertice) {
 void Dijkstra::mostrar_recorrido(int origen, int destino) {
     if (distancia[destino] == INFINITO)
         cout << COLOR_ROJO << "No hay un camino que conecte " <<  vertices -> obtener_nombre(origen + 1) << " con " << vertices -> obtener_nombre(destino + 1);
-    else{
+    else {
         cout << COLOR_VERDE;
         cout << "El camino minimo que une " <<  vertices -> obtener_nombre(origen + 1) << " con " << vertices -> obtener_nombre(destino + 1);
         cout << " tiene un costo de: " << distancia[destino] << " y es el siguiente: ";
         cout << vertices -> obtener_nombre(destino + 1);
-        do{
+        do {
             destino = recorrido[destino];
             cout << " <- " << vertices -> obtener_nombre(destino + 1);
-        }while(origen != destino);
+        } while(origen != destino);
     }
     cout << COLOR_POR_DEFECTO << endl;
+}
+
+Dijkstra::~Dijkstra() {
+    delete [] this -> vertices_visitados;
+    delete [] this -> distancia;
+    delete [] this -> recorrido;
 }

@@ -1,4 +1,4 @@
-piedra 410 50
+piedra 410 150
 madera 388 275
 metal 200 744
 andycoins 482 0

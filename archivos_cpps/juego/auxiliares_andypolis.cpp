@@ -444,6 +444,63 @@ void Auxiliares_andypolis::lluvia_material(string nombre_material, int cantidad_
     }
 }
 
+void Auxiliares_andypolis::realizar_movimiento(Jugador* jugador, Mapa* mapa, int fila, int columna) {
+    int* coordenadas_viejas = jugador -> obtener_coordenadas();
+    int fila_vieja = coordenadas_viejas[INDICE_FILA];
+    int columna_vieja = coordenadas_viejas[INDICE_COLUMNA];
+    mapa -> se_ubico_jugador(jugador, fila, columna);
+    mapa -> liberar_posicion(fila_vieja, columna_vieja);
+}
+
+void Auxiliares_andypolis::recolectar_materiales(Jugador* jugador, Mapa* mapa, int fila, int columna) {
+    Material* material = mapa -> obtener_material(fila, columna);
+    Inventario* inventario = jugador -> obtener_inventario();
+    inventario -> modificar_cantidad_material(material -> obtener_nombre_material(), material -> obtener_cantidad());
+    material = nullptr;
+    inventario = nullptr;
+}
+
+void Auxiliares_andypolis::mover_jugador(Jugador* jugador, Mapa* mapa, int fila, int columna, int energia_consumida) {
+    if (!mapa -> esta_ocupado(fila, columna) && mapa -> obtener_tipo_casillero(fila, columna) != LAGO) {
+        this -> realizar_movimiento(jugador, mapa, fila, columna);
+        jugador -> modificar_energia(-energia_consumida);
+    }
+    else if (mapa -> obtener_tipo_casillero(fila, columna) == LAGO) {
+        cout << COLOR_ROJO << "No se puede mover el jugador :(, es un lago, te quieres ahogar papu?" << COLOR_POR_DEFECTO << endl;
+    }
+    else {
+        if (mapa -> obtener_puntero_jugador() != nullptr)
+            cout << COLOR_ROJO << "No se puede mover el jugador :(, porque hay un jugador en esa posición" << COLOR_POR_DEFECTO << endl;
+        else if (mapa -> obtener_tipo_casillero(fila, columna) == TERRENO)
+            cout << COLOR_ROJO << "No se puede mover el jugador :(, porque hay un edificio en esa posición" << COLOR_POR_DEFECTO << endl;
+        else {
+            cout << COLOR_VERDE << "Se movio el jugador (:, se recolecto el material que estaba en lugar de destino" << COLOR_POR_DEFECTO << endl;
+            this -> recolectar_materiales(jugador, mapa, fila, columna);
+            this -> realizar_movimiento(jugador, mapa, fila, columna);
+            jugador -> modificar_energia(-energia_consumida);
+        }
+    }
+}
+
+void Auxiliares_andypolis::moverse_auxiliar(Grafo* grafo, Mapa* mapa, Jugador* jugador_actual) {
+    int energia_consumida = 0;
+    this -> cargar_caminos(grafo, mapa, jugador_actual);
+    int* coordenadas = this -> pedir_coordenadas(mapa);
+    int* coordenadas_jugador = jugador_actual -> obtener_coordenadas();
+    string coordenadas_origen = to_string(coordenadas_jugador[INDICE_FILA]) + VACIO + to_string(coordenadas_jugador[INDICE_COLUMNA]);
+    string coordenadas_destino = to_string(coordenadas[INDICE_FILA]) + VACIO + to_string(coordenadas[INDICE_COLUMNA]);
+    grafo -> usar_dijkstra();
+    grafo -> camino_minimo(energia_consumida, coordenadas_origen, coordenadas_destino);
+
+    if (this -> hay_energia_suficiente(energia_consumida, jugador_actual->obtener_energia_actual()))
+        mapa -> mover_jugador(jugador_actual, coordenadas[INDICE_FILA], coordenadas[INDICE_COLUMNA], energia_consumida);
+    
+    delete [] coordenadas;
+    coordenadas = nullptr;
+    coordenadas_jugador = nullptr;
+}
+
+
 Edificio* Auxiliares_andypolis::crear_edificio(string nombre, int fila, int columna) {
     Edificio* edificio_creado = nullptr;
 
