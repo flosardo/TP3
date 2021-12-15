@@ -100,7 +100,6 @@ void Auxiliares_andypolis::cargar_grafo_auxiliar(Grafo* grafo, Mapa* mapa) {
         for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++)
             grafo -> agregar_vertice(to_string(fila) + VACIO + to_string(columna));
     }
-    delete [] dimensiones_mapa;
     dimensiones_mapa = nullptr;
 }
 
@@ -126,7 +125,6 @@ void Auxiliares_andypolis::cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jug
             }
         }
     }
-    delete [] dimensiones_mapa;
     dimensiones_mapa = nullptr;
 }
 

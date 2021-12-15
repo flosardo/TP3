@@ -71,7 +71,6 @@ void Cargar_ubicaciones::guardar_materiales_lluvia(ofstream & archivo_ubicacione
                 archivo_ubicaciones << material -> obtener_nombre_material() << VACIO << '(' << fila << ", " << columna << ')' << endl;
         }
     }
-    delete [] dimensiones_mapa;
     dimensiones_mapa = nullptr;
 }
 

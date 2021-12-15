@@ -49,13 +49,6 @@ const std::string FONDO_GRIS = "\033[48;5;239m";
 const std::string FONDO_GRIS_CLARO = "\033[48;5;252m";
 const std::string FONDO_MARRON = "\033[48;5;94m";
 
-// SIMBOLOGÍA TERRENOS
-const std::string SIMBOLO_MUELLE = FONDO_MARRON + VACIO + VACIO + COLOR_POR_DEFECTO;
-const std::string SIMBOLO_TERRENO = FONDO_VERDE + VACIO + VACIO + COLOR_POR_DEFECTO;
-const std::string SIMBOLO_LAGO = FONDO_AZUL + VACIO + VACIO + COLOR_POR_DEFECTO;
-const std::string SIMBOLO_CAMINO = FONDO_GRIS + VACIO + VACIO + COLOR_POR_DEFECTO;
-const std::string SIMBOLO_BETUN = FONDO_GRIS_CLARO + VACIO + VACIO + COLOR_POR_DEFECTO;
-
 // JUEGO
 const int OPCION_EMPEZAR = 66;
 const int OPCION_SALIR = 69;
@@ -238,10 +231,6 @@ const int POS_ESCUELA = 3;
 const int POS_MINA_ORO = 4;
 const int POS_MINA = 5;
 
-// DISEÑOS
-const std::string LINEA_DIVISORIA = "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550";
-const std::string LINEA_DIVISORIA_DISENIO = "ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n";
-
 // JUGADORES
 const std::string JUGADOR_1 = "\U0001f473";
 const std::string JUGADOR_2 = "\U0001f9dc";
@@ -271,6 +260,19 @@ const int COSTO_TERRENO = 25;
 
 // PRECIOS
 const int COSTO_ANDYCOINS_BOMBA = 100;
+
+// SIMBOLOGÍA TERRENOS
+const std::string SIMBOLO_MUELLE = FONDO_MARRON + VACIO + VACIO + COLOR_POR_DEFECTO;
+const std::string SIMBOLO_TERRENO = FONDO_VERDE + VACIO + VACIO + COLOR_POR_DEFECTO;
+const std::string SIMBOLO_LAGO = FONDO_AZUL + VACIO + VACIO + COLOR_POR_DEFECTO;
+const std::string SIMBOLO_CAMINO = FONDO_GRIS + VACIO + VACIO + COLOR_POR_DEFECTO;
+const std::string SIMBOLO_BETUN = FONDO_GRIS_CLARO + VACIO + VACIO + COLOR_POR_DEFECTO;
+
+// DISEÑOS
+const std::string LINEA_DIVISORIA = "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550";
+const std::string LINEA_DIVISORIA_DISENIO = "ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n";
+const std::string LINEA_SUPERIOR_SIMBOLOGIA = COLOR_DORADO + " ╔■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╗\n" + COLOR_POR_DEFECTO;
+const std::string LINEA_INFERIOR_SIMBOLOGIA = COLOR_DORADO + " ╚■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╝\n" + COLOR_POR_DEFECTO;
 
 // MENSAJES ASCII
 const std::string MENSAJE_ANDYPOLIS = R"(

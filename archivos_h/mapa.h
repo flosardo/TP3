@@ -12,9 +12,8 @@ class Mapa {
 
     private:
 
-        int cantidad_filas;
-        int cantidad_columnas;
         Casillero*** mapa;
+        int* dimensiones;
 
     public:
 

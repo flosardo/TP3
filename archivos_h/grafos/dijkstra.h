@@ -3,7 +3,7 @@
 
 #include "camino_minimo.h"
 
-class Dijkstra : public Camino_minimo{
+class Dijkstra : public Camino_minimo {
 
     private:
 

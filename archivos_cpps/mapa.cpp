@@ -4,36 +4,32 @@ using namespace std;
 
 Mapa::Mapa() {
     this -> mapa = nullptr;
-    this -> cantidad_filas = 0;
-    this -> cantidad_columnas = 0;
+    this -> dimensiones = new int[MAX_COORDENADAS];
 }
 
 void Mapa::crear_mapa(int cantidad_filas, int cantidad_columnas) {
-    this -> cantidad_filas = cantidad_filas;
-    this -> cantidad_columnas = cantidad_columnas;
-    this -> mapa = new Casillero**[this -> cantidad_filas];
+    this -> dimensiones[INDICE_FILA] = cantidad_filas;
+    this -> dimensiones[INDICE_COLUMNA] = cantidad_columnas;
+    this -> mapa = new Casillero**[this -> dimensiones[INDICE_FILA]];
     this -> inicializar_mapa();
 }
 
 void Mapa::inicializar_mapa() {
-    for (int fila = 0; fila < this -> cantidad_filas; fila++) {
-        this -> mapa[fila] = new Casillero*[this -> cantidad_columnas];
-        for (int columna = 0; columna < this -> cantidad_columnas; columna++)
+    for (int fila = 0; fila < this -> dimensiones[INDICE_FILA]; fila++) {
+        this -> mapa[fila] = new Casillero*[this -> dimensiones[INDICE_COLUMNA]];
+        for (int columna = 0; columna < this -> dimensiones[INDICE_COLUMNA]; columna++)
             mapa[fila][columna] = nullptr;
     }
 }
 
 int* Mapa::obtener_dimensiones() {
-    int* dimensiones = new int[MAX_COORDENADAS];
-    dimensiones[INDICE_FILA] = this -> cantidad_filas;
-    dimensiones[INDICE_COLUMNA] = this -> cantidad_columnas;
-    return dimensiones;
+    return this -> dimensiones;
 }
 
 void Mapa::mostrar_simbologia() {
     string borde = COLOR_DORADO + " ■" + COLOR_POR_DEFECTO;
     cout << COLOR_DORADO; 
-    cout << " ╔■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╗" << endl;
+    cout << LINEA_SUPERIOR_SIMBOLOGIA;
     cout << borde << " SIMBOLOGIA "                                                                                                    << setw(119) << borde << endl; 
     cout << borde << " 1. Convenciones Casillero Construible:"                                                                         << setw(92)  << borde << endl; 
     cout << borde << "    Terreno:"                                  << SIMBOLO_TERRENO          << VACIO << VACIO << VACIO
@@ -54,7 +50,7 @@ void Mapa::mostrar_simbologia() {
                             << MADERA     << ":"                     << EMOJI_MADERA             << VACIO << VACIO << VACIO
                             << METAL      << ":"                     << EMOJI_METAL              << VACIO << VACIO << VACIO
                             << ANDYCOINS  << ":"                     << EMOJI_ANDYCOINS                                                << setw(45)  << borde << endl << COLOR_DORADO;
-    cout << " ╚■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╝" << COLOR_POR_DEFECTO << endl;
+    cout << LINEA_INFERIOR_SIMBOLOGIA;
 }
 
 void Mapa::inicializar_casillero(char terreno, int fila, int columna) {
@@ -122,7 +118,7 @@ bool Mapa::esta_ocupado(int fila, int columna) {
 }
 
 bool Mapa::coordenadas_fuera_de_rango(int fila, int columna) {
-    bool esta_fuera_de_rango = (fila < 0 || fila >= cantidad_filas) || (columna < 0 || columna >= cantidad_columnas);
+    bool esta_fuera_de_rango = (fila < 0 || fila >= this -> dimensiones[INDICE_FILA]) || (columna < 0 || columna >= this -> dimensiones[INDICE_COLUMNA]);
     if (esta_fuera_de_rango)
         cout << COLOR_ROJO << "Oops!, intentaste acceder a una coordenada fuera de rango, intenta nuevamente" << COLOR_POR_DEFECTO << endl;
     return esta_fuera_de_rango;
@@ -131,9 +127,9 @@ bool Mapa::coordenadas_fuera_de_rango(int fila, int columna) {
 bool Mapa::es_posible_insertar_materiales(int cantidad_a_insertar) {
     int fila = 0;
     int columna;
-    while (cantidad_a_insertar > 0 && fila < this -> cantidad_filas) {
+    while (cantidad_a_insertar > 0 && fila < this -> dimensiones[INDICE_FILA]) {
         columna = 0;
-        while (cantidad_a_insertar > 0 && columna < this -> cantidad_columnas) {
+        while (cantidad_a_insertar > 0 && columna < this -> dimensiones[INDICE_COLUMNA]) {
             if (this -> obtener_tipo_casillero(fila, columna) != TERRENO && this -> obtener_tipo_casillero(fila, columna) != LAGO && !this -> esta_ocupado(fila, columna))
                 cantidad_a_insertar--;
             columna++;
@@ -147,8 +143,8 @@ bool Mapa::es_posible_insertar_materiales(int cantidad_a_insertar) {
 int* Mapa::generar_coordenadas_validas() {
     int* coordenadas_validas = nullptr;
     while (!coordenadas_validas) {
-        int fila = (rand() % this -> cantidad_filas);
-        int columna = (rand() % this -> cantidad_columnas);
+        int fila = (rand() % this -> dimensiones[INDICE_FILA]);
+        int columna = (rand() % this -> dimensiones[INDICE_COLUMNA]);
         if (this -> obtener_tipo_casillero(fila, columna) != TERRENO && this -> obtener_tipo_casillero(fila, columna) != LAGO && !this -> esta_ocupado(fila, columna)) {
             coordenadas_validas = new int[MAX_COORDENADAS];
             coordenadas_validas[INDICE_FILA] = fila;
@@ -180,13 +176,13 @@ void Mapa::mostrar_mapa() {
     this -> mostrar_simbologia();
     cout << endl;
     cout << "   ";
-    for (int i = 0; i < this -> cantidad_columnas; i++)
+    for (int i = 0; i < this -> dimensiones[INDICE_COLUMNA]; i++)
         cout << i << "   ";
     
     cout << endl;
-    for (int fila = 0; fila < this -> cantidad_filas; fila++) { 
+    for (int fila = 0; fila < this -> dimensiones[INDICE_FILA]; fila++) { 
         cout << ' ' << fila << ' ';
-        for (int columna = 0; columna < this -> cantidad_columnas; columna++) {
+        for (int columna = 0; columna < this -> dimensiones[INDICE_COLUMNA]; columna++) {
             if (!this -> esta_ocupado(fila, columna))
                 cout << mapa[fila][columna] -> obtener_color() << setw(6);
             else if (this -> mapa[fila][columna] -> obtener_puntero_jugador())
@@ -203,14 +199,17 @@ void Mapa::mostrar_mapa() {
 }
 
 Mapa::~Mapa() {
-    for (int fila = 0; fila < this -> cantidad_filas; fila++) {
-        for (int columna = 0; columna < this -> cantidad_columnas; columna++) {
+    for (int fila = 0; fila < this -> dimensiones[INDICE_FILA]; fila++) {
+        for (int columna = 0; columna < this -> dimensiones[INDICE_COLUMNA]; columna++) {
             delete this -> mapa[fila][columna];
             this -> mapa[fila][columna] = nullptr;
         }
         delete [] this -> mapa[fila];
         this -> mapa[fila] = nullptr;
     }
+
     delete [] this -> mapa;
+    delete [] this -> dimensiones;
     this -> mapa = nullptr;
+    this -> dimensiones = nullptr;
 }
