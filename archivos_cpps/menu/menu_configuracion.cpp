@@ -24,17 +24,17 @@ void Menu_configuracion::mostrar_menu() {
 void Menu_configuracion::procesar_opcion(int & opcion, Andypolis* juego) {
     switch (opcion_ingresada) {
         case OPCION_MODIFICAR_EDIFICIO_NOMBRE:
-            mostrar_mensaje("OPCION MODIFICAR EDIFICIO POR NOMBRE");
+            mostrar_mensaje("OPCION MODIFICAR EDIFICIO POR NOMBRE", 8);
             juego -> modificar_edificio_nombre();
             mostrar_mensaje_volver_menu(TIEMPO_MODIFICAR_EDIFICIO);
             break;
         case OPCION_LISTAR_TOTAL_EDIFICIOS:
-            mostrar_mensaje("OPCION LISTAR TOTAL DE EDIFICIOS");
+            mostrar_mensaje("OPCION LISTAR TOTAL DE EDIFICIOS", 10);
             juego -> listar_edificios();
             mostrar_mensaje_volver_menu(TIEMPO_LISTAR_TOTAL_EDIFICIOS);
             break;
-        case OPCION_MOSTRAR_MAPA:
-            mostrar_mensaje("MAPA");
+        case OPCION_MOSTRAR_MAPA_CONFIGURACION:
+            mostrar_mensaje("MAPA", 22);
             juego -> mostrar_mapa();
             mostrar_mensaje_volver_menu(TIEMPO_MOSTRAR_MAPA);
             break;
@@ -44,7 +44,7 @@ void Menu_configuracion::procesar_opcion(int & opcion, Andypolis* juego) {
             mostrar_mensaje_volver_menu(TIEMPO_COMENZAR_PARTIDA);
             break;
         case OPCION_GUARDAR_SALIR_CONFIGURACION:
-            mostrar_mensaje("OPCION MODIFICAR EDIFICIO POR NOMBRE");
+            mostrar_mensaje("SE GUARDARON LOS CAMBIOS..", 13);
             opcion = OPCION_SALIR_JUEGO;
             mostrar_mensaje_volver_menu(TIEMPO_GUARDAR_SALIR);
             break;

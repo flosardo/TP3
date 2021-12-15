@@ -21,7 +21,7 @@ class Menu {
         /*
         *Post: Mostrará el mensaje de bienvenida que reciba por párametro
         */
-        void mostrar_mensaje(std::string);
+        void mostrar_mensaje(std::string, int espacios);
 
         /*
         *Post: Procesara las opciones, según el comportamiento de cada hija.

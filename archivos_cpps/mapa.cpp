@@ -1,4 +1,5 @@
 #include "../archivos_h/mapa.h"
+#include "../archivos_h/materiales/madera.h"
 
 using namespace std;
 
@@ -74,8 +75,9 @@ void Mapa::inicializar_casillero(char terreno, int fila, int columna) {
 bool Mapa::se_ubico_material(Material* material, int fila, int columna) {
     bool coordenada_valida = !this -> esta_ocupado(fila, columna) 
                             && this -> obtener_tipo_casillero(fila, columna) != LAGO && this -> obtener_tipo_casillero(fila, columna) != TERRENO;
-    if (coordenada_valida)
+    if (coordenada_valida){
         this -> mapa[fila][columna] -> agregar_material(material);
+    }
     else
         cout << COLOR_ROJO << "No se pudo posicionar al material en las coordenadas ingresadas, intente nuevamente" << COLOR_POR_DEFECTO << endl;
     return coordenada_valida;
