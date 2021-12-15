@@ -24,7 +24,7 @@ class Objetivo_piedra: public Objetivo {
         /*
         *Post: Obtendrá true si hay 50000, o false en caso contrario.
         */
-        bool se_cumplio_el_objetivo(Jugador* jugador);
+        bool se_cumplio_objetivo(Jugador* jugador);
 
 };
 

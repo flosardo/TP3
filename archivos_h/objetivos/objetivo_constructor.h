@@ -24,7 +24,7 @@ class Objetivo_constructor: public Objetivo {
         /*
         *Post: Obtendrá true si se cumplio el objetivo constructor, ó false en caso contrario.
         */
-        bool se_cumplio_el_objetivo(Jugador* jugador);
+        bool se_cumplio_objetivo(Jugador* jugador);
     private:
 
         /*

@@ -7,9 +7,12 @@ Objetivo_piedra::Objetivo_piedra() {
     this -> cantidad_piedras = 0;
 }
 
-bool Objetivo_piedra::se_cumplio_el_objetivo(Jugador* jugador) {
-    this -> cantidad_piedras = jugador -> obtener_inventario() -> obtener_material(PIEDRA) -> obtener_cantidad();
-    return this -> cantidad_piedras >= OBJETIVO_PIEDRA;
+bool Objetivo_piedra::se_cumplio_objetivo(Jugador* jugador) {
+    if (!this -> se_cumplio) {
+        this -> cantidad_piedras = jugador -> obtener_inventario() -> obtener_material(PIEDRA) -> obtener_cantidad();
+        this -> se_cumplio = this -> cantidad_piedras >= OBJETIVO_PIEDRA;
+    }
+    return this -> se_cumplio;
 }
 
 void Objetivo_piedra::mostrar_progreso() {
@@ -18,7 +21,8 @@ void Objetivo_piedra::mostrar_progreso() {
         cout << endl;
         cout << COLOR_DORADO << setw(3) << "|-> " << COLOR_POR_DEFECTO << EMOJI_PIEDRA << VACIO <<
         OBJETIVO_PIEDRA - this -> cantidad_piedras << " Piedras faltantes por recolectar, para ser Pablo Marmol." << endl;
-    }else
+    }
+    else
         cout << VACIO << EMOJI_CHECK << endl;
     cout << endl;
     

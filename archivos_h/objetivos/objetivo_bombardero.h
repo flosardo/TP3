@@ -24,7 +24,7 @@ class Objetivo_bombardero: public Objetivo {
         /*
         *Post: obtendra true si se usaron 5 bombas, false en caso contrario.
         */
-        bool se_cumplio_el_objetivo(Jugador* jugador);
+        bool se_cumplio_objetivo(Jugador* jugador);
 
 };
 

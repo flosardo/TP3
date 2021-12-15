@@ -25,7 +25,7 @@ class Objetivo_letrado: public Objetivo {
         /*
         *Post: Obtendrá true si se construyo el maximo de escuelas permitidas, o false en caso contrario.
         */
-        bool se_cumplio_el_objetivo(Jugador* jugador);
+        bool se_cumplio_objetivo(Jugador* jugador);
 
 };
 

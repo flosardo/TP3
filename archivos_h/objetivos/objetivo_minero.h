@@ -25,7 +25,7 @@ class Objetivo_minero: public Objetivo {
         /*
         *Post: Verificará si se cumplio el objetivo.
         */
-        bool se_cumplio_el_objetivo(Jugador* jugador);
+        bool se_cumplio_objetivo(Jugador* jugador);
 };
 
 #endif //_OBJETIVO_MINERO_H_

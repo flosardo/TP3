@@ -24,7 +24,7 @@ class Objetivo_energetico: public Objetivo {
         /*
         *Post: Obtendrá true si se termina el turno con 100 de energía, o false en caso contrario.
         */
-        bool se_cumplio_el_objetivo(Jugador* jugador);
+        bool se_cumplio_objetivo(Jugador* jugador);
 
 };
 

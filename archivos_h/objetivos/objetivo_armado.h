@@ -24,7 +24,7 @@ class Objetivo_armado: public Objetivo {
         /*
         *Post: obtendra true si hay 10 bombas en el inventario, false en caso contrario.
         */
-        bool se_cumplio_el_objetivo(Jugador* jugador);
+        bool se_cumplio_objetivo(Jugador* jugador);
 
 };
 

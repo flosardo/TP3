@@ -19,12 +19,6 @@ class Objetivo {
         Objetivo();
 
         /*
-        *Pre: Que el parametro no sea null.
-        *Post: Devolvera true si el objetivo se cumplio al menos una vez, false en caso contrario.
-        */
-        bool se_cumplio_objetivo(Jugador* jugador);
-
-        /*
         *Post: Obtendrá un string con el nombre del objetivo.
         */
         std::string obtener_nombre();
@@ -37,7 +31,7 @@ class Objetivo {
         /*
         *Post: Obtendrá true si se cumplio el objetivo en las hijas, o false en caso contrario.
         */
-        virtual bool se_cumplio_el_objetivo(Jugador* jugador) = 0;
+        virtual bool se_cumplio_objetivo(Jugador* jugador) = 0;
 
         /*
         *Post: Cambiará el estado de construido del objetivo.

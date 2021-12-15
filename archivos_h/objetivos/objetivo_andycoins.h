@@ -24,7 +24,7 @@ class Objetivo_andycoins: public Objetivo {
         /*
         *Post: obtendra true si hay más de 100000 andycoins, false en caso contrario.
         */
-        bool se_cumplio_el_objetivo(Jugador* jugador);
+        bool se_cumplio_objetivo(Jugador* jugador);
         
 };
 

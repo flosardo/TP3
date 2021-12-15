@@ -4,26 +4,27 @@ using namespace std;
 
 Objetivo_constructor::Objetivo_constructor() {
     this -> nombre = NOMBRE_OBJETIVO_CONSTRUCTOR;
-    for (int i = 0; i < MAX_EDIFICIOS_DISPONIBLES-1; i++)
+    this -> se_cumplio = false;
+    for (int i = 0; i < MAX_EDIFICIOS_DISPONIBLES; i++)
         this -> construidos[i] = false;
 }
 
-bool Objetivo_constructor::se_cumplio_el_objetivo(Jugador* jugador) {
-    Edificio** edificios_construidos = jugador -> obtener_edificios_construidos();
-    int cantidad_edificios_construidos = jugador -> obtener_construidos();
-    string nombre_edificio;
-    for (int i = 0; i < cantidad_edificios_construidos; i++) {
-        nombre_edificio = edificios_construidos[i] -> obtener_nombre();
-        this -> cambiar_estado_construido(nombre_edificio);
+bool Objetivo_constructor::se_cumplio_objetivo(Jugador* jugador) {
+    if (!this -> se_cumplio) {
+        Edificio** edificios_construidos = jugador -> obtener_edificios_construidos();
+        int cantidad_edificios_construidos = jugador -> obtener_construidos();
+        for (int i = 0; i < cantidad_edificios_construidos; i++) {
+            this -> cambiar_estado_construido(edificios_construidos[i] -> obtener_nombre());
+        }
+        edificios_construidos = nullptr;
+        int i = 0;
+        this -> se_cumplio = true;
+        while (this -> se_cumplio && i < MAX_EDIFICIOS_DISPONIBLES) {
+            this -> se_cumplio = this -> construidos[i];
+            i++;
+        }
     }
-    edificios_construidos = nullptr;
-    int i = 0;
-    bool cumplido = true;
-    while (cumplido && i < MAX_EDIFICIOS_DISPONIBLES) {
-        cumplido = this -> construidos[i];
-        i++;
-    }
-    return cumplido;
+    return this -> se_cumplio;
 }
 
 void Objetivo_constructor::mostrar_progreso() {

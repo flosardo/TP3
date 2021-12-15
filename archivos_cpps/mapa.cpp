@@ -75,9 +75,8 @@ void Mapa::inicializar_casillero(char terreno, int fila, int columna) {
 bool Mapa::se_ubico_material(Material* material, int fila, int columna) {
     bool coordenada_valida = !this -> esta_ocupado(fila, columna) 
                             && this -> obtener_tipo_casillero(fila, columna) != LAGO && this -> obtener_tipo_casillero(fila, columna) != TERRENO;
-    if (coordenada_valida){
+    if (coordenada_valida)
         this -> mapa[fila][columna] -> agregar_material(material);
-    }
     else
         cout << COLOR_ROJO << "No se pudo posicionar al material en las coordenadas ingresadas, intente nuevamente" << COLOR_POR_DEFECTO << endl;
     return coordenada_valida;
@@ -204,10 +203,8 @@ Mapa::~Mapa() {
     for (int fila = 0; fila < this -> dimensiones[INDICE_FILA]; fila++) {
         for (int columna = 0; columna < this -> dimensiones[INDICE_COLUMNA]; columna++) {
             delete this -> mapa[fila][columna];
-            this -> mapa[fila][columna] = nullptr;
         }
         delete [] this -> mapa[fila];
-        this -> mapa[fila] = nullptr;
     }
 
     delete [] this -> mapa;

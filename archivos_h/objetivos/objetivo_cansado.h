@@ -24,7 +24,7 @@ class Objetivo_cansado: public Objetivo {
         /*
         *Post: Obtendrá true si se termina el turno con 0 de energia, false en caso contrario.
         */
-        bool se_cumplio_el_objetivo(Jugador* jugador);
+        bool se_cumplio_objetivo(Jugador* jugador);
 
 };
 

@@ -4,19 +4,19 @@ using namespace std;
 
 Objetivo_obelisco::Objetivo_obelisco() {
     this -> nombre = NOMBRE_OBJETIVO_OBELISCO;
-    this -> obelisco_construido = false;
+    this -> se_cumplio = false;
 }
 
-bool Objetivo_obelisco::se_cumplio_el_objetivo(Jugador* jugador) {
+bool Objetivo_obelisco::se_cumplio_objetivo(Jugador* jugador) {
     Edificio** edificios_construidos = jugador -> obtener_edificios_construidos();
     int cantidad_edificios_construidos = jugador -> obtener_construidos();
     int i = 0;
-    while(i < cantidad_edificios_construidos && !this -> obelisco_construido) {
-        this -> obelisco_construido = edificios_construidos[i] -> obtener_nombre() == NOMBRE_OBELISCO;
+    while(i < cantidad_edificios_construidos && !this -> se_cumplio) {
+        this -> se_cumplio = edificios_construidos[i] -> obtener_nombre() == NOMBRE_OBELISCO;
         i++;
     }
     edificios_construidos = nullptr;
-    return this -> obelisco_construido;
+    return this -> se_cumplio;
 }
 
 void Objetivo_obelisco::mostrar_progreso() {
