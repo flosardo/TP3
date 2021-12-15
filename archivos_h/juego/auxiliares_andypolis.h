@@ -126,12 +126,6 @@ class Auxiliares_andypolis {
         int* pedir_coordenadas(Mapa* mapa);
 
         /*
-        *Pre: Que los parámetros sean >= 0.
-        *Post: Obtendrá true si las coordenadas son validas, false en caso contrario.
-        */
-        bool validar_coordenadas(Mapa* mapa, int fila, int columna);
-
-        /*
         *Pre: Que la opcion sea >= 0.
         *Post: Verificará la energía.
         */
@@ -162,12 +156,6 @@ class Auxiliares_andypolis {
         void cargar_grafo_auxiliar(Grafo* grafo, Mapa* mapa);
 
         /*
-        *Pre: Que los parámetros sean >= 0.
-        *Post: Obtendrá true si el casillero es válido, false en caso contrario.
-        */
-        bool es_casillero_valido(Mapa* mapa, int fila, int columna);
-
-        /*
         *Post: Obtendrá un string con el string del nombre del edificio pedido.
         */
         std::string pedir_nombre_edificio();
@@ -188,12 +176,6 @@ class Auxiliares_andypolis {
         *Post: Obtendrá true si hay energia suficiente para realizar la operación, false en caso contrario.
         */
         bool hay_energia_suficiente(int energia_necesaria, int energia_del_jugador);
-
-        /*
-        *Pre: Que el parametro sea >= 0.
-        *Post: Modificará el valor de la energía del jugador.
-        */
-        void modificar_energia(Jugador* jugador_actual, int cantidad_a_modificar);
 
         /*
         *Pre: Que los parámetros sean >= 0.

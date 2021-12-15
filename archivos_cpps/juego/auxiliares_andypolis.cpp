@@ -31,8 +31,8 @@ void Auxiliares_andypolis::cargar_objetivos(Objetivo** objetivos, int permitidos
 bool Auxiliares_andypolis::el_objetivo_fue_asignado(Objetivo** objetivos, Objetivo* objetivo_a_asignar, int indice) {
     bool existe = false;
     int i = 1;
-    while(!existe && i <= indice) {
-        existe = objetivos[i] != nullptr && objetivos[i] -> obtener_nombre() == objetivo_a_asignar -> obtener_nombre();
+    while(!existe && i < indice) {
+        existe = objetivos[i] -> obtener_nombre() == objetivo_a_asignar -> obtener_nombre();
         i++;
     }
     return existe;
@@ -76,11 +76,11 @@ void Auxiliares_andypolis::asignar_objetivos(Objetivo** objetivos, int permitido
 }
 
 bool Auxiliares_andypolis::gano_la_partida(Jugador* jugador, Objetivo** objetivos) {
-    bool obelisco_construido = objetivos[NUMERO_OBJETIVO_OBELISCO] -> obtener_estado_objetivo(jugador);
+    bool obelisco_construido = objetivos[NUMERO_OBJETIVO_OBELISCO] -> se_cumplio_objetivo(jugador);
     int i = 1;
     int cantidad_cumplidos = 0;
     while (!obelisco_construido && i < CANTIDAD_OBJETIVOS_POR_JUGADOR) {
-        if (objetivos[i] -> obtener_estado_objetivo(jugador))
+        if (objetivos[i] -> se_cumplio_objetivo(jugador))
             cantidad_cumplidos++;
         i++;
     }
@@ -111,15 +111,17 @@ void Auxiliares_andypolis::cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jug
     int columna_siguiente;
     for(int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
         for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++) {
+
             fila_siguiente = fila + 1;
             columna_siguiente = columna + 1;
-            if (columna_siguiente < dimensiones_mapa[INDICE_COLUMNA]) {
+            if (fila_siguiente < dimensiones_mapa[INDICE_FILA] || columna_siguiente < dimensiones_mapa[INDICE_COLUMNA])
                 costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
+
+            if (columna_siguiente < dimensiones_mapa[INDICE_COLUMNA]) {
                 costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna_siguiente);
                 grafo -> agregar_camino(to_string(fila) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna_siguiente), costo_1, costo_2);
             }
             if (fila_siguiente < dimensiones_mapa[INDICE_FILA]) {
-                costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
                 costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila_siguiente, columna);
                 grafo -> agregar_camino(to_string(fila) + VACIO + to_string(columna), to_string(fila_siguiente) + VACIO + to_string(columna), costo_1, costo_2);
             }
@@ -132,7 +134,7 @@ int Auxiliares_andypolis::obtener_coste_camino(Mapa* mapa, Jugador* jugador, int
     string nombre_jugador = jugador -> obtener_nombre() == NUMERO_JUGADOR_1 ? NUMERO_JUGADOR_1 : NUMERO_JUGADOR_2;
     char tipo_terreno =  mapa -> obtener_tipo_casillero(fila, columna);
     int costo = 0;
-    if ( tipo_terreno == TERRENO && mapa -> esta_ocupado(fila, columna))
+    if (tipo_terreno == TERRENO && mapa -> esta_ocupado(fila, columna))
         costo = INFINITO;
     else if (tipo_terreno == TERRENO)
         costo = COSTO_TERRENO;
@@ -161,17 +163,6 @@ int* Auxiliares_andypolis::pedir_coordenadas(Mapa* mapa) {
         system(CLR_SCREEN);
     }
     return coordenadas;
-}
-
-bool Auxiliares_andypolis::validar_coordenadas(Mapa* mapa, int fila, int columna) {
-    return !mapa -> coordenadas_fuera_de_rango(fila, columna) && this -> es_casillero_valido(mapa, fila, columna);
-}
-
-bool Auxiliares_andypolis::es_casillero_valido(Mapa* mapa, int fila, int columna) {
-    bool es_valido = !mapa -> esta_ocupado(fila, columna) && mapa -> obtener_tipo_casillero(fila, columna) != LAGO;
-    if (!es_valido)
-        cout << COLOR_ROJO << "Las coordenadas que ingresaste no pertenecen a un casillero válido" << COLOR_POR_DEFECTO << endl;
-    return es_valido;
 }
 
 bool Auxiliares_andypolis::tiene_energia(Jugador* jugador_actual) {
@@ -212,10 +203,6 @@ bool Auxiliares_andypolis::hay_energia_suficiente(int energia_necesaria, int ene
     if (!energia_suficiente)
         cout << COLOR_ROJO << "No hay energia suficiente" << COLOR_POR_DEFECTO << endl;
     return energia_suficiente;
-}
-
-void Auxiliares_andypolis::modificar_energia(Jugador* jugador_actual, int cantidad_a_modificar) {
-    jugador_actual -> modificar_energia(cantidad_a_modificar);
 }
 
 bool Auxiliares_andypolis::es_posible_comprar_bombas(int cantidad_de_bombas, int cantidad_andycoins) {

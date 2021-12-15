@@ -22,7 +22,7 @@ class Objetivo {
         *Pre: Que el parametro no sea null.
         *Post: Devolvera true si el objetivo se cumplio al menos una vez, false en caso contrario.
         */
-        bool obtener_estado_objetivo(Jugador* jugador);
+        bool se_cumplio_objetivo(Jugador* jugador);
 
         /*
         *Post: Obtendrá un string con el nombre del objetivo.
