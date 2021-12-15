@@ -81,7 +81,7 @@ const int TIEMPO_FINALIZAR_TURNO = 2;
 // OPCIONES MENU DE CONFIGURACION
 const int OPCION_MODIFICAR_EDIFICIO_NOMBRE = 1;
 const int OPCION_LISTAR_TOTAL_EDIFICIOS = 2;
-const int OPCION_MOSTRAR_MAPA = 8;
+const int OPCION_MOSTRAR_MAPA_CONFIGURACION = 3;
 const int OPCION_COMENZAR_PARTIDA = 4;
 const int OPCION_GUARDAR_SALIR_CONFIGURACION = 5;
 
@@ -273,6 +273,7 @@ const std::string LINEA_DIVISORIA = "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\
 const std::string LINEA_DIVISORIA_DISENIO = "ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð══ð\n";
 const std::string LINEA_SUPERIOR_SIMBOLOGIA = COLOR_DORADO + " ╔■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╗\n" + COLOR_POR_DEFECTO;
 const std::string LINEA_INFERIOR_SIMBOLOGIA = COLOR_DORADO + " ╚■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■═■╝\n" + COLOR_POR_DEFECTO;
+const std::string LINEA_DIVISORIA_MENSAJE_MENU = "───────────────────────────────────────────";
 
 // MENSAJES ASCII
 const std::string MENSAJE_ANDYPOLIS = R"(

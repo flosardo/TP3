@@ -26,7 +26,7 @@ void Dijkstra::camino_minimo(int & energia_consumida, int origen, int destino) {
         vertices_recorridos++;
     }
     energia_consumida = this -> distancia[destino];
-    cout << "Energia: " << energia_consumida << endl;
+    cout << "Energia necesaria: " << energia_consumida << endl;
     mostrar_recorrido(origen, destino);
 
 }
@@ -75,7 +75,7 @@ void Dijkstra::mostrar_recorrido(int origen, int destino) {
     if (distancia[destino] == INFINITO)
         cout << COLOR_ROJO << "No hay un camino que conecte " <<  vertices -> obtener_nombre(origen + 1) << " con " << vertices -> obtener_nombre(destino + 1);
     else {
-        cout << COLOR_VERDE;
+        cout << COLOR_MARRON;
         cout << "El camino minimo que une " <<  vertices -> obtener_nombre(origen + 1) << " con " << vertices -> obtener_nombre(destino + 1);
         cout << " tiene un costo de: " << distancia[destino] << " y es el siguiente: ";
         cout << vertices -> obtener_nombre(destino + 1);
