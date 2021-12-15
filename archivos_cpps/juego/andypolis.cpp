@@ -128,12 +128,11 @@ void Andypolis::comprar_bombas() {
     if (funciones_auxiliares.hay_energia_suficiente(ENERGIA_COMPRAR_BOMBA, this -> jugador_actual -> obtener_energia_actual())) {
         int bombas_a_comprar;
         cout << "Ingrese la cantidad de bombas que quiere comprar" << endl;
-        cout << COLOR_DORADO << ">> " << COLOR_POR_DEFECTO << endl;
+        cout << COLOR_DORADO << ">> " << COLOR_POR_DEFECTO;
         cin >> bombas_a_comprar;
         Inventario* inventario = this -> jugador_actual -> obtener_inventario();
         Material* andycoins = inventario -> obtener_material(ANDYCOINS);
         if (funciones_auxiliares.es_posible_comprar_bombas(bombas_a_comprar, andycoins -> obtener_cantidad()) && bombas_a_comprar > 0) {
-            
             inventario -> modificar_cantidad_material(ANDYCOINS, - COSTO_ANDYCOINS_BOMBA);
             inventario -> modificar_cantidad_material(BOMBA, bombas_a_comprar);
             this -> jugador_actual -> modificar_energia(-ENERGIA_COMPRAR_BOMBA);
@@ -216,8 +215,8 @@ void Andypolis::moverse() {
     grafo = nullptr;
 }
 
-void Andypolis::liberar_objetivos(){
-    for(int i = 0; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++){
+void Andypolis::liberar_objetivos() {
+    for(int i = 0; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++) {
         delete this -> objetivos_1[i];
         delete this -> objetivos_2[i];
     }
@@ -238,6 +237,4 @@ Andypolis::~Andypolis() {
     this -> jugador_1 = nullptr;
     this -> jugador_2 = nullptr;
     this -> jugador_actual = nullptr;
-    this -> objetivos_1 = nullptr;
-    this -> objetivos_2 = nullptr;
 }

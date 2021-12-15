@@ -18,14 +18,10 @@ int Inventario::obtener_cantidad_materiales() {
 Material* Inventario::obtener_material(string material_pedido) {
     Material* material_a_obtener = nullptr;
     int indice = 0;
-    while (!material_a_obtener && indice < this -> cantidad_materiales) {
-        Material* material = this -> inventario[indice];
-        if (material -> obtener_nombre_material() == material_pedido) {
-            material_a_obtener = material;
-            material = nullptr;
-        }
+    do {
+        material_a_obtener = this -> inventario[indice];
         indice++;
-    }
+    } while (material_a_obtener -> obtener_nombre_material() != material_pedido && indice < this -> cantidad_materiales);
     return material_a_obtener;
 }
 

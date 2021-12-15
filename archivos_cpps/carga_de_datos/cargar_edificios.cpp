@@ -21,10 +21,11 @@ void Cargar_edificios::carga_edificios(Abb* arbol) {
     int permitidos = 0;
 
     while (archivo_edificios >> nombre_edificio >> segunda_palabra) {
-        if ((nombre_edificio == NOMBRE_MINA && segunda_palabra == NOMBRE_ORO) || nombre_edificio == NOMBRE_PLANTA) {
+        if (segunda_palabra == NOMBRE_ORO || nombre_edificio == NOMBRE_PLANTA) {
             nombre_edificio += " " + segunda_palabra;
             archivo_edificios >> piedra_necesaria;
-        }else
+        }
+        else
             piedra_necesaria =  stoi(segunda_palabra);
 
         archivo_edificios >> madera_necesaria >> metal_necesario >> permitidos;
@@ -47,20 +48,12 @@ void Cargar_edificios::guardar_edificios(Abb* arbol) {
 }
 
 void Cargar_edificios::editar_archivo_edificios(ofstream & archivo_edificios, Edificio** edificios, int cantidad_edificios) {
-    string nombre_edificio;
-    int cantidad_piedra = 0;
-    int cantidad_madera = 0;
-    int cantidad_metal = 0;
-    int permitidos = 0;
     for (int i = 0; i < cantidad_edificios; i++) {
-        nombre_edificio = edificios[i] -> obtener_nombre();
-        cantidad_piedra = edificios[i] -> obtener_cantidad_necesaria(PIEDRA);
-        cantidad_madera = edificios[i] -> obtener_cantidad_necesaria(MADERA);
-        cantidad_metal = edificios[i] -> obtener_cantidad_necesaria(METAL);
-        permitidos = edificios[i] -> obtener_permitidos();
-
-        archivo_edificios << nombre_edificio << VACIO << cantidad_piedra << VACIO
-        << cantidad_madera << VACIO << cantidad_metal << VACIO << permitidos << endl;
+        archivo_edificios << edificios[i] -> obtener_nombre() << VACIO
+        << edificios[i] -> obtener_cantidad_necesaria(PIEDRA) << VACIO
+        << edificios[i] -> obtener_cantidad_necesaria(MADERA) << VACIO
+        << edificios[i] -> obtener_cantidad_necesaria(METAL) << VACIO
+        << edificios[i] -> obtener_permitidos() << endl;
     }
 }
 

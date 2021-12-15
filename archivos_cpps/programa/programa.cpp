@@ -45,9 +45,9 @@ void Programa::empezar() {
 
 void Programa::finalizar() {
 
-    if(this -> juego -> gano_la_partida() && this -> juego -> obtener_jugador_actual() -> obtener_nombre() == NUMERO_JUGADOR_1)
+    if (this -> juego -> gano_la_partida() && this -> juego -> obtener_jugador_actual() -> obtener_nombre() == NUMERO_JUGADOR_1)
         cout << FONDO_VERDE << MENSAJE_FELICIDADES << " " << MENSAJE_JUGADOR_1  << COLOR_POR_DEFECTO << endl;
-    else if(this -> juego -> gano_la_partida())
+    else if (this -> juego -> gano_la_partida())
         cout << FONDO_VERDE << MENSAJE_FELICIDADES << " " << MENSAJE_JUGADOR_2 << COLOR_POR_DEFECTO << endl;
 
     materiales.guardar_materiales(this -> juego -> obtener_jugador(NUMERO_JUGADOR_1), this -> juego -> obtener_jugador(NUMERO_JUGADOR_2));
@@ -62,7 +62,7 @@ void Programa::finalizar() {
     cout << MENSAJE_SEBASTIAN << endl;
 }
 
-Programa::~Programa(){
+Programa::~Programa() {
     delete this -> juego;
     juego = nullptr;
 }

@@ -10,4 +10,4 @@ string Vertice::obtener_nombre() {
     return this -> nombre;
 }
 
-Vertice::~Vertice(){}
+Vertice::~Vertice() {}

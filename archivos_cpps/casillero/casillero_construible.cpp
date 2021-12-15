@@ -38,11 +38,10 @@ void Casillero_construible::mostrar() {
     cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
     if (!this -> esta_ocupado())
         cout << COLOR_VERDE << "Soy un terreno un casillero construible y me encuentro vacío." << COLOR_POR_DEFECTO << endl;
-    else if (this -> jugador) 
-        cout << COLOR_VERDE_AGUA << "Soy un casillero construible y no me encuentro vacio" << COLOR_POR_DEFECTO << endl << endl;
     else {
         cout << COLOR_VERDE_AGUA << "Soy un terreno, un casillero construible y no me encuentro vacío." << COLOR_POR_DEFECTO << endl;
-        this -> edificio -> mostrar_saludo();
+        if (this -> edificio)
+            this -> edificio -> mostrar_saludo();
     }
     cout << COLOR_DORADO << LINEA_DIVISORIA_DISENIO << COLOR_POR_DEFECTO << endl;
 }

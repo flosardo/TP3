@@ -21,7 +21,6 @@ Jugador* Auxiliares_andypolis::cambiar_turno(Jugador* jugador_actual, Jugador* j
 void Auxiliares_andypolis::inicializar_arreglo_objetivos(Objetivo** objetivos) {
     for (int i = 0; i < CANTIDAD_OBJETIVOS_POR_JUGADOR; i++)
         objetivos[i] = nullptr;
-    
 }
 
 void Auxiliares_andypolis::cargar_objetivos(Objetivo** objetivos, int permitidos_escuela) {
@@ -109,21 +108,21 @@ void Auxiliares_andypolis::cargar_caminos(Grafo* grafo, Mapa* mapa, Jugador* jug
     int* dimensiones_mapa = mapa -> obtener_dimensiones();
     int costo_1 = 0;
     int costo_2 = 0;
+    int fila_siguiente;
+    int columna_siguiente;
     for(int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
         for (int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++) {
-            if(columna + 1 < dimensiones_mapa[INDICE_COLUMNA]){
+            fila_siguiente = fila + 1;
+            columna_siguiente = columna + 1;
+            if (columna_siguiente < dimensiones_mapa[INDICE_COLUMNA]) {
                 costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
-                costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna + 1);
-                grafo -> agregar_camino(to_string(fila) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna + 1), costo_1, costo_2);
+                costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna_siguiente);
+                grafo -> agregar_camino(to_string(fila) + VACIO + to_string(columna), to_string(fila) + VACIO + to_string(columna_siguiente), costo_1, costo_2);
             }
-        }
-    }
-    for(int columna = 0; columna < dimensiones_mapa[INDICE_COLUMNA]; columna++) {
-        for (int fila = 0; fila < dimensiones_mapa[INDICE_FILA]; fila++) {
-            if(fila + 1 < dimensiones_mapa[INDICE_FILA]){
+            if (fila_siguiente < dimensiones_mapa[INDICE_FILA]) {
                 costo_1 = this -> obtener_coste_camino(mapa, jugador_actual, fila, columna);
-                costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila + 1, columna);
-                grafo -> agregar_camino(to_string(fila) + VACIO + to_string(columna), to_string(fila + 1) + VACIO + to_string(columna), costo_1, costo_2);
+                costo_2 = this -> obtener_coste_camino(mapa, jugador_actual, fila_siguiente, columna);
+                grafo -> agregar_camino(to_string(fila) + VACIO + to_string(columna), to_string(fila_siguiente) + VACIO + to_string(columna), costo_1, costo_2);
             }
         }
     }
@@ -388,8 +387,8 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
         }
         else {
             mapa -> liberar_posicion(fila, columna);
-            jugador_atacado -> eliminar_edificio(fila, columna);
             cout << COLOR_VERDE << edificio -> obtener_nombre() << " fue destruido" << endl;
+            jugador_atacado -> eliminar_edificio(fila, columna);
         }
         jugador_actual -> modificar_energia(-ENERGIA_ATACAR_EDIFICIO_COORDENADA);
         inventario -> modificar_cantidad_material(BOMBA, -1);
@@ -403,7 +402,6 @@ void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador
 
 
 void Auxiliares_andypolis::lluvia_materiales(Mapa* mapa) {
-
     int piedra_a_generar = 1 + (rand() % 2);
     int madera_a_generar = (rand() % 4);
     int metal_a_generar = 2 + (rand() % 4);
@@ -426,7 +424,6 @@ Material* Auxiliares_andypolis::generar_material(string nombre_material) {
         material = new Andycoins();
     return material;
 }
-
 
 void Auxiliares_andypolis::lluvia_material(string nombre_material, int cantidad_a_generar, Mapa* mapa) {
     if (!mapa -> es_posible_insertar_materiales(cantidad_a_generar))
@@ -456,6 +453,7 @@ void Auxiliares_andypolis::recolectar_materiales(Jugador* jugador, Mapa* mapa, i
     Material* material = mapa -> obtener_material(fila, columna);
     Inventario* inventario = jugador -> obtener_inventario();
     inventario -> modificar_cantidad_material(material -> obtener_nombre_material(), material -> obtener_cantidad());
+    mapa -> liberar_posicion(fila, columna);
     material = nullptr;
     inventario = nullptr;
 }
@@ -468,8 +466,10 @@ void Auxiliares_andypolis::mover_jugador(Jugador* jugador, Mapa* mapa, int fila,
     else if (mapa -> obtener_edificio(fila, columna) != nullptr)
         cout << COLOR_ROJO << "No se puede mover el jugador :(, porque hay un edificio en esa posición" << COLOR_POR_DEFECTO << endl;
     else {
-        if (mapa -> obtener_material(fila, columna))
+        if (mapa -> obtener_material(fila, columna)) {
             this -> recolectar_materiales(jugador, mapa, fila, columna);
+            cout << COLOR_VERDE << "Se movio el jugador (:, se recolecto el material que estaba en lugar de destino" << COLOR_POR_DEFECTO << endl;
+        }
         this -> realizar_movimiento(jugador, mapa, fila, columna);
         jugador -> modificar_energia(-energia_consumida);
     }

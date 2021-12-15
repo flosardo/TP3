@@ -144,7 +144,7 @@ void Jugador::modificar_inventario(string material, int cantidad) {
 void Jugador::listar_construidos() {
     string esta_afectado;
     int* coordenadas = 0;
-    if(!this -> cantidad_construidos)
+    if (!this -> cantidad_construidos)
         cout << COLOR_ROJO << "Oops, parece que te quedaste sin edificios, construi para verlos aqui :)" << COLOR_POR_DEFECTO << endl;
     else {
         for (int i = 0; i < this -> cantidad_construidos; i++) {

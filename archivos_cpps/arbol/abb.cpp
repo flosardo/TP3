@@ -63,9 +63,7 @@ Edificio* Abb::buscar_edificio_recursiva(Nodo* arbol, string nombre_edificio_bus
 }
 
 int Abb::contar_construidos(Jugador* jugador, string nombre_edificio) {
-    int construidos = 0;
-    construidos = jugador -> obtener_cantidad_edificio(nombre_edificio);
-    return construidos;
+    return jugador -> obtener_cantidad_edificio(nombre_edificio);
 }
 
 void Abb::mostrar_arbol(Jugador* jugador) {
