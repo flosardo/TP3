@@ -10,11 +10,9 @@ int Menu::pedir_opcion() {
 }
 
 void Menu::mostrar_mensaje(string mensaje, int espacios) {
-    cout << COLOR_DORADO;
-    cout << LINEA_DIVISORIA_MENSAJE_MENU << endl;
-    cout << setw(espacios) << COLOR_POR_DEFECTO << mensaje << COLOR_DORADO << endl;
-    cout << LINEA_DIVISORIA_MENSAJE_MENU << COLOR_POR_DEFECTO;
-    cout << endl << endl;
+    cout << COLOR_DORADO << LINEA_DIVISORIA_MENSAJE_MENU << COLOR_POR_DEFECTO << endl;
+    cout << setw(espacios) << mensaje << endl;
+    cout << COLOR_DORADO << LINEA_DIVISORIA_MENSAJE_MENU << COLOR_POR_DEFECTO << endl << endl;
 }
 
 void Menu::mostrar_mensaje_volver_menu(int segundos) {

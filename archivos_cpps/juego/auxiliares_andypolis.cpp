@@ -230,7 +230,7 @@ void Auxiliares_andypolis::construir_edificio_auxiliar(Abb* edificios_disponible
                 this -> actualizar_inventario(jugador_actual -> obtener_inventario(), - piedra_necesaria, - madera_necesaria, - metal_necesario);
                 jugador_actual -> cargar_edificio(nuevo_edificio);
                 jugador_actual -> modificar_energia(-ENERGIA_CONSTRUIR_EDIFICIO);
-                cout << COLOR_VERDE << "El edificio fue construido satisfactoriamente" << COLOR_POR_DEFECTO << endl;
+                cout << COLOR_VERDE << edificio_a_construir << " fue construido satisfactoriamente" << COLOR_POR_DEFECTO << endl;
             }
             else
                 delete nuevo_edificio;
@@ -336,7 +336,8 @@ void Auxiliares_andypolis::recolectar_recursos_auxiliares(Jugador* jugador_actua
             jugador_actual -> modificar_inventario(material, cantidad_material);
     }
     edificios_construidos = nullptr;
-    cout << COLOR_VERDE_AGUA << " Los recursos producidos por los edificios fueron recolectados satisfactoriamente" << COLOR_POR_DEFECTO << endl;
+    jugador_actual -> modificar_energia(-ENERGIA_RECOLECTAR_RECURSOS);
+    cout << COLOR_VERDE_AGUA << "Los recursos producidos por los edificios fueron recolectados satisfactoriamente" << COLOR_POR_DEFECTO << endl;
 }
 
 void Auxiliares_andypolis::atacar_edificio_auxiliar(Mapa* mapa, Jugador* jugador_actual, Jugador* jugador_1, Jugador* jugador_2, int fila, int columna) {

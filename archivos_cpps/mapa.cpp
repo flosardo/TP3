@@ -176,13 +176,13 @@ void Mapa::mostrar_mapa() {
     cout << endl;
     this -> mostrar_simbologia();
     cout << endl;
-    cout << "   ";
+    cout << VACIO << VACIO << VACIO;
     for (int i = 0; i < this -> dimensiones[INDICE_COLUMNA]; i++)
-        cout << i << "   ";
-    
+        cout << i << VACIO << VACIO << VACIO;
+
     cout << endl;
     for (int fila = 0; fila < this -> dimensiones[INDICE_FILA]; fila++) { 
-        cout << ' ' << fila << ' ';
+        cout << VACIO << fila << VACIO;
         for (int columna = 0; columna < this -> dimensiones[INDICE_COLUMNA]; columna++) {
             if (!this -> esta_ocupado(fila, columna))
                 cout << mapa[fila][columna] -> obtener_color() << setw(6);
