@@ -8,6 +8,7 @@ Programa::Programa() {
     mapa.carga_mapa(this -> juego -> obtener_mapa());
     materiales.carga_materiales(this -> juego -> obtener_jugador(NUMERO_JUGADOR_1), this -> juego -> obtener_jugador(NUMERO_JUGADOR_2));
     this -> existe_ubicaciones = ubicacion.carga_ubicaciones(this -> juego -> obtener_mapa(), this -> juego -> obtener_jugador(NUMERO_JUGADOR_1), this -> juego -> obtener_jugador(NUMERO_JUGADOR_2));
+    juego -> cargar_grafo();
 }
 
 void Programa::empezar() {
@@ -28,7 +29,7 @@ void Programa::empezar() {
     Jugador* jugador = nullptr;
     while (!this -> juego -> gano_la_partida() && opcion != OPCION_SALIR_JUEGO) {
         cout << FONDO_MARRON <<  MENSAJE_ANDYPOLIS << COLOR_POR_DEFECTO << endl;
-        menu_partida.mostrar_mensaje("Menu de la partida", 15);
+        menu_partida.mostrar_mensaje("Menu de la partida", 30);
         menu_partida.mostrar_menu();
 
         jugador = this -> juego -> obtener_jugador_actual();

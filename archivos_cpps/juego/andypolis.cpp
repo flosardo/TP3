@@ -5,6 +5,7 @@ using namespace std;
 Andypolis::Andypolis() {
     this -> edificios_disponibles = new Abb();
     this -> mapa = new Mapa();
+    this -> grafo = new Grafo();
     this -> jugador_1 = new Jugador();
     this -> jugador_2 = new Jugador();
     this -> objetivos_1 = new Objetivo*[CANTIDAD_OBJETIVOS_POR_JUGADOR]; 
@@ -14,8 +15,9 @@ Andypolis::Andypolis() {
     this -> funciones_auxiliares = Auxiliares_andypolis();
 }
 
-void Andypolis::cargar_grafo(Grafo* grafo) {
-    this -> funciones_auxiliares.cargar_grafo_auxiliar(grafo, this -> mapa);
+void Andypolis::cargar_grafo() {
+    this -> funciones_auxiliares.cargar_grafo_auxiliar(this -> grafo, this -> mapa);
+    this -> grafo -> usar_dijkstra();
 }
 
 void Andypolis::inicializar_objetivos() {
@@ -204,11 +206,7 @@ void Andypolis::reparar_edificio() {
 }
 
 void Andypolis::moverse() {
-    Grafo* grafo = new Grafo();
-    this -> cargar_grafo(grafo);
-    this -> funciones_auxiliares.moverse_auxiliar(grafo, this -> mapa, this -> jugador_actual);
-    delete grafo;
-    grafo = nullptr;
+    this -> funciones_auxiliares.moverse_auxiliar(this -> grafo, this -> mapa, this -> jugador_actual);
 }
 
 void Andypolis::liberar_objetivos() {
@@ -228,9 +226,11 @@ Andypolis::~Andypolis() {
     delete this -> jugador_1;
     delete this -> jugador_2;
     delete this -> mapa;
+    delete this -> grafo;
     this -> edificios_disponibles = nullptr;
     this -> mapa = nullptr;
     this -> jugador_1 = nullptr;
     this -> jugador_2 = nullptr;
     this -> jugador_actual = nullptr;
+    this -> grafo = nullptr;
 }

@@ -12,6 +12,7 @@ class Andypolis {
     private:
 
         Mapa* mapa;
+        Grafo* grafo;
         Jugador* jugador_1;
         Jugador* jugador_2;
         Jugador* jugador_actual;
@@ -41,7 +42,7 @@ class Andypolis {
         *Pre: Que el parametro no sea null.
         *Post: Cargará el grafo.
         */
-        void cargar_grafo(Grafo* grafo);
+        void cargar_grafo();
 
         /*
         *Post: Obtendra un puntero de tipo Abb, con la información del arbol.

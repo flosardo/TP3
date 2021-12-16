@@ -451,7 +451,6 @@ void Auxiliares_andypolis::moverse_auxiliar(Grafo* grafo, Mapa* mapa, Jugador* j
     int* coordenadas_jugador = jugador_actual -> obtener_coordenadas();
     string coordenadas_origen = to_string(coordenadas_jugador[INDICE_FILA]) + VACIO + to_string(coordenadas_jugador[INDICE_COLUMNA]);
     string coordenadas_destino = to_string(coordenadas[INDICE_FILA]) + VACIO + to_string(coordenadas[INDICE_COLUMNA]);
-    grafo -> usar_dijkstra();
     grafo -> camino_minimo(energia_consumida, coordenadas_origen, coordenadas_destino);
 
     if (this -> hay_energia_suficiente(energia_consumida, jugador_actual->obtener_energia_actual()))
