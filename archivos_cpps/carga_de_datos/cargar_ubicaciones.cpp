@@ -54,11 +54,15 @@ void Cargar_ubicaciones::cargar_edificio_en_jugador(Edificio* edificio, Jugador*
 }
 
 void Cargar_ubicaciones::guardar_ubicaciones(Mapa* mapa, Jugador* jugador_1, Jugador* jugador_2) {
-    ofstream archivo_ubicaciones(this -> archivo_ruta);
-    this -> guardar_materiales_lluvia(archivo_ubicaciones, mapa);
-    this -> guardar_jugador(archivo_ubicaciones, jugador_1);
-    this -> guardar_jugador(archivo_ubicaciones, jugador_2);
-    archivo_ubicaciones.close();
+    int* coordenadas_jugador_1 = jugador_1 -> obtener_coordenadas();
+    if (coordenadas_jugador_1[INDICE_FILA] >= 0) {
+        ofstream archivo_ubicaciones(this -> archivo_ruta);
+        this -> guardar_materiales_lluvia(archivo_ubicaciones, mapa);
+        this -> guardar_jugador(archivo_ubicaciones, jugador_1);
+        this -> guardar_jugador(archivo_ubicaciones, jugador_2);
+        archivo_ubicaciones.close();
+    }
+    coordenadas_jugador_1 = nullptr;
 }
 
 void Cargar_ubicaciones::guardar_materiales_lluvia(ofstream & archivo_ubicaciones, Mapa* mapa) {

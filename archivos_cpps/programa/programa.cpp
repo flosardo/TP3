@@ -19,7 +19,7 @@ void Programa::empezar() {
 
     while (!this -> existe_ubicaciones && (opcion != OPCION_SALIR) && (opcion != OPCION_SALIR_JUEGO)) {
         cout << FONDO_MARRON << MENSAJE_ANDYPOLIS << COLOR_POR_DEFECTO << endl;
-        menu_partida.mostrar_mensaje(COLOR_POR_DEFECTO + " Menu de configuración " + COLOR_DORADO, 13);
+        menu_partida.mostrar_mensaje("Menu de configuración", 33);
         menu_configuracion.mostrar_menu();
         opcion = menu_configuracion.pedir_opcion();
         menu_configuracion.procesar_opcion(opcion, juego);
@@ -28,7 +28,7 @@ void Programa::empezar() {
     Jugador* jugador = nullptr;
     while (!this -> juego -> gano_la_partida() && opcion != OPCION_SALIR_JUEGO) {
         cout << FONDO_MARRON <<  MENSAJE_ANDYPOLIS << COLOR_POR_DEFECTO << endl;
-        menu_partida.mostrar_mensaje(COLOR_POR_DEFECTO + " Menu de la partida " + COLOR_DORADO, 15);
+        menu_partida.mostrar_mensaje("Menu de la partida", 15);
         menu_partida.mostrar_menu();
 
         jugador = this -> juego -> obtener_jugador_actual();
