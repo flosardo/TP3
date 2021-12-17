@@ -103,7 +103,7 @@ void Menu_partida::procesar_opcion(int & opcion_ingresada, Andypolis* juego) {
             mostrar_mensaje_volver_menu(TIEMPO_MOSTRAR_MAPA);
             break;
         case OPCION_MOSTRAR_PREGUNTAS_FRECUENTES: 
-            mostrar_mensaje("PREGUNTAS FRECUENTES", 15);
+            mostrar_mensaje("PREGUNTAS FRECUENTES", 31);
             juego -> mostrar_preguntas_frecuentes();
             mostrar_mensaje_volver_menu(TIEMPO_MOSTRAR_PREGUNTAS_FRECUENTES);
             break;

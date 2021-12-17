@@ -245,6 +245,12 @@ class Auxiliares_andypolis {
         *Post: Recolectará los recursos.
         */
         void recolectar_recursos_auxiliares(Jugador* jugador_actual);
+
+        /*
+        *Pre:
+        *Pos: muestra por pantalla las preguntas frecuentes
+        */
+        void mostrar_preguntas_frecuentes_auxiliares();
         
 };
 

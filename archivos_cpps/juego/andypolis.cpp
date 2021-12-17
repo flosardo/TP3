@@ -206,28 +206,7 @@ void Andypolis::reparar_edificio() {
 }
 
 void Andypolis::mostrar_preguntas_frecuentes() {
-    cout << FONDO_MARRON << "¿Qué se debe hacer para ganar?" << COLOR_POR_DEFECTO << endl;
-    cout << COLOR_DORADO << "->" << COLOR_POR_DEFECTO << "Opción 1: Que se cumplan 2 de los 3 objetivos random que le toca a cada jugador." << endl;
-    cout << COLOR_DORADO << "->" << COLOR_POR_DEFECTO << "Opción 2: Que el jugador consiga construir un Obelisco." << endl << endl;
-
-    cout << FONDO_AQUA << "¿Qué hacer si la energía llega a 0 ó si se necesita más energía?" << COLOR_POR_DEFECTO << endl;
-    cout << "Después de cada turno se le otorgarán 20 puntos de energía a cada jugador, independientemente de si se quedo sin energía o no." << endl << endl;
-
-    cout << FONDO_VERDE << "¿Cuantos tipos de edificios existen en el juego?"<< COLOR_POR_DEFECTO << endl;
-    cout << "Existen 7 tipos de edificios posibles por construir y son:" << endl;
-    cout << "Aserradero " << EMOJI_ASERRADERO << " - Mina " << EMOJI_MINA << " - Mina Oro " << EMOJI_MINA_ORO << " - Fábrica " << EMOJI_FABRICA
-    << " - Planta Electrica " << EMOJI_PLANTA_ELECTRICA << " - Escuela " << EMOJI_ESCUELA << " - Obelisco " << EMOJI_OBELISCO << endl << endl;
-
-    cout << FONDO_AZUL << "¿Se pueden construir cantidades ilimitadas de edificios?" << COLOR_POR_DEFECTO << endl;
-    cout << "No hay una cantidad ilimitada de edificios para construir, ya que cada tipo de edificio tiene su propio limite de construcciones posibles." << endl << endl;
-
-    cout << FONDO_MORADO_CLARO << "¿Cuantos tipos de materiales hay en el juego?" << COLOR_POR_DEFECTO << endl;
-    cout << "Hay 6 tipos de materiales en el juego y son:" << endl;
-    cout << "Piedra " << EMOJI_PIEDRA << " - Metal " << EMOJI_METAL << " - Madera " << EMOJI_MADERA << " - Bomba " << EMOJI_BOMBA
-    << " - Andycoin " << EMOJI_ANDYCOINS << " - Energía " << EMOJI_ENERGIA << endl << endl;
-
-    cout << FONDO_GRIS << "¿Que pasa si ataco uno de mis edificios construídos por error?" << COLOR_POR_DEFECTO << endl;
-    cout << "No se realizará el ataque, y se mostrará un mensaje por consola informandole al jugador." << endl << endl;
+    funciones_auxiliares.mostrar_preguntas_frecuentes_auxiliares();
 }
 
 void Andypolis::moverse() {
