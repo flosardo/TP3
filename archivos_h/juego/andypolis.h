@@ -29,16 +29,6 @@ class Andypolis {
         Andypolis();
         
         /*
-        *Post: Cargará los objetivos de los 2 jugadores.
-        */
-        void cargar_objetivos();
-        
-        /*
-        *Post: Inicializará los objetivos de los 2 jugadores.
-        */
-        void inicializar_objetivos();
-        
-        /*
         *Pre: Que el parametro no sea null.
         *Post: Cargará el grafo.
         */
@@ -58,6 +48,11 @@ class Andypolis {
         *Post: Obtendra los objetivos.
         */
         Objetivo** obtener_objetivos();
+
+        /*
+        *Post: Cargará los objetivos de los 2 jugadores.
+        */
+        void cargar_objetivos();
         
         /*
         *Pre: Que los parametros no sean null.
@@ -94,6 +89,11 @@ class Andypolis {
         *Post: Mostrará el mapa de andypolis.
         */
         void mostrar_mapa();
+
+        /*
+        *Post: Mostrará las preguntas frecuentes del juego.
+        */
+        void mostrar_preguntas_frecuentes();
 
         /*
         *Post: Construirá un edificio.
@@ -151,11 +151,6 @@ class Andypolis {
         void moverse();
 
         /*
-        *Post: Finalizará el turno del jugador actual.
-        */
-        void finalizar_turno();
-
-        /*
         *Post: Obtendra el puntero de tipo Jugador, con el jugador actual.
         */
         Jugador* obtener_jugador_actual();
@@ -171,9 +166,21 @@ class Andypolis {
         void liberar_objetivos();
 
         /*
+        *Post: Finalizará el turno del jugador actual.
+        */
+        void finalizar_turno();
+
+        /*
         *Post: Liberará la memoria utilizada a lo largo del programa.
         */
         ~Andypolis();
+    
+    private:
+
+        /*
+        *Post: Inicializará los objetivos de los 2 jugadores.
+        */
+        void inicializar_objetivos();
 
 };
 

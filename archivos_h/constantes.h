@@ -47,7 +47,9 @@ const std::string FONDO_AZUL = "\033[48;5;27m";
 const std::string FONDO_VERDE = "\033[48;5;28m";
 const std::string FONDO_GRIS = "\033[48;5;239m";
 const std::string FONDO_GRIS_CLARO = "\033[48;5;252m";
+const std::string FONDO_MORADO_CLARO = "\033[48;5;5m";
 const std::string FONDO_MARRON = "\033[48;5;94m";
+const std::string FONDO_AQUA = "\033[48;5;23m";
 
 // JUEGO
 const int OPCION_EMPEZAR = 66;
@@ -75,6 +77,7 @@ const int TIEMPO_CONSULTAR_COORDENADAS = 4;
 const int TIEMPO_MOSTRAR_INVENTARIO = 5;
 const int TIEMPO_MOSTRAR_OBJETIVOS = 12;
 const int TIEMPO_RECOLECTAR_RECURSOS_PRODUCIDOS = 3;
+const int TIEMPO_MOSTRAR_PREGUNTAS_FRECUENTES = 15;
 const int TIEMPO_MOVERSE_UNA_COORDENADA = 8;
 const int TIEMPO_FINALIZAR_TURNO = 2;
 
@@ -98,8 +101,9 @@ const int OPCION_MOSTRAR_OBJETIVOS = 9;
 const int OPCION_RECOLECTAR_RECURSOS_PRODUCIOS = 10;
 const int OPCION_MOVERSE_UNA_COORDENADA = 11;
 const int OPCION_MOSTRAR_MAPA_JUEGO = 12;
-const int OPCION_FINALIZAR_TURNO = 13;
-const int OPCION_GUARDAR_SALIR_PARTIDA = 14;
+const int OPCION_MOSTRAR_PREGUNTAS_FRECUENTES = 13;
+const int OPCION_FINALIZAR_TURNO = 14;
+const int OPCION_GUARDAR_SALIR_PARTIDA = 15;
 
 // EMOJIS MENUS
 const std::string EMOJI_CRONOMETRO = "\u23F1";
@@ -122,6 +126,7 @@ const std::string EMOJI_INVENTARIO = "\U0001f9f0";
 const std::string EMOJI_OBJETIVOS = "\U0001f3c1";
 const std::string EMOJI_RECURSOS_PRODUCIDOS = "\u26CF";
 const std::string EMOJI_MOVERSE_A_UNA_COORDENADA = "\U0001f3c3";//alternativa: U0001f9ed(brujula)
+const std::string EMOJI_REGLAS_JUEGO = "\U0001f3c6";
 const std::string EMOJI_FINALIZAR_TURNO = "\U0001f51a";
 const std::string EMOJI_GUARDAR_Y_SALIR = "\U0001f4be";
 
@@ -309,7 +314,8 @@ const std::string MENSAJE_CREDITOS = R"(
 █─▄▄▄─█▄─▄▄▀█▄─▄▄─█▄─▄▄▀█▄─▄█─▄─▄─█─▄▄─█─▄▄▄▄█
 █─███▀██─▄─▄██─▄█▀██─██─██─████─███─██─█▄▄▄▄─█
 ▀▄▄▄▄▄▀▄▄▀▄▄▀▄▄▄▄▄▀▄▄▄▄▀▀▄▄▄▀▀▄▄▄▀▀▄▄▄▄▀▄▄▄▄▄▀
-───────────────────────────────────────────)";
+───────────────────────────────────────────
+)";
 
 const std::string MENSAJE_BRAYAN = R"(
 █▄▄ █▀█ ▄▀█ █▄█ ▄▀█ █▄█   █▀ ▄▀█ █ ▄▀█ █▀▀ █▀█
