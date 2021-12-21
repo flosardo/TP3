@@ -1,5 +1,4 @@
 #include "../archivos_h/mapa.h"
-#include "../archivos_h/materiales/madera.h"
 
 using namespace std;
 

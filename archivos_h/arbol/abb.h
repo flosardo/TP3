@@ -27,7 +27,7 @@ class Abb {
         *Pre: Que el parametro no sea null.
         *Post: Cargará en el arreglo de edificios, un edificio.
         */
-        void cargar_en_arreglo(Edificio** & edificios);
+        void cargar_en_arreglo(Edificio** edificios);
 
         /*
         *Pre: Que el parametro no sean null.
@@ -64,7 +64,7 @@ class Abb {
         *Pre: Que el parametro nodo y edificio no sean null, que indice sea >= 0.
         *Post: Cargará en el arreglo de edificios, un edificio.
         */
-        void cargar_en_arreglo_recursivo(Edificio** & edificios, Nodo* nodo, int & indice);
+        void cargar_en_arreglo_recursivo(Edificio** edificios, Nodo* nodo, int & indice);
 
         /*
         *Pre: Que los parametros no sean null.

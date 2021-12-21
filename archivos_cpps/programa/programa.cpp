@@ -42,6 +42,7 @@ void Programa::empezar() {
         if (opcion != OPCION_SALIR_JUEGO)
             menu_partida.procesar_opcion(opcion, juego);
     }
+    jugador = nullptr;
 }
 
 void Programa::finalizar() {

@@ -11,12 +11,12 @@ int Abb::obtener_cantidad_nodos() {
     return this -> cantidad_nodos;
 }
 
-void Abb::cargar_en_arreglo(Edificio** & edificios) {
+void Abb::cargar_en_arreglo(Edificio** edificios) {
     int indice = 0;
     this -> cargar_en_arreglo_recursivo(edificios, this -> raiz, indice);
 }
 
-void Abb::cargar_en_arreglo_recursivo(Edificio** & edificios, Nodo* nodo, int & indice) {
+void Abb::cargar_en_arreglo_recursivo(Edificio** edificios, Nodo* nodo, int & indice) {
     if (!nodo)
         return;
 
