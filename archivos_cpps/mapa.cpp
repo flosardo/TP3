@@ -61,7 +61,7 @@ void Mapa::inicializar_casillero(char terreno, int fila, int columna) {
     else {
         string color;
         if (terreno == BETUN)
-            color = FONDO_GRIS_CLARO;
+            color = FONDO_BLANCO;
         else if (terreno == CAMINO)
             color = FONDO_GRIS;
         else

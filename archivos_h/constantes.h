@@ -46,7 +46,7 @@ const std::string COLOR_DORADO = "\x1b[33m";
 const std::string FONDO_AZUL = "\033[48;5;27m";
 const std::string FONDO_VERDE = "\033[48;5;28m";
 const std::string FONDO_GRIS = "\033[48;5;239m";
-const std::string FONDO_GRIS_CLARO = "\033[48;5;252m";
+const std::string FONDO_BLANCO = "\033[48;5;252m";
 const std::string FONDO_MORADO_CLARO = "\033[48;5;5m";
 const std::string FONDO_MARRON = "\033[48;5;94m";
 const std::string FONDO_AQUA = "\033[48;5;23m";
@@ -271,7 +271,7 @@ const std::string SIMBOLO_MUELLE = FONDO_MARRON + VACIO + VACIO + COLOR_POR_DEFE
 const std::string SIMBOLO_TERRENO = FONDO_VERDE + VACIO + VACIO + COLOR_POR_DEFECTO;
 const std::string SIMBOLO_LAGO = FONDO_AZUL + VACIO + VACIO + COLOR_POR_DEFECTO;
 const std::string SIMBOLO_CAMINO = FONDO_GRIS + VACIO + VACIO + COLOR_POR_DEFECTO;
-const std::string SIMBOLO_BETUN = FONDO_GRIS_CLARO + VACIO + VACIO + COLOR_POR_DEFECTO;
+const std::string SIMBOLO_BETUN = FONDO_BLANCO + VACIO + VACIO + COLOR_POR_DEFECTO;
 
 // DISEÑOS
 const std::string LINEA_DIVISORIA = "\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550";
