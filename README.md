@@ -1,4 +1,4 @@
-# Trabajo práctico de la materia Algortimos y programacion 2 (95.14) de FIUBA.
+# Trabajo práctico N°3 de la materia Algortimos y programacion 2 (95.14) de FIUBA.
 
 **Integrantes**
 
