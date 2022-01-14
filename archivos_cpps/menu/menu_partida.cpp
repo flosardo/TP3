@@ -109,7 +109,7 @@ void Menu_partida::procesar_opcion(int & opcion_ingresada, Andypolis* juego) {
             break;
         case OPCION_FINALIZAR_TURNO:
             mostrar_mensaje("EL TURNO HA FINALIZADO..", 15);
-            opcion_ingresada = OPCION_FINALIZAR_TURNO;
+            opcion_ingresada = OPCION_SALIR;
             juego -> finalizar_turno();
             mostrar_mensaje_volver_menu(TIEMPO_FINALIZAR_TURNO);
             break;
